@@ -1,0 +1,32 @@
+﻿生成启动时间为 2013/6/18 23:35:46。
+     1>项目“D:\研究生\课内\研一下\程考练习题\练习题\Othello\Othello\Othello.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\Othello.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         D:\softwarePlace\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Othello.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt OthelloDlg.cpp
+         OthelloDlg.cpp
+       ResourceCompile:
+         所有输出均为最新。
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         D:\softwarePlace\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\研究生\课内\研一下\程考练习题\练习题\Othello\Debug\Othello.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\Othello.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\研究生\课内\研一下\程考练习题\练习题\Othello\Debug\Othello.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\研究生\课内\研一下\程考练习题\练习题\Othello\Debug\Othello.lib" /MACHINE:X86 Debug\Othello.res
+         Debug\Othello.exe.embed.manifest.res
+         Debug\Othello.obj
+         Debug\OthelloDlg.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Othello.exe.embed.manifest" /manifest Debug\Othello.exe.intermediate.manifest "D:\softwarePlace\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         Othello.vcxproj -> D:\研究生\课内\研一下\程考练习题\练习题\Othello\Debug\Othello.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\Othello.unsuccessfulbuild”。
+         正在对“Debug\Othello.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\研究生\课内\研一下\程考练习题\练习题\Othello\Othello\Othello.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.70
