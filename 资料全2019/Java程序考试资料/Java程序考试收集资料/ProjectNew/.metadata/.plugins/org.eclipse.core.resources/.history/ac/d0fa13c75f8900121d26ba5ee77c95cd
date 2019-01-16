@@ -1,0 +1,338 @@
+package cn.edu.xmu.software.ui;
+
+import java.awt.Color;
+import java.awt.FileDialog;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+
+import javax.imageio.ImageIO;
+import javax.media.opengl.GL;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+/**
+ * 控件基本事件监听
+ * @author sinlly.chen
+ *
+ */
+import cn.edu.xmu.software.eventprocesser.GLEventProcesser;
+import cn.edu.xmu.software.eventprocesser.MouseProcesser;
+
+public class ControlsListener implements ActionListener,ChangeListener{
+    private DiffusionCurvesUI frame;
+    private Image srcImage;
+    private  int rValue;
+    private  int gValue;
+    private  int bValue;
+    private static Color color;
+    private static int index=0;//自定义颜色的序号
+    private int selectBtnIndex;//选择的基本颜色的序号
+    private int selectCustomBtnIndex;//选择的自定义颜色的序号
+	public ControlsListener(DiffusionCurvesUI frame)
+    {
+    	this.frame=frame;
+    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stuct
+		if(e.getSource()==frame.getLoadBitmapItem()) //打开bitmap类型文件
+			openFile("bitmap");
+		else if(e.getSource()==frame.getLoadXmlItem())//打开xml类型文件
+			openFile("xml");
+		else if(e.getSource()==frame.getSaveAsPngItem())//保存bitmap格式文件
+			saveFile("bitmap");
+		else if(e.getSource()==frame.getSaveAsXmlItem())//保存xml格式文件
+			saveFile("xml");
+		else if(e.getSource()==frame.getrTxt())//rText值改变
+			rValueChange();
+		else if(e.getSource()==frame.getgTxt())//gText值改变
+			gValueChange();
+		else if(e.getSource()==frame.getbTxt())//bText值改变
+			bValueChange();
+		else if(e.getSource()==frame.getAddBtn())//添加自定义颜色
+			addCustomColor();
+		else if(chkColorSelect(e))//获得所选择的基本颜色
+		{
+			setColor(frame.getColorBtns().get(selectBtnIndex).getBackground());
+			frame.getCustomBtn().setBackground(color);
+		}
+		else if(chkCustomColorSelect(e))//获得所选择的自定义颜色
+		{
+			setColor(frame.getCustomColorBtns().get(selectCustomBtnIndex).getBackground());
+			frame.getCustomBtn().setBackground(color);
+		}
+		else if(e.getSource()==frame.getDrawBtn()){
+			MouseProcesser.isAddLines=true;
+			MouseProcesser.isZoomIn=false;
+			MouseProcesser.isZoomOut=false;
+			MouseProcesser.isHandPan=false;
+		}
+		else if(e.getSource()==frame.getZoomInBtn()){
+			MouseProcesser.isAddLines=false;
+			MouseProcesser.isZoomIn=true;
+			MouseProcesser.isZoomOut=false;
+			MouseProcesser.isHandPan=false;
+			zoom(1);
+		}
+		else if(e.getSource()==frame.getZoomOutBtn()){
+			MouseProcesser.isAddLines=false;
+			MouseProcesser.isZoomIn=false;
+			MouseProcesser.isZoomOut=true;
+			MouseProcesser.isHandPan=false;
+			zoom(-1);
+		}
+		else if(e.getSource()==frame.getHandPanBtn()){
+			MouseProcesser.isAddLines=false;
+			MouseProcesser.isZoomIn=false;
+			MouseProcesser.isZoomOut=false;
+			MouseProcesser.isHandPan=true;
+		}
+	}
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==frame.getrSlider())//改变r滚动条
+		{
+			frame.getrTxt().setText(String.valueOf(frame.getrSlider().getValue()));
+			getRGBColorValue();
+			frame.getRgbColorBtn().setBackground(new Color(rValue,gValue,bValue));
+		}
+		else if(e.getSource()==frame.getgSlider())//改变g滚动条
+	    {
+			frame.getgTxt().setText(String.valueOf(frame.getgSlider().getValue()));
+			getRGBColorValue();
+			frame.getRgbColorBtn().setBackground(new Color(rValue,gValue,bValue));
+		}
+		else if(e.getSource()==frame.getbSlider())//改变b滚动条
+		{
+			frame.getbTxt().setText(String.valueOf(frame.getbSlider().getValue()));
+			getRGBColorValue();
+			frame.getRgbColorBtn().setBackground(new Color(rValue,gValue,bValue));
+		}
+	}
+	/**
+	 * 打开文件
+	 * @param fileType
+	 */
+	public void openFile(String fileType)
+	{
+		FileDialog openDialog=new FileDialog(frame,"打开文件",FileDialog.LOAD);
+		String fileName;
+		String dir;
+		openDialog.show(); 
+		if(fileType.equals("bitmap"))
+		{
+			openDialog.setFile("*.png");
+		    fileName=openDialog.getFile();
+		    dir=openDialog.getDirectory();
+		    if(fileName!=null)
+		    	setSrcImage(Toolkit.getDefaultToolkit().getImage(dir+fileName));
+		}
+		else if(fileType.equals("xml"))
+		{
+			openDialog.setFile("*.xml");
+			fileName=openDialog.getFile();
+		    dir=openDialog.getDirectory();
+		}
+		openDialog.dispose();
+	}
+	/**
+	 * 保存文件
+	 * @param fileType
+	 */
+    public void saveFile(String fileType)
+    {
+    	FileDialog saveDialog=new FileDialog(frame,"保存文件",FileDialog.SAVE);
+		String fileName;
+		saveDialog.show();
+		if(fileType.equals("bitmap"))
+		{
+		    fileName=saveDialog.getFile();
+		    dir=saveDialog.getDirectory();
+//		    if(saveDialog.c)
+		    byte []array = new byte[680*680]; 
+		    ByteBuffer readPixelBuffer =ByteBuffer.allocateDirect(680*680);
+		    readPixelBuffer = ByteBuffer.wrap(array);  
+		    readPixelBuffer.clear(); 
+		    frame.getGLCanvas().getGL().getGL2().glReadPixels(0, 0, 680, 680,GL.GL_RGB, GL.GL_UNSIGNED_BYTE,readPixelBuffer);
+		   // frame.getGLCanvas().getGL().getGL2().glWr
+		    readPixelBuffer.rewind();  
+		    byte[] data = readPixelBuffer.array();  
+		    ByteArrayInputStream in = new ByteArrayInputStream(data);    
+		    try {
+				BufferedImage image=ImageIO.read(in);
+				File outputfile = new File("save.png");  
+				ImageIO.write(image, "png",outputfile);  
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+           
+//		    if(fileName!=null)
+//		    	setSrcImage(Toolkit.getDefaultToolkit().getImage(dir+fileName));
+		}
+		else if(fileType.equals("xml"))
+		{
+			fileName=saveDialog.getFile();
+		    dir=saveDialog.getDirectory();
+		}
+		saveDialog.dispose();
+    }
+
+	
+	/**
+	 * 改变rValue的值，触发颜色button改变颜色以及Slider值改变
+	 */
+	public void rValueChange()
+	{
+		rValue=0;
+		gValue=Integer.valueOf(frame.getgTxt().getText());
+		bValue=Integer.valueOf(frame.getbTxt().getText());
+		if(frame.getrTxt().getText().equals("")||frame.getrTxt().getText()==null)
+			rValue=0;
+		else if(Integer.valueOf(frame.getrTxt().getText())>255)
+			rValue=255;
+		else 
+			rValue=Integer.valueOf(frame.getrTxt().getText());
+		frame.getrSlider().setValue(rValue);
+		frame.getRgbColorBtn().setBackground(new Color(rValue,gValue,bValue));
+	}
+	/**
+	 * 改变gValue的值，触发颜色button改变颜色以及Slider值改变
+	 */
+	public void gValueChange()
+	{
+		rValue=Integer.valueOf(frame.getgTxt().getText());
+		gValue=0;
+		bValue=Integer.valueOf(frame.getbTxt().getText());
+		if(frame.getgTxt().getText().equals("")||frame.getgTxt().getText()==null)
+			gValue=0;
+		else if(Integer.valueOf(frame.getrTxt().getText())>255)
+			gValue=255;
+		else 
+			gValue=Integer.valueOf(frame.getgTxt().getText());
+		frame.getgSlider().setValue(gValue);
+		frame.getRgbColorBtn().setBackground(new Color(rValue,gValue,bValue));
+	}
+	/**
+	 * 改变bValue的值，触发颜色button改变颜色以及Slider值改变
+	 */
+	public void bValueChange()
+	{
+		rValue=Integer.valueOf(frame.getrTxt().getText());
+		gValue=Integer.valueOf(frame.getgTxt().getText());
+		bValue=0;
+		if(frame.getbTxt().getText().equals("")||frame.getbTxt().getText()==null)
+			bValue=0;
+		else if(Integer.valueOf(frame.getbTxt().getText())>255)
+			bValue=255;
+		else 
+			bValue=Integer.valueOf(frame.getbTxt().getText());
+		frame.getbSlider().setValue(bValue);
+		frame.getRgbColorBtn().setBackground(new Color(rValue,gValue,bValue));
+	}
+	/**
+	 * 获得最新的三种颜色值
+	 */
+	public void getRGBColorValue()
+	{
+		rValue=Integer.valueOf(frame.getrTxt().getText());
+		gValue=Integer.valueOf(frame.getgTxt().getText());
+		bValue=Integer.valueOf(frame.getbTxt().getText());
+	}
+	/**
+	 * 添加自定义颜色
+	 */
+	public void addCustomColor()
+	{
+		getRGBColorValue();
+		Color c=new Color(rValue,gValue,bValue);
+		frame.getCustomColorBtns().get(index).setBackground(c);
+		index++;
+		if(index>=36)
+			index=0;
+	}
+	/**
+	 * 判断是否选择基本颜色
+	 * @param e
+	 * @return
+	 */
+	public boolean chkColorSelect(ActionEvent e)
+	{
+		for(int i=0;i<frame.getColorBtns().size();i++)
+		{
+			if(e.getSource()==frame.getColorBtns().get(i))
+			{
+				selectBtnIndex=i;
+				return true;
+			}
+		}
+		return false;
+	}
+	/**
+	 * 判断是否选择自定义颜色
+	 * @param e
+	 * @return
+	 */
+	public boolean chkCustomColorSelect(ActionEvent e)
+	{
+		for(int i=0;i<frame.getCustomColorBtns().size();i++)
+		{
+			if(e.getSource()==frame.getCustomColorBtns().get(i))
+			{
+				selectCustomBtnIndex=i;
+				return true;
+			}
+		}
+		return false;
+	}
+	/**
+	 * @return the srcImage
+	 */
+	public Image getSrcImage() {
+		return srcImage;
+	}
+	/**
+	 * @param srcImage the srcImage to set
+	 */
+	public void setSrcImage(Image srcImage) {
+		this.srcImage = srcImage;
+	}
+	/**
+	 * @return the color
+	 */
+	public static Color getColor() {
+		return color;
+	}
+	/**
+	 * @param color the color to set
+	 */
+	public static void setColor(Color color) {
+		ControlsListener.color = color;
+	}
+	
+	/*
+	 * @param zoom in if num=1, zoom out if num=-1
+	 */
+	public void zoom(int num){
+		float lastgScale=GLEventProcesser.gScale;
+		GLEventProcesser.gScale+=num*0.1f;
+		if(GLEventProcesser.gScale<0.1)
+			GLEventProcesser.gScale=0.1f;
+		else if(GLEventProcesser.gScale>3)
+			GLEventProcesser.gScale=3;
+		int vpx=-(int)(GLEventProcesser.drawWidth*(GLEventProcesser.gScale-lastgScale))/2;
+		int vpy=vpx;
+		GLEventProcesser.gDx+=vpx;
+		GLEventProcesser.gDy+=vpy;
+		frame.getGLCanvas().display();
+	}
+
+}

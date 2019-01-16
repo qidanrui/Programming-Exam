@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;SAExperment1/src/SingletonN&apos;&#x0D;&#x0A;- Original project: &apos;SAExperment1&apos;&#x0D;&#x0A;- Destination element: &apos;SAExperment1/src/SingletonN&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     singleton.Singleton.java&#x0D;&#x0A;     singleton.Main.java" description="Copy compilation units" destination="/src&lt;SingletonN" element1="/src&lt;singleton{Singleton.java" element2="/src&lt;singleton{Main.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1334810791414" units="2" version="1.0"/>
+</session>

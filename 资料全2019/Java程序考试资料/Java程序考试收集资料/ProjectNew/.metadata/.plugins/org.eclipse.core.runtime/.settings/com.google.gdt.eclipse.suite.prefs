@@ -1,0 +1,10 @@
+#Tue Sep 18 23:48:36 CST 2012
+versionForLastForcedRebuild_SimpleChat=2.5.1.v201201120043-rel-r37
+versionForLastForcedRebuild_ChatProc=2.5.1.v201201120043-rel-r37
+addedNewWizardActions1.2_org.eclipse.jst.j2ee.J2EEPerspective=com.google.gdt.eclipse.suite.wizards.newProjectWizard|com.google.gwt.eclipse.core.newModuleWizard|com.google.gwt.eclipse.core.newHostPageWizard|com.google.gwt.eclipse.core.newEntryPointWizard|com.google.gwt.eclipse.core.newClientBundleWizard|com.google.gwt.eclipse.core.newUiBinderWizard
+versionForLastForcedRebuild_procsystem3=2.5.1.v201201120043-rel-r37
+versionForLastForcedRebuild_MyChat=2.5.1.v201201120043-rel-r37
+eclipse.preferences.version=1
+versionForLastForcedRebuild_procsystem=2.5.1.v201201120043-rel-r37
+addedNewWizardActions1.2_org.eclipse.jdt.ui.JavaPerspective=com.google.gdt.eclipse.suite.wizards.newProjectWizard|com.google.gwt.eclipse.core.newModuleWizard|com.google.gwt.eclipse.core.newHostPageWizard|com.google.gwt.eclipse.core.newEntryPointWizard|com.google.gwt.eclipse.core.newClientBundleWizard|com.google.gwt.eclipse.core.newUiBinderWizard
+SdkRegistrants_1329299785222=com.google.gwt.eclipse.sdkbundle_2.4.0.v201201120043-rel-r37,com.google.appengine.eclipse.sdkbundle_1.6.1.v201201120043r37

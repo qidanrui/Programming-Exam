@@ -1,0 +1,90 @@
+import java.awt.*;
+import javax.swing.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Stack;
+import javax.swing.JScrollPane;
+
+/**
+ * 界面及事件
+ * @author sinllychen
+ *
+ */
+public class DrawPanelFrame extends JFrame{
+	   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+    private JLabel numlbl;
+    private JTextArea digitNumTxt;
+    private JButton generateSeqBtn;
+    private JTextArea digitTxt;
+    private JButton computeBtn;
+    private JLabel timelbl;
+    private JTextArea timeTxt;
+    private JTextArea finalSeqTxt;
+    private JPanel firstPanel;
+    private JPanel secondPanel;
+    private JPanel thirdPanel;
+    private JPanel lastPanel;
+    private JScrollPane  scrollTop;
+    private JScrollPane  scrollBottom;
+    
+	   public DrawPanelFrame()
+	   {
+		   numlbl=new JLabel("随机序列长度:");
+		   digitNumTxt=new JTextArea();
+		   digitNumTxt.setColumns(10);
+		   generateSeqBtn=new JButton("生成序列");
+		   firstPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+		   firstPanel.add(numlbl);
+		   firstPanel.add(digitNumTxt);
+		   
+		   digitTxt=new JTextArea();
+		   digitTxt.setPreferredSize(new Dimension(100,300));
+		   scrollTop=new JScrollPane(digitTxt);
+		   secondPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+		   secondPanel.add(scrollTop);
+		   
+		   computeBtn=new JButton("计算最长单调增子序列");
+		   timelbl=new JLabel("运行时间:");
+		   timeTxt=new JTextArea();
+		   timeTxt.setColumns(10);
+		   thirdPanel=new  JPanel(new FlowLayout(FlowLayout.CENTER));
+		   thirdPanel.add(computeBtn);
+		   thirdPanel.add(timelbl);
+		   thirdPanel.add(timeTxt);
+		   
+		   finalSeqTxt=new JTextArea();
+		   finalSeqTxt.setPreferredSize(new Dimension(100,300));
+		   scrollBottom=new JScrollPane(finalSeqTxt);
+		   lastPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+		   lastPanel.add(finalSeqTxt);
+		   this.setLayout(new GridLayout(4,1));
+           this.add(firstPanel);
+           this.add(secondPanel);
+           this.add(thirdPanel);
+           this.add(lastPanel);
+           generateSeqBtn.addActionListener(
+				   new ActionListener()
+				   {
+					  
+					  public void actionPerformed(ActionEvent e) {
+						
+						
+					}
+				   }
+				   );
+	   }
+		   public static void main(String[] args)
+		   {
+		       DrawPanelFrame f=new DrawPanelFrame();
+			   f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			   f.setSize(700,500);
+			   f.setVisible(true);
+		   }
+}

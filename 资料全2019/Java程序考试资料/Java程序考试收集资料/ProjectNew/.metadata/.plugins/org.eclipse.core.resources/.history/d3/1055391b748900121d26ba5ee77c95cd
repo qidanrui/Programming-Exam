@@ -1,0 +1,159 @@
+package cn.edu.xmu.software.eventprocesser;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+
+import javax.media.opengl.GL2;
+import javax.media.opengl.awt.GLCanvas;
+
+import cn.edu.xmu.software.util.Point;
+import cn.edu.xmu.software.util.StaticData;
+
+/**
+ * 处理鼠标事件
+ * @author::jimmy.cai
+ * @date::2013/03/09
+ */
+public class MouseProcesser implements MouseListener, MouseMotionListener,  MouseWheelListener{
+	private GL2 gl;
+	private GLCanvas glcanvas;
+	private Point lastPoint;
+	private int dis;
+	
+	public MouseProcesser(GL2 gl){
+		this.gl=gl;
+		lastPoint=new Point();
+	}
+	
+	public MouseProcesser(GL2 gl,GLCanvas glcanvas){
+		this.gl=gl;
+		this.glcanvas=glcanvas;
+		lastPoint=new Point();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-GLEventProcesser.gDx)/GLEventProcesser.gScale);
+		int y=(int)(((float)arg0.getY()-GLEventProcesser.gDy)/GLEventProcesser.gScale);
+		if(StaticData.isAddLines){
+			lastPoint.setX(x);
+			lastPoint.setY(y);
+			GLEventProcesser.points.clear();
+			GLEventProcesser.points.add(lastPoint);
+		}
+		if(StaticData.isHandPan){
+			lastPoint.setX(x);
+			lastPoint.setY(y);
+		}
+		for(int i=0;i<GLEventProcesser.points.size();i++){
+			System.out.println("mousePress i="+i+" x="+GLEventProcesser.points.get(i).getX()+" y="+GLEventProcesser.points.get(i).getY());
+		}
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-GLEventProcesser.gDx)/GLEventProcesser.gScale);//转化为标准情况下的坐标即gScale=1.0 gDx=0.0 gDy=0.0
+		int y=(int)(((float)arg0.getY()-GLEventProcesser.gDy)/GLEventProcesser.gScale);
+		if(isAddLines){
+			Point currentPoint=new Point(x,y);
+			GLEventProcesser.points.add(currentPoint);
+			for(int i=0;i<GLEventProcesser.points.size();i++){
+				System.out.println("i="+i+" x="+GLEventProcesser.points.get(i).getX()+" y="+GLEventProcesser.points.get(i).getY());
+			}
+		}
+		if(isHandPan){
+			int dx=arg0.getX()-(int)((float)lastPoint.getX()*GLEventProcesser.gScale+GLEventProcesser.gDx);
+			int dy=arg0.getY()-(int)((float)lastPoint.getY()*GLEventProcesser.gScale+GLEventProcesser.gDy);
+			GLEventProcesser.gDx+=dx;
+			GLEventProcesser.gDy+=dy;
+			for(int i=0;i<GLEventProcesser.points.size();i++){
+				System.out.println("i="+i+" x="+GLEventProcesser.points.get(i).getX()+" y="+GLEventProcesser.points.get(i).getY());
+			}
+
+//			int tolerableWidth=(int)(GLEventProcesser.drawWidth*(GLEventProcesser.gScale-1))/2;
+//			System.out.println("tolerableWidth="+tolerableWidth);
+//			System.out.println("dx="+dx+" dy="+dy+" gDx="+GLEventProcesser.gDx+" gDy="+GLEventProcesser.gDy);
+//			if(GLEventProcesser.gDx<-2*tolerableWidth)
+//				GLEventProcesser.gDx=-2*tolerableWidth;
+//			if(GLEventProcesser.gDx>0)
+//				GLEventProcesser.gDx=0;
+//			if(GLEventProcesser.gDy<-2*tolerableWidth)
+//				GLEventProcesser.gDy=-2*tolerableWidth;
+//			if(GLEventProcesser.gDy>0)
+//				GLEventProcesser.gDy=0;
+//			System.out.println("after gDx="+GLEventProcesser.gDx+" gDy="+GLEventProcesser.gDy);
+		}
+		glcanvas.display();
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-GLEventProcesser.gDx)/GLEventProcesser.gScale);
+		int y=(int)(((float)arg0.getY()-GLEventProcesser.gDy)/GLEventProcesser.gScale);
+		if (isAddLines) {
+			Point currentPoint=new Point(x,y);
+			dis+=getDis(lastPoint,currentPoint);
+			if (dis > 3) {
+				dis = 0;
+				GLEventProcesser.points.add(currentPoint);
+				lastPoint = new Point(currentPoint);
+				glcanvas.display();
+			}
+		}
+		for(int i=0;i<GLEventProcesser.points.size();i++){
+			System.out.println("mouse drag i="+i+" x="+GLEventProcesser.points.get(i).getX()+" y="+GLEventProcesser.points.get(i).getY());
+		}
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		
+	}
+	
+	private int getDis(Point a,Point b){
+		int x1=a.getX()-b.getX();
+		int x2=a.getY()-b.getY();
+		int dis=(int) Math.sqrt(x1*x1+x2*x2);
+		return dis;
+	}
+
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent arg0) {
+		if(isZoomIn || isZoomOut){
+		float lastgScale=GLEventProcesser.gScale;
+		int num=arg0.getWheelRotation();
+		System.out.println("num="+num);
+		GLEventProcesser.gScale+=num*0.1f;
+		if(GLEventProcesser.gScale<0.1)
+			GLEventProcesser.gScale=0.1f;
+		else if(GLEventProcesser.gScale>3)
+			GLEventProcesser.gScale=3;
+		int vpx=-(int)(GLEventProcesser.drawWidth*(GLEventProcesser.gScale-lastgScale))/2;
+		int vpy=vpx;
+		GLEventProcesser.gDx+=vpx;
+		GLEventProcesser.gDy+=vpy;
+		System.out.println("gDx="+GLEventProcesser.gDx+" gDy="+GLEventProcesser.gDy);
+		glcanvas.display();
+		}
+	}
+}

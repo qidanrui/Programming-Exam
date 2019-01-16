@@ -1,0 +1,7 @@
+package Teaching.Common;
+
+import Teaching.model.Student;
+
+public class ContextUtil {
+     public static Student currentUser;
+}

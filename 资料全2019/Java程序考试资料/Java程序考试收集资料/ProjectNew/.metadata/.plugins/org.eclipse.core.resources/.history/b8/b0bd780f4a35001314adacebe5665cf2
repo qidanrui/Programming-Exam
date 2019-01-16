@@ -1,0 +1,156 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class MainTest {
+	/**
+	 * 时间格式转换
+	 * @param time
+	 * @return
+	 */
+	public static String timeFormat(long time)
+	{
+		DecimalFormat df=new DecimalFormat(".####");
+    	if(String.valueOf((double)(time)/1000000).substring(0,1).equals("0"))
+    		return "0"+df.format((double)(time)/1000000)+"ms";
+    	else 
+    		return df.format((double)(time)/1000000)+"ms";
+	}
+	/**
+	 * 集合复制
+	 * @param list
+	 * @return
+	 */
+	public static ArrayList<Long> copyList(ArrayList<Long> list)
+	{
+		ArrayList<Long> newList=new ArrayList<Long>();
+		for(int i=0;i<list.size();i++)
+			newList.add(list.get(i));
+		return newList;
+	}
+	/**
+	 * 生成随机数集合，数的范围在1-2的32次方-1
+	 * @param n
+	 * @return
+	 */
+	public static ArrayList<Long> generateRandom(Long n)
+	{
+		ArrayList<Long> datas=new ArrayList<Long>();
+		Random rand=new Random();
+		for(int i=0;i<n;i++)
+		{
+			Long data=((long) (rand.nextInt((int) (Math.pow(2, 16))))<<16)+rand.nextInt((int) (Math.pow(2, 16)));
+			datas.add(data);
+		}
+		return datas;	
+	}
+	
+	
+    public static void main(String[] args)
+    {
+     	InputStreamReader input =new InputStreamReader(System.in);
+     	BufferedReader reader=new BufferedReader(input);
+     	long value,startTime,endTime;
+     	ArrayList<Long> datas=new ArrayList<Long>();
+     	System.out.println("*******************************************");
+     	System.out.println("1、插入排序");
+     	System.out.println("2、快速排序");
+     	System.out.println("3、归并排序");
+     	System.out.println("4、基数排序");
+     	System.out.println("请选择序号:");
+     	try {
+			int num=Integer.valueOf(reader.readLine());
+			switch(num)
+			{
+			case 1:
+				   System.out.println("*******************插入排序**********************");
+				   System.out.println("请输入规模(0-2的31次方-1):");
+				    value=Long.valueOf(reader.readLine());
+				    datas=generateRandom(value);
+					startTime=System.nanoTime();
+			    	InsertSort.insertSort(datas);
+			    	endTime=System.nanoTime();
+			    	System.out.println("插入排序的时间为:"+timeFormat(endTime-startTime));
+			    	break;
+			case 2:
+				   System.out.println("********************快速排序*********************");
+				   System.out.println("请输入规模(0-2的31次方-1):");
+				    value=Long.valueOf(reader.readLine());
+				   datas=generateRandom(value);
+					startTime=System.nanoTime();
+					QuickSort.quickSort(datas,0,datas.size()-1);
+			    	endTime=System.nanoTime();
+			    	System.out.println("快速排序的时间为:"+timeFormat(endTime-startTime));
+			    	break;
+			case 3:
+				   System.out.println("********************归并排序*********************");
+				   System.out.println("请输入规模(0-2的31次方-1):");
+				    value=Long.valueOf(reader.readLine());
+				   datas=generateRandom(value);
+					startTime=System.nanoTime();
+					MergeSort.mergeSort(datas,0,datas.size()-1);
+			    	endTime=System.nanoTime();
+			    	System.out.println("归并排序的时间为:"+timeFormat(endTime-startTime));
+			    	break;
+			case 4:
+				   System.out.println("********************基数排序*********************");
+				   System.out.println("请输入规模(0-2的31次方-1):");
+				    value=Long.valueOf(reader.readLine());
+				   datas=generateRandom(value);
+					startTime=System.nanoTime();
+					MergeSort.mergeSort(datas,0,datas.size()-1);
+			    	endTime=System.nanoTime();
+			    	System.out.println("基数排序的时间为:"+timeFormat(endTime-startTime));
+			    	break;
+			}
+			datas=generateRandom(num);
+/*			for(int i=0;i<datas.size();i++)
+	    		System.out.print(datas.get(i)+"   ");*/
+		    
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     	System.out.print("请输入排序规模:");
+		
+     	
+    	
+     	ArrayList<Long> datas1=copyList(datas);
+    
+    	/*for(int i=0;i<datas1.size();i++)
+    		System.out.print(datas1.get(i)+"   ");*/
+    	
+    	ArrayList<Long> datas2=copyList(datas);
+        startTime=System.nanoTime();
+    	
+        endTime=System.nanoTime();
+    	System.out.println("快速排序的时间为:"+timeFormat(endTime-startTime));
+    	/*for(int i=0;i<datas2.size();i++)
+    		System.out.print(datas2.get(i)+"   ");*/
+    	
+    	ArrayList<Long> datas3=copyList(datas);
+     	startTime=System.nanoTime();
+    	
+    	endTime=System.nanoTime();
+    	System.out.println("归并排序的时间为:"+timeFormat(endTime-startTime));
+/*    	for(int i=0;i<datas3.size();i++)
+    		System.out.print(datas3.get(i)+"   ");*/
+    	
+    	ArrayList<Long> datas4=copyList(datas);
+     	startTime=System.nanoTime();
+    	RadixSort.radixSort(datas4,datas4.size());
+    	endTime=System.nanoTime();
+    	System.out.println("基数排序的时间为:"+timeFormat(endTime-startTime));
+/*    	for(int i=0;i<datas3.size();i++)
+    		System.out.print(datas3.get(i)+"   ");*/
+    	
+    	
+    	
+    }
+}

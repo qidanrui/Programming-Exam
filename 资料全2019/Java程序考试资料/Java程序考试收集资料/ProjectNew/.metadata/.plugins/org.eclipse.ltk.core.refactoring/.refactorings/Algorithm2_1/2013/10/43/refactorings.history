@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 6 elements to &apos;Algorithm4_LongSeq/src&apos;&#x0D;&#x0A;- Original project: &apos;Algorithm2_1&apos;&#x0D;&#x0A;- Destination element: &apos;Algorithm4_LongSeq/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     MPoint.java&#x0D;&#x0A;     CommonMethod.java&#x0D;&#x0A;     DrawPanel.java&#x0D;&#x0A;     DrawPanelTest.java&#x0D;&#x0A;     MyShape.java&#x0D;&#x0A;     DrawPanelFrame.java" description="Copy compilation units" destination="=Algorithm4_LongSeq/src" element1="/src&lt;{MPoint.java" element2="/src&lt;{CommonMethod.java" element3="/src&lt;{DrawPanel.java" element4="/src&lt;{DrawPanelTest.java" element5="/src&lt;{MyShape.java" element6="/src&lt;{DrawPanelFrame.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1382322147627" units="6" version="1.0"/>
+</session>

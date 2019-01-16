@@ -1,0 +1,301 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Failed to compute completion proposal",1362193014177
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362193024689
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193026279
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193026362
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193031825
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193042261
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362193046482
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362193047487
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1362193054409
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193058327
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193069626
+error,log,,,"Failed to compute completion proposal",1362193075626
+error,log,,,"Failed to compute completion proposal",1362193078333
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362193083682
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362193085684
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362193091334
+error,log,,,"Failed to compute completion proposal",1362193098126
+error,log,,,"Failed to compute completion proposal",1362193108279
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362193119611
+error,log,,,"Failed to compute completion proposal",1362193138568
+error,log,,,"Failed to compute completion proposal",1362193145998
+error,log,,,"Failed to compute completion proposal",1362193149409
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362193152787
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193175682
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193178794
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193181821
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193192692
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193193132
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193194154
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193200980
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193203086
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362193209946
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362193217885
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362193233858
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194157484
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362194160767
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194172062
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194548621
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362194552450
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194556800
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194557374
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194558639
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194587482
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194587904
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194651081
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362194652910
+started,bundle,org.eclipse.jst.ws.jaxws.dom.integration,1.0.100.v201101252155,"org.eclipse.jst.ws.jaxws.dom.integration",1362194655144
+started,bundle,org.eclipse.jst.ws.jaxws.dom.ui,1.0.0.v201004171919,"org.eclipse.jst.ws.jaxws.dom.ui",1362194655562
+started,bundle,org.jboss.ide.eclipse.archives.ui,3.2.1.v20111208-2106-H38-M5,"org.jboss.ide.eclipse.archives.ui",1362194655963
+started,bundle,org.jboss.tools.jst.web.ui,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.web.ui",1362194659152
+started,bundle,org.jboss.tools.common.model.ui,3.3.0.v20111208-2036-H34-M5,"org.jboss.tools.common.model.ui",1362194659409
+started,bundle,org.eclipse.mylyn.resources.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.resources.ui",1362194668417
+started,bundle,org.jboss.tools.common.verification.ui,3.3.0.v20111208-2036-H34-M5,"org.jboss.tools.common.verification.ui",1362194668689
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362194668871
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362194668895
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362194669340
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362194669384
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362194669503
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362194669595
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362194669655
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194695697
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194703002
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194711158
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194732456
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194734044
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194734864
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194736920
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194764791
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194775516
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362194778529
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194780903
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362194782263
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362194794892
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194811011
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194821483
+error,log,,,"Failed to compute completion proposal",1362194829966
+error,log,,,"Failed to compute completion proposal",1362194832214
+error,log,,,"Failed to compute completion proposal",1362194841195
+error,log,,,"Failed to compute completion proposal",1362194858642
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194869689
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194871566
+error,log,,,"Failed to compute completion proposal",1362194874345
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362194889959
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362194896823
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1362194898558
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362194899949
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194931137
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194948660
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194954234
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362194960457
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362194964834
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362194966606
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362194974916
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198075022
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198110902
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198121415
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198128367
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198139499
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198144734
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198147594
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198152286
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198253665
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198257790
+error,log,,,"Failed to compute completion proposal",1362198267119
+error,log,,,"Failed to compute completion proposal",1362198272638
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198282803
+error,log,,,"Failed to compute completion proposal",1362198299392
+error,log,,,"Failed to compute completion proposal",1362198302401
+error,log,,,"Failed to compute completion proposal",1362198304522
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198308880
+error,log,,,"Failed to compute completion proposal",1362198313104
+error,log,,,"Failed to compute completion proposal",1362198328137
+error,log,,,"Failed to compute completion proposal",1362198331797
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198349470
+error,log,,,"Failed to compute completion proposal",1362198356749
+error,log,,,"Failed to compute completion proposal",1362198363211
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198368797
+error,log,,,"Failed to compute completion proposal",1362198384368
+error,log,,,"Failed to compute completion proposal",1362198387802
+error,log,,,"Failed to compute completion proposal",1362198394094
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198499856
+error,log,,,"Failed to compute completion proposal",1362198510373
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198530703
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198532244
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198597802
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198601881
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198609623
+activated,view,org.eclipse.ui.ide,3.7.0.v20110809-1737,"org.eclipse.ui.views.AllMarkersView",1362198612429
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198613133
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198618763
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198618926
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198619057
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198619343
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198619664
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198620080
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198620154
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198620295
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198621388
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198622574
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198623123
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198623519
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198624230
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198625648
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198656472
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198658896
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198683409
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362198684863
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198688681
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198707962
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198714174
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198720720
+error,log,,,"Failed to compute completion proposal",1362198730787
+error,log,,,"Failed to compute completion proposal",1362198734596
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198748099
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198748218
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198749803
+error,log,,,"Failed to compute completion proposal",1362198760439
+error,log,,,"Failed to compute completion proposal",1362198776347
+error,log,,,"Failed to compute completion proposal",1362198779944
+error,log,,,"Failed to compute completion proposal",1362198785958
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198793024
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198797819
+error,log,,,"Failed to compute completion proposal",1362198817290
+error,log,,,"Failed to compute completion proposal",1362198820173
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362198827737
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198828934
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198834671
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362198836756
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198838010
+error,log,,,"Failed to compute completion proposal",1362198843833
+error,log,,,"Failed to compute completion proposal",1362198847074
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362198854024
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198855089
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198862621
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198872058
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362198874011
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362198876935
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198877992
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362198879826
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198880727
+error,log,,,"Failed to compute completion proposal",1362198885135
+error,log,,,"Failed to compute completion proposal",1362198887575
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362198893022
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198894061
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198898389
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362198900372
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198901321
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362198933302
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198934491
+error,log,,,"Failed to compute completion proposal",1362198941727
+error,log,,,"Failed to compute completion proposal",1362198944635
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362198950147
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362198952292
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198957292
+error,log,,,"Failed to compute completion proposal",1362198970035
+error,log,,,"Failed to compute completion proposal",1362198979458
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362198988079
+error,log,,,"Failed to compute completion proposal",1362199010763
+error,log,,,"Failed to compute completion proposal",1362199014879
+error,log,,,"Failed to compute completion proposal",1362199094114
+error,log,,,"Failed to compute completion proposal",1362199097034
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362199100860
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1362199108480
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362199117170
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362199119926
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362199181073
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362199986589
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362199988701
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362199994837
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362199998921
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200010734
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200011663
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200022852
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200036466
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362200038767
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362200043493
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200046727
+error,log,,,"Failed to compute completion proposal",1362200060031
+error,log,,,"Failed to compute completion proposal",1362200064827
+error,log,,,"Failed to compute completion proposal",1362200070142
+error,log,,,"Failed to compute completion proposal",1362200075402
+error,log,,,"Failed to compute completion proposal",1362200080017
+error,log,,,"Failed to compute completion proposal",1362200087326
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362200098041
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362200102847
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362200104395
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362200110611
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362200112777
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362200112973
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362200113324
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362200113515
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200118188
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200143051
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200145981
+error,log,,,"Failed to compute completion proposal",1362200179380
+error,log,,,"Failed to compute completion proposal",1362200181022
+error,log,,,"Failed to compute completion proposal",1362200181147
+error,log,,,"Failed to compute completion proposal",1362200181319
+error,log,,,"Failed to compute completion proposal",1362200181516
+error,log,,,"Failed to compute completion proposal",1362200181716
+error,log,,,"Failed to compute completion proposal",1362200182032
+error,log,,,"Failed to compute completion proposal",1362200182323
+error,log,,,"Failed to compute completion proposal",1362200189282
+error,log,,,"Failed to compute completion proposal",1362200194802
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200216627
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200217063
+error,log,,,"Failed to compute completion proposal",1362200225555
+error,log,,,"Failed to compute completion proposal",1362200231288
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362200234018
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200235690
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200238626
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200240681
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200242273
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200245777
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200247933
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200249853
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200252116
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200253520
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200262101
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200271710
+error,log,,,"Failed to compute completion proposal",1362200301443
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362200321827
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362200330787
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1362200334394
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362200360189
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362200360736
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200362375
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110505-0800,"org.eclipse.ui.edit.text.toggleOverwrite",1362200366067
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110505-0800,"org.eclipse.ui.edit.text.toggleOverwrite",1362200369671
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362200383101
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362200409945
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200411451
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362200422118
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200424480
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362200431913
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1362200440213
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362200441185
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362200455475
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362200471358
+started,bundle,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui",1362200475606
+started,bundle,org.eclipse.birt.report.debug.ui,3.7.1.v20110905,"org.eclipse.birt.report.debug.ui",1362200476558
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362200477872
+started,bundle,org.eclipse.jdt.debug,3.7.1.v20110802_r371,"org.eclipse.jdt.debug",1362200478515
+started,bundle,org.eclipse.jdt.debug.ui,3.6.1.v20110803_r371,"org.eclipse.jdt.debug.ui",1362200478825
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362200479044
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200479306
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1362200479781
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200482197
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362200483655
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362207980598
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362207989186
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362207992119
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362208002235
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362208002754
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1362208016122
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1362208016684
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362208027485
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362208030746
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362208031416
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362208250341

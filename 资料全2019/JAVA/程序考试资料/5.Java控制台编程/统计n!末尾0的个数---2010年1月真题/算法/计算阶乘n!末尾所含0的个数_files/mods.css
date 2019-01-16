@@ -1,0 +1,132 @@
+#m_comment p { margin:0pt; }
+#m_comment .cnt img { border:0px; }
+#m_comment .date { color:#666666; }
+
+#m_event .nav{text-align:right}
+#m_event .nav span { color:#000000; font-weight:bold; }
+#m_event .nav span.lk { color:#3399CC; cursor:pointer; text-decoration:underline; font-weight:normal; }
+#m_event td{height:30px;vertical-align:middle;padding-left:5px;}
+#m_event .alter td{background-color:#f0f0f0;}
+#m_event .time{color:#666;width:100px}
+#m_event .line{border-top:1px solid #ECECEC;margin-top:3px;line-height:3px;height:3px;}
+
+#m_friends { overflow: hidden; }
+#m_friends .frd { float:left;  margin:0px 3px; width:75px; height:90px; overflow:hidden; }
+#m_friends .portrait { background-position:center bottom; background-repeat:no-repeat; height:55px; display:block; }
+#m_friends .info { text-align:center; }
+#m_friends .info a { padding-left:16px; background-position:left top; background-repeat:no-repeat; }
+#m_friends .online a { background-image:url(http://img.baidu.com/passport/icn_online.gif); }
+#m_friends .offline a { background-image:url(http://img.baidu.com/passport/icn_offline.gif); }
+#m_friends .hosttip { height:90px;line-height:90px;}
+
+
+#m_pro .wrapper { clear:both; overflow:hidden; }
+#m_pro .portrait { width:110px;float:left; text-align:center;margin-right:6px;}
+#m_pro .userinfo{color:#333333;font-size:12px;font-weight:normal;padding-left:6px;}
+#m_pro a.btfan{background:url(http://img.baidu.com/hi/img/mf/btfanbg.gif) no-repeat;width:88px;height:22px;line-height:22px;display:block;margin-right:10px;padding:2px 0 0 0;text-align:center;margin-top:10px;}
+#m_pro div.line{margin-top:10px;line-height:5px;}
+#m_pro .act { clear:both; }
+#m_pro .act-links { margin:0px; padding:0px; }
+#m_pro .act-links a { display:block; float:left; }
+#m_pro .act-links a.send-message-link { margin-left:0px; margin-top:4px; }
+
+
+#m_useronline .frd { float:left;  margin:0px 3px; width:75px; height:90px; overflow:hidden; }
+#m_useronline .portrait { background-position:center bottom; background-repeat:no-repeat; height:55px; display:block; }
+#m_useronline .info { text-align:center; }
+
+/* profile page */
+#warpper { position:relative;margin:0 0 0 200px; }
+#warpper .content { position:absolute;left:-200px;top:5px;}
+#warpper .photo { position:absolute;left:-200px;top:5px; width:190px; text-align:center; }
+#warpper .line { margin-left:auto; margin-right:auto; }
+#warpper .act { padding-left:5px; padding-right:5px }
+
+.clear { clear:both; height:1px; line-height:1px; font-size:0px; }
+
+/* for 好友升级 */
+#m_friendStat th,#m_friendStat td{vertical-align:top;padding:5px 0 5px 5px;}
+#m_friendStat td{font:400 14px/22px arial;border-bottom:1px solid #D2E9F4;}
+#m_friendStat td.info a:link{font-weight:bold;}
+#m_friendStat td.info a:visited{font-weight:400;}
+#m_friendStat td span{zoom:1;margin-left:10px;color:#8c8c8c;font-size:12px;}
+#m_friendStat td img{border:1px solid #a1ccdd;vertical-align:middle;margin-right:10px;}
+#m_friendStat td a img{border:1px solid #a1ccdd;vertical-align:bottom;margin-right:10px;}
+#m_friendStat .pg{height:30px;font:400 14px/30px arial;text-align:center;padding-top:10px;;}
+
+#m_searchFriend td{height:28px;}
+
+/*for 我在百度*/
+#mod_inbaidu ul{padding:0; margin:0; margin-top:5px;border-bottom:1px dotted #B2B2B2;}
+#mod_inbaidu .title{font-size:14px;list-style:none; padding-bottom:5px;} /*标题*/
+#mod_inbaidu .list{ border-bottom:1px solid #F0F0F0; margin-top:5px; margin-left:15px;} /*列表数据*/
+#mod_inbaidu .list a{text-decoration:none;}
+#mod_inbaidu .noContent{ list-style:none; padding-bottom:5px;} /*无数据时文字描述*/
+#mod_inbaidu .qzContent{list-style:none; padding-bottom:5px;} /*圈子信息*/
+
+/* for 评论照片评论*/
+
+#m_comment #picCmt .img{width:65px;height:65px;border:1px solid #ccc;overflow:hidden;}
+#m_comment #picCmt a img{border:0;}
+#m_comment #picCmt .name{height:20px;}
+
+.error{color:red;}
+#m_albumlist .tit .cmt a:link,#m_albumlist .tit .cmt a:visited{font:400 12px/18px arial;color:#666;text-decoration:none;}
+#m_albumlist .tit .cmt a:hover{text-decoration:underline;}
+
+/* for 宠物*/
+#m_pet_setting .name{width:80px;}
+#m_pet_setting .space{width:50px;}
+
+#petset #layout{table-layout:fixed}
+#petset #layout td.c2t1{width:74% !important;padding-left:10px}
+#petset #layout td.c2t2{width:20px;}
+#petset #layout td.c2t3{width:24% !important;padding-right:10px;}
+
+#m_pet_info .petheader{ padding-bottom:10px;}
+#m_pet_setting dt{font-weight:bold;}
+#m_pet_setting dd{margin-top:8px;}
+#m_pet_setting .prompt{padding:0 20px; color:#707070;}
+#m_pet_setting .limit{color:#707070;}
+
+#m_petcard .feed,#mod_pet_record .feed{margin:0; padding:5px 0;}
+#m_petcard .feed li,#mod_pet_record .feed li{list-style:none;}
+#m_petcard .more,#mod_pet_record .more{text-align:right;}
+#m_petcard .time,#mod_pet_record .time{color:#676767}
+#m_petcard div.line, #m_pet_record div.line, #m_pet_setting div.line{border-top:1px solid #D2E9F4; margin-top:8px; line-height:8px; height:8px;}
+
+/*   for spow mod edit   */
+#layout div.uwaTitleEdit{
+    font-size: 12px;
+    color:#000000;
+}
+#layout div.uwaTitleEdit span a{
+    color:#0000FF;
+    line-height:26px;
+}
+#layout div.uwaConfEdit div{
+    font-size:12px;
+    margin: 4px 0;
+}
+
+#layout div.uwaConfEdit div label{
+    margin-right: 3px;
+}
+#layout div.uwaConfEdit div input,select{
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */

@@ -1,0 +1,2 @@
+m_output.writeObject("xxx"); // 向输出流写入数据
+m_output.flush(); // 强制显示写入的数据

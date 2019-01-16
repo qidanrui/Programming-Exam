@@ -1,0 +1,276 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Failed to compute completion proposal",1342707995170
+error,log,,,"Failed to compute completion proposal",1342708001382
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708005156
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708007366
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708007466
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708007828
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708010594
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708011864
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708070376
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708071056
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708071666
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708074548
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708080530
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708081622
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708084122
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708086894
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708086944
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708090058
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708090328
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708093967
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708099171
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708100105
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708128221
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708130321
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708202781
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708207295
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708211817
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708211937
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708224623
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708225993
+error,log,,,"Failed to compute completion proposal",1342708232617
+error,log,,,"Failed to compute completion proposal",1342708233929
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708240041
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708241383
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708242123
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342708254905
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708264823
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708267157
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708270177
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708270477
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708277989
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708279909
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708280999
+error,log,,,"Error while loading editor",1342708284619
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708284639
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708284839
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708290903
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708357309
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342708362227
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708364665
+error,log,,,"Error while loading editor",1342708365087
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708365107
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708365317
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708366197
+error,log,,,"Error while loading editor",1342708366541
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708366561
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708366781
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708376103
+error,log,,,"Error while loading editor",1342708377413
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708377443
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708377643
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708384097
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708412951
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708415157
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708432561
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342708435033
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342708436065
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708437809
+error,log,,,"Error while loading editor",1342708438385
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708438405
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708438603
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708448091
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708454551
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708455841
+executed,command,org.eclipse.ui.ide,3.7.0.v20110809-1737,"org.eclipse.ui.project.closeProject",1342708456717
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708457505
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708463870
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.core.resources"".",1342708464032
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708464526
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708464566
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708464586
+error,log,,,"Unexpected runtime error while computing a text hover",1342708464946
+executed,command,org.eclipse.ui.ide,3.7.0.v20110809-1737,"org.eclipse.ui.project.openProject",1342708468656
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708469072
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708469354
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708480260
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708480450
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708501406
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708523732
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708523792
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708530678
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708533810
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708536684
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708546210
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708546390
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708547332
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708547612
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342708554686
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708556138
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708562104
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708566674
+executed,command,org.eclipse.ui.ide,3.7.0.v20110809-1737,"org.eclipse.ui.project.cleanAction",1342708566694
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708567136
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708568545
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708571658
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708591200
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708591351
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708594348
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708598712
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708600698
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708600858
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708603698
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708603938
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708605668
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708618029
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.core.resources"".",1342708619133
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1342708619485
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708619545
+executed,command,org.eclipse.ltk.ui.refactoring,3.6.0.v20110505-0800,"org.eclipse.ltk.ui.refactoring.commands.deleteResources",1342708619565
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.delete",1342708619565
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619595
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619595
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619595
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619605
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619610
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619614
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619616
+error,log,,,"Resource '/Cloud_GTD/bin/res' does not exist.",1342708619618
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619620
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619622
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619624
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable' does not exist.",1342708619626
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619628
+error,log,,,"Resource '/Cloud_GTD/bin' does not exist.",1342708619635
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619641
+error,log,,,"Resource '/Cloud_GTD/bin/res' does not exist.",1342708619643
+error,log,,,"Resource '/Cloud_GTD/bin' does not exist.",1342708619645
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619647
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619649
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619651
+error,log,,,"Resource '/Cloud_GTD/bin/res' does not exist.",1342708619654
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619677
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619687
+error,log,,,"Resource '/Cloud_GTD/gen' does not exist.",1342708619687
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619727
+error,log,,,"Resource '/Cloud_GTD/bin/res' does not exist.",1342708619727
+error,log,,,"Resource '/Cloud_GTD/bin' does not exist.",1342708619727
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable' does not exist.",1342708619727
+error,log,,,"Resource '/Cloud_GTD/bin/classes' does not exist.",1342708619737
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619737
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619737
+error,log,,,"Resource '/Cloud_GTD/bin/res' does not exist.",1342708619737
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619737
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619737
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619737
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619747
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619747
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619747
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619747
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619747
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619757
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619757
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619757
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619757
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619757
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619757
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619767
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619767
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-mdpi' does not exist.",1342708619767
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-xhdpi' does not exist.",1342708619767
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619767
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619767
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619767
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-ldpi' does not exist.",1342708619777
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619777
+error,log,,,"Resource '/Cloud_GTD/bin' does not exist.",1342708619777
+error,log,,,"Resource '/Cloud_GTD' does not exist.",1342708619777
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619777
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619777
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619787
+error,log,,,"Resource '/Cloud_GTD/bin/res/drawable-hdpi' does not exist.",1342708619787
+error,log,,,"Resource '/Cloud_GTD/bin' does not exist.",1342708619787
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708632803
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708861545
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708862182
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708864786
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708870242
+error,log,,,"",1342708876230
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708876307
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.import",1342708876338
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708880718
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708893269
+error,log,,,"Unexpected runtime error while computing a text hover",1342708893691
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708908315
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708922112
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.newWizard",1342708922146
+error,log,,,"Error while loading editor",1342708926173
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708926193
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708926313
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708932673
+error,log,,,"Error while loading editor",1342708933579
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708933599
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342708933706
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342708936741
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708942471
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708975309
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.newWizard",1342708975339
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342708982193
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709013067
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.newWizard",1342709013169
+error,log,,,"Error while loading editor",1342709013696
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709013719
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709013790
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709018105
+error,log,,,"Error while loading editor",1342709025623
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709025643
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709025793
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709034217
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709036569
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709038347
+error,log,,,"Error while loading editor",1342709040767
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709040787
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709040937
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709043453
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1342709044172
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1342709052893
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709062684
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709063675
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1342709072195
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709076899
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709079583
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709088397
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709090221
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709090341
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709094663
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709095265
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709096647
+error,log,,,"Error while loading editor",1342709100162
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709100182
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709100352
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1342709103882
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1342709105622
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709111574
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709117108
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709120871
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709128210
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709137439
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709138035
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709141556
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709145842
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709178153
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.newWizard",1342709178434
+error,log,,,"Error while loading editor",1342709179239
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709179274
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709179524
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709179556
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1342709224822
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709224859
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709225891
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709228803
+error,log,,,"Error while loading editor",1342709229295
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709229318
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709229562
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709234110
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709234498
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709236149
+error,log,,,"Error while loading editor",1342709239050
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709239109
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1342709239286
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1342709241563
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1342709242266
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1342709244745
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1342709260495
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1342709273074
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1342709281838

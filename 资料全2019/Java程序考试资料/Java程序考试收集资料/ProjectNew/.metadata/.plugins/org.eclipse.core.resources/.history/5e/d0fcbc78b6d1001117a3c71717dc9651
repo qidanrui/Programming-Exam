@@ -1,0 +1,172 @@
+package cn.edu.xmu.software;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import cn.edu.xmu.software.adapter.MenuListAdapter;
+import cn.edu.xmu.software.adapter.TodayTaskListAdapter;
+import cn.edu.xmu.software.callback.SizeCallBackForMenu;
+import cn.edu.xmu.software.common.ContextUtil;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.interfaces.IPlanOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import cn.edu.xmu.software.model.PlanOpt;
+import cn.edu.xmu.software.ui.MenuHorizontalScrollView;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ListView;
+
+public class TodayTaskListActivity extends Activity {
+
+	private List<Map<String, Object>> listItems;
+	private ListView taskList;
+	private TodayTaskListAdapter taskListAdapter;
+	private MenuHorizontalScrollView scrollView;
+	private View todayTodo;
+	private MenuListAdapter menuListAdapter;
+	private ListView menuList;
+	private Button menuBtn;
+	private List<String> scenes=new ArrayList<String>();
+	private List<String> tags=new ArrayList<String>();
+	private IGoalOpt goalOpt;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		LayoutInflater inflater = LayoutInflater.from(this);
+		
+		setContentView(inflater.inflate(R.layout.menu_scroll_view, null));
+		this.scrollView = (MenuHorizontalScrollView)findViewById(R.id.scrollView);
+		this.menuListAdapter = new MenuListAdapter(this, 0);
+		this.menuList = (ListView)findViewById(R.id.menuList);
+		this.menuList.setAdapter(menuListAdapter);
+		goalOpt=new GoalOpt(this);
+		
+		this.init();
+		this.todayTodo = inflater.inflate(R.layout.todaytodo_page, null);
+		menuBtn = (Button)this.todayTodo.findViewById(R.id.menuBtn);
+		menuBtn.setOnClickListener(onClickListener);
+		
+		this.taskListAdapter = new TodayTaskListAdapter(this, this.listItems);
+		this.taskList = (ListView)this.todayTodo.findViewById(R.id.today_taskList);
+		this.taskList.setAdapter(this.taskListAdapter);
+		
+		View leftView = new View(this);
+		leftView.setBackgroundColor(Color.TRANSPARENT);
+		final View[] children = new View[]{leftView, todayTodo};
+		this.scrollView.initViews(children, new SizeCallBackForMenu(this.menuBtn), this.menuList);
+		this.scrollView.setMenuBtn(this.menuBtn);
+	}
+	
+	private void init(){
+		this.listItems = new ArrayList<Map<String, Object>>();
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<Goal> userGoals=goalOpt.getTodayGoal("user_id", String.valueOf(ContextUtil.getCurrentUser().getUserId()));
+		scenes=goalOpt.getAllScene(userGoals);
+		for(int i=0;i<scenes.size();i++)
+			{
+				List<Goal> groupGoal=goalOpt.getTodayGoal("scene", scenes.get(i));
+				map = new HashMap<String, Object>();
+				map.put("Tag","scene"+(i+1));
+				map.put("text", scenes.get(i));
+				this.listItems.add(map);
+				for(Goal g:groupGoal)
+				{
+					map = new HashMap<String, Object>();
+					map.put("belong", "doit_now");
+				    map.put("pri", g.getPriority());
+				    map.put("title",g.getTitle());
+				    map.put("startTime", g.getStartTime());
+				    map.put("scene", "@"+g.getScene());
+				    if(g.getPlan()==null)
+				       map.put("belongPlan", "");
+				    else
+				    	map.put("belongPlan", "#"+g.getPlan().getTitle());
+				    map.put("overDate", "过期");
+				    this.listItems.add(map);
+				}
+			}
+		List<Goal> noSceneGoal=goalOpt.getTodayGoal("scene", "");
+		map = new HashMap<String, Object>();
+		map.put("Tag","scene0");
+		map.put("text", "未指定");
+		this.listItems.add(map);
+		for(Goal g:noSceneGoal)
+		{
+			
+			map = new HashMap<String, Object>();
+	    	map.put("belong", "doit_now");
+		    map.put("pri", g.getPriority());
+		    map.put("title",g.getTitle());
+		    map.put("startTime", g.getStartTime());
+		    map.put("scene", g.getScene());
+		    if(g.getPlan()==null)
+		       map.put("belongPlan", "");
+		    else
+		    	map.put("belongPlan", "#"+g.getPlan().getTitle());
+		    map.put("overDate", "过期");
+		    this.listItems.add(map);
+		}
+	}
+		
+		/*map.put("Tag", "doit_now");
+		map.put("text", "马上去做");
+		this.listItems.add(map);
+		
+		for(int i = 0; i < 3; i++){
+			map = new HashMap<String, Object>();
+			map.put("belong", "doit_now");
+			map.put("pri", new Integer(i));
+			map.put("title", "task" + i);
+			this.listItems.add(map);
+		}
+		
+		map = new HashMap<String, Object>();
+		map.put("Tag", "today_other");
+		map.put("text", "今日其他");
+		this.listItems.add(map);
+		
+		for(int i = 3; i < 6; i++){
+			map = new HashMap<String, Object>();
+			map.put("belong", "today_other");
+			map.put("pri", new Integer(i));
+			map.put("title", "task" + i);
+			this.listItems.add(map);
+		}*/
+	
+	/************************************/
+	/*-             Listener		   -*/
+	/************************************/
+	
+	private OnClickListener onClickListener = new OnClickListener(){
+
+		@Override
+		public void onClick(View arg0) {
+			// TODO Auto-generated method stub
+			scrollView.clickMenuBtn();
+		}
+	};
+	/**
+	 * 
+	 * @param v
+	 */
+	public void onAddTaskClick(View v)
+	{
+		 Intent intent=new Intent();
+		 intent.setClass(this, Goal_Activity.class);
+		 startActivity(intent);
+		 this.finish();
+	}
+}

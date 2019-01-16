@@ -1,0 +1,211 @@
+package cn.edu.xmu.software.common;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+
+import cn.edu.xmu.software.model.DataHelper;
+
+import android.content.Context;
+
+public class DataUtils {
+	/**
+	 * 获取DataHelper
+	 * @param context
+	 * @return
+	 */
+	public static DataHelper getHelper(Context context)
+	{
+		DataHelper databaseHelper = null;
+		if (databaseHelper == null) {
+			databaseHelper =
+			OpenHelperManager.getHelper(context, DataHelper.class);
+			}
+			return databaseHelper;
+	}
+	/**
+	 * 将数组转化为List类型
+	 * @param o
+	 * @return
+	 */
+     public static List arrayToList(Object[] o)
+     {
+    	 List  list=new ArrayList();
+    	 for(Object obj : o)
+    		 list.add(obj);
+    	 return list;
+     }
+     /**
+      * 将tag字符串转化为tag数组
+      * @param tagString
+      * @return
+      */
+     public static List<String> stringToTags(String tagString)
+     {
+    	 String[] tags=tagString.split(",");
+    	 List<String> temp=new ArrayList<String>();
+    	 for(int i=0;i<tags.length;i++)
+    		 temp.add(tags[i]);
+    	 return temp;
+     }
+     /**
+      * 将tag数组转化为tag字符串
+      * @param tags
+      * @return
+      */
+     public static   String  tagsToString(List<String> tags)
+     {
+    	 String temp="";
+    	 for(int i=0;i<tags.size();i++)
+    	 {
+    		if(i<tags.size()-1)
+    		    temp+=tags.get(i)+",";
+    		else 
+    			temp+=tags.get(i);
+    	 }
+    	 return temp;
+     }
+     
+     /**
+      * 字符串转换为日期
+      * 
+      *@param String strDate：日期的字符串形式
+      * @param String format：转换格式  String的格式是yyyy-MM-dd HH:mm:ss;
+      * @return String
+      * @throws 
+      */
+      public static Date strToDate(String strDate){
+          SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+          Date date = null;
+          try{
+              date = dateFormat.parse(strDate);
+          }catch(ParseException e){
+              e.printStackTrace();
+              //System.out.println(e.getMessage());
+          }
+          return date;
+      }
+
+      /**
+      * 日期转换为字符串
+      * 
+      * @param Date date：需要转换的日期
+      * @param String format：转换格式
+      * @return String
+      * @throws 
+      */
+      public static String dateToStr(Date date){
+          SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+          return dateFormat.format(date);
+      }
+      /**
+       * 字符串转换为日期
+       * 
+       *@param String strDate：日期的字符串形式
+       * @param String format：转换格式  String的格式是yyyy-MM-dd HH:mm:ss;
+       * @return String
+       * @throws 
+       */
+       public static Date strToDate2(String strDate){
+           SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+           Date date = null;
+           try{
+               date = dateFormat.parse(strDate);
+           }catch(ParseException e){
+               e.printStackTrace();
+               //System.out.println(e.getMessage());
+           }
+           return date;
+       }
+
+       /**
+       * 日期转换为字符串
+       * 
+       * @param Date date：需要转换的日期
+       * @param String format：转换格式
+       * @return String
+       * @throws 
+       */
+       public static String dateToStr2(Date date){
+           SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm"); 
+           return dateFormat.format(date);
+       }
+      /**
+      * 日期时间转换为字符串
+      * @author dingyongli
+      * @param Date date：需要转换的日期
+      * @param String format：转换格式
+      * @return String
+      * @throws 
+      */    
+      public static String dateTimeToStr(Date date, String format){
+          SimpleDateFormat dateTimeFormat = new SimpleDateFormat(format); 
+          return dateTimeFormat.format(date);
+      }
+      /**
+       * 将日期，时间，转换为完整的时间字符串
+       * @param date
+       * @param time
+       * @return
+       */
+      public static String getDateData(String date,String time)
+      {
+   /* 	 if(date.equals("未指定") || time.equals("未设定"))
+    		 return "";*/
+    	 String dateString=date+" "+time;
+    	 if(dateString.contains("未指定")||dateString.contains("未设定"))
+    		 return "";
+    	 if(dateString.equals(" "))
+    		 dateString="";
+    	 return dateString;
+      }
+     /**
+      * 判断空值，情境，时间，标签若没有选择默人为未设定，需要转换为空
+      * @param data
+      * @return
+      */
+      public static String getData(String data)
+      {
+    		 String dateString=data;
+        	 if(dateString.contains("未指定")||dateString.contains("未设定"))
+        		 return "";
+        	 return dateString;
+      }
+      /**
+       * 获取时间字符串中的的日期
+       * @param data
+       * @return
+       */
+      public static String getCalendarDate(String data)
+      {
+    	  Date date;
+    	  if(data.equals(""))
+    	  {
+    		  date=strToDate2(data);
+    		  SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+    		  return dateFormat.format(date);
+    	  }
+    	  return data;
+      }
+      /**
+       * 获取时间字符串中的时间
+       * @param data
+       * @return
+       */
+      public static String getTime(String data)
+      {
+    	  Date date;
+    	  if(data.equals(""))
+    	  {
+    		  date=strToDate2(data);
+    		  SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm"); 
+    		  return dateFormat.format(date);
+    	  }
+    	  return data;
+      }
+}  

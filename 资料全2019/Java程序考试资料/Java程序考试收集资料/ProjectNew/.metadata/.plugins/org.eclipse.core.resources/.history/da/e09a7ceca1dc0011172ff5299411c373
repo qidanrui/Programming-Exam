@@ -1,0 +1,68 @@
+package cn.edu.xmu.software;
+
+import cn.edu.xmu.software.common.ContextUtil;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
+
+public class Raw_Goal_Activity extends Activity {
+	private TextView goal_title;
+	private TextView goal_desc;
+	private IGoalOpt goalOpt;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		goalOpt=new GoalOpt(this);
+		LayoutInflater inflater = LayoutInflater.from(this);
+		setContentView(R.layout.raw_goal_edit);
+		
+		//setContentView(R.layout.goal_edit);
+		goal_title=(TextView)findViewById(R.id.title);
+		goal_desc=(TextView)findViewById(R.id.desc);
+	}
+
+	/*
+	 * 页面底部的取消按钮
+	 */
+	public void onCancelClick(View v) {
+		reToInboxPage();
+	}
+
+	/*
+	 * 页面底部的确定按钮
+	 */
+	public void onSaveClick(View v) {
+		Goal goal=new Goal();
+		goal.setTitle( goal_title.getText().toString());
+		goal.setDesc(goal_desc.getText().toString());
+		goal.setEnergy("");
+		goal.setTimeLength("");
+		goal.setStartTime("收集箱");
+		goal.setFinishTime("");
+		goal.setScene("");
+		goal.setTags("");
+		goal.setUser(ContextUtil.getCurrentUser());
+		ContextUtil.setCurrentGoal(goal);
+		IGoalOpt goalopt=new GoalOpt(this);
+ 		goalopt.createGoal(goal);
+		reToInboxPage();
+	}
+	/**
+	 * 返回今日待办页面
+	 */
+	public void reToInboxPage()
+	{
+		Intent  intent=new Intent();
+		intent.setClass(this, InBoxTaskListActivity.class);
+		 startActivity(intent);
+		// this.finish();
+	}
+}

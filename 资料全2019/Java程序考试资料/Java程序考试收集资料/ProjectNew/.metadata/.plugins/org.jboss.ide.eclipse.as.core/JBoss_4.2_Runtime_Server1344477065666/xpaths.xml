@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xpaths>
+  <category name="Ports">
+    <query attribute="port" dir="server/${jboss_config}" filePattern="**/*server.xml" name="JBoss Web" xpathPattern="//Server/Service[@name='jboss.web']/Connector[count(@sslProtocol) = 0 and (count(@protocol) = 0 or @protocol = 'HTTP/1.1')]"/>
+    <query dir="server/${jboss_config}" name="Web Services" xpathPattern="//server/mbean[@name='jboss:service=WebService']/attribute[@name='Port']"/>
+    <query dir="server/${jboss_config}" name="JRMP Invoker" xpathPattern="//server/mbean[@name='jboss:service=invoker,type=jrmp']/attribute[@name='RMIObjectPort']"/>
+    <query dir="server/${jboss_config}" name="Pooled Invoker" xpathPattern="//server/mbean[@name='jboss:service=invoker,type=pooled']/attribute[@name='ServerBindPort']"/>
+    <query dir="server/${jboss_config}" filePattern="**/jboss-service.xml" name="JNDI" xpathPattern="//server/mbean[@name='jboss:service=Naming']/attribute[@name='Port']"/>
+    <query dir="server/${jboss_config}" filePattern="**/jboss-service.xml" name="JNDI RMI" xpathPattern="//server/mbean[@name='jboss:service=Naming']/attribute[@name='RmiPort']"/>
+  </category>
+</xpaths>

@@ -1,0 +1,14 @@
+package Teaching.Core;
+import android.app.Activity;
+import android.os.Bundle;
+import Teaching.Core.R;
+import android.widget.Button;
+
+public class HomePageActivity extends Activity {
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.mainHome);
+        Button loginBtn=(Button)findViewById(R.id.btn_logoWithNoNet);
+	}
+}

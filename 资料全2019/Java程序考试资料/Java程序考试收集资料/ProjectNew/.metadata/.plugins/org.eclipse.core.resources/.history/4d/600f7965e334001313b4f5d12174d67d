@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+
+public class InsertSort {
+	/**
+	 * 插入排序
+	 * @param datas
+	 */
+    public static void insertSort(ArrayList<Integer> datas)
+    {
+    	for(int j=1;j<datas.size();j++)
+    	{
+    		int key=datas.get(j);
+    		int i=j-1;
+    		while(i>=0&&datas.get(i)>key)
+    		{
+    			datas.set(i+1, datas.get(i));
+    			i=i-1;
+    		}
+    		datas.set(i+1, key);
+    	}
+    }
+}

@@ -1,0 +1,124 @@
+package cn.edu.xmu.software.model;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.entity.Plan;
+import cn.edu.xmu.software.interfaces.IPlanOpt;
+
+import com.j256.ormlite.dao.Dao;
+
+public class PlanOpt implements IPlanOpt {
+	Dao<Plan,Integer>  planDao;
+	public PlanOpt(Context context) 
+	{
+		try {
+			planDao=DataUtils.getHelper(context).getPlanDao();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   /**
+    * 创建计划
+    * @param p
+    */
+	@Override
+	public void createPlan(Plan p)  {
+		// TODO Auto-generated method stub
+			try {
+				planDao.create(p);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	}
+  /**
+   * 更新计划
+   * @param p
+   */
+	@Override
+	public void updatePlan(Plan p) {
+		// TODO Auto-generated method stub
+		try {
+			planDao.update(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   /**
+    * 删除计划
+    * @param p
+    */
+	@Override
+	public void deletePlan(Plan p) {
+		// TODO Auto-generated method stub
+		try {
+			planDao.delete(p);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   
+   /**
+    * 获取表中所有计划
+    * @return
+    */
+	@Override
+	public  List<Plan>  getAllPlan()  {
+		// TODO Auto-generated method stub
+
+			List<Plan> results = new ArrayList<Plan>();
+			try {
+				results=planDao.queryBuilder().orderBy("createTime", true).query();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 return results;
+	}
+@Override
+public List<Goal> getPlanGoals(Plan plan) {
+	// TODO Auto-generated method stub
+	return plan.getListGoals();
+}
+/**
+ * 通过某个属性获取Plan
+ */
+@Override
+public List<Plan> getPlansByProperty(String property, String value) {
+	// TODO Auto-generated method stub
+	List<Plan> results=new ArrayList<Plan>();
+	try {
+		results=planDao.queryBuilder().orderBy("createTime", true).where().eq(property, value).query();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return results;
+}
+
+/**
+ * 通过计划id获取计划
+ */
+@Override
+public Plan getPlanById(long id) {
+	// TODO Auto-generated method stub
+	Plan p=new Plan();
+	try {
+		p=planDao.queryForId((int) id);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return p;
+}
+
+}

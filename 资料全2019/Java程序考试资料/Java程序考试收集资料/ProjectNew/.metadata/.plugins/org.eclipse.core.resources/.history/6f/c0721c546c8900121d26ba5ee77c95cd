@@ -1,0 +1,155 @@
+package cn.edu.xmu.software.eventprocesser;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+import javax.media.opengl.GL;
+import javax.media.opengl.GL2;
+import javax.media.opengl.GLAutoDrawable;
+import javax.media.opengl.GLEventListener;
+import javax.media.opengl.awt.GLCanvas;
+import javax.media.opengl.glu.GLU;
+import javax.swing.JOptionPane;
+
+import cn.edu.xmu.software.diffuse.Diffuser;
+import cn.edu.xmu.software.util.Point;
+import cn.edu.xmu.software.util.TextureReader;
+import cn.edu.xmu.software.util.TextureReader.Texture;
+
+/**
+ * ÊµÏÖGLCanvasµÄGLEventListener
+ * @author::jimmy.cai
+ * @date::2013/03/09
+ */
+public class GLEventProcesser implements GLEventListener{
+	private GLCanvas canvas;
+	private GLU glu=new GLU();
+	public static ArrayList<Point> points=new ArrayList<Point>();
+	public static float gScale=1.0f;
+	private Diffuser diffuser;
+	public static float drawWidth=580.0f;
+	private boolean isLoadShadersOK;
+	public static int gDx;
+	public static int gDy;
+	
+	
+	public GLEventProcesser(GLCanvas canvas){
+		this.canvas=canvas;
+		isLoadShadersOK=true;
+		points.add(new Point(145,435));
+		points.add(new Point(435,145));
+		points.add(new Point(335,195));
+	}
+
+	@Override
+	public void display(GLAutoDrawable drawable) {
+		System.out.println(points.size());
+		GL2 gl=drawable.getGL().getGL2();
+		gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+		gl.glLoadIdentity();
+		gl.glTranslatef(0.0f, 0.0f, -2.0f);
+		try {
+			Texture texture=TextureReader.readTexture("1.png", false);
+			gl.glDrawPixels(680, 680,GL.GL_RGB, GL.GL_UNSIGNED_BYTE , texture.getPixels());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		gl.glBegin(GL2.GL_LINES);
+//		for(int i=0;i<points.size()-1;i++){
+//			float x1=(((float)points.get(i).getX()*gScale+gDx)/drawWidth)*4-2;
+//			float y1=((drawWidth-(points.get(i).getY()*gScale+gDy))/drawWidth)*4-2;
+//			float x2=(((float)points.get(i+1).getX()*gScale+gDx)/drawWidth)*4-2;
+//			float y2=((drawWidth-(points.get(i+1).getY()*gScale+gDy))/drawWidth)*4-2;
+//			gl.glColor3f(1.0f, 0.0f, 1.0f);
+//			gl.glVertex2f(x1-0.005f, y1+0.005f);
+//			gl.glVertex2f(x2-0.005f, y2+0.005f);
+//			gl.glColor3f(1.0f, 1.0f, 0.0f);
+//			gl.glVertex2f(x1+0.005f, y1-0.005f);
+//			gl.glVertex2f(x2+0.005f, y2-0.005f);
+//		}
+//		gl.glEnd();
+//		
+//		if(isLoadShadersOK)
+//			diffuser.diffuse();
+//		
+//		gl.glLoadIdentity();
+//		gl.glTranslatef(0.0f, 0.0f, -2.0f);
+//		gl.glColor3f(0.0f, 0.0f, 0.0f);
+//		gl.glBegin(GL2.GL_LINES);
+//		for(int i=0;i<points.size()-1;i++){
+//			float x1=(((float)points.get(i).getX()*gScale+gDx)/drawWidth)*4-2;
+//			float y1=((drawWidth-(points.get(i).getY()*gScale+gDy))/drawWidth)*4-2;
+//			float x2=(((float)points.get(i+1).getX()*gScale+gDx)/drawWidth)*4-2;
+//			float y2=((drawWidth-(points.get(i+1).getY()*gScale+gDy))/drawWidth)*4-2;
+//			gl.glVertex2f(x1, y1);
+//			gl.glVertex2f(x2, y2);
+//		}
+//		gl.glEnd();
+	}
+
+	@Override
+	public void dispose(GLAutoDrawable arg0) {
+		GL2 gl=arg0.getGL().getGL2();
+		gl.glDeleteTextures(diffuser.getLayer(), diffuser.getTextureInt(), 0);
+		gl.glDeleteProgram(diffuser.getAccuP());
+		gl.glDeleteProgram(diffuser.getJjjP());
+	}
+
+	@Override
+	public void init(GLAutoDrawable drawable) {
+		GL2 gl=drawable.getGL().getGL2();
+		gl.glShadeModel(GL2.GL_SHADER_TYPE);
+		gl.glClearColor(0.6f, 0.6f, 0.6f, 1.0f);
+		gl.glClearDepth(1.0f);
+		gl.glEnable(GL2.GL_DEPTH_TEST);
+		gl.glDepthFunc(GL2.GL_LEQUAL);
+		gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NEAREST);
+		diffuser=new Diffuser(gl,drawWidth);
+		gl.glGenTextures(diffuser.getLayer(), diffuser.getTextureInt(), 0);
+		diffuser.genTexture(gl,diffuser.getLayer());
+		
+		try{
+		int accuP=diffuser.setAccuShader(gl);
+		int jjjP=diffuser.setJJJShader(gl);
+		
+		diffuser.setAccuP(accuP);
+		diffuser.setJjjP(jjjP);
+		}catch(FileNotFoundException e){
+			isLoadShadersOK=false;
+			JOptionPane.showMessageDialog(canvas, "Sorry! Load shaders error! The program will not diffuse!", "Shaders Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		MouseProcesser mouseProcesser=new MouseProcesser(gl,canvas);
+		KeyProcesser keyProcesser=new KeyProcesser(canvas);
+		canvas.addMouseListener(mouseProcesser);
+		canvas.addMouseMotionListener(mouseProcesser);
+		canvas.addMouseWheelListener(mouseProcesser);
+		canvas.addKeyListener(keyProcesser);
+	}
+
+	@Override
+	public void reshape(GLAutoDrawable gLDrawable, int x, int y, int width,
+			int height) {
+		final GL2 gl = gLDrawable.getGL().getGL2();
+		if (height <= 0) // avoid a divide by zero error!
+		{
+			height = 1;
+		}
+		int side=width<height?width:height;
+
+		gl.glViewport((width - side) / 2, (height - side) / 2, side, side);
+		gl.glMatrixMode(GL2.GL_PROJECTION);
+		gl.glLoadIdentity();
+		glu.gluPerspective(90.0f, 1, 1.0, 1000.0);
+		gl.glMatrixMode(GL2.GL_MODELVIEW);
+		gl.glLoadIdentity();
+		
+	}
+	
+}

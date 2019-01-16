@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/logo" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="20.0sp" android:layout_gravity="right" android:id="@+id/btn_logoWithNoNet" android:layout_width="120.0sp" android:layout_height="wrap_content" android:layout_marginTop="200.0dip" android:layout_marginRight="20.0dip" android:text="@string/dianjibang" 
+          android:onClick="toLogin"/>
+    <TableRow android:gravity="right" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textSize="20.0sp" android:layout_gravity="right|center" android:id="@+id/btn_logoWithNet" android:layout_width="120.0sp" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:text="@string/wangluobang" />
+    </TableRow>
+    <TextView android:textSize="17.0sp" android:textColor="#ff666666" android:layout_gravity="right" android:layout_width="180.0dip" android:layout_height="140.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:text="@string/shuomeng" android:singleLine="false" />
+</LinearLayout>

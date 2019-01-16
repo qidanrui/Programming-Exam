@@ -1,0 +1,62 @@
+package Teaching.Adapter;
+
+import java.util.List;
+import java.util.Map;
+
+import cn.edu.xmu.software.InBoxTaskListActivity;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import Teaching.Core.CourseActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+public class UserCourseAdapter extends BaseAdapter{
+	private CourseActivity context;
+	private LayoutInflater listInflater;
+	private List<Map<String, Object>> listItems;
+	private int itemCount;
+	
+	public final class ListItemView{
+		public TextView courName;
+		public TextView task_owner;
+		
+		public  TextView task_desc;
+	}
+	public UserCourseAdapter(InBoxTaskListActivity context, List<Map<String, Object>> listItems) {
+		// TODO Auto-generated constructor stub
+		this.context = context;
+		//this.listItems = new ArrayList<Map<String, Object>>();
+		this.listItems = listItems;
+		goalOpt=new GoalOpt(context);
+		this.init();
+	} 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

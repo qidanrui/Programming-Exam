@@ -1,0 +1,43 @@
+package xmu.software.cxj.chatproc.server.service;
+
+import java.util.Calendar;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import xmu.software.cxj.mychat.server.dao.InformationDao;
+import xmu.software.cxj.mychat.shared.pojo.Information;
+import xmu.software.cxj.mychat.shared.service.InfoService;
+@Service("infoService")  
+public class InfoServiceImpl implements InfoService{
+	 @Autowired 
+	 private InformationDao infoDAO;
+	  @PostConstruct    
+	    public void init() throws Exception {    
+	    }    
+	       
+	    @PreDestroy    
+	    public void destroy() {    
+	    }
+	 
+	  @Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)  
+	@Override
+	public void saveOrUpdateInfo(String from, String to, Calendar date,
+			String content) {
+		// TODO Auto-generated method stub
+		 Information personAccount =new Information(from,to,date,content);
+		 infoDAO.merge(personAccount);
+	}
+
+	@Override
+	public Information findInfo(String to) {
+		// TODO Auto-generated method stub
+		return infoDAO.findById(to);
+	}
+
+}

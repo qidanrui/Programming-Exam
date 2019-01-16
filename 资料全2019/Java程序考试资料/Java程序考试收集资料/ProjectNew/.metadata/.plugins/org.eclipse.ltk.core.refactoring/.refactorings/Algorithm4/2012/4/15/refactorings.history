@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;FileOperate.java&apos; to &apos;MyChat/src/xmu.software.cxj.mychat.client&apos;&#x0D;&#x0A;- Original project: &apos;Algorithm4&apos;&#x0D;&#x0A;- Destination element: &apos;MyChat/src/xmu.software.cxj.mychat.client&apos;&#x0D;&#x0A;- Original element: &apos;FileOperate.java&apos;" description="Copy compilation unit" destination="=MyChat/src&lt;xmu.software.cxj.mychat.client" element1="/src&lt;{FileOperate.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1334287565792" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,56 @@
+最常用的两种方法：
+
+一、Collections.sort(list);
+
+Sorts the specified list into ascending（升序）order, according to the natural ordering（自然序）of its elements.自然序是指的是2应该在1的后面，字母b应该在字母a后面。
+
+例子：Java十道题的第三题
+
+ArrayList<String> list = new ArrayList<String>();
+for (int i = 0; i < n; i++)
+    list.add(temp[i]);
+
+Collections.sort(list);
+
+
+
+二、Collections.sort(list, comparator);
+
+在进行排序的时候，我们还可以传递一个比较器对象。
+比较器Comparator是Java.util包当中的一个接口，所以我们需要先写一个实现了比价器的类，然后实例化一个该类的对象再传递给Collections.sort方法。
+
+这个我们自己写的类一般只需要实现Comparator接口的compare(T o1, T o2)即可：
+
+int compare(T o1, T o2) 
+Compares its two arguments for order.
+Return a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second.
+
+例子：
+	/**
+	 * sortDateHandler: 实现了点“排序-按购买日期”时的功能——按购买日期从低到高排序并显示出来
+	 */
+	private class sortDateHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			//PriceComp comparator = new PriceComp();
+			Comparator<Book> comparator = new PriceComp();
+			Collections.sort(list, comparator);
+			refresh(list);
+		}
+	}
+
+        
+        private class PriceComp implements Comparator<Book>
+	{
+		public int compare(Book book1, Book book2)
+		{
+			return book1.price.compareTo(book2.price);
+		}
+	}
+
+
+注意：
+1.String类型它本身就实现了Comparable接口，所以它有一个方法叫compareTo()
+2.要反向排序，可以改为Collections.sort(list, Collections.reverseOrder(priceComparator))，也可以将compareTo方法中两个对象的顺序换一下即可！
+

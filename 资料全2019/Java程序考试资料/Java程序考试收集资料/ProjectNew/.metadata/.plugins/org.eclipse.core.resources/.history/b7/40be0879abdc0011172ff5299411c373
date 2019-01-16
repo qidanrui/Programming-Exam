@@ -1,0 +1,159 @@
+package cn.edu.xmu.software.adapter;
+
+import java.util.List;
+import java.util.Map;
+
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import cn.edu.xmu.software.Goal_Activity;
+import cn.edu.xmu.software.InBoxTaskListActivity;
+import cn.edu.xmu.software.R;
+import cn.edu.xmu.software.TodayTaskListActivity;
+import cn.edu.xmu.software.adapter.TodayTaskListAdapter.ListItemView;
+import cn.edu.xmu.software.common.DataTemp;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+
+public class InBoxTaskListAdapter  extends BaseAdapter {
+	
+
+	private InBoxTaskListActivity context;
+	private LayoutInflater listInflater;
+	private CheckBox checkBox; 
+	private IGoalOpt goalOpt;
+	private Button task_tag;
+	private List<Map<String, Object>> listItems;
+	private int itemCount;
+	private String title;
+	private String desc;
+	private String owner;
+	
+	public final class ListItemView{
+		public CheckBox doit_now;
+		public TextView task_title;
+		public TextView task_owner;
+		
+		public  TextView task_desc;
+	}
+	public InBoxTaskListAdapter(InBoxTaskListActivity context, List<Map<String, Object>> listItems) {
+		// TODO Auto-generated constructor stub
+		this.context = context;
+		//this.listItems = new ArrayList<Map<String, Object>>();
+		this.listItems = listItems;
+		goalOpt=new GoalOpt(context);
+		this.init();
+	} 
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return this.itemCount;
+	}
+
+	@Override
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		ListItemView listItem = null;
+		final int po = position;
+		String tag = null;
+		listItem = new ListItemView();
+		tag = (String)this.listItems.get(position).get("Tag"); 
+		if(tag == null){
+			listItem = new ListItemView();
+			convertView  = this.listInflater.inflate(R.layout.task_list_item, null);
+			listItem.doit_now = (CheckBox)convertView.findViewById(R.id.complete_btn);
+			listItem.task_title = (TextView)convertView.findViewById(R.id.task_title);
+			listItem.task_project=(TextView)convertView.findViewById(R.id.task_project);
+			listItem.task_owner=(TextView)convertView.findViewById(R.id.task_owner);
+
+			listItem.task_startat=(TextView)convertView.findViewById(R.id.task_startat);
+			listItem.task_context=(TextView)convertView.findViewById(R.id.task_context);
+			listItem.task_length=(TextView)convertView.findViewById(R.id.task_length);
+			listItem.task_energy=(TextView)convertView.findViewById(R.id.task_energy);
+		//	listItem.task_endat=(TextView)convertView.findViewById(R.id.task);
+			
+			int color_id = (Integer)this.listItems.get(position).get("pri");
+			title = (String)this.listItems.get(position).get("title");
+			belongToPlan=(String)this.listItems.get(position).get("pro_title");
+			owner=(String)this.listItems.get(position).get("owner");
+			startTime=(String)this.listItems.get(position).get("startTime");
+			scene=(String)this.listItems.get(position).get("context");
+			length=(String)this.listItems.get(position).get("length");
+			energy=(String)this.listItems.get(position).get("energy");
+			
+			
+			listItem.task_title.setText(title);
+			listItem.task_project.setText(belongToPlan);
+			listItem.task_owner.setText(owner);
+			
+			listItem.task_startat.setText(startTime);
+			listItem.task_context.setText(scene);
+			listItem.task_length.setText(length);
+			listItem.task_energy.setText(energy);
+			
+			listItem.doit_now.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+				@Override
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					// TODO Auto-generated method stub
+					
+					if(isChecked){
+						List<Goal>goals =goalOpt.getGoalsByProperty("title",String.valueOf(listItems.get(po).get("title")));
+				    	Goal g=new Goal();
+				    	// Toast.makeText(context, "选中" +goals.size(), Toast.LENGTH_SHORT).show();
+				    	if(goals.size()!=0)
+				    	{
+				    		g=goals.get(0);
+				    		listItems.remove(goals.get(0));
+				    		g.setStartTime("已完成");
+							 goalOpt.updateGoal(g);
+				    	}
+				    	context.refresh();
+					}
+				}
+				
+			});
+		
+			
+		}
+		else{
+			convertView  = this.listInflater.inflate(R.layout.task_list_item_tag, null);
+			this.task_tag = (Button)convertView.findViewById(R.id.task_tag);
+			String text = (String)this.listItems.get(position).get("text");
+			this.task_tag.setText(text);
+		}
+		return convertView;
+	}
+	
+	private void init(){
+		
+		this.itemCount = this.listItems.size();
+		this.listInflater = LayoutInflater.from(this.context);
+	}
+}

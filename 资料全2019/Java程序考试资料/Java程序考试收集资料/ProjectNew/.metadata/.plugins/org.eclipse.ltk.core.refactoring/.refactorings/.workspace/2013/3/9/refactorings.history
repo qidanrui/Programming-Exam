@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;DiffuionCurves_UI&apos;" deleteContents="false" description="Delete resource &apos;DiffuionCurves_UI&apos;" element1="/DiffuionCurves_UI" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1362215226793"/>&#x0A;<refactoring comment="Delete resource &apos;JavaXmlRnW&apos;" deleteContents="false" description="Delete resource &apos;JavaXmlRnW&apos;" element1="/JavaXmlRnW" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1362215232579"/>
+</session>

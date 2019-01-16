@@ -1,0 +1,564 @@
+package cn.edu.xmu.software;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import cn.edu.xmu.software.callback.SizeCallBackForMenu;
+import cn.edu.xmu.software.common.ContextUtil;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.common.DateTimeUtils;
+
+import cn.edu.xmu.software.adapter.EnergyListAdapter;
+import cn.edu.xmu.software.adapter.MenuListAdapter;
+import cn.edu.xmu.software.adapter.TimeListAdapter;
+
+import cn.edu.xmu.software.ui.MenuHorizontalScrollView;
+
+import cn.edu.xmu.software.R;
+import cn.edu.xmu.software.adapter.PriorityListAdapter;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class Goal_Activity extends Activity {
+
+	private static final int RESULT_CANCLED = 0;
+	private static final int PROJECT_CODE = 0;
+	private static final int CONTEXT_CODE = 1;
+	private static final int TAG_CODE = 2;
+	private static final int STARTTIMT_CODE = 3;
+	// private Button check_start_time;
+	// private boolean start_time_check;	
+	private TextView goal_title;
+	private TextView goal_desc;
+	private LinearLayout enddatetime_wrap;
+	private TextView enddatepickerdialog_btn;
+	private boolean endtimevisible;
+	private TextView endtimepickerdialog_btn;
+	private TextView no_endtime;
+	private LinearLayout enddatepickerdialog_wrap;
+	private LinearLayout endtimepickerdialog_wrap;
+	private Context context;
+	private ListView listView;
+	private PriorityListAdapter priListAdapter;
+	private EnergyListAdapter energyListAdapter;
+	private TimeListAdapter timeListAdapter;
+	private Dialog listViewDlg;
+	private List<String> listItems;
+	private Button task_project;
+	private Button task_pri_btn;
+	private Button task_energy_btn;
+	private Button task_time_btn;
+	private Button task_context;
+	
+	private Button task_tag;
+	private Button start_time_btn;
+	
+	private String endDate ="";
+	private String endTime ="";
+	private String startDate ="";
+	private String startTime ="";
+	private int start_time_index = -1;
+	
+	private int task_pri_index = 5;
+	private int task_energy_index = 0;
+	private int task_time_index = 3;
+	private int project_index = 0;
+	private long project_id = -1;
+	private String project_text = "未指定";
+	private int context_index = 0;
+	private String context_text = "未指定";
+	private ArrayList<Integer> tag_indexs;
+	private ArrayList<String> tag_texts;// = "未指定";
+	private String start_time ="";
+	private final int PRI_COUNT = 6;
+	private int endYear;
+	private int endMonth;
+	private int endDay;
+	private int endHour;
+	private int endMinute;
+	
+	private final int[] task_pri_id = { R.string.pri5, R.string.pri4, R.string.pri3,
+			R.string.pri2, R.string.pri1, R.string.pri0 };
+	private final int[] task_pri = {5, 4, 3, 2, 1, 0};
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.context = this;
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		LayoutInflater inflater = LayoutInflater.from(this);
+		setContentView(R.layout.goal_edit);
+		
+		//setContentView(R.layout.goal_edit);
+		goal_title=(TextView)findViewById(R.id.title);
+		goal_desc=(TextView)findViewById(R.id.desc);
+		task_pri_btn = (Button)findViewById(R.id.task_priority);
+		task_energy_btn = (Button)findViewById(R.id.task_energy);
+		task_time_btn = (Button)findViewById(R.id.task_time_length);
+		task_project = (Button)findViewById(R.id.task_project);
+		task_context = (Button)findViewById(R.id.task_context);
+		task_tag = (Button)findViewById(R.id.task_tag);
+		start_time_btn = (Button)findViewById(R.id.starttime);
+		
+//		enddatetime_wrap = (LinearLayout)findViewById(R.id.enddatetime_wrap);
+		enddatepickerdialog_btn = (TextView)findViewById(R.id.enddatepickerdialog_btn);
+		endtimepickerdialog_btn = (TextView)findViewById(R.id.endtimepickerdialog_btn);
+//		no_endtime = (TextView)findViewById(R.id.no_endtime);
+		enddatepickerdialog_wrap = (LinearLayout)findViewById(R.id.enddatepickerdialog_wrap);
+		endtimepickerdialog_wrap = (LinearLayout)findViewById(R.id.endtimepickerdialog_wrap);
+		
+		endYear = 2012;
+		endMonth = 11;
+		endDay = 22;
+		listItems = new ArrayList<String>();
+		tag_indexs = new ArrayList<Integer>();
+		tag_texts = new ArrayList<String>();
+		tag_indexs.add(0);
+		tag_texts.add("未指定");
+		initListItems();
+	}
+
+	/*
+	 * 点击之后设定结束时间
+	 */
+	public void onEndTimeClick(View v) {
+		if (endtimevisible == false) {
+			no_endtime.setVisibility(View.GONE);
+			if(endDate.equals(""))
+				enddatepickerdialog_btn.setText("date");
+			if(endTime.equals(""))
+				endtimepickerdialog_btn.setText("time");
+			enddatepickerdialog_wrap.setVisibility(View.VISIBLE);
+			endtimepickerdialog_wrap.setVisibility(View.VISIBLE);
+			endtimevisible = true;
+		} else {
+			no_endtime.setVisibility(View.VISIBLE);
+			enddatepickerdialog_wrap.setVisibility(View.GONE);
+			endtimepickerdialog_wrap.setVisibility(View.GONE);
+			endtimevisible = false;
+		}
+	}
+
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+		@Override
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+			endYear = year;
+			endMonth = monthOfYear;
+			endDay = dayOfMonth;
+			endDate = DateTimeUtils.IntToDateString(endYear, endMonth + 1, endDay);
+			enddatepickerdialog_btn.setText(endDate);
+		}
+	};
+
+	
+	private TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+
+		@Override
+		public void onTimeSet(TimePicker view, int hour, int minute) {
+			// TODO Auto-generated method stub
+			endHour = hour;
+			endMinute = minute;
+			endTime = DateTimeUtils.IntToTimeString(endHour, endMinute);
+			endtimepickerdialog_btn.setText(endTime);
+		}
+	};
+
+	public void enddatepickClick(View v) {
+		DatePickerDialog dialog = new DatePickerDialog(this, mDateSetListener,
+				endYear, endMonth, endDay);
+		dialog.show();
+	}
+
+	public void endtimepickClick(View v) {
+		TimePickerDialog dialog = new TimePickerDialog(this, mTimeSetListener,
+				endHour, endMinute, true);
+		dialog.show();
+	}
+	
+	/*
+	 * 跳转到设定开始时间的页面
+	 */
+	public void onStartTimeClick(View v) {
+		Intent intent = new Intent();
+		intent.putExtra("date", this.startDate);
+		intent.putExtra("time", this.start_time);
+		intent.putExtra("index", this.start_time_index);
+		intent.setClass(this, Pick_startTime.class);
+		startActivityForResult(intent, 3);
+	}
+
+
+	/*
+	 * 点击添加到计划，跳转选择计划的页面
+	 */
+	public void onProjectClick(View v) {
+		Intent intent = new Intent();
+		intent.putExtra("index", this.project_index);
+		intent.putExtra("id", this.project_id);
+		intent.putExtra("text", this.project_text);
+		intent.setClass(this, ProSelectedActivity.class);
+		startActivityForResult(intent, PROJECT_CODE);
+	}
+	
+	/*
+	 * 添加标签，点击跳转到添加标签的页面
+	 */
+	public void onTagsClick(View v) {
+		Intent intent = new Intent();
+		intent.putExtra("indexs", this.tag_indexs);
+		intent.putExtra("texts", this.tag_texts);
+		intent.setClass(this, TagsSelectedActivity.class);
+		startActivityForResult(intent, TAG_CODE);
+	}
+	
+
+	/*
+	 * 点击添加情境，跳转到选择情境的页面
+	 */
+	public void onContextClick(View v) {
+		Intent intent = new Intent();
+		intent.putExtra("index", this.context_index);
+		intent.putExtra("text", this.context_text);
+		intent.setClass(this, ContextSelectedActivity.class);
+		startActivityForResult(intent, CONTEXT_CODE);
+	}
+	
+	/**
+	 * 获取其他Activity给本Activity传的值
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		
+		if(requestCode == PROJECT_CODE){
+			Bundle bundle = data.getExtras();
+			this.project_index = bundle.getInt("index");
+			this.project_id = bundle.getLong("id");
+			this.project_text = bundle.getString("text");
+			this.task_project.setText(this.project_text);
+		}
+		else if(requestCode == CONTEXT_CODE){
+			Bundle bundle = data.getExtras();
+			this.context_index = bundle.getInt("index");
+			this.context_text = bundle.getString("text");
+			this.task_context.setText(this.context_text);
+		}
+		else if(requestCode == TAG_CODE){
+			Bundle bundle = data.getExtras();
+			this.tag_indexs = bundle.getIntegerArrayList("index");
+			this.tag_texts = bundle.getStringArrayList("texts");
+			this.task_tag.setText(this.getTagText());
+		}
+		else if(requestCode == STARTTIMT_CODE){
+			Bundle bundle = data.getExtras();
+			this.startDate = bundle.getString("date");
+			this.start_time = bundle.getString("time");
+			this.start_time_index = bundle.getInt("index");
+			if(this.startDate.equals("")){
+				
+				switch (this.start_time_index){
+				case 0:
+					this.start_time_btn.setText("收集箱");
+					break;
+				case 2:
+					this.start_time_btn.setText("下一步行动");
+					break;
+				case 3:
+					this.start_time_btn.setText("择日代办");
+					break;
+				case 4:
+					this.start_time_btn.setText("委托他人");
+					
+				}
+			}
+			else{
+				this.start_time_btn.setText(this.startDate + " " + this.start_time);
+			}
+		}
+	}
+	
+
+	/*
+	 * 点击设定优先级，弹出设定优先级的对话框
+	 */
+	public void onPriorityClick(View v) {
+		String title = context.getString(R.string.priority);
+		LayoutInflater inflater = LayoutInflater.from(context);
+		final View DialogView = inflater
+				.inflate(R.layout.listview_dialog, null);
+		this.listViewDlg = new AlertDialog.Builder(context).setTitle(title)
+				.setView(DialogView).create();
+		this.listViewDlg.show();
+		this.listView = (ListView) DialogView.findViewById(R.id.listView);
+		this.priListAdapter = new PriorityListAdapter(this, this.listItems);
+		this.listView.setAdapter(priListAdapter);
+	}
+	
+	public void onEnergyClick(View view){
+		
+		String title = context.getString(R.string.energy_prompt);
+		LayoutInflater inflater = LayoutInflater.from(context);
+		final View DialogView = inflater
+				.inflate(R.layout.listview_dialog, null);
+		this.listViewDlg = new AlertDialog.Builder(context).setTitle(title)
+				.setView(DialogView).create();
+		this.listViewDlg.show();
+		this.listView = (ListView)DialogView.findViewById(R.id.listView);
+		this.energyListAdapter = new EnergyListAdapter(this);
+		this.listView.setAdapter(energyListAdapter);
+	}
+	
+	public void onTimeLengthClick(View view){
+		
+		String title = context.getString(R.string.time_prompt);
+		LayoutInflater inflater = LayoutInflater.from(context);
+		final View DialogView = inflater
+				.inflate(R.layout.listview_dialog, null);
+		this.listViewDlg = new AlertDialog.Builder(context).setTitle(title)
+				.setView(DialogView).create();
+		this.listViewDlg.show();
+		this.listView = (ListView)DialogView.findViewById(R.id.listView);
+		this.timeListAdapter = new TimeListAdapter(this);
+		this.listView.setAdapter(timeListAdapter);
+	}
+
+	public void onRemindersClick(View v) {
+
+	}
+
+
+
+	/*
+	 * 页面底部的取消按钮
+	 */
+	public void onCancelClick(View v) {
+		reToTodayTaskPage();
+	}
+
+	/*
+	 * 页面底部的确定按钮
+	 */
+	public void onSaveClick(View v) {
+		Goal goal=new Goal();
+		goal.setTitle( goal_title.getText().toString());
+		goal.setDesc(goal_desc.getText().toString());
+		goal.setEnergy("min");
+		goal.setTimeLength("10min");
+		//goal.setStartTime(DataUtils.getDateData(this.getStartDate(), this.getStartTime()));
+		goal.setStartTime("择日代办");
+		goal.setFinishTime(DataUtils.getDateData(this.getEndDate(), this.getEndTime()));
+		goal.setPriority(this.getTaskPriority());
+		goal.setScene(DataUtils.getData(task_context.getText().toString()));
+		goal.setTags(DataUtils.getData(this.getTagText()));
+		goal.setUser(ContextUtil.getCurrentUser());
+		ContextUtil.setCurrentGoal(goal);
+		IGoalOpt goalopt=new GoalOpt(this);
+ 		goalopt.createGoal(goal);
+		reToTodayTaskPage();
+	}
+	/**
+	 * 返回今日待办页面
+	 */
+	public void reToTodayTaskPage()
+	{
+		Intent  intent=new Intent();
+		Date date=new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+	    String today=dateFormat.format(date);
+	    if(this.getStartDate().equals(today))
+		    intent.setClass(this, TodayTaskListActivity.class);
+	    else 
+	    	intent.setClass(this,OtherDayTaskListActivity.class);
+		 startActivity(intent);
+		// this.finish();
+	}
+	
+
+	/*
+	 * 页面上选定某一个优先级
+	 */
+	public void PriorityChoseClick(View v) {
+		
+		
+	}
+
+	private void initListItems() {
+		for (int i = 0; i < PRI_COUNT; i++) {
+			String temp = this.getString(task_pri_id[i]);
+			this.listItems.add(temp);
+		}
+	}
+	
+
+	/**
+	 * 获取所属计划的id
+	 * @return
+	 */
+	private Long getProjectId(){
+		return this.project_id;
+	}
+	
+	/**
+	 * 获取优先级的值
+	 * @return
+	 */
+	public int getTaskPriority(){
+		return task_pri[this.task_pri_index];
+	}
+	
+	/**
+	 * 获取标签信息
+	 * @return
+	 */
+	private String getTagText(){
+		String str = "";
+		int i;
+		for(i = 0; i < this.tag_texts.size() - 1; i++){
+			str += this.tag_texts.get(i) + ",";
+		}
+		str += this.tag_texts.get(i);
+		return str;
+	}
+
+	/**
+	 * 获取截止日期
+	 * @return
+	 */
+	private String getEndDate(){
+		if(this.endtimevisible == true){
+			return this.endDate;
+		}
+		return "";
+	}
+	
+	/**
+	 * 获取截止时间
+	 * @return
+	 */
+	private String getEndTime(){
+		if(this.endtimevisible == true){
+			return this.endTime;
+		}
+		return "";
+	}
+	
+	/**
+	 * 获取开始日期
+	 * @return
+	 */
+	private String getStartDate(){
+		return this.startDate;
+	}
+	
+	/**
+	 * 获取开始时间
+	 * @return
+	 */
+	private String getStartTime(){
+		return this.start_time;
+	}
+	
+	public void backClick(View view){
+		this.finish();
+	}
+	
+	/************************************/
+	/*-       Getter and Setter		   -*/
+	/************************************/
+	
+	
+
+	public Button getTask_pri_btn() {
+		return task_pri_btn;
+	}
+
+	public Dialog getListViewDlg() {
+		return listViewDlg;
+	}
+
+	public void setListViewDlg(Dialog listViewDlg) {
+		this.listViewDlg = listViewDlg;
+	}
+
+	public void setTask_pri_btn(Button task_pri_btn) {
+		this.task_pri_btn = task_pri_btn;
+	}
+
+	public int getTask_pri_index() {
+		return task_pri_index;
+	}
+
+	public void setTask_pri_index(int task_pri_index) {
+		this.task_pri_index = task_pri_index;
+	}
+	
+	
+
+	public int getTask_energy_index() {
+		return task_energy_index;
+	}
+
+	public void setTask_energy_index(int task_energy_index) {
+		this.task_energy_index = task_energy_index;
+	}
+
+	public Button getTask_energy_btn() {
+		return task_energy_btn;
+	}
+
+	public void setTask_energy_btn(Button task_energy_btn) {
+		this.task_energy_btn = task_energy_btn;
+	}
+
+	public Button getTask_time_btn() {
+		return task_time_btn;
+	}
+
+	public void setTask_time_btn(Button task_time_btn) {
+		this.task_time_btn = task_time_btn;
+	}
+
+	public int getTask_time_index() {
+		return task_time_index;
+	}
+
+	public void setTask_time_index(int task_time_index) {
+		this.task_time_index = task_time_index;
+	}
+	
+	
+	
+}

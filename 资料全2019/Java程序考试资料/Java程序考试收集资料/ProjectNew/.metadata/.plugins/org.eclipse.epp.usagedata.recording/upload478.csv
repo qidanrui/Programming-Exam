@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.m2e.launching,1.0.100.20110804-1717,"org.eclipse.m2e.launching",1362631632383
+started,bundle,org.jboss.ide.eclipse.freemarker,1.2.0.v20111208-2109-H35-M5,"org.jboss.ide.eclipse.freemarker",1362631632512
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631640026
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631640766
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631643647
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631652214
+started,bundle,org.eclipse.pde.launching,3.6.0.v20110506,"org.eclipse.pde.launching",1362631661422
+started,bundle,org.eclipse.ui.views.log,1.0.200.v20110404,"org.eclipse.ui.views.log",1362631661454
+started,bundle,org.eclipse.pde.ui,3.6.100.v20110603,"org.eclipse.pde.ui",1362631661488
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631672308
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631672431
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631675604
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631675749
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362631679980
+started,bundle,org.jboss.tools.ws.jaxrs.ui,1.2.2.v20111213-1525-H50-M5,"org.jboss.tools.ws.jaxrs.ui",1362631689284
+started,bundle,org.jboss.tools.ws.jaxrs.core,1.2.2.v20111213-1525-H50-M5,"org.jboss.tools.ws.jaxrs.core",1362631689324
+started,bundle,org.eclipse.mylyn.ide.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.ide.ui",1362631689410
+started,bundle,org.eclipse.jpt.jaxb.ui,1.1.1.v201108080010,"org.eclipse.jpt.jaxb.ui",1362631689528
+started,bundle,org.eclipse.jpt.jpa.ui,3.0.1.v201108080010,"org.eclipse.jpt.jpa.ui",1362631689585
+started,bundle,org.eclipse.jpt.common.core,1.0.1.v201108080010,"org.eclipse.jpt.common.core",1362631689689
+started,bundle,org.eclipse.jpt.jpa.core,3.0.1.v201109073010,"org.eclipse.jpt.jpa.core",1362631689741
+started,bundle,org.eclipse.jst.ws.jaxws.ui,1.0.100.v201104032053,"org.eclipse.jst.ws.jaxws.ui",1362631689831
+started,bundle,org.eclipse.mylyn.java.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.java.ui",1362631689857
+started,bundle,org.eclipse.pde.api.tools,1.0.301.v20110728_r371,"org.eclipse.pde.api.tools",1362631690084
+started,bundle,org.eclipse.pde.api.tools.ui,1.0.301.v20110803_r371,"org.eclipse.pde.api.tools.ui",1362631690094
+started,bundle,org.jboss.tools.common.el.ui,3.3.0.v20111208-2036-H34-M5,"org.jboss.tools.common.el.ui",1362631690379
+started,bundle,org.eclipse.wst.sse.ui,1.3.2.v201201041522,"org.eclipse.wst.sse.ui",1362631690532
+started,bundle,org.eclipse.wst.xml.ui,1.1.202.v201112071516,"org.eclipse.wst.xml.ui",1362631690535
+error,log,,,"Failed to compute completion proposal",1362631690701
+started,bundle,org.eclipse.jpt.jaxb.core,1.0.1.v201108080010,"org.eclipse.jpt.jaxb.core",1362631691073
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631691957
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631700273
+error,log,,,"Failed to compute completion proposal",1362631702679
+error,log,,,"Failed to compute completion proposal",1362631705762
+started,bundle,com.google.gdt.eclipse.suite,2.5.1.v201201120043-rel-r37,"com.google.gdt.eclipse.suite",1362631719528
+started,bundle,org.jboss.tools.common.jdt.debug,3.3.0.v20111208-2036-H34-M5,"org.jboss.tools.common.jdt.debug",1362631719659
+started,bundle,org.jboss.tools.common.jdt.debug.ui,3.3.0.v20111208-2036-H34-M5,"org.jboss.tools.common.jdt.debug.ui",1362631719661
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362631721653
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362631728729
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362631731986
+error,log,,,"Failed to compute completion proposal",1362631745562
+error,log,,,"Failed to compute completion proposal",1362631745915
+error,log,,,"Failed to compute completion proposal",1362631759034
+error,log,,,"Failed to compute completion proposal",1362631764775
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631785249
+started,bundle,org.eclipse.equinox.p2.garbagecollector,1.0.200.v20110510,"org.eclipse.equinox.p2.garbagecollector",1362631817642
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631846883
+error,log,,,"Failed to compute completion proposal",1362631849483
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362631854654
+error,log,,,"Failed to compute completion proposal",1362631871135
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362631877781
+executed,command,org.eclipse.jdt.debug.ui,3.6.1.v20110803_r371,"org.eclipse.jdt.debug.ui.localJavaShortcut.run",1362631882540
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631884359
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631897997
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362631910838
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631913789
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631942703
+error,log,,,"Failed to compute completion proposal",1362631946544
+error,log,,,"Failed to compute completion proposal",1362631952516
+error,log,,,"Failed to compute completion proposal",1362631952709
+error,log,,,"Failed to compute completion proposal",1362631952800
+error,log,,,"Failed to compute completion proposal",1362631952941
+error,log,,,"Failed to compute completion proposal",1362631953099
+error,log,,,"Failed to compute completion proposal",1362631953283
+error,log,,,"Failed to compute completion proposal",1362631953584
+error,log,,,"Failed to compute completion proposal",1362631953853
+error,log,,,"Failed to compute completion proposal",1362631954087
+error,log,,,"Failed to compute completion proposal",1362631954262
+error,log,,,"Failed to compute completion proposal",1362631954486
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362631956453
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362631957889
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632106043
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632109485
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632370164
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632381688
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632384791
+error,log,,,"Failed to compute completion proposal",1362632387308
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632404366
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632406817
+error,log,,,"Failed to compute completion proposal",1362632415363
+error,log,,,"Failed to compute completion proposal",1362632418362
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362632434864
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362632439575
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362632448466
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1362632450103
+error,log,,,"Failed to compute completion proposal",1362632457210
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362632460834
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362632466313
+executed,command,org.eclipse.jdt.debug.ui,3.6.1.v20110803_r371,"org.eclipse.jdt.debug.ui.localJavaShortcut.run",1362632469228
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632471874
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632484699
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1362632499455
+error,log,,,"Failed to compute completion proposal",1362632511866
+error,log,,,"Failed to compute completion proposal",1362632519144
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1362632524923
+executed,command,org.eclipse.jdt.debug.ui,3.6.1.v20110803_r371,"org.eclipse.jdt.debug.ui.localJavaShortcut.run",1362632528108
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632530235
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632543926
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632546888
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632548398
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632548619
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632549722
+closed,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1362632550606
+started,bundle,org.jboss.tools.common.projecttemplates,3.3.0.v20111208-2036-H34-M5,"org.jboss.tools.common.projecttemplates",1362632557423
+started,bundle,org.jboss.tools.jst.web,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.web",1362632557423
+started,bundle,org.jboss.tools.common.text.ext,3.3.0.v20111208-2036-H34-M5,"org.jboss.tools.common.text.ext",1362632557563
+stopped,bundle,org.eclipse.jst.ws.axis.creation.ui,1.0.700.v201104070312,"org.eclipse.jst.ws.axis.creation.ui",1362632558308
+stopped,bundle,org.eclipse.jst.ws.axis.consumption.ui,1.0.505.v201004211805,"org.eclipse.jst.ws.axis.consumption.ui",1362632558308
+stopped,bundle,org.eclipse.jst.ws.axis.consumption.core,1.0.407.v201104071820,"org.eclipse.jst.ws.axis.consumption.core",1362632558308
+stopped,bundle,org.eclipse.jst.ws.axis2.creation.ui,1.0.104.v201004211805,"org.eclipse.jst.ws.axis2.creation.ui",1362632558309
+stopped,bundle,org.eclipse.jst.ws.axis2.consumption.ui,1.0.103.v201004211805,"org.eclipse.jst.ws.axis2.consumption.ui",1362632558309
+stopped,bundle,org.eclipse.jst.ws.axis2.creation.core,1.0.106.v201004211805,"org.eclipse.jst.ws.axis2.creation.core",1362632558309
+stopped,bundle,org.eclipse.jst.ws.axis2.consumption.core,1.0.105.v201004211805,"org.eclipse.jst.ws.axis2.consumption.core",1362632558309
+stopped,bundle,org.eclipse.jst.ws.axis2.ui,1.0.303.v201003110431,"org.eclipse.jst.ws.axis2.ui",1362632558309
+stopped,bundle,org.eclipse.jst.ws.axis2.core,1.0.204.v201004211805,"org.eclipse.jst.ws.axis2.core",1362632558309
+stopped,bundle,org.eclipse.jst.ws.cxf.creation.ui,1.0.100.v201104022153,"org.eclipse.jst.ws.cxf.creation.ui",1362632558309
+stopped,bundle,org.jboss.tools.ws.creation.ui,1.2.2.v20111213-1525-H50-M5,"org.jboss.tools.ws.creation.ui",1362632558309
+stopped,bundle,org.eclipse.jst.ws.creation.ui,1.0.609.v201103082016,"org.eclipse.jst.ws.creation.ui",1362632558309
+stopped,bundle,org.eclipse.jst.ws.cxf.consumption.ui,1.0.0.v201003222311,"org.eclipse.jst.ws.cxf.consumption.ui",1362632558309
+stopped,bundle,org.jboss.tools.ws.ui,1.2.2.v20111213-1525-H50-M5,"org.jboss.tools.ws.ui",1362632558310
+stopped,bundle,org.jboss.tools.ws.creation.core,1.2.2.v20111213-1525-H50-M5,"org.jboss.tools.ws.creation.core",1362632558310
+stopped,bundle,org.jboss.tools.ws.core,1.2.2.v20111213-1525-H50-M5,"org.jboss.tools.ws.core",1362632558310
+stopped,bundle,org.eclipse.jst.ws.consumption.ui,1.1.401.v201108240414,"org.eclipse.jst.ws.consumption.ui",1362632558310
+stopped,bundle,org.eclipse.jst.ws.consumption,1.0.601.v201108230319,"org.eclipse.jst.ws.consumption",1362632558311
+stopped,bundle,org.eclipse.jst.ws.cxf.consumption.core,1.0.0.v201003222311,"org.eclipse.jst.ws.cxf.consumption.core",1362632558311
+stopped,bundle,org.eclipse.jst.ws.cxf.creation.core,1.0.100.v201104022153,"org.eclipse.jst.ws.cxf.creation.core",1362632558312
+stopped,bundle,org.eclipse.jst.ws.cxf.ui,1.0.0.v201004171919,"org.eclipse.jst.ws.cxf.ui",1362632558312
+stopped,bundle,org.eclipse.jst.ws.cxf.core,1.0.100.v201104022153,"org.eclipse.jst.ws.cxf.core",1362632558312
+stopped,bundle,org.eclipse.jst.ws.uddiregistry,1.0.500.v201004211805,"org.eclipse.jst.ws.uddiregistry",1362632558313
+stopped,bundle,org.eclipse.jst.ws.ui,1.0.403.v201004211805,"org.eclipse.jst.ws.ui",1362632558313
+stopped,bundle,org.eclipse.jst.ws,1.0.509.v201108250610,"org.eclipse.jst.ws",1362632558313
+stopped,bundle,org.eclipse.wst.ws.explorer,1.0.607.v201103082002,"org.eclipse.wst.ws.explorer",1362632558313
+stopped,bundle,org.eclipse.wst.wsdl.ui,1.2.403.v201108240515,"org.eclipse.wst.wsdl.ui",1362632558313
+stopped,bundle,org.eclipse.wst.ws.ui,1.1.200.v201004211805,"org.eclipse.wst.ws.ui",1362632558313
+stopped,bundle,org.eclipse.wst.wsi.ui,1.0.502.v201104071820,"org.eclipse.wst.wsi.ui",1362632558313
+stopped,bundle,org.eclipse.wst.wsi,1.0.401.v201104071820,"org.eclipse.wst.wsi",1362632558313
+stopped,bundle,org.eclipse.wst.ws,1.1.203.v201004211805,"org.eclipse.wst.ws",1362632558315
+stopped,bundle,org.eclipse.jst.j2ee.webservice.ui,1.1.500.v201105122000,"org.eclipse.jst.j2ee.webservice.ui",1362632558316
+stopped,bundle,org.eclipse.jst.j2ee.webservice,1.1.400.v201004110600,"org.eclipse.jst.j2ee.webservice",1362632558316
+stopped,bundle,org.eclipse.wst.ws.parser,1.0.403.v201004211805,"org.eclipse.wst.ws.parser",1362632558316
+stopped,bundle,org.eclipse.birt.report.debug.ui,3.7.1.v20110905,"org.eclipse.birt.report.debug.ui",1362632558316
+stopped,bundle,org.eclipse.birt.report.designer.ui.preview.web,3.7.1.v20110905,"org.eclipse.birt.report.designer.ui.preview.web",1362632558316
+stopped,bundle,org.eclipse.birt.report.viewer,3.7.1.v20110905,"org.eclipse.birt.report.viewer",1362632558317
+stopped,bundle,org.eclipse.jpt.dbws.eclipselink.ui,1.0.0.v201104110000,"org.eclipse.jpt.dbws.eclipselink.ui",1362632558317
+stopped,bundle,org.eclipse.datatools.enablement.hsqldb.ui,1.0.0.v201108120600,"org.eclipse.datatools.enablement.hsqldb.ui",1362632558317
+stopped,bundle,org.eclipse.datatools.enablement.ingres.ui,1.0.0.v201105270214,"org.eclipse.datatools.enablement.ingres.ui",1362632558317
+stopped,bundle,org.eclipse.datatools.enablement.postgresql.ui,1.0.0.v200906020900,"org.eclipse.datatools.enablement.postgresql.ui",1362632558317
+stopped,bundle,org.eclipse.datatools.enablement.sqlite.ui,1.0.0.v200906020900,"org.eclipse.datatools.enablement.sqlite.ui",1362632558317
+stopped,bundle,org.eclipse.jpt.jpa.eclipselink.ui,2.0.1.v201108080010,"org.eclipse.jpt.jpa.eclipselink.ui",1362632558317
+stopped,bundle,org.jboss.tools.hibernate.jpt.ui,3.4.0.v20111213-1944-H40-M5,"org.jboss.tools.hibernate.jpt.ui",1362632558317
+stopped,bundle,org.eclipse.jpt.jpa.ui,3.0.1.v201108080010,"org.eclipse.jpt.jpa.ui",1362632558361
+stopped,bundle,org.jboss.tools.maven.seam,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.seam",1362632558361
+stopped,bundle,org.jboss.tools.seam.ui,3.3.0.v20111207-1453-H52-M5,"org.jboss.tools.seam.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.connectivity.db.generic.ui,1.0.1.v201004070709,"org.eclipse.datatools.connectivity.db.generic.ui",1362632558361
+stopped,bundle,org.eclipse.birt.report.data.oda.jdbc.dbprofile.sampledb.ui,3.7.1.v20110905,"org.eclipse.birt.report.data.oda.jdbc.dbprofile.sampledb.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.connectivity.apache.derby.ui,1.0.3.v201007080903,"org.eclipse.datatools.connectivity.apache.derby.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,2.5.0.200810071,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples",1362632558361
+stopped,bundle,org.eclipse.datatools.enablement.sybase.asa.ui,1.0.1.v200906111150,"org.eclipse.datatools.enablement.sybase.asa.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.enablement.sybase.ase.ui,1.0.1.v200906020900,"org.eclipse.datatools.enablement.sybase.ase.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.enablement.sybase.ui,1.0.0.v200906090458,"org.eclipse.datatools.enablement.sybase.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.data.ui,1.2.1.v201010270945,"org.eclipse.datatools.sqltools.data.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.connectivity.sqm.server.ui,1.1.100.v201009280455,"org.eclipse.datatools.connectivity.sqm.server.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.ddlgen.ui,1.0.1.v201002270530,"org.eclipse.datatools.sqltools.ddlgen.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.db.derby.ui,1.0.0.v200906020900,"org.eclipse.datatools.sqltools.db.derby.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.db.generic.ui,1.0.0.v200906020900,"org.eclipse.datatools.sqltools.db.generic.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.debugger.core.ui,1.0.0.v201003161000,"org.eclipse.datatools.sqltools.debugger.core.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.routineeditor.ui,1.0.1.v201004060545,"org.eclipse.datatools.sqltools.routineeditor.ui",1362632558361
+stopped,bundle,org.eclipse.birt.report.data.oda.jdbc.dbprofile.ui,3.7.1.v20110905,"org.eclipse.birt.report.data.oda.jdbc.dbprofile.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.sqlbuilder,1.0.3.v201009131745,"org.eclipse.datatools.sqltools.sqlbuilder",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.debugger.core,1.0.1.v201005250945,"org.eclipse.datatools.sqltools.debugger.core",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.schemaobjecteditor.ui.pages,1.1.0.200810071,"org.eclipse.datatools.sqltools.schemaobjecteditor.ui.pages",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.schemaobjecteditor.ui,1.1.1.200810071,"org.eclipse.datatools.sqltools.schemaobjecteditor.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.sqlscrapbook,1.0.1.v201005250945,"org.eclipse.datatools.sqltools.sqlscrapbook",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.sqleditor,1.0.2.v201009230800,"org.eclipse.datatools.sqltools.sqleditor",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.editor.core.ui,1.0.0.v201001150815,"org.eclipse.datatools.sqltools.editor.core.ui",1362632558361
+stopped,bundle,org.eclipse.datatools.sqltools.tabledataeditor,1.0.1.v201005250945,"org.eclipse.datatools.sqltools.tabledataeditor",1362632558361
+stopped,bundle,org.eclipse.datatools.connectivity.sqm.core.ui,1.2.0.v201002281800,"org.eclipse.datatools.connectivity.sqm.core.ui",1362632558361
+stopped,bundle,org.eclipse.jst.j2ee.ejb.annotations.ui,1.1.200.v201004290730,"org.eclipse.jst.j2ee.ejb.annotations.ui",1362632558361
+stopped,bundle,org.jboss.tools.central,1.0.0.v20111213-1606-H19-M5,"org.jboss.tools.central",1362632558361
+stopped,bundle,org.jboss.tools.maven.project.examples,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.project.examples",1362632558361
+stopped,bundle,org.jboss.tools.project.examples.cheatsheet,1.2.1.v20111213-1557-H39-M5,"org.jboss.tools.project.examples.cheatsheet",1362632558361
+stopped,bundle,org.jboss.tools.runtime,1.3.0.v20111208-1602-H41-M5,"org.jboss.tools.runtime",1362632558362
+stopped,bundle,org.jboss.tools.runtime.ui,1.3.0.v20111208-1602-H41-M5,"org.jboss.tools.runtime.ui",1362632558364
+stopped,bundle,org.jboss.tools.project.examples,1.2.1.v20111213-1557-H39-M5,"org.jboss.tools.project.examples",1362632558364
+stopped,bundle,org.jboss.tools.runtime.seam.detector,1.3.0.v20111208-1602-H41-M5,"org.jboss.tools.runtime.seam.detector",1362632558364
+stopped,bundle,org.jboss.tools.seam.text.ext,3.3.0.v20111207-1453-H52-M5,"org.jboss.tools.seam.text.ext",1362632558364
+stopped,bundle,org.jboss.tools.seam.core,3.3.0.v20111207-1453-H52-M5,"org.jboss.tools.seam.core",1362632558364
+stopped,bundle,org.eclipse.datatools.connectivity.ui.dse,1.1.4.v201004270430,"org.eclipse.datatools.connectivity.ui.dse",1362632558364
+stopped,bundle,org.eclipse.jst.j2ee.xdoclet.runtime,1.1.300.v201004280700,"org.eclipse.jst.j2ee.xdoclet.runtime",1362632558364
+stopped,bundle,org.eclipse.jst.j2ee.ejb.annotations.xdoclet,1.2.200.v201103302125,"org.eclipse.jst.j2ee.ejb.annotations.xdoclet",1362632558364
+stopped,bundle,org.hibernate.eclipse.jdt.apt.ui,3.4.0.v20111213-1944-H40-M5,"org.hibernate.eclipse.jdt.apt.ui",1362632558364
+stopped,bundle,org.hibernate.eclipse.jdt.ui,3.4.0.v20111213-1944-H40-M5,"org.hibernate.eclipse.jdt.ui",1362632558364
+stopped,bundle,org.hibernate.eclipse.mapper,3.4.0.v20111213-1944-H40-M5,"org.hibernate.eclipse.mapper",1362632558364
+stopped,bundle,org.jboss.tools.birt.oda.ui,1.3.0.v20111208-2002-H38-M5,"org.jboss.tools.birt.oda.ui",1362632558365
+stopped,bundle,org.jboss.tools.hibernate.jpt.core,3.4.0.v20111213-1944-H40-M5,"org.jboss.tools.hibernate.jpt.core",1362632558365
+stopped,bundle,org.jboss.tools.hibernate.ui,3.4.0.v20111213-1944-H40-M5,"org.jboss.tools.hibernate.ui",1362632558365
+stopped,bundle,org.jboss.tools.hibernateextension3_5,3.4.0.v20111213-1944-H40-M5,"org.jboss.tools.hibernateextension3_5",1362632558365
+stopped,bundle,org.jboss.tools.hibernateextension4_0,3.4.0.v20111213-1944-H40-M5,"org.jboss.tools.hibernateextension4_0",1362632558365
+stopped,bundle,org.jboss.tools.maven.hibernate,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.hibernate",1362632558365
+stopped,bundle,org.hibernate.eclipse.console,3.4.0.v20111213-1944-H40-M5,"org.hibernate.eclipse.console",1362632558365
+stopped,bundle,org.jboss.tools.maven.jbosspackaging,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.jbosspackaging",1362632558372
+stopped,bundle,org.jboss.ide.eclipse.as.ui.mbeans,2.3.0.v20111213-1423-H61-M5,"org.jboss.ide.eclipse.as.ui.mbeans",1362632558372
+stopped,bundle,org.jboss.ide.eclipse.as.classpath.ui,2.3.0.v20111213-1423-H61-M5,"org.jboss.ide.eclipse.as.classpath.ui",1362632558372
+stopped,bundle,org.jboss.tools.maven.portlet,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.portlet",1362632558372
+stopped,bundle,org.jboss.tools.portlet.ui,1.2.0.v20111207-1651-H35-M5,"org.jboss.tools.portlet.ui",1362632558372
+stopped,bundle,org.jboss.tools.portlet.core,1.2.0.v20111207-1651-H35-M5,"org.jboss.tools.portlet.core",1362632558372
+stopped,bundle,org.jboss.ide.eclipse.as.classpath.core,2.3.0.v20111213-1423-H61-M5,"org.jboss.ide.eclipse.as.classpath.core",1362632558372
+stopped,bundle,org.jboss.ide.eclipse.as.rse.ui,2.3.0.v20111213-1423-H61-M5,"org.jboss.ide.eclipse.as.rse.ui",1362632558372
+stopped,bundle,org.jboss.ide.eclipse.as.rse.core,2.3.0.v20111213-1423-H61-M5,"org.jboss.ide.eclipse.as.rse.core",1362632558372
+stopped,bundle,org.jboss.ide.eclipse.archives.webtools,2.3.0.v20111213-1423-H61-M5,"org.jboss.ide.eclipse.archives.webtools",1362632558427
+stopped,bundle,org.jboss.ide.eclipse.as.wtp.ui,2.3.0.v20111213-1423-H61-M5,"org.jboss.ide.eclipse.as.wtp.ui",1362632558427
+stopped,bundle,org.jboss.tools.maven.cdi,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.cdi",1362632558427
+stopped,bundle,org.jboss.tools.maven.jaxrs,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.jaxrs",1362632558427
+stopped,bundle,org.jboss.tools.maven.jsf,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.jsf",1362632558428
+stopped,bundle,org.jboss.tools.maven.ui,1.3.0.v20111209-0524-H40-M5,"org.jboss.tools.maven.ui",1362632558428
+stopped,bundle,overlay.com.android.ide.eclipse.adt.overlay,18.0.0.v201203301601-306762,"overlay.com.android.ide.eclipse.adt.overlay",1362632558428
+stopped,bundle,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.adt",1362632558441
+stopped,bundle,org.eclipse.jst.jsf.apache.trinidad.tagsupport,1.1.200.v201104061711,"org.eclipse.jst.jsf.apache.trinidad.tagsupport",1362632558441
+stopped,bundle,org.eclipse.jst.jsf.facesconfig.ui,1.2.2.v201103292152,"org.eclipse.jst.jsf.facesconfig.ui",1362632558441
+stopped,bundle,org.eclipse.jst.jsf.facelet.ui,1.0.1.v201104032306,"org.eclipse.jst.jsf.facelet.ui",1362632558441
+stopped,bundle,org.jboss.tools.cdi.seam.config.ui,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.seam.config.ui",1362632558442
+stopped,bundle,org.jboss.tools.cdi.seam.text.ext,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.seam.text.ext",1362632558442
+stopped,bundle,org.jboss.tools.cdi.text.ext,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.text.ext",1362632558442
+stopped,bundle,org.jboss.tools.cdi.xml.ui,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.xml.ui",1362632558442
+stopped,bundle,org.jboss.tools.cdi.ui,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.ui",1362632558442
+stopped,bundle,org.eclipse.jst.jsf.ui,1.3.2.v201104251204,"org.eclipse.jst.jsf.ui",1362632558443
+stopped,bundle,org.eclipse.jst.pagedesigner.jsf.ui,1.2.100.v201104061711,"org.eclipse.jst.pagedesigner.jsf.ui",1362632558443
+stopped,bundle,org.eclipse.jst.pagedesigner,1.3.103.v201109010833,"org.eclipse.jst.pagedesigner",1362632558443
+stopped,bundle,org.eclipse.jst.jsf.common.ui,1.2.100.v201104061711,"org.eclipse.jst.jsf.common.ui",1362632558443
+stopped,bundle,org.eclipse.pde.ua.ui,1.0.100.v20110516,"org.eclipse.pde.ua.ui",1362632558443
+stopped,bundle,org.eclipse.datatools.connectivity.oda.template.ui,3.2.2.v201108260345,"org.eclipse.datatools.connectivity.oda.template.ui",1362632558443
+stopped,bundle,org.eclipse.pde.api.tools.ui,1.0.301.v20110803_r371,"org.eclipse.pde.api.tools.ui",1362632558444
+stopped,bundle,org.eclipse.pde.ds.ui,1.0.100.v20110516,"org.eclipse.pde.ds.ui",1362632558444
+stopped,bundle,org.eclipse.pde.runtime,3.4.201.v20110819-0851,"org.eclipse.pde.runtime",1362632558444
+stopped,bundle,org.eclipse.pde.ui.templates,3.4.400.v20110516,"org.eclipse.pde.ui.templates",1362632558444
+stopped,bundle,org.eclipse.birt.chart.reportitem.ui,3.7.1.v20110905,"org.eclipse.birt.chart.reportitem.ui",1362632558444
+stopped,bundle,org.eclipse.birt.report.item.crosstab.ui,3.7.1.v20110905,"org.eclipse.birt.report.item.crosstab.ui",1362632558444
+stopped,bundle,org.eclipse.birt.report.designer.ui.ide,3.7.1.v20110905,"org.eclipse.birt.report.designer.ui.ide",1362632558444
+stopped,bundle,org.jboss.tools.cdi.seam.config.core,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.seam.config.core",1362632558444
+stopped,bundle,org.jboss.tools.cdi.seam.core,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.seam.core",1362632558444
+stopped,bundle,org.jboss.tools.cdi.seam.faces.core,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.seam.faces.core",1362632558444
+stopped,bundle,org.jboss.tools.cdi.seam.solder.core,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.seam.solder.core",1362632558445
+stopped,bundle,org.jboss.tools.cdi.core,1.2.0.v20111208-2203-H35-M5,"org.jboss.tools.cdi.core",1362632558445
+stopped,bundle,org.jboss.tools.jsf.text.ext.richfaces,3.3.0.v20111213-1958-H41-M5,"org.jboss.tools.jsf.text.ext.richfaces",1362632558445
+stopped,bundle,org.jboss.tools.jsf.text.ext.facelets,3.3.0.v20111213-1958-H41-M5,"org.jboss.tools.jsf.text.ext.facelets",1362632558445
+stopped,bundle,org.jboss.tools.jsf.text.ext,3.3.0.v20111213-1958-H41-M5,"org.jboss.tools.jsf.text.ext",1362632558446
+stopped,bundle,org.jboss.tools.jsf.ui,3.3.0.v20111213-1958-H41-M5,"org.jboss.tools.jsf.ui",1362632558449
+stopped,bundle,org.jboss.tools.jsf.verification,3.3.0.v20111213-1958-H41-M5,"org.jboss.tools.jsf.verification",1362632558449
+stopped,bundle,org.jboss.tools.jsf.vpe.ajax4jsf,3.3.0.v20111213-1958-H41-M5,"org.jboss.tools.jsf.vpe.ajax4jsf",1362632558449
+stopped,bundle,org.jboss.tools.jsf.vpe.jbpm,3.3.0.v20111213-1958-H41-M5,"org.jboss.tools.jsf.vpe.jbpm",1362632558449

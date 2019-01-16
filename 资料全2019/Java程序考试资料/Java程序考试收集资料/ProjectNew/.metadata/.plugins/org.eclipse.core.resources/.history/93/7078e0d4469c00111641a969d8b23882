@@ -1,0 +1,182 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+/**
+ * 实验要求：请在下图所给出电路板中，按布线要求，利用分支限界法实现从a到b的布线工作。此处坐标为a(1,2),b(6,3)。
+ * 实验要求：给出解空间的定义组织形式、剪枝函数设计方案和实现程序，output.txt文件中给出布线方案。
+在测试数据中，任意给定a、b两点的坐标，请输出相应布线方案。
+input.txt中第一行为起始坐标，第2行为终点坐标,接下来的几行为电路板中阻塞的坐标
+矩阵中-1表示可以走,-2表示不能走的位置,0表示起始位置,1,2,3...,n表示所走的步数
+ * @author sinllychen
+ *
+ */
+public class Test7_1 {
+      private static int n=8;//方格的个数
+      private static Position cur;//当前所在的位置; 
+      private static Position post;//当前位置的下一个位置
+      private static Position pre;//前驱节点
+      private static Position start;//起始位置
+      private static Position finish;//终止位置
+      private static int[][]  curSquare;//当前方格矩阵
+      private static int[][]   minSquare;//最小路径长度的矩阵
+      private static int minStep;//最小路径长度
+      private static Queue<Position> queue=new LinkedList<Position>();//存取所走的队列
+      private static FileOperate operate;
+      private static int[] dirX={1,0,-1,0};
+      private static int[] dirY={0,1,0,-1};  //可以走的右，下，左，上四个方向
+      private static int dirNum=4;//方向的个数
+      private static boolean finished=false;//是否有最短路径
+      /**
+       * 初始化数据
+       * @param fileName
+       */
+      public static void initialData(String fileName)
+      {
+    	   operate=new FileOperate();
+    	   List<String> data=operate.readData(fileName);
+    	   minSquare=new int[n][n];
+    	   curSquare=new int[n][n];
+    	   for(int i=0;i<n;i++)
+    	   {
+    		   for(int j=0;j<n;j++)
+    			   {
+    			      minSquare[i][j]=curSquare[i][j]=-1;
+    			   }
+    	   }
+    	  post=new Position();   
+    	  pre=new Position();
+    	   for(int i=0;i<data.size();i++)
+    	   {
+    		   String[] temp=data.get(i).split(",");
+    		   if(i==0)
+    		   {
+    			   start=new Position();
+    			   start.x=Integer.valueOf(temp[0]);
+    			   start.y=Integer.valueOf(temp[1]);
+    			   cur=new Position();
+    			   cur.x=start.x;
+    			   cur.y=start.y;
+    			    minSquare[start.x][start.y]=curSquare[start.x][start.y]=0;
+    		   }
+    		   else  if(i==1)
+    		   {
+    			   finish=new Position();
+    			   finish.x=Integer.valueOf(temp[0]);
+    			   finish.y=Integer.valueOf(temp[1]);
+    		   }
+    		   else
+    		   {
+    			   int x=Integer.valueOf(temp[0]);
+    			   int y=Integer.valueOf(temp[1]);
+    			   curSquare[x][y]=-2;
+    		   }
+    	   }
+    	   minSquare=curSquare.clone();
+      }
+      /**
+       * 写入结果到文件，其中minStep表示从起点到终点要走的步数，包括终点
+       * curSquare表示行走路径的矩阵
+       * @param fileName
+       */
+      public static void writeData(String fileName)
+      {
+    	  if(finished)
+    	  {
+    	   String data="";
+    	   for(int i=0;i<n;i++)
+    	  {
+    		  for(int j=0;j<n;j++)
+    		  {
+    			  data+=minSquare[i][j];
+    			  data+=" ";
+    		  }
+    		  data+="\r\n";
+    	  }
+    	  operate.writeValue(minStep+"", fileName, false);
+    	  operate.writeValue(data, fileName, true);
+    	  }
+    	  else
+    		  operate.writeValue("no solution", fileName, false);
+      }
+      /**
+       * 开始进行行走
+       */
+      public static void  gone()
+      {
+    	  if((cur.x==finish.x)&&(cur.y==finish.y))//起点和终点相同
+    	  {
+    	      minStep=0;
+    	      minSquare=curSquare.clone();
+    		  finished=true;
+    		  return;
+    	  }
+    	  
+    	  while(true)
+    	  {
+    	      for(int i=0;i<dirNum;i++)//从四个方向进行行走
+    	     {
+    		      post.x=cur.x+dirX[i];
+    		      post.y=cur.y+dirY[i];
+    		      if(post.x>=0&&post.x<n&&post.y>=0&&post.y<n&&validate(post))//若所走的节点方向有效
+    		     {
+
+    			       curSquare[post.x][post.y]=curSquare[cur.x][cur.y]+1;
+    			        if(post.x==finish.x&&post.y==finish.y)  break;//布线完毕
+    			        Position temp=new Position();
+    			        temp.x=post.x;
+    			        temp.y=post.y;
+     			         queue.offer(temp);
+    		     }
+    	     }
+    	     if(post.x==finish.x&&post.y==finish.y)  break;//布线完毕
+    	     if(queue.isEmpty())//没有解
+    	     {
+    	    	 finished=false;
+    	    	 return;
+    	     }
+              cur=queue.poll();
+    	  }
+    	  //从结束位置回溯
+    	  minStep=curSquare[finish.x][finish.y];
+    	  minSquare[finish.x][finish.y]=minStep;//终点为最后一步
+    	  for(int j=minStep-1;j>0;j--)
+    	  {
+    		  minSquare[cur.x][cur.y]=j;
+    		  for(int i=0;i<dirNum;i++)//从四个方向找到前驱的节点
+    		  {
+    			  pre.x=cur.x-dirX[i];
+    			 pre.y=cur.y-dirY[i];
+    			  if(curSquare[pre.x][pre.y]==j-1)//找到该节点，则向前移动
+    				  break;
+    		  }
+    		  cur=pre;//向前移动
+    	  }
+    	 finished=true;
+    	 return;
+      }
+      /**
+       * 判断所走的路径是否可行
+       * @param x  所走路径的横坐标
+       * @param y   所走路径的纵坐标
+       * @return
+       */
+      public static boolean validate(Position point)
+      {
+    	 if(curSquare[point.x][point.y]==-2||curSquare[point.x][point.y]>0)
+    		  return false;
+    	 else 
+    		  return true;
+      }
+      public static void main(String[] args)
+      {
+    	  initialData("input7_1.txt");
+    	  gone();
+    	  writeData("output7_1.txt");
+      }
+     
+}
+class Position
+{
+	public int x;
+	public  int y;
+}

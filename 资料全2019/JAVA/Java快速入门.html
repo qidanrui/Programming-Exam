@@ -1,0 +1,2719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Java快速入门</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2014-01-05 17:35:09 "/>
+<meta name="author" content="Lusar"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">Java快速入门</h1>
+
+<p>modify from : <a href="http:wenku.baidu.com/view/9fc2c7bff121dd36a32d82e3.html">http:wenku.baidu.com/view/9fc2c7bff121dd36a32d82e3.html</a>
+</p>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Java快速入门 </a>
+<ul>
+<li><a href="#sec-1.1">1.1 初步了解Java程序 </a>
+<ul>
+<li><a href="#sec-1.1.1">1.1.1 编写第一个Java Application程序 </a></li>
+<li><a href="#sec-1.1.2">1.1.2 Java的Applet小程序(补充) </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.2">1.2 Java基本语法 </a>
+<ul>
+<li><a href="#sec-1.2.1">1.2.1 Java语言的基本元素 </a></li>
+<li><a href="#sec-1.2.2">1.2.2 数组 </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.3">1.3 Java语句及其控制结构 </a>
+<ul>
+<li><a href="#sec-1.3.1">1.3.1 Java程序结构 </a></li>
+<li><a href="#sec-1.3.2">1.3.2 Java常用类 </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.4">1.4 图形用户界面 </a>
+<ul>
+<li><a href="#sec-1.4.1">1.4.1 组件 </a></li>
+<li><a href="#sec-1.4.2">1.4.2 组件布局管理 </a></li>
+<li><a href="#sec-1.4.3">1.4.3 事件处理方法 </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.5">1.5 窗口、菜单和对话框 </a>
+<ul>
+<li><a href="#sec-1.5.1">1.5.1 窗口 </a></li>
+<li><a href="#sec-1.5.2">1.5.2 窗口事件适配器 </a></li>
+<li><a href="#sec-1.5.3">1.5.3 对话框 </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.6">1.6 Swing简介 </a>
+<ul>
+<li><a href="#sec-1.6.1">1.6.1 Swing按钮与标签 </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.7">1.7 图形与多媒体处理 </a>
+<ul>
+<li><a href="#sec-1.7.1">1.7.1 基本图形 </a></li>
+<li><a href="#sec-1.7.2">1.7.2 画布 </a></li>
+<li><a href="#sec-1.7.3">1.7.3 颜色控制 </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.8">1.8 基本数据类型的转化 </a>
+<ul>
+<li><a href="#sec-1.8.1">1.8.1 如何将字串 String 转换成整数 int? </a></li>
+<li><a href="#sec-1.8.2">1.8.2 JAVA中常用数据类型转换函数 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Java快速入门 </h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1.1" class="outline-3">
+<h3 id="sec-1.1"><span class="section-number-3">1.1</span> 初步了解Java程序 </h3>
+<div class="outline-text-3" id="text-1.1">
+
+
+</div>
+
+<div id="outline-container-1.1.1" class="outline-4">
+<h4 id="sec-1.1.1"><span class="section-number-4">1.1.1</span> 编写第一个Java Application程序 </h4>
+<div class="outline-text-4" id="text-1.1.1">
+
+<p>使用任何一个文件编辑器输入：
+</p>
+
+
+<pre class="example">public class Hello{
+        public static void main(String args[]){
+                System.out.println("欢迎你学习Java语言！");
+        }  
+}
+</pre>
+
+
+
+<p>
+说明：
+</p><ol>
+<li>
+ public class指明是一个公共类，最多只能有一个公共类；
+</li>
+<li>
+main( )方法有且只有一个，且严格按照格式定义；
+</li>
+<li>
+String args[]是传递给main( )方法的参数，名为args，它是类string的一个实例，参数可以没有，可以一个或多个，<br/>
+每个参数用“类名  参数”来指定，多个参数间用逗号分隔；
+</li>
+<li>
+Java区分大小写；
+</li>
+<li>
+一定以公共类名相同的主文件名Hello.java存盘，且大小写一致；
+
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.1.2" class="outline-4">
+<h4 id="sec-1.1.2"><span class="section-number-4">1.1.2</span> Java的Applet小程序(补充) </h4>
+<div class="outline-text-4" id="text-1.1.2">
+
+<ol>
+<li>
+类定义
+使用任何一个文件编辑器输入：
+
+
+
+<pre class="example">import java.awt.Graphics;
+import java.applet.Applet;
+
+public class Hello2 extends Applet{
+        public String s;
+        public void init(){
+        s=new String("欢迎你学习Java语言！");
+        }
+        public void paint(Graphics  g){
+        g.drawString(s,50,50);
+        } 
+}
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.2" class="outline-3">
+<h3 id="sec-1.2"><span class="section-number-3">1.2</span> Java基本语法 </h3>
+<div class="outline-text-3" id="text-1.2">
+
+
+</div>
+
+<div id="outline-container-1.2.1" class="outline-4">
+<h4 id="sec-1.2.1"><span class="section-number-4">1.2.1</span> Java语言的基本元素 </h4>
+<div class="outline-text-4" id="text-1.2.1">
+
+<ol>
+<li>
+标识符
+标识符规则：必须以字母、下划线、“$”或汉字开头，后面的字符可以是字母、数字、下划线、“$”和汉字的一串字符
+说明：  * 不能是Java保留的关键字；<br/>
+<ul>
+<li>
+常量名一般以大写字母，变量名用小写字母，类名以大写字母开始；
+</li>
+<li>
+区分大小写，如ad、Ad、aD、Da是四个不同的标识名。
+</li>
+</ul>
+</li>
+<li>
+数据类型
+Java要求在程序中使用任何变量之前必须先声明其类型。
+Java的数据类型分为：
+<ol>
+<li>
+基本类型：整型、浮点型、布尔型、字符型
+</li>
+<li>
+数组类型：一维数组和多维数组
+</li>
+<li>
+复合类型：类、接口
+</li>
+</ol>
+</li>
+<li>
+基本数据类型
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" /><col align="right" /><col align="right" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">说明</th><th scope="col">类型</th><th scope="col">位长/b</th><th scope="col">默认值</th><th scope="col">取值范围</th></tr>
+</thead>
+<tbody>
+<tr><td>布尔型</td><td>boolean</td><td>1</td><td>false</td><td>true , false</td></tr>
+<tr><td>字节型</td><td>byte</td><td>8</td><td>0</td><td>-128~127</td></tr>
+<tr><td>字符型</td><td>char</td><td>16</td><td>‘\u0000’</td><td>‘\u0000’~’\uffff’即0~65535</td></tr>
+<tr><td>短整型</td><td>short</td><td>16</td><td>0</td><td>-32768~32767</td></tr>
+<tr><td>整型</td><td>int</td><td>32</td><td>0</td><td>-231~231-1</td></tr>
+<tr><td>长整型</td><td>long</td><td>64</td><td>0</td><td>-263~263-1</td></tr>
+<tr><td>浮点型</td><td>float</td><td>32</td><td>0.0</td><td>+-1.4E-45 或 +-3.4028235E+38</td></tr>
+<tr><td>双精度</td><td>double</td><td>64</td><td>0.0</td><td>+-4.9E-324  或 +-1.797693134862315E+308</td></tr>
+</tbody>
+</table>
+
+说明：
+<ol>
+<li>
+一般情况下，没小数点的数字是int型，有小数点的数是double型；
+</li>
+<li>
+String（字符串）型，如：“合肥”、“I am student” ；
+</li>
+<li>
+Java的char类型采用UniCode（国际编码标准）的新字符处理方式，即大字符编码方案，汉字和字母均看作是一个字符，占两个字节；
+</li>
+<li>
+Java程序是定义的变量若没有赋初值，Java取默认值。
+</li>
+</ol>
+</li>
+<li>
+直接量与常量
+直接量（literal）是指在程序中直接给出的一个符号串，即其它语言称为的常量。
+Java的常量用final说明，约定常量标识符一般全部使用大写字母，常量在程序执行时不可更改。
+如：final int i=1;
+i=i+1;    //错，i是final（常量），不可更改值
+
+<ol>
+<li>
+布尔型常量
+true  、   false
+注意：Java中的布尔型常量不能与0、-1、1等数字
+例：
+
+
+
+<pre class="example">boolean A,b,C;
+A=false;  
+b=true; 
+C=1;    //错
+boolean D=True;   //错，“True” 首字大写
+</pre>
+
+
+
+
+</li>
+<li>
+整型常量      
+例：  45  ， 045  ，0x45  ,  45L
+
+
+
+<pre class="example">int  a=10    ;        // 十进制
+int  b=020   ;        // 八进制  以“0”(零)开头
+int  c=0x3A  ;       // 十六进制 以“0x”开头
+int  d=71  , Y=91  ;  //  对
+int  M=0xd1 , N=091 ;  // 错 “091”是八进制，不能有9
+</pre>
+
+
+
+<p>
+说明：整型常量默认为32位int型，若在数值后加L或l，则表示为64位长整型
+</p></li>
+<li>
+浮点型常量
+例：  3.45   ,  4.512E12    4.5F   4.5D
+说明：(1)默认类型为64位double双精度类型(D或d),数字后面加F或f则是32位float单精度(实数)类型 <br/>
+(2)double类型值有效空间大，但运行慢，结果精度不高 
+
+
+
+<pre class="example">float  a , b ;  double  x , y , z  ;
+a=7.4 ;    //错, 7.4默认是double型,不能赋予精度低的float型 
+b=7.4F ;
+x=7.4E5;
+y=7.4E5D ;
+z=7.4E5F;    //对
+</pre>
+
+
+
+</li>
+<li>
+字符常量
+字符常量是由单引号括起来的单个字符，它可以是UniCode字符集中的任意一个字符。如  ‘A’ ‘#’  ‘宋’  ‘6’
+</li>
+<li>
+字符串常量          
+用一对双引号起来的字符序列。
+例： “ABCD”  “学习Java” 
+
+
+
+<pre class="example">public class SC{
+public static void main(String arg[]){
+String  a="我是安徽\n合肥人";  //  “\n” 表示换行
+String  b='%' ;   //错   ‘%’是字符型，不能赋予String型
+System.out.println(A);  //错   A改为a
+}  }
+</pre>
+
+
+
+
+</li>
+</ol>
+</li>
+<li>
+变量
+Java通常用小写字母或单词作为变量名。
+变量具有名字、类型、值三元素
+<ol>
+<li>
+变量的声明
+格式：类型  变量名[，变量名]=初值，… ；
+赋值：[类型]  变量名=值
+如：int a=5 ,  b=6 , c , d  ;
+String s=”合肥” ；
+float  m , n ;
+m=6.78f ;
+说明：
+（1）变量名必须在作用域中是唯一的，不同作用域中才允许相同名字的变量出现;
+（2）只要在同一代码块没有同名的变量名，可以在程序中任何地方定义变量，一个代码块就是两个相对的“{  }”之间部分。
+</li>
+<li>
+变量的使用范围
+每个变量的使用范围只在定义它的代码块中，包括这个代码块中包含的代码块。
+在类开始处声明的变量是成员变量，作用范围在整个类；
+在方法和块中声明的变量是局部变量，作用范围到它的“}”；
+见P25  例2．4：
+例：public class SC{
+int i=0;
+public static void main(String arg[]){
+int  i=1;
+System.out.println(i);    } }   //  输入  1
+</li>
+<li>
+变量类型的转换
+Java可以将低精度的数字赋值给高精度的数字型变量，反之则需要强制类型转换。
+强制转换格式：（数据类型）数据表达式
+如：int i;
+float  f=(float)34.6;   // 34.6默认是双精度，float f=34.6F也对
+i=(int)f;
+System.out.println(f);  // 输出34.6
+System.out.println(i);  // 输出34
+
+<p>
+byte    short   char    int      long     float         double
+字节型  短整型  字符型  整型   长整型  单精度实型  双精度实型
+低                                              高
+</p></li>
+</ol>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.2.2" class="outline-4">
+<h4 id="sec-1.2.2"><span class="section-number-4">1.2.2</span> 数组 </h4>
+<div class="outline-text-4" id="text-1.2.2">
+
+<p>数组是有序数据的集合，数组中的每个元素具有相同的数组名，根据数组名和下标来唯一确定数组中的元素。使用时要先声明后创建
+</p><ol>
+<li>
+一维数组的声明
+格式： 数据类型  数组名[ ]   或  数据类型  [ ]数组名 <br/>
+例：int a[];  String s[];  char []c; <br/>
+说明：定义数组，并不为数据元素分配内存，因此“[ ]”中不用指出数组中元素个数。
+</li>
+<li>
+一维数组的创建与赋值
+创建数组并不是定义数组，而是在数组定义后，为数组分配存储空间，同时对数组元素进行初始化
+
+
+
+<pre class="example">// 1．用运算符new分配内存再赋值
+// 格式：数组名=new  数据类型[size]
+int a[]  ; String s[]  ;  char []c  ;
+a=new int[3] ;  // 产生a[0] , a[1] , a[2] 三个元素
+s=new String[2] ; c=new char[5] ;
+a[0]=8 ; a[1]=8 ; a[2]=8 ;
+s[1]=”网络” ;
+int intArr[]=new int[3] ;    //  声明和分配内存并在一起
+char chArr[]=new char[6] ;  // 声明和分配内存并在一起
+System.out.println(a[0]+a[1]) ;
+
+//2. 直接赋初值并定义数组的大小
+int i[]={4,5,010,7,3,2,9} ;
+String names[]={“张三”,”李四”,”王五”,”宋七”} ;
+char c[]={‘a’,’b’,’c’,’北’,’京’} ;
+</pre>
+
+
+
+
+</li>
+<li>
+测试数组长度（补充）
+格式：数组名.length
+
+
+
+<pre class="example">char c[]={‘a’,’b’,’c’,’北’,’京’} ;
+System.out.print(c.length)  ;   // 输出5
+</pre>
+
+
+
+
+</li>
+<li>
+多维数组
+以二维数组为例     
+
+
+
+<pre class="example">int  d[][] ;  // 定义一个二维数组
+d=new int[3][4] ; // 分配3行4列数组内存
+char c[][]=new char[2][3] ; // 定义和分配在一起
+int a[][]=new int[2][] ;
+a[0]=new int[3] ;   // 第二维第一个元素指向3个整型数
+a[1]=new int[5] ;   // 第二维第一个元素指向5个整型数
+// Java可以第二维不等长
+int  i[][]={{0},{1,4,5},{75,6},{8,50,4,7}} ; //定义和赋初值在一起
+System.out.println(i[2][1])  ;   // 输出6
+System.out.println(i[1][2])  ;   // 输出5
+System.out.print(i.length)   ;   // 输出4
+System.out.print(i[1].length);   // 输出3
+
+// 例： 下面数组定义哪些是正确的
+int  a[][]=new  int[10,10]      //错
+int  a[10][10]=new  int[][]     //错
+int  a[][]=new  int[10][10]     //错
+int  []a[]=new  int[10][10]     //对
+int  [][]a=new  int[10][10]     //对
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.3" class="outline-3">
+<h3 id="sec-1.3"><span class="section-number-3">1.3</span> Java语句及其控制结构 </h3>
+<div class="outline-text-3" id="text-1.3">
+
+
+</div>
+
+<div id="outline-container-1.3.1" class="outline-4">
+<h4 id="sec-1.3.1"><span class="section-number-4">1.3.1</span> Java程序结构 </h4>
+<div class="outline-text-4" id="text-1.3.1">
+
+<ol>
+<li>
+Java程序构成
+说明：<br/>
+（1）Java源程序一般包括Java包引入（如果有的话）和类定义两部分；<br/>
+（2）Java程序必须包含一个可被外界所直接调用的类，即主类；<br/>
+（3）一个Java程序可以定义多个类，但只能有一个主类，Java Applet程序的主类是继承自Applet的子类；Java Application程序的主类是包含main方法的类，应用程序从main方法开始执行；<br/>
+（4）类定义由类声明语句和类体组成；<br/>
+（5）类声明语句用来说明类的名称、访问权限及类的属性；<br/>
+（6）类体也由两部分组成：成员变量和成员方法；<br/>
+（7）成员变量为类中定义的变量（又称属性、域），用来说明类的状态和特性。定义成员变量需要声明成员变量的名称、类型。<br/>
+（8）成员方法为类中定义的方法，用来实现类的功能和行为，是完成任务的关键。Java Application程序中一定要有main（）主方法。而Java Applet程序一般要有init( )初始化方法或paint(Graphics g)画图方法；<br/>
+（9）类体中除了成员变量和成员方法说明语句外没有其他语句，Java规定所有操作性语句必须放在成员方法中；<br/>
+（10）Java方法类似于其他语言中的函数，可以调用，可以有返回值。成员方法可以继承父类的方法，也可以自定义成员方法。方法中也可以定义局部变量。
+</li>
+<li>
+Java语句
+语句以分号“；”作为结束标志
+Java语句分为说明性语句和操作性语句。<br/>
+说明性语句用来说明包和类的引入、类的声明、变量的声明<br/>
+如：import java.applet.Applet;<br/>
+操作性语句有表达式语句、复合语句、选择语句和循环语句等<br/>
+<ol>
+<li>
+表达式语句
+int  k, i=3 , j=4; <br/>
+k=i*j; <br/>
+</li>
+<li>
+复合语句
+复合语句也称为块（block）语句，是包含在一对大括号“{ }”中的任意语句序列。从语法上讲，一个复合语句被视为一个简单语句。
+</li>
+<li>
+选择语句
+<ul>
+<li>
+if语句
+格式： if (条件表达式)<br/>
+语句<br/>
+功能：条件表达式为true就执行语句<br/>
+
+
+
+<pre class="example">int i=70;  char c='A';
+if(i&gt;=c)  System.out.println("A小");
+System.out.println("结束");
+</pre>
+
+
+
+</li>
+</ul>
+</li>
+<li>
+if……else语句
+格式： if (条件表达式)<br/>
+语句1<br/>
+else<br/>
+语句2<br/>
+功能：条件表达式为true就执行语句1，为false执行语句2<br/>
+
+
+
+<pre class="example">if('A'&gt;'a')
+    System.out.println("A比a大") ;
+else 
+    System.out.println("A比a小") ; // A65,a97,所以输出A比a小
+    System.out.println("结束");   
+</pre>
+
+
+
+
+</li>
+<li>
+if……else 复合结构
+格式： if(条件表达式1)   语句1 <br/>
+else  if   (条件表达式2)   语句2<br/>
+…………<br/>
+else  if   (条件表达式n)   语句n<br/>
+else  语句  n+1<br/>
+功能：如果某个条件表达式的值为true，就执行它后面的语句，其余部分被忽略，若条件表达式都为假，执行else后语句。
+
+
+
+<pre class="example">public class SC{
+    public static void 输入分数(int a){
+        char 级别;
+        
+        if (a&gt;=90)  级别='优';
+        else if (a&gt;=80)  级别='良';
+        else if (a&gt;=60)  级别='中';
+        else   级别='差';
+        System.out.println("考试等级为 "+级别);  
+    }
+
+public static void main(String arg[]) throws Exception{
+    if(arg.length==0)
+         System.out.println("您没有输入任何参数") ;
+    else if(arg.length==1)
+    输入分数(Integer.parseInt(arg[0])); //arg[0]强制转换成int型
+    else {System.out.println("您输入的参数太多了") ;
+    System.out.println("命令行参数个数为"+arg.length) ; }
+} 
+}
+</pre>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.3.2" class="outline-4">
+<h4 id="sec-1.3.2"><span class="section-number-4">1.3.2</span> Java常用类 </h4>
+<div class="outline-text-4" id="text-1.3.2">
+
+<ol>
+<li>
+java.io包中的数据流类及文件类
+java.io包封装了大量的数据流类，支持基于字节流（byte stream）的数据流（这种流对于16位的Unicode码表示的字符流的处理很不方便）和基于字符流（character stream）（以16位Unicode码形式表示）的数据流。<br/>
+为了全面管理文件系统，Java还提供了两个文件类：一般文件File和随机文件类RandomAccessFile。前者提供操作系统目录管理的功能，允许用户访问文件属性和路径等。可以顺序访问文件。后者用于对文件以随机操作方式读写数据。<br/>
+<ul>
+<li>
+数据流的应用
+
+
+
+<pre class="example">import java.io.* ;
+public class SC{
+public static void main(String arg[]) throws IOException{
+    FileReader in=new FileReader("P3.java"); //建立文件输入流，打开P3.java
+    BufferedReader bin=new BufferedReader(in); //建立缓冲输入流
+    FileWriter out=new FileWriter("Hello.txt",true);// 建立文件输出流，true表示将数据保存在文件尾部
+    String str;
+
+    while((str=bin.readLine())!=null){ //读入一行
+        System.out.println(str);
+        out.write(str+"\n"); 
+    }// 写入"HELLO.TXT"
+    in.close();
+    out.close();   
+    }
+}
+</pre>
+
+
+
+
+<ul>
+<li>
+字符文件流类的构造 P151
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col align="left" /><col align="left" />
+</colgroup>
+<thead>
+<tr><th scope="col">名      称</th><th scope="col">说      明</th></tr>
+</thead>
+<tbody>
+<tr><td>FileReader(String name)</td><td>name代表文件名，可包含路径</td></tr>
+<tr><td>FileReader(File file)</td><td>file是文件类对象</td></tr>
+<tr><td>FileReader(FileDescriptor  fdobj)</td><td>fdobj代表一个打开的I/O设备</td></tr>
+<tr><td>FileWriter(File file)</td><td>file是文件类对象</td></tr>
+<tr><td>FileWriter(String name,booleam a)</td><td>a取真则将数据添加在文件尾部</td></tr>
+</tbody>
+</table>
+
+如果要选择地读写文件，例如读写一行或几行，随机文件RandomAccessFile可实现这种操作，它能从文件的不同位置读写不同长度的数据。
+
+
+
+<pre class="example">//例P151
+import java.io.* ;
+public class SC{
+public static void main(String arg[]) {
+    String str[]={"First line\n","Second line\n","last line\n"};
+    try{ 
+        RandomAccessFile rf=new RandomAccessFile("hello.txt","rw");
+        System.out.println("\n文件的指针位置为："+rf.getFilePointer());
+        System.out.println("文件的长度为："+rf.length());
+        rf.seek(rf.length());
+        System.out.println("文件指针现在的位置为："+rf.getFilePointer());
+
+        for (int i=0;i&lt;3;i++)
+            rf.writeBytes(str[i]);// 字符串转换为字节串添加到文件末尾
+        rf.seek(0);
+        System.out.println("\n文件现在内容：");
+        String s;
+        while((s=rf.readLine())!=null)
+            System.out.println(s);
+        rf.close();  
+        }catch(FileNotFoundException fnoe){}
+        catch(IOException ioe){}          
+}
+}
+</pre>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+文件（补充）
+<ol>
+<li>
+创建文件
+格式：File pathname=new File(args<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup>)<br/>
+功能：以路径文件名来建立文件对象<br/>
+格式：File f=new File(pathname.getPath , fileNames[i])<br/>
+功能：以路径+文件名创建文件对象<br/>
+</li>
+<li>
+File类提供的方法
+
+
+
+<pre class="example">//（1）对文件名操作提供方法
+public String getName( )  //得到一个不包含路径的文件名
+public String getParent( )  //得到文件上一级的目录名
+public File getParenFile( )  //得到文件对象父路径名
+public String getPath( )  //返回文件路径名字符串，即路径文件名
+public String[] list( )  //返回一个字符串数组，为该文件所在目录下的所有文件名列表，如：String fileName[]=pathName.list( )
+public String getCanonicalPath( ) throws IOException  //返回该文件对象与系统平台相关的绝对路径,与getAbsoluttPath( )同。
+public String renameTo(File newName )  //返回重命名后的文件名
+public String getAbsolutePath( )  //返回文件绝对路径名
+//（2）测试文件属性操作提供方法
+public boolean isDirectory( ) //测定是否是目录，如果File代表一个目录，则返回true，否则返回false
+public boolean isFile( ) //测定是否是文件
+public boolean isAbsolute( ) //测定是否是绝对文件
+public boolean exists( ) //测定文件是否存在
+public boolean canRead( ) //测定是否是可读文件
+public boolean canWrite( ) //测定是否是可写文件
+//（2）测试文件属性操作提供方法
+public boolean delete( ) // 删除当前文件并释放资源
+public void deleteOnExit( ) // 执行完后，删除文件
+public long length( ) // 返回文件字节长度
+public long lastModified( ) //返回文件最后修改时间
+//（4）为目录操作提供的方法
+public boolean mkdir( )  //创建目录
+public boolean mkdir( )  //创建包含父目录的目录
+public String[] list( )  // 返回当前目录下的文件
+public String[] list(FilenameFilter filter) // 返回当前目录下经过滤后的文件 
+public static File[] listRoots( ) // 返回根目录结构
+//（5）其他方法
+public int hashCode( ) // 返回文件名的哈希码
+public boolean setLastModified(long time) //设置文件最后修改时间
+public boolean setReadOnly( ) //设置文件只读属性
+</pre>
+
+
+
+
+<p>
+例：功能：显示指定目录下的子目录，如执行java SC c:\
+</p>
+
+
+<pre class="example">import java.io.* ;
+public class SC{
+    public static void main(String args[]) {
+        if(args.length==0) 
+            args=new String[]{".."} ;//命令行缺省值
+        try {
+            File pathName=new File(args[0]); //取命令行参数
+            String fileNames[]=pathName.list(); //取pathName下所有文件名列表
+            for (int i=0;i&lt;fileNames.length;i++)
+            { 
+                File f=new File(pathName.getPath(),fileNames[i]);//创建路径和文件名创建文件对象f
+                if(f.isDirectory()) //判断是否是目录
+                {
+                    System.out.println(f.getCanonicalPath()); //输出绝对路径
+                    main(new String[] {f.getPath()}) ; //取下一级子目录
+                 }
+             }
+         }catch(IOException e){
+             e.printStackTrace(  );   
+         }
+    }
+}
+</pre>
+
+
+
+
+</li>
+</ol>
+</li>
+<li>
+其他常用类
+数学函数类Math，提供了基本数学运算；日期类Date，Calendar和DateFormat，提供了日期和时间操作；随机数类Random提供了
+随机数生成器；向量类Vector提供了类似于可变长数组的操作。
+<ol>
+<li>
+数学函数类Math
+Math是一个最终类，可直接在程序中加Math前缀调用，其成员变量和常用成员方法如下：
+
+
+
+<pre class="example">static double E    // 数学常量e
+static double PI    // 圆周率Л
+static double sin(double a)    // 正弦函数，参数为弧度
+static double cos(double a)    // 余弦函数，参数为弧度
+static double tan(double a)    // 正切函数，参数为弧度
+static double toDegrees(double angrad)    // 弧度转换为角度
+static double toRadians(double angdeg)    // 角度转换为弧度
+static double exp(double a)    // 常数e的a次幂
+static double log(double a)    // 自然对数
+static double sqrt(double a)    // 平方根
+static double pow(double a,double b)    // a的b次方
+static double round(double a)    // 四舍五入
+static double round(float a)    // 四舍五入
+static double random( )    // 产生大于等于0.0小于1.0的随机数
+static double abs(double a)    // 绝对值，参数可以是float,int,long
+static double max(double a,double b)    //最大值，参数可以是float,int,long
+static double min(double a,double b)    //最小值，参数可以是float,int,long
+
+例：System.out.println(Math.PI);       //  3.141592653589793
+System.out.println(Math.sqrt(9));   // 3.0
+System.out.println(Math.random());  //0.061703095869295566
+System.out.println(Math.round(7.5));  //  8
+System.out.println(Math.round(7.4));  //   7
+System.out.println(Math.max(9,4));   //   9  Math.max(9,4,10)则错
+</pre>
+
+
+
+</li>
+<li>
+日期类操作
+Java提供了3个日期类：
+Date      ：用于创建日期对象并获得日期<br/>
+Calendar  ：可获取和设置日期<br/>
+DateFormat：用于创建日期格式化器，由格式化器将日期转换为各种日期格式串输出<br/>
+Date和Calendar类在java.util包中，DateFormat类在java.text包中<br/>
+Java语言规定的基准日期为1970.1.1 00:00:00格林威治（GMT）标准时
+
+
+
+<pre class="example">import java.text.*;
+import java.util.*;
+import java.awt.* ;
+import java.applet.*;
+public class SC extends Applet {
+    public void paint(Graphics g){
+        Date today;
+        Calendar now;
+        DateFormat f1,f2;
+        String s1,s2;
+
+        today=new Date(); //获取系统当前日期
+        g.drawString("字符串格式："+today.toString(),20,20);
+        f1=DateFormat.getInstance();  //以默认格式生成格式化器
+        s1=f1.format(today);       //将日期转换为字符串
+        g.drawString("系统格式："+s1,20,40);
+        //生成长格式的中国日期格式化器
+        f1=DateFormat.getDateInstance(DateFormat.LONG,Locale.CHINA);
+        //生成长格式的中国时间格式化器
+        f2=DateFormat.getTimeInstance(DateFormat.LONG,Locale.CHINA);
+        s1=f1.format(today);   //将日期转换为日期字符串
+        s2=f2.format(today); //将日期转换为时间字符串
+        g.drawString("中国格式："+s1+" "+s2,20,60);
+        now=Calendar.getInstance() ;//获取系统时间
+        s1=now.get(now.HOUR)+"时"+now.get(now.MINUTE)+"分"+now.get(now.SECOND)+"秒";
+        g.drawString("调整前时间："+s1,20,80);
+        now.set(2001,2,15,9,9,9);
+        today=now.getTime();
+        g.drawString("调整后时间"+today.toString(),20,100);  
+    }
+}
+</pre>
+
+
+
+
+</li>
+</ol>
+
+<p>3.随机数类Random     
+为了使用Java程序有良好的可移植性，应尽可能使用Random类来生成随机数，而不用Math.random( )。<br/>
+Random有两个构造方法：Random( )(使用系统时间为种子数)，Random(long seed)。构造方法只是创建了随机数生成器，必须调用生成器的方法才能产生随机数。Random具有nextBoolean，nextInt等方法。<br/>
+Random包含在java.util包中。
+</p>
+
+
+<pre class="example">Random r=new Random( );
+int i1=r.nextInt( );
+int i2=r.nextInt(20);   // 产生大于等于0小于20的随机整数
+double d1=r.nextDouble( );    //产生大于等于0.0小于1.0的随机数
+double d1=r.nextDouble(20.0);  // 错
+</pre>
+
+
+
+
+<ol>
+<li>
+向量类Vector
+Vector被设计成一个能不断增长的序列，用来保存对象引用。类似于可变长数组，但功能更加强大，任何类型的对象都可以放入Vector。<br/>
+Vector包含在java.util包中，常用方法如下。
+
+
+
+<pre class="example">Vector(int initCapacity,int increment) //构造方法，指定初始容量和增量
+void addElement(Object obj) //在尾部添加元素，元素个数自动增1
+boolean removeElement(Object obj) //删除第一个与obj相同的元素
+void setElementAt(Object obj , int index) // 替换指定位置的元素
+Object elementAt(int index) //返回指定位置的元素
+int indexOf(Object obj) //返回指定元素obj在向量中的位置
+int size( ) //返回元素个数
+int capacity( ) //返回向量长度
+void trimToSize( ) //按当前元素个数缩减向量长度
+Enumeration elements( ) //生成一个向量元素的枚举
+</pre>
+
+
+
+
+</li>
+</ol>
+<ol>
+<li>
+Class类与Runtime类
+通过Class类与Runtime类的方法可以获得运行时的信息，如当前类名、超类名、包名、内存空间以及操作系统名称等
+
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.4" class="outline-3">
+<h3 id="sec-1.4"><span class="section-number-3">1.4</span> 图形用户界面 </h3>
+<div class="outline-text-3" id="text-1.4">
+
+
+</div>
+
+<div id="outline-container-1.4.1" class="outline-4">
+<h4 id="sec-1.4.1"><span class="section-number-4">1.4.1</span> 组件 </h4>
+<div class="outline-text-4" id="text-1.4.1">
+
+<p>组件（Component）是构成GUI的基本要素，通过对不同事件的响应来完成和用户的交互或组件之间的交互。<br/>
+AWT是Java语言提供的用户界面设计工具，AWT的基本思想是将一个窗口看做一系列嵌套的构件。最外层可以是窗口、菜单条、按钮或包容器等，而包容器又可以包含其他的构件或包容器。<br/>
+java.awt包提供了基本的java程序的GUI设计工具。主要包括下述三个概念，每个概念对应着一个类：<br/>
+</p><ol>
+<li>
+构件——Component，它是该包的核心。是一个抽象类，其他构件都是从它衍生出来的。
+</li>
+<li>
+容器——Container，由Component类衍生而来，用来管理构件。
+</li>
+<li>
+布局管理器——LayoutManager，确定容器内构件的布局。           
+</li>
+</ol>
+
+<p>AWT的界面由组件组成，所有组件都是通过继承Component组件类实现。组件主要有两种：<br/>
+</p><ol>
+<li>
+基本组件：Button（按钮）、Lable（标签）、TextArea（文本区）、TextField（文本框）、List（列表）、Canvas（作图
+区）、Ssrollbar（滑动条）、Checkbox（复选框）、Choice（选择框）、Menu（菜单）、Mnebar（菜单条）。
+</li>
+<li>
+容器组件：窗口组件Window，Dialog，Applet，Frame，Panel。容器组件可以容纳AWT组件，也可以包含在AWT容器中。容器最高父类为Container类。
+</li>
+</ol>
+
+<p>AWT类库的基本层次结构：
+</p>
+
+
+<pre class="example">Component
+Button      Canvas  Checkbox        CheckboxGroup   Choice  Container       Label   List    Scrollbar       Textcomponent
+panel       window          TextArea        TextField    
+Applet      Frame   Dialog
+</pre>
+
+
+
+
+<ol>
+<li>
+标签
+<ol>
+<li>
+创建标签（LABEL）
+标签的功能是显示单行的字符串。
+</li>
+<li>
+标签Label的构造方法：
+（1）Label( )：建立一个新的Label <br/>
+（2）Label(String text)：以text建立一个新的Label <br/>
+（3）Label(String text,int alignment)：以text和指定的布局建立一个新的Label <br/>
+alignment有3种，分别用Label类的3个常量LEFT（0）（默认），CENTER（1）和RIGHT（2）来表示左对齐、居中对齐和右对齐。 <br/>
+
+
+
+<pre class="example">Label la1=new Label();
+Label la2=new Label("计算机");//按文本区域大小显示
+Label la3=new Label("网络",Label.RIGHT);//与("网络",2)等价
+add(la1);
+add(la2);
+add(la3);
+add(new Label("技术",Label.CENTER)); 
+</pre>
+
+
+
+<ol>
+<li>
+标签的常用方法：
+（1）public int getAlignment( )返回当前的对齐方式 <br/>
+（2）public String getText( )返回当前显示的字符串 <br/>
+（3）public void setAlignment(int alignment)设置对齐方式 <br/>
+（4）public void setText(String label)设置显示的字符串 <br/>
+
+
+
+<pre class="example">la1.setText(la2.getText());  //将标签la1显示成la2的内容 \\
+la1.setAlignment(2);   //设置标签la1的对齐方式
+add(la1);
+</pre>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+ 按钮（Button）
+<ol>
+<li>
+创建按钮
+</li>
+<li>
+按钮的构造方法
+（1）Button( )：创建一个没有标题的按钮
+（2）Button(String label)：创建一个有显示标题的按钮
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+    public void init()
+    {
+        Button b1=new Button();
+        Button b2=new Button("确定");
+        add(b1);add(b2);  
+    }  
+}
+</pre>
+
+
+
+</li>
+<li>
+按钮的常用方法
+（1）public String getLabel( )：返回按钮的显示标题 <br/>
+（2）public void setLabel(String label)：设置按钮上的显示标题 
+
+
+
+<pre class="example">String s=b2.getLabel();  //获得b2按钮的标题“确定”
+b1.setLabel(s);     // 将b1按钮的标题改为s 值“确定”
+add(b1);
+</pre>
+
+
+
+</li>
+</ol>
+</li>
+<li>
+选项框（Choice）（下拉列表框）
+<ol>
+<li>
+创建选项框
+每次只能选择其中的一项。
+</li>
+<li>
+选项框的常用方法
+</li>
+</ol>
+
+<p>（1）public void addItem(String item)：向选项框中加入选项item <br/>
+（2）public int countItems( )：返回选项框中的选项个数(此方法已不用) <br/>
+改为：getItemCount( )： <br/>
+（3）public String getItem(int index)：返回指定下标值的某个选项 <br/>
+（4）public int getSelectedIndex( )：返回被选中的选项的下标值<br/>
+（5）public String getSelectedItem( )：返回被选中的选项 <br/>
+（6）public void select(int pos)：选择指定下标值的选项 <br/>
+（7）public void select(String str)：选择指定的选项 <br/>
+（8）Choice( )：构造一下拉选项框 <br/>
+（9）public void add(String item)：向选项框中加入选项item，同（1） <br/>
+（10）public void insert(String item,int index)：在指定位置插入选项 <br/>
+（11）public void remove(int index)：删除指定位置选项 <br/>
+（12）public void remove(String item)：删除指定字符串 <br/>
+（13）public void removeAll( )：删除所有选项<br/>
+（14）public Object[] getSelectedObject( )：返回当前选中项的Object数组 
+</p>
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+    String []description={"red","blue","yellow","orange","green","black"};
+    Label L1=new Label(); //标签对象L1
+    Label L2=new Label();
+    Choice c=new Choice(); //下拉列表对象c
+
+    public void init(){ 
+        for(int i=0;i&lt;6;i++)  
+        c.addItem(description[i]); //将description数组内容作为选项加入
+        L1.setText(c.getItem(2)); //将标签显示成“yellow”
+        c.addItem("红色"); //在最后加入"红色"选项，同c.add("红色");
+        String s=Integer.toString(c.getItemCount()); //获得下拉列表选项数 7个
+        L2.setText(s); //标签L2显示s值
+        c.insert("兰",1); //在1的位置插入"兰"选项，"blue"等往后退
+        c.select(3);  //将第3选项"yellow"设为当前选项
+        c.remove(4);  //将第4选项"orange"删除
+        add(L1);  add(L2);   add(c);  
+    }
+}
+</pre>
+
+
+
+
+<pre class="example">import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+public class SC extends Applet implements ItemListener{
+String description[]={"red", "blue", "yellow", "orange", "pink", "grey", "green", "black", "brown"};
+TextArea t=new TextArea(10,30);
+Choice c=new Choice(); //下拉列表对象c
+
+public void init()
+{ 
+    t.setEditable(false); //设置文本区域为不可编辑，用户不可输入内容
+    for(int i=0;i&lt;9;i++)
+    c.addItem(description[i]); //将description数组内容作为选项加入
+    add(t);   add(c);
+    c.addItemListener(this);
+}
+ public void itemStateChanged(ItemEvent e)
+ {
+     t.append("\n"+"index:  "+ c.getSelectedIndex()+ "\n"+c.getSelectedItem()+ "is selected");
+ }
+ }
+</pre>
+
+
+
+<p>
+//将所选择的序号和内容显示在文本区域中
+</p></li>
+<li>
+复选框（Checkbox）和选项按钮（CheckboxGroup）
+<ol>
+<li>
+创建复选框
+复选框构造方法： <br/>
+Checkbox( )：创建一个无显示内容的复选框 <br/>
+Checkbox(String label)：创建一个指定显示内容的复选框 <br/>
+CheckboxGroup( )：创建一个选项组 <br/>
+Checkbox(String label，CheckboxGroup cbGroup，boolean state)： <br/>
+创建一个指定显示内容字符串，属于选项按钮组cbGroup且状态为state的选项按钮 <br/>
+复选框和选项按钮常用方法：<br/>
+public void setLabel(String label)：设置复选框或选项按钮的标签为label <br/>
+public void setState(boolean state)：设置复选框或选项按钮的状态 <br/>
+public boolean getState( )：获得复选框或选项按钮的状态 <br/>
+public String getLabel( )：获得复选框或选项按钮的标签 <br/>
+
+
+
+<pre class="example">import java.awt.*;  
+import java.awt.event.*;
+public class SC{
+    public static void main(String args[]){
+        Frame f=new Frame("CheckBox");
+        f.setLayout(new GridLayout(2,1));
+        Panel p1=new Panel();
+        p1.setLayout(new GridLayout(1,3));
+        Checkbox c1=new Checkbox("小肥牛");  //新建C1复选框，标签是"小肥牛" 
+        Checkbox c2=new Checkbox("小肥羊");
+        Checkbox c3=new Checkbox("蜀王");
+        p1.add(c1);   p1.add(c2);  p1.add(c3);
+        Choice c=new Choice(); //新建下拉列表对象c
+        c.add(c1.getLabel());  //将c1复选框的标签加入到c的下拉列表框中
+        c.add(c2.getLabel());
+        c.add(c3.getLabel());
+        p1.add(c);
+        c1.setLabel("金满楼"); //将c1的标签改为“金满楼”
+        c2.setState(true); //设置c2的状态为选中
+        f.add(p1);  f.pack();  f.show();
+        f.addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0); 
+            } 
+        }); 
+    }
+}
+</pre>
+
+
+
+</li>
+<li>
+选项按钮           
+选项按钮构造方法: CheckboxGroup( )  <br/>
+常用方法： <br/>
+public CheckboxGroup getCheckboxGroup( )：返回选项按钮所属的复选框组 <br/>
+public void setCheckboxGroup(CheckboxGroup g )：设置选项按钮所属的复选框组 <br/>
+注：要生成选项按钮，必须先生成一个类CheckboxGroup的对象： <br/>
+CheckboxGroup c=new CheckboxGroup( ); <br/>
+然后再使用下面语句： <br/>
+Checkbox c1=new Checkbox(“Label”,c,false); <br/>
+第一参数是选项按钮的标签，第二个是按钮组对象，第三个是状态。 <br/>
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.*;
+public class SC extends Applet{
+CheckboxGroup cbg=new CheckboxGroup();
+public void init(){
+add(new Checkbox("第一",cbg,true));
+add(new Checkbox("第二",cbg,false));
+add(new Checkbox("第三",cbg,false));   }}
+</pre>
+
+
+
+
+</li>
+</ol>
+</li>
+<li>
+ 列表框（List）
+构造方法： <br/>
+List( ) ：新建一个空的列表框 <br/>
+List(int i ,boolean b) ：新建一个指定行数i的列表框，b为true表示可以多选，false则只能单选； <br/>
+常用成员方法： <br/>
+public int getItemCount( ) :返回列表内的项目数//现改为getItemCount() <br/>
+public String getItem(int index)：返回下标为index指定的列表项 <br/>
+public synchronized void add(String item)：增加一项item <br/>
+public synchronized void addItem(String item)：同上 <br/>
+public synchronized void removeAll( )：清空列表 <br/>
+public synchronized void remove(int index)：删除指定下标项 <br/>
+public synchronized void remove(String item)：删除指定选项 <br/>
+public synchronized int getSelectedIndex( )：获取选定项的下标 <br/>
+public synchronized int[] getSelectedIndexs( )：获取多个选定项的下标 <br/>
+public synchronized String getSelectedItem( ): 获取选定项内容 <br/>
+public synchronized String[] getSelectedItems( ): 获取多个选定项内容 <br/>
+public synchronized void select(int index ): 选定指定下标的项 <br/>
+public synchronized void deselect(int index ): 取消对指定下标项的选择 <br/>
+public synchronized boolean isIndexSelected(int index ): 判断指定下标项是否被选择 <br/>
+public boolean isMultipleMode( ): 判断列表是否支持多行选择 <br/>
+public void setMultipleMode(boolean bl ): 设置列表是否支持多行选择 <br/>
+</li>
+<li>
+单行文本框（TextField）
+文本框的构造方法
+（1）TextField( )：创建一个默认长度的文本框 <br/>
+（2）TextField( int columns)：创建一个列数是columns的文本框(即宽度) <br/>
+（3）TextField(String text )：创建一个带有初始文本内容的文本框 <br/>
+（4）TextField(String text，int columns )：创建一个带有初始文本内容并具有指定列数的文本框 <br/>
+文本框的常用方法 <br/>
+（1）public void setEchoChar(char c)：设定用户输入字符的回显字符 <br/>
+（2）public void setText(String t) :设定文本框的文本内容 <br/>
+（3）public String getText( ) :返回文本框中的文本内容 <br/>
+（4）public void setEditable(boolean b) :设定文本框是否只读属性，false为只读 <br/>
+（5）public int getColumns( ) :返回文本框的列数 <br/>
+（6）public void setColumns( ) :设置文本框的列数 <br/>
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+public void init(){
+TextField t1,t2,t3,t4,t5;
+Label L1=new Label();
+t1=new TextField();
+t2=new TextField(5); //宽度为5个汉字
+t3=new TextField("网络"); 
+t4=new TextField("计算机",2);  //只显示出“计算”
+add(t1);add(t2);add(t3);add(t4); add(l1);
+L1.setText(t4.getText());  //L1获得t4的内容
+t1.setEchoChar('*');  //设置掩码为“*”　
+t2.setText("Java!");   // 将t2内容改为“Java!!!”
+t3.setEditable(false);  }}  // 将t3设为只读
+</pre>
+
+
+
+
+</li>
+<li>
+文本区（TextArea）
+文本区的构造方法 <br/>
+（1）TextArea( )：创建一个默认大小的文本区 <br/>
+（2）TextArea(int rows,int columns)：创建一个指定行和列数的文本区 <br/>
+（3）TextArea(String text)：创建一个带有初始文本内容的文本区 <br/>
+（4）TextArea(String text,int rows,int columns)：创建一个带有初始文本内容并具有指定行和列数的文本区 <br/>
+（5）TextArea(String text,int rows,int columns,int scrollbars)：在（4）的基础上添加滚动条，scrollbars取值：
+1（SCROLLBARS＿VERTICAL＿ONLY）（仅有垂直），2 （SCROLLBARS＿HORIZONTAL＿ONLY）（仅有水平），3（SCROLLBARS＿NONE）
+（无滚动条），4（SCROLLBARS＿BOTH）（水平、垂直均有）（除1,2,3数字以外均都有水平垂直滚动条） <br/>
+文本区的常用方法 <br/>
+（1）public void append(Sting str)：在文本区尾部添加文本 <br/>
+（2）public void insert(String str,int pos)：在文本区指定位置插入文本 <br/>
+（3）public void setText(String t)：设定文本区内容 <br/>
+（4）public int getRows( )：返回文本区的行数 <br/>
+（5）public void setRows(int rows)：设定文本区的行数 <br/>
+（6）public int getColumns( )：返回文本区的列数 <br/>
+（7）public void setColumns(int Columns)：设定文本区的列数 <br/>
+（8）public void setEditable(boolean b)：设定文本区是否只读属性 <br/>
+（9）public void replaceRange(String str,int start,int end)：从start到end的文本替换为str的内容 <br/>
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+public void init(){
+TextArea a1,a2,a3,a4;
+a1=new TextArea(5,10);  //　5行10列空白文本区
+a2=new TextArea("城市管理",8,10);
+a3=new TextArea("城市管理",5,10,3);
+a4=new TextArea("安徽省合肥人",5,10);
+a2.append("\n网络专业");   //a2后追加“网络专业”(\n换行)
+a3.setEditable(false);   //　将a3设为只读
+a3.insert("园林",2);   //在第2个字符插入“园林”
+a4.replaceRange("安庆",2,4);   //将a4文本区中第2~4的字符改为“安庆”
+add(a1);add(a2);add(a3);add(a4);  } }
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.4.2" class="outline-4">
+<h4 id="sec-1.4.2"><span class="section-number-4">1.4.2</span> 组件布局管理 </h4>
+<div class="outline-text-4" id="text-1.4.2">
+
+<p>布局：就是容器中组件的摆放方式，常用的布局管理器有：
+(1) FlowLayout（顺序）（默认）： <br/>
+将组件依次摆放，每个组件若不设置其大小都将被压缩到最小尺寸。 <br/>
+(2) BorderLayout（边界布局）： <br/>
+将组件按north,south,west,east,center五个位置来摆放。 <br/>
+(3) CardLayout（卡片布局）： <br/>
+前后依次排列，每次只显示一个卡片。<br/>
+(4) GridLayout（网格布局）：<br/>
+将显示区域划分为若干行列，每个组件占一格。<br/>
+</p>
+<ol>
+<li>
+顺序布局（FlowLayout）
+构造函数： <br/>
+FlowLayout( ):建立一个新的FlowLayout布局，默认居中对齐，组件间有5个单位的水平和垂直间距。 <br/>
+FlowLayout(int align ):按align建立一个新的FlowLayout布局，默认居中对齐，组件间有5个单位的水平和垂直间距。 <br/>
+FlowLayout(int align,int h,int v):按align建立一个新的FlowLayout布局，齐，组件间有h水平和v垂直间距。<br/>
+FlowLayout共有5种排列方式CENTER（中）、LEFT（左）、RIGHT（右）、LEADING（头）、TAILING（尾）。
+
+</li>
+<li>
+边界布局（BorderLayout）
+构造函数： <br/>
+BorderLayout( )：建立一个组件间没有间距的BorderLayout <br/>
+BorderLayout(int h,int v)：建立一个组件间有间距的BorderLayout,h为水平间距，v为垂直间距。 <br/>
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+Button bn,bs,be,bw,bc;
+public void init(){
+setLayout(new BorderLayout(5,10));　//设置为边界布局，间距为5,10
+bn=new Button("北");
+bs=new Button("南");
+be=new Button("东");
+bw=new Button("西");
+bc=new Button("中");
+add("North",bn);
+add("South",bs);
+add("East",be);
+add("West",bw);
+add("Center",bc);  } }
+</pre>
+
+
+
+</li>
+<li>
+卡片布局（CardLayout）
+构造函数： <br/>
+CardLayout( )： <br/>
+建立组件间没有水平与垂直间距的、新的CardLayout。 <br/>
+CardLayout( )：建立组件间没有水平间距为h、垂直间距为v的、新的CardLayout。 <br/>
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+public void init(){
+CardLayout card =new CardLayout();
+setLayout(card);
+setFont(new Font("Arial",Font.PLAIN,24));
+for (int i=1;i&lt;=5;i++){
+add(String.valueOf(i),new Button("卡片号为："+i));　}
+card.show(this,String.valueOf(2));　
+}　
+}
+</pre>
+
+
+
+</li>
+<li>
+网格布局（GridLayout）
+构造函数：
+GridLayout( )：建立一个新的默认是1行1列的GridLayout
+GridLayout(int r,int c)：建立一个r行c列的GridLayout
+GridLayout(int r,int c,int h,int v)：建立一个r行c列的水平间距是h,垂直间距是v的GridLayout
+
+
+
+<pre class="example">import java.awt.*; 
+import java.applet.Applet;
+public class SC extends Applet{
+Button b1,b2,b3,b4,b5,b6;
+public void init(){
+setLayout(new GridLayout(3,3)); //　设置3行3列共9个网格
+b1=new Button("按钮1");
+b2=new Button("按钮2");
+b3=new Button("按钮3");
+b4=new Button("按钮4");
+b5=new Button("按钮5");
+b6=new Button("按钮6");
+add(new Label("label1"));
+add(b1);add(b2);add(b3);
+add(new Label1());　　//　加一个空标签
+add(b4);add(b5);add(b6);
+add(new Label("label2"));  } 
+}
+</pre>
+
+
+
+</li>
+<li>
+面板（Panel）的使用
+面板是一个无边框的容器，可以包容其他组件或另一个面板。面板目的是为了分层次、分区域管理各种组件。面板实际上是一个必须放在大容器（Applet或Frame）中的小容器。
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+public void init(){
+setLayout(new BorderLayout());　
+setForeground(Color.black);  //设置前景色
+setFont(new Font("Arial",Font.PLAIN,20));  //设置字体，风格，字号
+add("North",new Label("我在Applet中",Label.CENTER));
+Panel panel1=new Panel();
+add("West",panel1); //在西边加入panel1对象
+panel1.setBackground(Color.blue);  //设置panel1的背景色
+panel1.setForeground(Color.red);
+panel1.setLayout(new BorderLayout()); //在panel1中设置新布局
+panel1.add("East",new Button("东"));
+panel1.add("West",new Button("西"));
+panel1.add("Center",new Label("我在Panel1中"));
+Panel panel2=new Panel();
+add("East",panel2); ////在总布局的东边加入panel2对象
+panel2.setBackground(Color.green);
+panel2.setLayout(new BorderLayout());
+panel2.add("North",new Label("我在Panel2中"));
+panel2.add("South",new Button("我在Panel2中"));　}
+}
+</pre>
+
+
+
+<p>
+当容器中的组件较多时，用一个布局管理器来管理容器的所有组件就有局限，但一个容器又只能有一个布局管理器，可以通过叠加多个透明容器(如Panel)来实现。<br/>
+面板和组件的常用方法：
+Panel( )：用默认布局方式创建一个面板 <br/>
+Panel(LayoutManager layout)：用指定布局方式创建一个面板 <br/>
+public Component add(Component comp)：为容器添加一个组件 <br/>
+public Component add(Component comp,int index)：将组件添加到队列的指定位置 <br/>
+public void add(Component comp,Object constraints)：按照限制条件添加组件 <br/>
+public void remove(Component comp)：去除指定组件 <br/>
+public void setFont(font f)：设定组件的 <br/>
+public void setSize(Dimension d)：设定组件的宽和高 <br/>
+public void setVisible(boolean b)：设定组件是否可见 <br/>
+public void setLocation(int x,int y)：以设定组件的位置 <br/>
+public void setBackground(Color c)：设定组件的背景色 <br/>
+public void setForeground(Color c)：设定组件的前景色 <br/>
+public void setBounds(int x,int y,int widty,int height)：设定组件的位置和大小 <br/>
+public void setName(String name)：设定组件的名称 <br/>
+public String getName()：返回组件的名称<br/>
+public int getX()：返回组件的X坐标 <br/>
+public int getY()：返回组件的Y坐标 <br/>
+public int getHeight()：返回组件的高 <br/>
+public int getWidth()：返回组件的宽 <br/>
+public void paint(Graphics g)：画出容器 <br/>
+public void update(Graphics g)：用背景色清除组件，设定画笔为前景色，调用paint方法重画组件。 <br/>
+Public void repaint()：立即调用组件的update方法 <br/>
+</p><ol>
+<li>
+手工布局
+Java允许使用手工布局放置各个组件，这种方法比较灵活，但用户必须使用setLocation()、setSize()、setBounds()等方法为
+组件设置大小和在容器中的位置，且使得策略模式的优点将被全部忽略，容器能应付调整大小的事件，代码的可重用性也大大降
+低，还会导致程序的系统相关。<br/>
+
+<p>
+首先：setLayout(null);语句关闭默认的布局管理器 
+</p>
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+public class SC extends Applet{
+Choice c=new Choice();
+Button b1=new Button("Button1");　
+Button b2=new Button("Button2");
+Button b3=new Button("Button3");
+public void init(){
+setLayout(null);
+c.addItem("Item1");
+c.addItem("Item2");
+c.addItem("Item3");
+add(c);
+c.setBounds(80,80,100,20);
+add(b1);
+b1.setBounds(20,20,50,30);
+add(b2);
+b2.setBounds(100,20,50,30);
+add(b3);
+b3.setBounds(200,60,50,50);  }}
+</pre>
+
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.4.3" class="outline-4">
+<h4 id="sec-1.4.3"><span class="section-number-4">1.4.3</span> 事件处理方法 </h4>
+<div class="outline-text-4" id="text-1.4.3">
+
+<ol>
+<li>
+事件与事件处理方法
+Java通过委托型事件处理机制解决如何对事件作出响应的问题
+</li>
+<li>
+Java的事件处理机制
+能产生事件的组件叫做事件源（如按钮），可给事件源注册一个事件监听器，当事件源发生事件时，事件监听器就代替事件源对
+发生的事件进行处理，这就是所谓的委托事件处理机制。 <br/>
+注意：事件监听器不一定是包容事件源的容器对象，只要一个对象实现了事件监听器接口就能成为事件监听器。这样处理可使程
+序中的事件处理代码与GUI代码分离，有利于优化程序结构。 <br/>
+在程序中编写“事件处理”程序段时，通常可以分为以下几个步骤： <br/>
+（1）确定事件类型 <br/>
+（2）为部件增加一个该事件的监测器：通常名为XXXListener。这些接口包含在java.awt.event和javax.swing.event包中 <br/>
+（3）增加事件处理程序 <br/>
+总体来说，Java事件处理有3部分主要内容： <br/>
+事件对象：表示事件的内容 <br/>
+事件源：哪个控件上发生了事件 <br/>
+Listener：事件发生了谁来处理 <br/>
+ActionEvent一些常用方法： <br/>
+（1）public String getActionCommand( )：返回事件源的标签 <br/>
+（2）public Object getSource( )：返回产生事件的对象名 <br/>
+（3）public int getModifiers( )：返回事件发生时功能控制键的状态，它们可能是功能键常数：SHIFT<sub>MASK、CTRL</sub><sub>MASK、ALT</sub><sub>MASK</sub>  <br/>
+
+
+
+<pre class="example">事件类/接口名称  接口的方法及产生事件的用户操作
+ActionEvent单击事件类
+ActionListener单击事件接口       actionPerformed(ActionEvent e) 单击按钮、文本行中单击鼠标、双击列表框选项
+ComponentEvent组件事件类
+ComponentListener接口    componentMoved(ComponentEvent e)移动组件时
+componentHidden(ComponentEvent e)隐藏组件时
+componentResized(ComponentEvent e)改变组件大小时
+componentShown(ComponentEvent e)显示组件时
+ContainerEvent容器事件类
+ContainerListener接口    componentAdded(ContainerEvent e)添加组件时
+componentRemoved(ContainerEvent e)添加组件时
+FocusEvent焦点事件类
+FocusListener接口        focusGained(FocusEvent e)获得焦点时
+focusLost(FocusEvent e)失去焦点时
+ItemEvent选择事件类
+ItemListener接口 itemStateChanged(ItemEvent e)选择复选框、选项框、单击列表框、选中带复选框的菜单项
+KeyEvent键盘击键事件类
+KeyListener接口  keyPressed(KeyEvent e)按下键盘时
+keyReleased(KeyEvent e)释放键盘时
+MouseEvent鼠标事件类
+MouseListener鼠标按钮事件接口    mouseClicked(MouseEvent e)单击鼠标时
+mouseEntered(MouseEvent e)鼠标进入时
+mouseExited(MouseEvent e)鼠标离开时
+mousePressed(MouseEvent e)按下鼠标时
+mouseReleased(MouseEvent e)放开鼠标时
+MouseEvent鼠标事件类
+MouseMotionListener接口  mouseDragged(MouseEvent e)拖拽鼠标时
+mouseMoved(MouseEvent e)鼠标移动时
+TextEvent文本事件类
+TextListener接口 textValueChanged(TextEvent e)
+文本行、文本区中修改内容时
+WindowEvent窗口事件类
+WindowListener接口       windowsOpened(WindowEvent e)打开窗口时
+windowsClosed(WindowEvent e)关闭窗口后
+windowsClosing(WindowEvent e)关闭窗口时
+windowsActivated(WindowEvent e)激活窗口时
+windowsDeactivated(WindowEvent e)窗口失去焦点时
+windowsIconified(WindowEvent e)窗口缩小为图标时
+windowsDeiconified(WindowEvent e)窗口复原时
+</pre>
+
+
+
+
+<pre class="example">import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+public class SC extends Applet implements ItemListener{
+TextArea area=new TextArea(6,30);
+String City[]={"北京","上海","天津","南京","武汉"};
+Checkbox cb[]=new Checkbox[5];
+Checkbox radio[]=new Checkbox[5];
+public void init(){
+add(new Label("这是一个选项事件例子"));
+add(area);
+add(new Label("   请选择中国的大城市："));
+for (int i=0;i&lt;5;i++){
+cb[i]=new Checkbox(City[i]);
+add(cb[i]);
+cb[i].addItemListener(this); }
+CheckboxGroup cbGroup=new CheckboxGroup();
+add(new Label("请选择中国最大的城市："));
+for (int i=0;i&lt;5;i++){
+radio[i]=new Checkbox(City[i],cbGroup,false);
+add(radio[i]);
+radio[i].addItemListener(this); } }
+public void itemStateChanged(ItemEvent e){
+area.append("你选择的是"+e.getItem()+"\n");  } }// e.getItem()选项标签
+</pre>
+
+
+
+
+</li>
+<li>
+事件适配器类与类的包容
+在java.awt.event包中还声明了一组带Adapter标记的类，称为适配器类，它们是一些抽象类，其中声明的方法与相应的接口的方法完全相同，也是空方法，但在使用它们继承创建新类时，可以不实现所有的方法，只要实现需要的方法即可。
+
+
+
+<pre class="example">//例如：
+class EnclosingClass{
+……
+static class NestedClass{……}
+class InnerClass{……}
+
+}
+</pre>
+
+
+
+<p>
+被包容的类可以无条件地使用包容它的类的所有成员，包括私有成员，被包容的类的作用域仅限于包容它的类 <br/>
+和类的其他成员一样，被包容的类可以被声明为静态类，非静态被包容类称为内部类（inner class），也可以声明为抽象类或最
+终类，这些和一般类声明是完全相同的。　<br/>
+</p>
+
+
+<pre class="example">import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+public class SC extends Applet{
+int x1,y1,x2,y2;
+public void init( )
+{ addMouseListener(new m1());
+addMouseMotionListener(new m2());  }
+public void paint(Graphics g){
+g.drawLine(x1,y1,x2,y2);　}
+class m1 extends MouseAdapter{
+public void mousePressed(MouseEvent e){
+x1=e.getX();
+y1=e.getY();   }}
+class m2 extends MouseMotionAdapter{
+public void mouseDragged(MouseEvent e){ 
+x2=e.getX();
+y2=e.getY();
+repaint(); }　}　
+}
+</pre>
+
+
+
+
+<pre class="example">import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class SC extends Applet implements ItemListener {
+Label la1=new Label("喜欢的城市:");
+Label la2=new Label("喜欢的活动:");
+Choice c=new Choice();
+List l=new List();
+
+public void init( )
+{
+setLayout(null);
+c.add("北京"); 
+c.add("上海");
+c.add("武汉");
+c.add("南京");
+c.addItemListener(this);
+l.add("听音乐");
+l.add("看电视");
+l.add("看电影");
+l.add("看小说");
+l.add("打球");
+l.addItemListener(this);
+add(c); c.setBounds(20,20,100,30);
+add(l); l.setBounds(20,50,100,60);
+add(la1);la1.setBounds(150,20,100,30);
+add(la2);la2.setBounds(150,50,100,30);
+}
+
+public void itemStateChanged(ItemEvent e)
+{if (e.getSource()==c)
+la1.setText("喜欢的城市:"+e.getItem());
+else
+la2.setText("喜欢的活动:"+l.getSelectedItem()); 
+}  
+
+}
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.5" class="outline-3">
+<h3 id="sec-1.5"><span class="section-number-3">1.5</span> 窗口、菜单和对话框 </h3>
+<div class="outline-text-3" id="text-1.5">
+
+
+</div>
+
+<div id="outline-container-1.5.1" class="outline-4">
+<h4 id="sec-1.5.1"><span class="section-number-4">1.5.1</span> 窗口 </h4>
+<div class="outline-text-4" id="text-1.5.1">
+
+<ol>
+<li>
+创建可关闭窗口
+窗口所对应的类为java.awt.Frame，它是java.awt.Window的子类，其常用方法：
+
+
+
+<pre class="example">方   法  功   能 返回
+类型
+Frame( ) 创建一个初始不可见的窗口        void
+Frame(String title )     创建一个指定标题的初始不可见的窗口      void
+setMenuBar(MenuBar mb)   设置菜单栏      void
+remove(MenuComponent mc) 移除菜单栏      void
+setVisible(boolean b)    设置是否可见    void
+setTitle(String title)   设置标题        void
+setSize(int length,int width)            void
+</pre>
+
+
+
+
+<pre class="example">import java.awt.*;
+import java.awt.event.*;
+class Frame1 extends Frame{
+public Frame1(){
+//窗口构造函数，此例没有调用父类构造函数而是直接在子类中设置窗口属性
+Label l=new Label("HI"); //定义窗口中的标签
+this.add(l); //在窗口中显示标签
+this.setSize(new Dimension(400,300)); //设置窗口大小
+this.setTitle("My sceond Frame"); //设置窗口标题  }}
+public  class SC{
+boolean packFrame=false;
+public SC(){
+Frame1 frame=new Frame1();
+frame.setVisible(true); }
+public static void main(String args[])
+{new SC();}  }
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.5.2" class="outline-4">
+<h4 id="sec-1.5.2"><span class="section-number-4">1.5.2</span> 窗口事件适配器 </h4>
+<div class="outline-text-4" id="text-1.5.2">
+
+<ol>
+<li>
+在窗口中加入组件
+
+
+
+<pre class="example">import java.awt.*;
+import java.awt.event.*;
+public class SC extends Frame implements ActionListener{
+Button btn1,btn2;
+TextField f;
+SC(　){
+super("Window4");　//调用父类构造函数创建标题为Window4窗口
+addWindowListener(new WindowAdapter(){
+public void windowsClosing(WindowEvent e){
+System.exit(0); 　}});
+setSize(350,200);
+btn1=new Button("显示");
+btn2=new Button("退出");
+f=new TextField(20);
+setLayout(new FlowLayout());
+add(f);
+add(btn1);
+add(btn2);
+btn1.addActionListener(this);
+btn2.addActionListener(this);
+show();//  改为setVisible(true);效果一样
+}
+public static void main(String args[]){
+new SC();　}
+public void actionPerformed(ActionEvent e){
+f.setText("你按下了“"+e.getActionCommand()+"”按钮");
+if (e.getSource()==btn2){
+for (int i=0;i&lt;1000000000;i++);
+System.exit(0);
+}}}
+//注：show或setVisible方法必须位于添加组件语句之后，否则组件显示不出来
+</pre>
+
+
+
+
+</li>
+<li>
+多重窗口
+<ul>
+<li>
+菜单
+</li>
+</ul>
+
+<p>菜单与其他组件有所不同，无法直接将菜单添加到容器的某一位置，也无法使用布局管理器对其加以控制，菜单只能被添加到“菜单容器”中
+</p><ol>
+<li>
+菜单条（MenuBar）
+是一个水平菜单，它只能被添加到Frame对象中，作为整个菜单树的根基（容器），直接在由java.applet.Applet生成的小应用程序中不能加入菜单，必须先创建窗口。
+说明：Swing中的菜单类全部是从Jcomponent类继承而来的，因此可以在任何Jcontainer（包括JApplet）中放置菜单的
+JmenuBar,而Applet中是不能直接加入菜单的。
+
+
+
+<pre class="example">Frame fr=new Frame(“菜单条示例”)　;
+MenuBar mb=new MenuBar( );
+fr.setMenuBar(mb);
+fr.setSize(150,100);
+fr.setVisible(true);
+//说明：菜单条（MenuBar）不支持Listener。因为在其中所发生的各种事件，将会自动由菜单项处理。
+</pre>
+
+
+
+
+</li>
+<li>
+菜单（Menu）
+Menu类提供了标准下拉菜单，它可以被添加到菜单条中或其他菜单中
+
+
+
+<pre class="example">Frame fr=new Frame(“菜单条示例”)　;
+MenuBar mb=new MenuBar( );
+fr.setMenuBar(mb);
+Menu m1=new Menu(“File”);
+Menu m2=new Menu(“Edit”);
+Menu m3=new Menu(“Help”);
+mb.add(m1); mb.add(m2); 
+mb.setHelpMenu(m3);//在界面上设置帮助菜单
+fr.setSize(150,100);
+fr.setVisible(true);
+</pre>
+
+
+
+
+</li>
+<li>
+菜单项（MenuItem）
+菜单项是菜单树的“文本叶子”
+
+
+
+<pre class="example">Menu m1=new Menu(“File”);
+MenuItem mi1=new MenuItem(“Save”); //创建“Save”的菜单项
+MenuItem mi2=new MenuItem(“Load”);
+MenuItem mi3=new MenuItem(“Quit”);
+m1.add(mi1); m1.add(mi2);
+m1.addSeparator( ); //　添加一条分隔线
+m1.add(mi3);
+</pre>
+
+
+
+
+</li>
+<li>
+复选框菜单项（CheckboxMenuItem）
+
+
+
+<pre class="example">Menu m1=new Menu(“File”);
+MenuItem mi1=new MenuItem(“Save”); 
+CheckboxMenuItem mi2=new CheckboxMenuItem (“Load”);
+//带复选框的菜单项
+m1.add(mi1); m1.add(mi2);
+CheckboxMenuItem可以通过ItemListener接口进行监听，当复选框状态发生变化后，itemStateChanged()方法将被调用
+</pre>
+
+
+
+
+</li>
+<li>
+弹出式菜单项（PopupMenu）
+弹出式菜单可以在任一组件上弹邮，同时也可以在弹出式菜单中添加菜单项和菜单。弹出式菜单必须被添加到某一“父”组
+件上
+
+
+
+<pre class="example">Frame fr=new Frame("PopupMenu");
+Button b=new Button("Press Me");
+fr.add(b);
+PopupMenu p=new PoupMenu("Popup");
+MenuItem s=new MenuItem("Save");
+MenuItem l=new MenuItem("Load");
+fr.add(p);
+b.addActionListener(this);
+p.add(s); p.add(l);}
+</pre>
+
+
+
+
+<p>
+如果想要显示弹出式菜单，则需要调用show()方法，如本例使用一个按钮作为触发装置，点击按钮就弹出该PopuMenu
+</p>
+
+
+<pre class="example">public void actionPerformend(ActionEvent e){
+p.show(b,10,10);}
+</pre>
+
+
+
+</li>
+<li>
+菜单总结：
+第一步：定义菜单栏MenuBar类的对象： <br/>
+MenuBar 对象名＝new MenuBar( ); <br/>
+第二步：定义菜单Menu类的对象： <br/>
+Menu 对象名＝new Menu(“菜单名”); <br/>
+第三步：定义菜单项MenuIttem类的对象： <br/>
+MenuItem 对象名＝new MenuItem(“菜单项名”); <br/>
+或定义选项子菜单CheckboxMenuItem类的对象： <br/>
+CheckboxMenuItem 对象名＝new CheckboxMenuItem(“选项名”); <br/>
+第四步：在Frame中加入菜单栏： <br/>
+Freme类对象名.setMenuBar(“MenuBar类对象名”); <br/>
+第五步：在MenuBar中加入菜单： <br/>
+MenuBar类对象名.add(“Menu类对象名”); <br/>
+第六步：在Menu类的对象中加入菜单项： <br/>
+Menu类对象名.add(“MenuItem类对象名”); <br/>
+或Menu类对象名.add(“CheckboxMenuItem类对象名”); <br/>
+MenuBar类的常用成员方法: <br/>
+public void  MenuBar( )：构造一个菜单栏 <br/>
+public Menu add(Menu m)：将指定的菜单加入菜单栏 <br/>
+public void remove(int index)：删除指定位置上的菜单 <br/>
+public void remove(MenuComonent)：删除指定的菜单 <br/>
+Menu类的常用成员方法: <br/>
+public void Menu()：构造一个菜单 <br/>
+public void Menu(String label)：以指定标签构造一个菜单 <br/>
+public MenuItem add(MenuItem  mi)：增加一个菜单项 <br/>
+public void add(String label)：与add(new MenuItem(label))等价 <br/>
+public void remove(int index)：删除指定位置上的菜单项 <br/>
+public void remove(MenuComponent mc)：删除指定的菜单项 <br/>
+public void removeAll()：删除所有的菜单项 <br/>
+public void insert(MenuItem mi,int index)：在指定位置处插入一菜单项 <br/>
+public void insert(String label,int index)：在指定位置处插入一菜单项 <br/>
+public void insertSeparator(int index)：在指定位置处插入一分隔符 <br/>
+MenuItem类的常用成员方法 <br/>
+public void MenuItem( )：构造一个菜单项 <br/>
+public void MenuItem(String label)：以指定标签构造一个菜单项 <br/>
+public void MenuItem(String label,MenuShortcut s)：以指定标签和快捷键构造一个菜单项　 <br/>
+public void setLabel(String Label)：设置菜单项标签 <br/>
+public void setShortcut(MenuShortcut s)：设置快捷键 <br/>
+setActionCommand(String command)：设置由菜单项引发的动作事件的命令字符串，命令字符串的默认值为菜单项的标签 <br/>
+getActionCommnad()：取得事件源的命令字符串 <br/>
+deleteShorcut()：删除与该菜单项相关的快捷键 <br/>
+setEnabled(boolean b)：设置菜单项是否可选 <br/>
+
+
+
+<pre class="example">import java.awt.*;
+import java.applet.Applet;
+import java.awt.event.*;
+public class SC extends Applet{
+MyFrame f=new MyFrame("My first Frame");
+Button b1=new Button("Open");
+Button b2=new Button("Close");
+MenuBar mb1=new MenuBar();
+Menu fi=new Menu("File");
+MenuItem file[]={new MenuItem("Open",new MenuShortcut(KeyEvent.VK_O)),
+//ctrl+S　 
+new MenuItem("Save",new MenuShortcut(KeyEvent.VK_S)),
+//设置快捷方法Ctrl+S　
+new MenuItem("Exit",new MenuShortcut(KeyEvent.VK_E))}; 
+//Ctrl+E
+public void init(){
+add(b1);
+add(b2);
+f.setMenuBar(mb1);
+mb1.add(fi);
+for (int i=0;i&lt;file.length;i++)
+{fi.add(file[i]);}
+b1.addActionListener(new b1L());
+b2.addActionListener(new b2L());
+f.setSize(200,300);}
+class b1L implements ActionListener{
+public void actionPerformed(ActionEvent e){
+f.setVisible(true);}}
+class b2L implements ActionListener{
+public void actionPerformed(ActionEvent e){
+f.setVisible(false);}}
+
+class MyFrame extends Frame{
+Label L1=new Label("My Applet Frame");
+MyFrame(String s){
+super(s);
+add(L1); }}}
+</pre>
+
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.5.3" class="outline-4">
+<h4 id="sec-1.5.3"><span class="section-number-4">1.5.3</span> 对话框 </h4>
+<div class="outline-text-4" id="text-1.5.3">
+
+<ol>
+<li>
+自定义对话框　
+Dialog构造方法： 　<br/>
+Dialog(Frame owner)：在指定Frame中构造一无标题的、无模式的对话框 <br/>
+Dialog(Frame owner,boolean model)：在指定Frame中构造一无标题的对话框，当model为true时有模式（必须先处理对话框），
+model为false时无模式 <br/>
+Dialog(Frame owner,String title,boolean model)：标题为title，其他同上 <br/>
+Dialog(Dialog owner)：在指定Dialog中构造一无标题的、无模式的对话框 <br/>
+Dialog(Dialog owner,boolean model)： <br/>
+Dialog(Dialog owner,String title,boolean model)：<br/>
+常用成员方法：<br/>
+public void setTitle(String title)：设置标题 <br/>
+public void show()：显示对话框 <br/>
+public void hide()：隐藏对话框 <br/>
+public void setVisible(boolean b)：b为true显示对话框，为false不显示 <br/>
+
+
+
+<pre class="example">import java.awt.*;
+import java.awt.event.*;
+class SC{
+public static void main(String abc[]){
+Frame f=new Frame("HI") ;
+f.setSize(300,200);
+f.show();
+f.addWindowListener(new WindowAdapter(){
+public void windowClosing(WindowEvent e)
+{System.exit(0);}  //可关闭窗口
+});
+Dialog d=new Dialog(f,"HI",false); 
+d.setSize(100,150);
+d.show();   }}
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.6" class="outline-3">
+<h3 id="sec-1.6"><span class="section-number-3">1.6</span> Swing简介 </h3>
+<div class="outline-text-3" id="text-1.6">
+
+<p>Swing和AWT的最大差别在于Swing组件类不带本地代码，因此不受操作系统平台的限制，具有比AWT组件更强的功能。<br/>
+Swing按钮类和标签类除了显示文本标题外还可以显示图像标题 <br/>
+可以为Swing容器加上边框 <br/>
+Swing组件能自动适应操作系统的外观，而AWT组件总是保持相同外观 <br/>
+Swing组件不一定非得是矩形的，可以把按钮设计成圆形 <br/>
+可以调用Swing组件的方法心迹其外观和行为 <br/>
+增加了一个丰富的高层构件集合，如表格（JTable）、树(JTree) <br/>
+</p>
+<p>
+缺点：慢
+特点：
+</p>
+<p>
+类的属性被命名为xxx，则相应的的方法命名为:getXxx()、setXxx()、isXxx() <br/>
+Swing使用同AWT相同的事件模型。处理Swing中的事件时除了使用java.awt.event包外，还要用到javax.swing.event包 <br/>
+大多数情况下在老的AWT组件前加一个“J”即为Swing组件<br/>
+</p>
+<p>
+Swing组件的分类 <br/>
+顶层容器：包括JFrame、JApplet、JDialog、Jwindow <br/>
+普通容器：包括JPanel、JScrollPane、JtablePane <br/>
+特殊容器：包括JLayeredPane、JRootPane、JtoolBar <br/>
+基本控件：JButton、JCombox、JList、JMune、JTextFiled等 <br/>
+不可编辑信息组件：如JLabel、JprogresserBar <br/>
+可编辑信息组件：如JTextFiled、JTree、JFileChooer、JTable <br/>
+</p>
+</div>
+
+<div id="outline-container-1.6.1" class="outline-4">
+<h4 id="sec-1.6.1"><span class="section-number-4">1.6.1</span> Swing按钮与标签 </h4>
+<div class="outline-text-4" id="text-1.6.1">
+
+<ol>
+<li>
+按钮（JButton）
+构造方法：
+
+
+
+<pre class="example">Jbutton()：构造一个没有标签和图标的按钮
+Jbutton(Icon icon)：构造一个带有图标的按钮
+Jbutton(Sting text)：构造一个带有标签的按钮
+Jbutton(Sting text，Icon icon)：构造一个带有标签和图标的按钮
+</pre>
+
+
+
+<p>
+主要成员方法：
+</p>
+
+
+<pre class="example">public boolean isDefaultButton()：返回这个按钮是否为RootPane的默认按钮
+setIcon(Icon icon)：设置按钮图标
+setDisableIcon(Icon icon)：设置按钮不激活时显示图标
+setRolloverIcon(Icon icon)：设置鼠标移到按钮上的图标
+setPressedIcon(Icon icon)：设置鼠标按下的图标
+</pre>
+
+
+
+</li>
+<li>
+标签（JLabel）
+构造方法：
+
+
+
+<pre class="example">JLabel(Icon icon)：构造一个带图片的标签
+JLabel(Icon icon,int horizontalAlignment)：构造一个带图片且水平对齐的标签
+JLabel(String text)：构造一个带文本的标签
+JLabel(String text,int horizontalAlignment)：构造一个带文本且水平对齐的标签
+JLabel(String text, Icon icon ,int horizontalAlignment)：构造一个带文本图片且水平对齐的标
+</pre>
+
+
+
+<p>
+主要成员方法：
+</p>
+
+
+<pre class="example">getIcon()：获取JLabel显示的图像对象
+setIcon(Icon icon)：设置需要显示的图像
+getText()：返回Jlabel标签显示的字符串
+setText(String text)：设置需要显示的字符串
+getHorizontalAlignment()：返回沿X轴的标签内容的对齐方式
+setHorizontalAlignment()：设置沿X轴的标签内容的对齐方式
+getVerticalAlignment()：返回沿Y轴的标签内容的对齐方式
+setVerticalAlignment()：设置沿Y轴的标签内容的对齐方式
+</pre>
+
+
+
+
+</li>
+<li>
+Swing工具栏（JToolBar）
+作为一个容器来包容任何组件，它支持拖运
+构造方法：
+
+
+
+<pre class="example">JToolBar()：构造一个工具栏
+JToolBar(int orientation)：构造一个指定方向的工具栏
+</pre>
+
+
+
+<p>
+主要成员方法：
+</p>
+
+
+<pre class="example">addSeparator()：在JToolBar的末尾增加一个分割符
+addSeparator(Dimension size)：在JtoolBar的末尾增加一个指定宽度分割符
+getComponentAtIndex(int i)：返回指定索引的组件
+getComponentAtIndex(Component c)：返回指定组件的索引
+getOrientation()：返回工具栏的方向
+setOrientation(int o)：设置工具栏的方向
+remove(Component comp)：从工具栏中删除组件
+setBorderPainted(boolean b)：设置边界是否可被画
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.7" class="outline-3">
+<h3 id="sec-1.7"><span class="section-number-3">1.7</span> 图形与多媒体处理 </h3>
+<div class="outline-text-3" id="text-1.7">
+
+<p>AWT（Abstract Windows Toolkit）是抽象窗口工具包的缩写，其支持窗口界面的创建、简单图形的绘制、图形化文本输出和事件监听。Java所有与图形有关的功能都包含在AWT包里。
+</p>
+</div>
+
+<div id="outline-container-1.7.1" class="outline-4">
+<h4 id="sec-1.7.1"><span class="section-number-4">1.7.1</span> 基本图形 </h4>
+<div class="outline-text-4" id="text-1.7.1">
+
+<p>绘制基本图形要使用AWT中的Graphics类
+</p><ol>
+<li>
+直线
+格式：public void drawLine(int x1,int y1,int x2,int y2)
+
+
+
+<pre class="example">import java.awt.Graphics;
+public class Line extends java.applet.Applet{
+public void paint(Graphics g){
+g.drawLine(50,50,100,100);} }
+</pre>
+
+
+
+</li>
+<li>
+矩形
+
+
+
+<pre class="example">public void drawRect(int x,int y,int width,int height)
+public void fillRect(int x,int y,int width,int height)//与drawRect相比，画出矩形框后用前景色填充。
+public void drawRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight)//最后两个参数代表圆角
+public void fillRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight)//用前景色填充内部
+public void draw3DRect(int x,int y,int width,int height,boolean raised)//raised为true时为三维矩形凸起， 为false时为三维矩形凹下
+public void fill3DRect(int x,int y,int width,int height,boolean raised) 
+</pre>
+
+
+
+
+</li>
+<li>
+椭圆
+
+
+
+<pre class="example">public void drawOval(int x,int y,int width,int height) //x,y是包围椭圆的矩形左上角位置，width,height是椭圆的宽度和高度。
+public void fillOval(int x,int y,int width,int height) //用前景色填充内部
+
+public void paint(Graphics g)
+{g.drawOval(30,20,60,60);  //画圆
+g.fillOval(130,20,80,50);}
+</pre>
+
+
+
+
+</li>
+<li>
+圆弧
+
+
+
+<pre class="example">public void drawArc(int x,int y,int width,int height,int starAngle,int arcAngle)
+//starAngle起始角（以角度为单位），确定了圆弧的位置，arcAngle张角确定了圆弧的大小，取正（负）值为沿逆（顺）时针方向画出圆弧。当张角大于360时，画出的就是椭圆。
+public void fillArc(int x,int y,int width,int height,int starAngle,int arcAngle)
+</pre>
+
+
+
+
+</li>
+<li>
+多边形
+
+
+
+<pre class="example">public void drawPolygon(int xPoints[],int yPoints[],int nPoints)//xPoints[]是一整数数组，用以存放多边形坐标点X坐标值，yPoints[]参数存放对应Y坐标值，nPoints则表示　共有几个坐标点。
+public void fillPolygon(int xPoints[],int yPoints[],int nPoints)/
+</pre>
+
+
+
+
+<pre class="example">import java.awt.*;
+public class SC extends java.applet.Applet{
+int x[]={30,60,115,72,67};
+int y[]={40,30,15,52,100};
+int m=x.length;
+public void paint(Graphics g)
+{g.drawPolygon(x,y,m);}　//m-1则少一边，m+1则出错
+}
+</pre>
+
+
+
+
+</li>
+<li>
+复制与清除图形
+
+
+
+<pre class="example">copyArea(int x,int y,int width,int height,int dx,int dy)//前四能参定义要被复制的屏幕的矩形区域，最后2个参数则表示新区域与原始屏幕区域的偏移距离。
+clearRect(int x,int y,int width,int height)//清除指定矩形区域要清除整个applet区域，可先调用Applet类的size()方法得
+到整个applet的宽度和高度。如：g.clearRect(0,0,size().width,size().height)
+</pre>
+
+
+
+
+<pre class="example">import java.awt.*;
+public class SC extends java.applet.Applet{
+public void paint(Graphics g){
+g.fillRoundRect(120,20,80,60,30,40);
+g.copyArea(120,20,80,60,50,100);
+g.clearRect(120,20,80,60);}}
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.7.2" class="outline-4">
+<h4 id="sec-1.7.2"><span class="section-number-4">1.7.2</span> 画布 </h4>
+<div class="outline-text-4" id="text-1.7.2">
+
+<ol>
+<li>
+画布的作用
+画布（Canvas）是用来绘图的组件，基作用和Windows的画图板类似。Canvas继承自Component类，有自己的paint方法，能响应鼠标和键盘事件。
+</li>
+<li>
+创建画布的实例
+</li>
+<li>
+文字输出 
+<ol>
+<li>
+字符串、字符和字节输出
+（1）字符串输出方法：public void drawSting(String str ,int x,int y) <br/>
+（2）字符输出方法：drawChars(char chars[],int offset,int len,int x,int y) <br/>
+（3）字节输出方法：drawBytes(byte bytes[],int offset,int len,int x,int y) <br/>
+11．3．2　字体控制
+通过类Graphics或组件的方法getFont()和setFont()可以获取或设置当前使用的字体。<br/>
+字体构造方法：Font(String name,int style,int size)  <br/>
+name：字体名，如：“宋体”、“楷体”、“Times New Roman”、“Courier” <br/>
+style：字体风格，如：Font.BOLD(粗体)、Font.ITALIC(斜体)、Font.PLAIN(普通)，由于它们被定义为整数常量，可以进行相加运算生成复合style，如：<br/>
+Font fn=new Font(“TimesRoman”, Font.BOLD+Font.ITALIC,28)<br/>
+size：字体大小<br/>
+我们可通过getToolkit().getFontList()来得到系统的AWT工具集所支持的字体列表。如： 
+
+
+
+<pre class="example">Toolkit systk=Toolkit.getDefaultToolkit( );
+String fonts=systk.getFontList( );
+</pre>
+
+
+
+
+<p>
+创建了Font对象以后，就可以利用Graphics类中提供的drawString()，drawChars()等方法来显示字符串与字符: <br/>
+首先用setFont（）方法，将创建的Font对象设为当前所用字体，再用drawString()，drawChars()输出字符。 <br/>
+格式：public void setFont(Font font); //设置当前字体信息 <br/>
+public void drawString(String str,int x,int y)//在指定位置输出字符串 <br/>
+public void drawChars(char data[],int offset,int len,int x,int y)//在指定位置输出字符数组，offset表示从第几个字符位置开始，len表示共显示几个字符。<br/>
+public font getFont()//获取当前所用的Font对象
+</p></li>
+</ol>
+</li>
+</ol>
+</div>
+
+</div>
+
+<div id="outline-container-1.7.3" class="outline-4">
+<h4 id="sec-1.7.3"><span class="section-number-4">1.7.3</span> 颜色控制 </h4>
+<div class="outline-text-4" id="text-1.7.3">
+
+<p>java在Color类中实现对颜色的控制，可改变前景色和背景色。Java将常用颜色定义为颜色常量，如表11.1　P231，用法如：
+Color.blue <br/>
+构造方法：<br/>
+Color(float r,float g,float b)//red,green,blue三原色浮点值，取值在0.0~1.0间 <br/>
+Color(int r,int g,int b)//red,green,blue三原色整数值，取值在0~255间 <br/>
+Color(int rgb)//指定一个整数代表三原色混合值，取值0~7代表蓝色，取值8~15代表绿色，取值16~23代表红色，(此方法有问题，
+不要用) <br/>
+</p>
+<ol>
+<li>
+为不同对象设置颜色
+setColor(Color c)//设置当前所用前景色 <br/>
+getColor()     //获得当前所用前景色 <br/>
+Java还提供了设置整个Applet的前景和背景的方法： <br/>
+setForeground(Color c) <br/>
+setBackground(Color c) <br/>
+getForeground(Color c) <br/>
+getBackground(Color c) <br/>
+
+
+
+<pre class="example">import java.awt.*;
+public class SC extends java.applet.Applet{
+char c[]={'计','算','机','专','业'};
+Font f1=new Font("隶书",Font.ITALIC,16);
+Font f2=new Font("楷体",Font.ITALIC,16);
+Color c1=new Color(100,200,150);
+public void paint(Graphics g){
+g.setFont(f1);
+g.setColor(Color.RED);
+g.drawString("网络专业",20,30);
+g.setColor(c1);
+g.setFont(f2);
+g.drawChars(c,0,3,20,50);}}
+</pre>
+
+
+
+
+<pre class="example">import java.awt.*;
+public class SC extends java.applet.Applet{
+Color c1=new Color(0,0,255);
+Color c2=new Color(255,50,100);
+Color c3=new Color(0,250,100);
+public void paint(Graphics g){
+setForeground(c1);
+setBackground(c2);
+g.drawRect(20,30,50,100);
+setForeground(c3); //将影响Applet中所有已经用其他任何颜色所绘制的图形及显示的文本
+setBackground(Color.green);//同上，所以在一个程序中不要用两遍引此方法
+g.drawRect(20,230,50,100);}}
+</pre>
+
+
+
+
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1.8" class="outline-3">
+<h3 id="sec-1.8"><span class="section-number-3">1.8</span> 基本数据类型的转化 </h3>
+<div class="outline-text-3" id="text-1.8">
+
+
+</div>
+
+<div id="outline-container-1.8.1" class="outline-4">
+<h4 id="sec-1.8.1"><span class="section-number-4">1.8.1</span> 如何将字串 String 转换成整数 int? </h4>
+<div class="outline-text-4" id="text-1.8.1">
+
+<p>A. 有两个方法: <br/>
+1). int i = Integer.parseInt([String]); 或  <br/>
+i = Integer.parseInt([String],[int radix]); <br/>
+2). int i = Integer.valueOf(my<sub>str</sub>).intValue(); <br/>
+注: 字串转成 Double, Float, Long 的方法大同小异. <br/>
+2 如何将整数 int 转换成字串 String ? <br/>
+A. 有叁种方法:<br/>
+1.) String s = String.valueOf(i); <br/>
+2.) String s = Integer.toString(i); <br/>
+3.) String s = "" + i; <br/>
+注: Double, Float, Long 转成字串的方法大同小异.  <br/>
+</p>
+<p>
+这是一个例子,说的是JAVA中数据数型的转换.供大家学习引
+</p>
+
+
+<pre class="example">package cn.com.lwkj.erts.register;
+import java.sql.Date;
+
+public class TypeChange {
+public TypeChange() {
+}
+
+//change the string type to the int type
+public static  int stringToInt(String intstr)
+{
+    Integer integer;
+    integer = Integer.valueOf(intstr);
+    return integer.intValue();  
+}
+
+//change int type to the string type
+public static String intToString(int value)
+{
+    Integer integer = new Integer(value);
+    return integer.toString(); 
+}
+
+//change the string type to the float type
+public static  float stringToFloat(String floatstr)
+{
+    Float floatee;
+    floatee = Float.valueOf(floatstr);
+    return floatee.floatValue(); 
+}
+
+//change the float type to the string type
+public static String floatToString(float value)
+{
+    Float floatee = new Float(value);
+    return floatee.toString(); 
+}
+
+//change the string type to the sqlDate type
+public static java.sql.Date stringToDate(String dateStr)
+{
+    return  java.sql.Date.valueOf(dateStr); 
+}
+
+//change the sqlDate type to the string type
+public static String dateToString(java.sql.Date datee)
+{
+    return datee.toString();
+}
+
+public static void main(String[] args)
+{
+    java.sql.Date day ;
+    day = TypeChange.stringToDate("2003-11-3");
+    String strday = TypeChange.dateToString(day);
+    System.out.println(strday);}
+}
+</pre>
+
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1.8.2" class="outline-4">
+<h4 id="sec-1.8.2"><span class="section-number-4">1.8.2</span> JAVA中常用数据类型转换函数 </h4>
+<div class="outline-text-4" id="text-1.8.2">
+
+<p>虽然都能在JAVA API中找到，整理一下做个备份。
+</p>
+
+
+<pre class="example">string-&gt;byte：Byte static byte parseByte(String s)
+byte-&gt;string：Byte static String toString(byte b) 
+char-&gt;string：Character static String toString (char c) 
+string-&gt;Short：Short static Short parseShort(String s) 
+Short-&gt;String：Short static String toString(Short s) 
+String-&gt;Integer：Integer static int parseInt(String s)
+Integer-&gt;String：Integer static String tostring(int i) 
+String-&gt;Long：Long static long parseLong(String s) 
+Long-&gt;String：Long static String toString(Long i) 
+String-&gt;Float：Float static float parseFloat(String s) 
+Float-&gt;String：Float static String toString(float f) 
+String-&gt;Double：Double static double parseDouble(String s)
+Double-&gt;String：Double static String toString(Double) 
+</pre>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

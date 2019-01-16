@@ -1,0 +1,365 @@
+/**
+ * 
+ */
+package cn.edu.xmu.scrumspark.view;
+
+
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+
+import cn.edu.xmu.scrumspark.model.entity.*;
+import cn.edu.xmu.scrumspark.view.util.Constants;
+import cn.edu.xmu.scrumspark.view.util.RemoteDataFactory;
+import cn.edu.xmu.scrumspark.view.util.Utils;
+
+/**
+ * Provides access to the current user, project, and locale
+ * 
+ * @author 008
+ * @version 1.0 2011-12
+ */
+@ManagedBean
+@SessionScoped
+public class VisitInfo {
+
+	private Person loginedUser;
+
+	/**
+	 * the current project user select
+	 */
+	private Project currentProject=new Project();;
+
+	/**
+	 * the current sprint user select
+	 */
+	private Sprint currentSprint;
+	/**
+	 * the current backlog user select
+	 */
+	private Backlog currentBacklog;
+	
+	
+	/**
+	 * the current task user select
+	 */
+	private Task currentTask;
+	/**
+	 * the current requirement user select
+	 */
+	private Requirement currentReq;
+	
+	/**
+	 * whether or not the user have legend
+	 */
+	private boolean legend;
+	/**
+	 * whether or not the user have a project in progress
+	 */
+	private boolean haveProject;
+	/**
+	 * whether or not user is under creating a project
+	 */
+	private boolean creatingProject=false;
+	/**
+	 * whether or not the user is creating requiremnt
+	 */
+	private boolean creatingReq;
+	/**
+	 * whether or not the user is creating backlog
+	 */
+	private boolean creatingBacklog;
+	/**
+	 * whether or not the user is creating sprint
+	 */
+	private boolean creatingSprint;
+	/**
+	 * whether or not the user is creating task;
+	 */
+	private boolean creatingTask;
+	/**
+	 * whether the user is  modifing requirement
+	 */
+	private boolean modifing;
+	
+	private boolean isCanChangeReq;
+	/**
+	 * temp Requirement the after divide to add
+	 */
+	private List<Requirement> divideReqTemp;
+	
+	
+    private String locale=FacesContext.getCurrentInstance().getViewRoot().getLocale().toString();
+    
+    
+	public Person getLoginedUser() {
+		return loginedUser;
+	}
+
+	public void setLoginedUser(Person loginedUser) {
+		this.loginedUser = loginedUser;
+	}
+
+	public Project getCurrentProject() {
+		return currentProject;
+	}
+
+	public void setCurrentProject(Project currentProject) {
+		this.currentProject = currentProject;
+	}
+
+
+	/**
+	 * @return the currentBacklog
+	 */
+	public Backlog getCurrentBacklog() {
+		return currentBacklog;
+	}
+
+	/**
+	 * @param currentBacklog the currentBacklog to set
+	 */
+	public void setCurrentBacklog(Backlog currentBacklog) {
+		this.currentBacklog = currentBacklog;
+	}
+
+	public String getLocale() {
+		return this.locale;
+	}
+
+	public void setLocale(String locale) {
+		this.locale=locale;
+	}
+	
+	public void chooseLocal(ValueChangeEvent changeEvent)
+	{
+		setLocale(changeEvent.getNewValue().toString());
+	}
+	
+	/**
+	 * @return the logoutOrLogin
+	 */
+	public String getLogoutOrLogin() {
+		if(getLoginedUser()==null)
+			return Utils.getLocalizedMessage("clickHereLogin");
+		else
+			return Utils.getLocalizedMessage("logout");
+	}
+
+	/**
+	 * @return the legend
+	 */
+	public boolean isLegend() {
+		return getLoginedUser()!=null;
+	}
+
+
+	/**
+	 * @return the creatingReq
+	 */
+	public boolean isCreatingReq() {
+		return creatingReq;
+	}
+
+	/**
+	 * @param creatingReq the creatingReq to set
+	 */
+	public void setCreatingReq(boolean creatingReq) {
+		this.creatingReq = creatingReq;
+	}
+
+	/**
+	 * @return the creatingBacklog
+	 */
+	public boolean isCreatingBacklog() {
+		return creatingBacklog;
+	}
+
+	/**
+	 * @param creatingBacklog the creatingBacklog to set
+	 */
+	public void setCreatingBacklog(boolean creatingBacklog) {
+		this.creatingBacklog = creatingBacklog;
+	}
+
+	/**
+	 * @return the creatingSprint
+	 */
+	public boolean isCreatingSprint() {
+		return creatingSprint;
+	}
+
+	/**
+	 * @param creatingSprint the creatingSprint to set
+	 */
+	public void setCreatingSprint(boolean creatingSprint) {
+		this.creatingSprint = creatingSprint;
+	}
+
+	/**
+	 * @return the creatingProject
+	 */
+	public boolean isCreatingProject() {
+		return creatingProject;
+	}
+
+	/**
+	 * @param creatingProject the creatingProject to set
+	 */
+	public void setCreatingProject(boolean creatingProject) {
+		this.creatingProject = creatingProject;
+	}
+
+	/**
+	 * @return the haveProject
+	 */
+	public boolean isHaveProject() {
+		return getLoginedUser().getCurrentProMembers().size()!=0;
+	}
+
+	/**
+	 * @return the currentSprint
+	 */
+	public Sprint getCurrentSprint() {
+		return currentSprint;
+	}
+
+	/**
+	 * @param currentSprint the currentSprint to set
+	 */
+	public void setCurrentSprint(Sprint currentSprint) {
+		this.currentSprint = currentSprint;
+	}
+
+	/**
+	 * @return the currentTask
+	 */
+	public Task getCurrentTask() {
+		
+		return currentTask;
+	}
+
+	/**
+	 * @param currentTask the currentTask to set
+	 */
+	public void setCurrentTask(Task currentTask) {
+		this.currentTask = currentTask;
+	}
+
+	/**
+	 * @return the currentReq
+	 */
+	public Requirement getCurrentReq() {
+		return currentReq;
+	}
+
+	/**
+	 * @param currentReq the currentReq to set
+	 */
+	public void setCurrentReq(Requirement currentReq) {
+		if(currentReq!=null)
+			this.currentReq = currentReq;
+	}
+
+	/**
+	 * @return the modifing
+	 */
+	public boolean isModifing() {
+		return modifing;
+	}
+
+	/**
+	 * @param modifing the modifing to set
+	 */
+	public void setModifing(boolean modifing) {
+		this.modifing = modifing;
+	}
+
+	/**
+	 * @return the creatingTask
+	 */
+	public boolean isCreatingTask() {
+		return creatingTask;
+	}
+
+	/**
+	 * @param creatingTask the creatingTask to set
+	 */
+	public void setCreatingTask(boolean creatingTask) {
+		this.creatingTask = creatingTask;
+	}
+
+	/**
+	 * the user has  logged out
+	 */
+	public void logout()
+	{
+		setLoginedUser(null);
+		setCurrentProject(null);
+		setCurrentSprint(null);
+		setCurrentTask(null);
+		setCreatingProject(false);
+	}
+
+	/**
+	 * @return the currentProMember
+	 */
+	public ProjectMember getCurrentProMember() {
+		return getLoginedUser().getCurrentProMember(getCurrentProject());
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Requirement> getDivideReqTemp() {
+		return divideReqTemp;
+	}
+	/**
+	 * 
+	 * @param divideReqTemp
+	 */
+	public void setDivideReqTemp(List<Requirement> divideReqTemp) {
+		this.divideReqTemp = divideReqTemp;
+	}
+	
+	public void cleardivideReqTemp()
+	{
+		if(getDivideReqTemp()!=null)
+			getDivideReqTemp().clear();
+		System.out.println("this.divideReqTemp.clear();");
+	}
+
+	public String getToMyInbox()
+	{
+		setLoginedUser(RemoteDataFactory.getMyInboxData(getLoginedUser()));
+		return Constants.TO_MY_INBOX;
+	}
+	
+	public String toAllProject()
+	{
+		setLoginedUser(RemoteDataFactory.getToAllProject(getLoginedUser()));
+		return Constants.TO_ALL_PROJECT;
+	}
+
+	/**
+	 * @return the isCanChangeReq
+	 */
+	public boolean isCanChangeReq() {
+		if(isCreatingProject())
+			return false;
+		else
+			return true;
+		
+	}
+
+	/**
+	 * @param isCanChangeReq the isCanChangeReq to set
+	 */
+	public void setCanChangeReq(boolean isCanChangeReq) {
+		this.isCanChangeReq = isCanChangeReq;
+	}
+}

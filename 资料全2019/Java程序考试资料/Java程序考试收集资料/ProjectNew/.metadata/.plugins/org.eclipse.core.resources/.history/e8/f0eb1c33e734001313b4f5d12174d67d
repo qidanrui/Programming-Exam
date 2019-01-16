@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+/**
+ * 一些公共函数
+ * @author sinllychen
+ *
+ */
+public class Common {
+	   /**
+     * 交换两个数
+     * @param datas
+     * @param i
+     * @param j
+     */
+    public static void swap(ArrayList<Long> datas,int i,int j)
+    {
+        int k=datas.get(i);
+        datas.set(i, datas.get(j));
+        datas.set(j, k);
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<link rel="stylesheet" href="../css/login.css" />
+</h:head>
+<body>
+	<f:view >
+	<ui:include src="/includes/header.xhtml"></ui:include>
+	<div id="register">
+	           <div  id="rightContent">
+	                 <h:form>
+	                     <h:panelGrid  columns="1">
+	                          <h:outputText  style="font-size:20px;position:relative;left:100px;"  value="登录系统" />
+	                     </h:panelGrid>
+	                     
+	                         <h:panelGrid  columns="2"  >
+	                        <h:outputText value="用户名:"/>
+	                        <h:inputText style="font-size:18px;" />
+	                        </h:panelGrid>
+	                        <br></br>
+	                        <h:panelGrid columns="2">
+	                        <h:outputText value="密码:"/>
+	                        <h:inputSecret  style="font-size:18px;"></h:inputSecret>
+	                        </h:panelGrid>
+	                        
+	                        <h:commandButton  style="font-size:18px;"  value="登录"></h:commandButton>
+	                        <h:commandButton  style="font-size:18px;" value="重填"></h:commandButton>
+	                     </h:panelGrid>
+	                 </h:form>
+	           </div>
+	</div>
+	<ui:include src="/includes/footer.xhtml"></ui:include>
+	</f:view>
+</body>
+</html>

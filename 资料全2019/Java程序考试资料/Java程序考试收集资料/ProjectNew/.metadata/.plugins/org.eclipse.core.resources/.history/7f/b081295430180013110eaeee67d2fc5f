@@ -1,0 +1,13 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+public class Test1 {
+	public static void main(String[] args)
+	{
+		InputStreamReader reader =new InputStreamReader(System.in);
+		BufferedReader input=new BufferedReader(reader);
+		System.out.print("请输入一个数字:");
+	}
+
+}

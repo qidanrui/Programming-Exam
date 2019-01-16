@@ -1,0 +1,8 @@
+package cn.edu.xmu.software.interfaces;
+
+import cn.edu.xmu.software.entity.User;
+
+public interface  IUserOpt {
+	public void createUser(User u);//创建用户
+	public void updateUser(User u);//更新用户信息
+}

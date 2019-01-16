@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 packages to &apos;CourseSysEJBClient/ejbModule&apos;&#x0D;&#x0A;- Original project: &apos;ScrumSparkEJBClient&apos;&#x0D;&#x0A;- Destination element: &apos;CourseSysEJBClient/ejbModule&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     ScrumSparkEJBClient/ejbModule/cn.edu.xmu.scrumspark.model&#x0D;&#x0A;     ScrumSparkEJBClient/ejbModule/cn.edu.xmu.scrumspark.model.mail" description="Copy packages" destination="=CourseSysEJBClient/ejbModule" element1="/ejbModule&lt;cn.edu.xmu.scrumspark.model" element2="/ejbModule&lt;cn.edu.xmu.scrumspark.model.mail" flags="589830" fragments="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1337175992809" version="1.0"/>
+</session>

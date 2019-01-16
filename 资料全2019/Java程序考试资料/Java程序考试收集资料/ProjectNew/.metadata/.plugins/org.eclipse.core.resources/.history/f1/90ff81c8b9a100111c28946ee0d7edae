@@ -1,0 +1,77 @@
+package cn.edu.xmu.courseSys.view;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.naming.NamingException;
+
+
+import cn.edu.xmu.courseSys.model.IPersonBean;
+
+
+
+
+/**
+ * <p>
+ * Title: Registration Managed Bean
+ * </p>
+ * <p>
+ * Description: Provides register control 
+ * </p>
+ * <p>
+ * Copyright: Copyright (c) 2011
+ * </p>
+ * <p>
+ * Company: Software School, Xiamen University
+ * </p>
+ * 
+ * @author 008
+ * @version 1.0 2011-12
+ */
+
+@ManagedBean
+@RequestScoped
+public class LoginBean{
+
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = 1L;
+	private String loginName;
+	private String pswd;
+	
+	/**
+	 * Action method for login
+	 * 
+	 * @return String
+	 */
+	public String login() {
+
+		// get the remote interface of the PersonTrackBean
+		IPersonBean p = null;
+		try {
+			 p= RemoteDataFactory.getInstance().getIPersonBean();
+		} catch (NamingException d) {
+			System.out.println(d.toString());
+		}
+       if(p.ifRegister(this.loginName, this.pswd))
+    	   return "login";
+       else 
+    	   return "error";
+	}
+	public String getPswd() {
+		return pswd;
+	}
+
+	public void setPswd(String pswd) {
+		this.pswd = pswd;
+	}
+
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+}

@@ -1,0 +1,60 @@
+package Teaching.model;
+public class TimeCard {
+        private String selCourseId ;//签到课程
+        private String StudentId;//学生Id
+        private String signInType;//上课点名状态
+        private String signOutType;//下课点名状态
+        public TimeCard(){};
+		
+		/**
+		 * @return the studentId
+		 */
+		public String getStudentId() {
+			return StudentId;
+		}
+		/**
+		 * @param studentId the studentId to set
+		 */
+		public void setStudentId(String studentId) {
+			StudentId = studentId;
+		}
+		/**
+		 * @return the signInType
+		 */
+		public String getSignInType() {
+			return signInType;
+		}
+		/**
+		 * @param signInType the signInType to set
+		 */
+		public void setSignInType(String signInType) {
+			this.signInType = signInType;
+		}
+		/**
+		 * @return the signOutType
+		 */
+		public String getSignOutType() {
+			return signOutType;
+		}
+		/**
+		 * @param signOutType the signOutType to set
+		 */
+		public void setSignOutType(String signOutType) {
+			this.signOutType = signOutType;
+		}
+
+		/**
+		 * @return the selCourseId
+		 */
+		public String getSelCourseId() {
+			return selCourseId;
+		}
+
+		/**
+		 * @param selCourseId the selCourseId to set
+		 */
+		public void setSelCourseId(String selCourseId) {
+			this.selCourseId = selCourseId;
+		}
+}
+

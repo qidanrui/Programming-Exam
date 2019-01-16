@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">移动汇报</string>
+    <string name="dianjibang">单机版</string>
+      <string name="shuomeng">网络版是配合百度云盘，可以把数据上传到百度云盘的个人帐户中，也可以利用云盘对班干部端与班主任端进行通信。</string>
+      <string name="loginSys">系统登录</string>
+</resources>

@@ -1,0 +1,196 @@
+package cn.edu.xmu.software.adapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import cn.edu.xmu.software.Goal_Activity;
+import cn.edu.xmu.software.OtherDayTaskListActivity;
+import cn.edu.xmu.software.ProjectListActivity;
+import cn.edu.xmu.software.R;
+import cn.edu.xmu.software.TodayTaskListActivity;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+/**
+ * MenuList的适配器
+ * @author acbuwa
+ *
+ */
+public class MenuListAdapter extends BaseAdapter {
+	
+	private Activity context;
+	private List<Map<String, Object>> listItems;
+	private int itemCount;
+	private LayoutInflater listInflater;
+	private boolean isPressed[];
+	private final int COUNT = 11; 
+	private int pressedId;
+	
+	private final int imageIds[]={
+			R.drawable.left_inbox_icon, R.drawable.left_today_icon, R.drawable.left_next_icon, 
+			R.drawable.left_tomorrow_icon,R.drawable.left_someday_icon, R.drawable.left_scheduled_icon, R.drawable.left_projects_icon, 
+			R.drawable.left_contexts_icon, R.drawable.left_completed_icon, 
+			R.drawable.left_trash_icon, R.drawable.left_settings_icon};
+	private final int textContents[]={
+			R.string.inbox, R.string.today, R.string.next, R.string.tomorrow,R.string.someday, R.string.sheduled, 
+			R.string.project, R.string.context, R.string.complete, R.string.trash, 
+			R.string.settings
+	};
+	
+	/*一个menu item中包含一个imageView和一个TextView*/
+	public final class ListItemsView{
+		public ImageView menuIcon;
+		public TextView menuText;
+	}
+	
+	
+	public MenuListAdapter(Activity context, int pressedId) {
+		// TODO Auto-generated constructor stub
+		this.context = context;
+		this.pressedId = pressedId;
+		this.init();
+	}
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return this.itemCount;
+	}
+
+	@Override
+	public Object getItem(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		final int po = position;
+		ListItemsView listItemsView;
+		if(convertView == null){
+			listItemsView = new ListItemsView();
+			convertView = this.listInflater.inflate(R.layout.menu_list_item, null);
+			listItemsView.menuIcon = (ImageView)convertView.findViewById(R.id.menuIcon);
+			listItemsView.menuText = (TextView)convertView.findViewById(R.id.menuText);
+			convertView.setTag(listItemsView);
+		}
+		else{
+			listItemsView = (ListItemsView)convertView.getTag();
+		}
+		
+		listItemsView.menuIcon.setBackgroundResource((Integer)listItems.get(position).get("menuIcon"));
+		listItemsView.menuText.setText((String)listItems.get(position).get("menuText"));
+		//listItemsView.countIcon.setBackgroundResource((Integer)listItems.get(position).get("countIcon"));
+		
+		if(this.isPressed[position] == true)
+			convertView.setBackgroundResource(R.drawable.home_box_item_bg_sel);
+		else
+			convertView.setBackgroundColor(Color.TRANSPARENT);
+		
+		convertView.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View view) {
+				// TODO Auto-generated method stub
+				changeState(po);
+				gotoActivity(po);
+				notifyDataSetInvalidated();
+			}
+		});
+		
+		return convertView;
+	} 
+	
+	private void gotoActivity(int position){
+		Intent intent = new Intent();
+		switch(position){
+		case 1:
+			if(this.pressedId == 1){
+				TodayTaskListActivity activity = (TodayTaskListActivity)context;
+				activity.getScrollView().clickMenuBtn();
+			}
+			else{
+				intent.setClass(context, TodayTaskListActivity.class);
+				context.startActivity(intent);
+				context.overridePendingTransition(R.anim.push_in,R.anim.push_out);
+				context.finish();
+			}
+			
+			break;
+		/*----------------------------------------------------*/	
+		case 4:
+			if(this.pressedId == 4){
+				OtherDayTaskListActivity activity = (OtherDayTaskListActivity)context;
+				activity.getScrollView().clickMenuBtn();
+			}
+			else{
+				intent.setClass(context, OtherDayTaskListActivity.class);
+				context.startActivity(intent);
+				context.overridePendingTransition(R.anim.push_in,R.anim.push_out);
+				context.finish();
+			}
+			break;
+			
+		case 6:
+			if(this.pressedId == 6){
+				ProjectListActivity activity = (ProjectListActivity)context;
+				activity.getScrollView().clickMenuBtn();
+			}
+			else{
+				intent.setClass(context, ProjectListActivity.class);
+				context.startActivity(intent);
+				context.overridePendingTransition(R.anim.push_in,R.anim.push_out);
+				context.finish();
+			}
+			break;
+		/*----------------------------------------------------*/
+		default:
+//			intent.setClass(context, XMUPageActivity.class);
+//			context.startActivity(intent);
+		}
+	}
+	
+	private void changeState(int position){
+		
+		for(int i = 0; i < this.itemCount; i++){
+			isPressed[i] = false;
+		}
+		isPressed[position] = true;
+	}
+	
+	private void init(){
+		
+		this.itemCount = this.COUNT;
+		this.listItems =  new ArrayList<Map<String, Object>>();
+		this.isPressed = new boolean[this.itemCount];
+		for(int i = 0; i < this.itemCount; i++){
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("menuIcon", imageIds[i]);
+			String text = this.context.getString(this.textContents[i]);
+			map.put("menuText", text);
+			this.listItems.add(map);
+			this.isPressed[i] = false;
+		}
+		this.isPressed[this.pressedId] = true;
+		this.listInflater = LayoutInflater.from(context); 
+	}
+}

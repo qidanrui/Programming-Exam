@@ -1,0 +1,11 @@
+/**
+ * 归并排序，时间复杂度为nlgn
+ * @author sinllychen
+ *
+ */
+public class MergeSort {
+    public static void main(String[] args)
+    {
+    	int a[]={5,2,6,7,1,3,9,0,10};
+    }
+}

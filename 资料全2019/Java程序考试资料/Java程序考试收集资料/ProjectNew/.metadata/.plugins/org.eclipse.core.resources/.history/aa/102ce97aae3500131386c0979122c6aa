@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+
+
+public class RadixSort {
+   public static void radixSort(ArrayList<Long> datas,int r)
+   {
+	   int b=32;/*String.valueOf(max).length();*/
+	/*   int r=(int) (b<Math.floor(Math.log(n)/Math.log(2))?  b:Math.floor(Math.log(n)/Math.log(2)));
+	   int d=(int) Math.ceil((double)b/(double)(r));*/
+	   int d=(int) Math.ceil((double)b/(double)(r));
+	   int dataRange=(int) (Math.pow(2, r)-1);/*=(int) (Math.pow(2, r+1)-1);*/
+	   System.out.println("dataRange="+dataRange);
+	   long[]  c=new long[dataRange+1];
+	   long[] output=new long[datas.size()];
+	   for(int k=1;k<=d;k++)
+	   {
+		   int i=0;int j=0;
+		   for(;i<dataRange;i++)
+			   c[i]=0;
+		   for(;j<datas.size();j++)
+		   {
+			  /* int block=(int) ((datas.get(j)>>(int)(r*(k-1)))&((int)(Math.pow(2, r)-1)));*/
+			   int block=(int) ((datas.get(j)>>(int)(r*(k-1)))&dataRange);
+			   c[block]=c[block]+1;
+		   }
+		   for(i=1;i<dataRange;i++)
+			   c[i]=c[i]+c[i-1];
+		   for(j=datas.size()-1;j>=0;j--)
+		   {
+			   /*int block=(int) ((datas.get(j)>>(int)(r*(k-1)))&((int)(Math.pow(2, r)-1)));*/
+			   int block=(int) ((datas.get(j)>>(int)(r*(k-1)))&255);
+			   output[(int) c[block]]=datas.get(j);
+			   c[block]=c[block]-1;
+		   }
+		   for(i=0;i<datas.size();i++)
+			   datas.set(i, output[i+1]);
+	   }
+   } 
+}

@@ -1,0 +1,198 @@
+package cn.edu.xmu.software;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import cn.edu.xmu.software.adapter.EnergyListAdapter;
+import cn.edu.xmu.software.adapter.PriorityListAdapter;
+import cn.edu.xmu.software.adapter.TimeListAdapter;
+import cn.edu.xmu.software.common.ContextUtil;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.common.DateTimeUtils;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.entity.Plan;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.interfaces.IPlanOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import cn.edu.xmu.software.model.PlanOpt;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class Raw_Goal_Activity extends Activity {
+	private static final int RESULT_CANCLED = 0;
+	private static final int PROJECT_CODE = 0;
+	private static final int CONTEXT_CODE = 1;
+	private static final int TAG_CODE = 2;
+	private static final int STARTTIMT_CODE = 3;
+	// private Button check_start_time;
+	// private boolean start_time_check;	
+	private TextView goal_title;
+	private TextView goal_desc;
+	/*private LinearLayout enddatetime_wrap;
+	private TextView enddatepickerdialog_btn;
+	private boolean endtimevisible;
+	private TextView endtimepickerdialog_btn;
+	private TextView no_endtime;
+	private LinearLayout enddatepickerdialog_wrap;
+	private LinearLayout endtimepickerdialog_wrap;*/
+	private Context context;
+	/*private ListView listView;
+	private PriorityListAdapter priListAdapter;
+	private EnergyListAdapter energyListAdapter;
+	private TimeListAdapter timeListAdapter;
+	private Dialog listViewDlg;
+	private List<String> listItems;
+	private Button task_project;
+	private Button task_pri_btn;
+	private Button task_energy_btn;
+	private Button task_time_btn;
+	private Button task_context;
+	private IPlanOpt planOpt;
+	
+	private Button task_tag;
+	private Button start_time_btn;
+	
+	private String endDate ="";
+	private String endTime ="";
+	private String startDate ="";
+	private String startTime ="";
+	private int start_time_index = -1;
+	
+	private int task_pri_index = 5;
+	private int task_energy_index = 0;
+	private int task_time_index = 3;
+	private int project_index = 0;
+	private long project_id = -1;
+	private String project_text = "未指定";
+	private int context_index = 0;
+	private String context_text = "未指定";
+	private ArrayList<Integer> tag_indexs;
+	private ArrayList<String> tag_texts;*/// = "未指定";
+	private String start_time ="";
+	/*private final int PRI_COUNT = 6;
+	private int endYear;
+	private int endMonth;
+	private int endDay;
+	private int endHour;
+	private int endMinute;*/
+	
+	/*private final int[] task_pri_id = { R.string.pri5, R.string.pri4, R.string.pri3,
+			R.string.pri2, R.string.pri1, R.string.pri0 };
+	private final int[] task_pri = {5, 4, 3, 2, 1, 0};*/
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.context = this;
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		LayoutInflater inflater = LayoutInflater.from(this);
+		setContentView(R.layout.goal_edit);
+		
+		//setContentView(R.layout.goal_edit);
+		goal_title=(TextView)findViewById(R.id.title);
+		goal_desc=(TextView)findViewById(R.id.desc);
+		/*task_pri_btn = (Button)findViewById(R.id.task_priority);
+		task_energy_btn = (Button)findViewById(R.id.task_energy);
+		task_time_btn = (Button)findViewById(R.id.task_time_length);
+		task_project = (Button)findViewById(R.id.task_project);
+		task_context = (Button)findViewById(R.id.task_context);
+		task_tag = (Button)findViewById(R.id.task_tag);
+		start_time_btn = (Button)findViewById(R.id.starttime);*/
+		
+//		enddatetime_wrap = (LinearLayout)findViewById(R.id.enddatetime_wrap);
+		/*enddatepickerdialog_btn = (TextView)findViewById(R.id.enddatepickerdialog_btn);
+		endtimepickerdialog_btn = (TextView)findViewById(R.id.endtimepickerdialog_btn);
+//		no_endtime = (TextView)findViewById(R.id.no_endtime);
+		enddatepickerdialog_wrap = (LinearLayout)findViewById(R.id.enddatepickerdialog_wrap);
+		endtimepickerdialog_wrap = (LinearLayout)findViewById(R.id.endtimepickerdialog_wrap);
+		
+		endYear = 2012;
+		endMonth = 11;
+		endDay = 22;
+		listItems = new ArrayList<String>();
+		tag_indexs = new ArrayList<Integer>();
+		tag_texts = new ArrayList<String>();
+		tag_indexs.add(0);
+		tag_texts.add("未指定");*/
+		/*initListItems();*/
+	}
+	public void onRemindersClick(View v) {
+
+	}
+
+
+
+	/*
+	 * 页面底部的取消按钮
+	 */
+	public void onCancelClick(View v) {
+		reToTodayTaskPage();
+	}
+
+	/*
+	 * 页面底部的确定按钮
+	 */
+	public void onSaveClick(View v) {
+		Goal goal=new Goal();
+		goal.setTitle( goal_title.getText().toString());
+		goal.setDesc(goal_desc.getText().toString());
+		goal.setEnergy("min");
+		goal.setTimeLength("10min");
+		goal.setStartTime("收集箱");
+		goal.setFinishTime("");
+		goal.setScene("");
+		goal.setTags("");
+		goal.setUser(ContextUtil.getCurrentUser());
+		ContextUtil.setCurrentGoal(goal);
+		IGoalOpt goalopt=new GoalOpt(this);
+ 		goalopt.createGoal(goal);
+		reToTodayTaskPage();
+	}
+	/**
+	 * 返回今日待办页面
+	 */
+	public void reToTodayTaskPage()
+	{
+		Intent  intent=new Intent();
+	    	intent.setClass(this,Raw_Goal_Activity.class);
+		 startActivity(intent);
+		// this.finish();
+	}
+	
+
+	/*
+	 * 页面上选定某一个优先级
+	 */
+	public void PriorityChoseClick(View v) {
+		
+		
+	}
+	
+	public void backClick(View view){
+		this.finish();
+	}
+	
+	/************************************/
+	/*-       Getter and Setter		   -*/
+	/************************************/
+	
+}

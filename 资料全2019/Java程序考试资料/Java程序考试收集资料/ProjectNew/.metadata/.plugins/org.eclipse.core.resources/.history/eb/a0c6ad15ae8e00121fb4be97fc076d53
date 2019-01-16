@@ -1,0 +1,62 @@
+package cn.edu.xmu.software.util;
+
+import java.awt.Color;
+
+import static com.googlecode.javacv.cpp.opencv_core.CV_8UC4;
+import static com.googlecode.javacv.cpp.opencv_core.CV_32FC1;
+import static com.googlecode.javacv.cpp.opencv_core.cvCreateMat;
+
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.edu.xmu.software.curveExctraction.Edge;
+
+import com.googlecode.javacv.cpp.opencv_core.CvMat;
+
+/**
+ * 保存可以修改的静态数据
+ * @author sinlly.chen
+ *
+ */
+public  class StaticData {
+    public static boolean isLoadPng=false;
+	public static boolean isAddLines=false;
+	public static boolean isZoomIn=false;
+	public static boolean isZoomOut=false;
+	public static boolean isHandPan=false;
+	public static int imgWidth;
+	public static int imgHeight;
+	public static ByteBuffer imgBuf;
+	public static float gScale=1.0f;
+	public static int gDx;
+	public static int gDy;
+	public static double curveOffset=2.0;
+	public static ArrayList<Point> currentInput=new ArrayList<Point>();//当前输入
+	public static ArrayList<Point> leftCurve=new ArrayList<Point>();//当前输入的左曲线
+	public static ArrayList<Point> rightCurve=new ArrayList<Point>();//当前输入的右曲线
+	public static ArrayList<InputTrace> allCurves=new ArrayList<InputTrace>();//保存所有的曲线
+	public static Color leftColor=new Color(1.0f,0.0f,1.0f);
+	public static Color rightColor=new Color(1.0f,1.0f,1.0f);
+
+	public static ByteBuffer screenBuf=ByteBuffer.allocate((int)Constants.drawWidth*(int)Constants.drawWidth*4);
+    public static CvMat rgbaImage=cvCreateMat((int)Constants.drawWidth,(int)Constants.drawWidth,CV_8UC4);
+    public static CvMat grayImage=cvCreateMat((int)Constants.drawWidth,(int)Constants.drawWidth,CV_32FC1);
+    public static boolean isCartoon=false;
+    public static List<Edge> edges=new ArrayList<Edge>();
+    public static boolean isCurveExtract=false;
+    public static boolean isDraw=false;
+    public static Color currentSelColor;
+    public static boolean isSelRColor=false;
+    public static boolean isSelLColor=false;
+    public static boolean isCleanAll=false;
+    public static boolean isDiffusing=false;//是否需要diffuse(正在添加曲线时不需要)
+    public static boolean isBlurImage=false;
+
+    public static List<Point> currentPnts=new ArrayList<Point>();
+    public static  ByteBuffer optImgBuf=ByteBuffer.allocate((int)Constants.drawWidth*(int)Constants.drawWidth*4*4);
+
+    public static boolean isShowSplines=true;
+    
+
+}

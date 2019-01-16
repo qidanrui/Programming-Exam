@@ -1,0 +1,122 @@
+package cn.edu.xmu.software.util;
+
+import static com.googlecode.javacv.cpp.opencv_core.CV_8UC4;
+import static com.googlecode.javacv.cpp.opencv_core.cvCreateMat;
+import static com.googlecode.javacv.cpp.opencv_core.cvGet2D;
+import static com.googlecode.javacv.cpp.opencv_core.cvSet2D;
+
+import java.nio.ByteBuffer;
+
+import cn.edu.xmu.software.eventprocesser.ControlsListener;
+
+import com.googlecode.javacv.cpp.opencv_core.CvMat;
+import com.googlecode.javacv.cpp.opencv_core.CvScalar;
+/**
+ * 关于CvMat的相关操作
+ * @author sinlly.chen
+ *
+ */
+public class MatOperate {
+	   /**
+	  	 * 三通道转换
+	  	 * @param mat
+	  	 * @return
+	  	 */
+	  	public static byte[] convertMatToByte(CvMat mat)
+	  	{
+	  		byte[] imageByte=new byte[StaticData.imgWidth*StaticData.imgHeight*3*4];
+	  		StaticData.imgBuf=ByteBuffer.allocate(StaticData.imgWidth*StaticData.imgWidth*3*4);
+	  		byte[] temp,r,g,b;
+	  		int k=0;
+	  		for(int i=StaticData.imgHeight-1;i>=0;i--)
+	  		{
+	  			for(int j=0;j<StaticData.imgWidth;j++)
+	  			{
+	  				CvScalar color;
+	  				color=cvGet2D(mat,i,j);
+	  				r=TypeConversion.intToBytes((int)color.getVal(2));
+	  				g=TypeConversion.intToBytes((int)color.getVal(1));
+	  				b=TypeConversion.intToBytes((int)color.getVal(0));
+	  	            temp=TypeConversion.conbineByte(r, g, b);
+	  	            imageByte=TypeConversion.conbineByte(imageByte,temp,k);
+	  	            k+=3*4;
+	  			  }
+	  		 }
+	  		return imageByte;
+	  	 }
+	  	/**
+	  	 * 四通道转换
+	  	 * @param mat
+	  	 * @return
+	  	 */
+	  	public static byte[] convertMatToByteAlpha(CvMat mat)
+	  	{
+	  		byte[] imageByte=new byte[StaticData.imgWidth*StaticData.imgHeight*4*4];
+	  	//	StaticData.imgBuf=ByteBuffer.allocate(StaticData.imgWidth*StaticData.imgWidth*4*4);
+	  		byte[] temp,r,g,b,a;
+	  		int k=0;
+	  		for(int i=StaticData.imgHeight-1;i>=0;i--)
+	  		{
+	  			for(int j=0;j<StaticData.imgWidth;j++)
+	  			{
+	  				CvScalar color;
+	  				color=cvGet2D(mat,i,j);
+	  				r=TypeConversion.intToBytes((int)color.getVal(2));
+	  				g=TypeConversion.intToBytes((int)color.getVal(1));
+	  				b=TypeConversion.intToBytes((int)color.getVal(0));
+	  				a=TypeConversion.intToBytes((int)color.getVal(3));
+	  	            temp=TypeConversion.conbineByte(r, g, b, a);
+	  	            imageByte=TypeConversion.conbineByte(imageByte,temp,k);
+	  	            k+=4*4;
+	  			  }
+	  		 }
+	  		return imageByte;
+	  	}
+	  	/**
+	  	 * 获取八邻域矩阵
+	  	 * @param p
+	  	 * @return
+	  	 */
+	  	public static CvMat  getEightNeborM(Point p)
+	  	{
+	  		CvMat mat=cvCreateMat(100,100,CV_8UC4);
+	  		int k=0;
+	  		CvScalar color,c;
+	  		for(int i=0;i<100;i++)
+	  		{
+	  			for(int j=0;j<100;j++)
+	  			{
+	  				color=new CvScalar();
+	  				c=cvGet2D(StaticData.rgbaImage,i,j);
+	  				color.setVal(0, c.getVal(0));
+	  				color.setVal(1, c.getVal(1));
+	  				color.setVal(2, c.getVal(2));
+	  				color.setVal(3, c.getVal(3));
+	  				cvSet2D(mat,i,j,color);
+	  			}
+	  		}
+//	  		for(int row=0;row<3;row++)
+//	  		{
+//	  			for(int col=0;col<3;col++)
+//	  			{
+//	  				color=new CvScalar();
+//	  				if(row==1&&col==1)
+//	  				{
+//	  				    c=cvGet2D(StaticData.rgbaImage,p.getY(),p.getX());
+//	  				}
+//	  				else 
+//	  				{
+//	  					Point temp=Constants.add(p, Constants.DIRECTION8[Constants.eightNeibIndex[k]]);
+//	  					k++;
+//	  					c=cvGet2D(StaticData.rgbaImage,temp.getY(),temp.getX());
+//	  				} 
+//	  				color.setVal(0, c.getVal(0));
+//	  				color.setVal(1, c.getVal(1));
+//	  				color.setVal(2, c.getVal(2));
+//	  				color.setVal(3, c.getVal(3));
+//	  				cvSet2D(mat,row,col,color);
+//	  			}
+//	  		}
+	  		return mat;
+	  	}
+}

@@ -1,0 +1,21 @@
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+public class MPoint extends MyShape{
+	private int x;
+	private int y;
+	private int width=1;
+	private int height=1;
+	Color mycolor=Color.RED;
+	public MPoint(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+	public void Draw(Graphics2D g)
+	{
+		g.setColor(mycolor);
+		g.fillOval(x, y, width, height);
+	}
+
+}

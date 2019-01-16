@@ -1,0 +1,7 @@
+package Teaching.Adapter;
+
+import android.widget.BaseAdapter;
+
+public class UserCourseAdapter extends BaseAdapter{
+
+}

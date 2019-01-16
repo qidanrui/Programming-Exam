@@ -1,0 +1,30 @@
+{2,4}{2,4}
+{2,4}{2,4}
+{2,4}{2,4}
+{2,4}{2,4}
+{2,4}{2,4}
+{2,4}{2,4}
+{2,4}{2,4}
+{2,4}{2,4}
+{8,62,25}{71,1,24}
+{8,62,1,24}{71,25}
+{71,24}{8,62,25,1}
+a has won the match.92
+b has won the match.146
+a has won the match.156
+b has won the match.99
+a has won the match.99
+a has won the match.81
+a has won the match.142
+b has won the match.144
+a has won the match.147
+a has won the match.141
+b has won the match.100
+b has won the match.81
+a has won the match.74
+a has won the match.76
+a has won the match.106
+a has won the match.66
+b has won the match.170
+a has won the match.78
+b has won the match.180

@@ -1,0 +1,233 @@
+<projects>
+<project>
+		<category>BPEL</category>
+		<name>HelloWorld</name>
+		<shortDescription>A simple BPEL example</shortDescription>
+		<description>This sample is to show a simple BPEL2.0 example.</description>
+		<size>5000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/HelloWorld.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Hello_World_Header_Ode</name>
+		<shortDescription>A Hello World Header ODE BPEL example</shortDescription>
+		<description>This is a simple variation of the hello_world quickstart, where the BPEL process additionally accesses a SOAP header element using an Apache ODE specific extension to the BPEL copy construct.</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Hello_World_Header_Ode.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Hello_World_Header_WSDL</name>
+		<shortDescription>A Hello World Header WSDL BPEL example</shortDescription>
+		<description>This is a simple variation of the hello_world quickstart, where the BPEL process additionally accesses a SOAP header element. The SOAP header element is mapped on to a part in the WSDL message, within the WSDL definition.</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Hello_World_Header_WSDL.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Loan_Approval</name>
+		<shortDescription>A Loan Approval BPEL example</shortDescription>
+		<description>This sample is a loan approval example that uses the amount field inside the loan request to determine which action should be performed. If you want to run this example, you must import the Loan_Approval_WS example at first</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Loan_Approval.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Loan_Approval_WS</name>
+		<shortDescription>A Web Services Project called by Loan_Approval</shortDescription>
+		<description>This sample is a web service project that includes Web Services that are called by Loan_Approval BPEL example</description>
+		<size>20000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Loan_Approval_WS.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Math</name>
+		<shortDescription>A Math BPEL example</shortDescription>
+		<description>This sample is emulating a calculator which can add (+), subtract (-), multiply (*), divide (/) and calculate power (^). Input for this process is a operator and two decimal numbers, result is a decimal number.</description>
+		<size>7000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Math.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Salutations</name>
+		<shortDescription>A Salutations BPEL example</shortDescription>
+		<description>This sample is based on the Say Hello example but has slightly more complicated functionality. Instead of just greeting with 'Hello', it discriminates the given time of day to say different words.</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Salutations.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Say_Hello</name>
+		<shortDescription>A Say Hello BPEL example</shortDescription>
+		<description>This sample is simmilar to Hello World examples but uses input data to influence the output.</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Say_Hello.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Service_Handler</name>
+		<shortDescription>A Service Handler BPEL example</shortDescription>
+		<description>This sample builds on the hello_world example, which simply echos a message. The example is extended by adding a JAXWS handler to the Web Service that provides access to the BPEL process. This enables inbound and outbound messages (and faults) to be intercepted by a user supplied Java class. In this particular example, the JAXWS handler simply displays information on the JBoss console.</description>
+		<size>9000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Service_Handler.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Simple_Correlation</name>
+		<shortDescription>A correlation BPEL example</shortDescription>
+		<description>This sample is to show how to use the correlation in the BPEL2.0 example.</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Simple_Correlation.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Simple_Invoke</name>
+		<shortDescription>A Simple Invoke BPEL example</shortDescription>
+		<description>This sample is a simple echo example, used to respond to a sent message with a modified version of the request message being returned in a response. The difference with this example, compared to the Hello World sample, is that the invoked service calls another JAX-WS based service to construct the response message. The BPEL process in this example, is primarily acting as a relay between the client and the invoked JAX-WS service, although the BPEL process also appends some text to the response message as well. If you want to run this example correctly, please import the Simple_Invoke_WS sample firstly</description>
+		<size>7000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Simple_Invoke.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Simple_Invoke_WS</name>
+		<shortDescription>A Web Service project called by Simple Invoke BPEL example</shortDescription>
+		<description>This sample is a Web Service that is called by Simple_Invoke example.</description>
+		<size>10000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Simple_Invoke_WS.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Simple_Pick</name>
+		<shortDescription>A Simple Pick BPEL example</shortDescription>
+		<description>This sample demonstrates the BPEL 'pick' concept, where one of two possible messages can be used to trigger the process. The two possible messages are hello and goodbye.</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Simple_Pick.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>BluePrint1</name>
+		<shortDescription>A Synchronous Web Service Interactions BPEL example</shortDescription>
+		<description>This is one of the BPEL Blueprint examples from Sun.</description>
+		<size>13000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/BluePrint1.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>BluePrint2</name>
+		<shortDescription>A Asynchronous Web Service Interactions BPEL example</shortDescription>
+		<description>This is one of the BPEL Blueprint examples from Sun.</description>
+		<size>14000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/BluePrint2.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>BluePrint3</name>
+		<shortDescription>A Fault Handling BPEL example</shortDescription>
+		<description>This is one of the BPEL Blueprint examples from Sun.</description>
+		<size>14000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/BluePrint3.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>BluePrint4</name>
+		<shortDescription>A Message-Based Coordination of Events BPEL example</shortDescription>
+		<description>This is one of the BPEL Blueprint examples from Sun.</description>
+		<size>15000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/BluePrint4.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>BluePrint5</name>
+		<shortDescription>A Concurrent Asynchronous Coordination of Events BPEL example</shortDescription>
+		<description>This is one of the BPEL Blueprint examples from Sun.</description>
+		<size>19000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/BluePrint5.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>Fault_Compensation</name>
+		<shortDescription>A Fault Compensation BPEL example</shortDescription>
+		<description>This example focuses on the Scope activity.</description>
+		<size>6000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/Fault_Compensation.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>While_Wait</name>
+		<shortDescription>A While Wait BPEL example</shortDescription>
+		<description>This is a simple example used to compute the first N elements of the fibonacci sequence.</description>
+		<size>8000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/While_Wait.zip
+		</url>
+	</project>
+
+	<project>
+		<category>BPEL</category>
+		<name>While_Wait_WS</name>
+		<shortDescription>A Web Service project called by While_Wait example</shortDescription>
+		<description>This sample is a Web Service that is called by While_Wait example.</description>
+		<size>14000</size>
+		<url>
+			http://anonsvn.jboss.org/repos/jbosstools/workspace/grid/bpel-examples/While_Wait_WS.zip
+		</url>
+	</project>
+</projects>
+

@@ -1,0 +1,18 @@
+package snippet;
+
+public class Snippet {
+	ArrayList<Integer> datas=new ArrayList<Integer>();
+	    	datas.add(6);
+	    	datas.add(5);
+	    	datas.add(5);
+	    	datas.add(7);
+	    	datas.add(2);
+	    	datas.add(10);
+	    	datas.add(9);
+	    	datas.add(1);
+	    	//insertSort(datas);
+	    	quickSort(datas,0,datas.size()-1);
+	    	for(int i=0;i<datas.size();i++)
+	    		System.out.print(datas.get(i)+"   ");
+}
+

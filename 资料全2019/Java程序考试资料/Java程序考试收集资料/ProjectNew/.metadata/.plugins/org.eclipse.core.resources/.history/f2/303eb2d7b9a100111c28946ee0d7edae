@@ -1,0 +1,78 @@
+package cn.edu.xmu.courseSys.view;
+
+import java.util.List;
+
+import javax.faces.context.FacesContext;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import cn.edu.xmu.courseSys.model.CourseOperationLocal;
+import cn.edu.xmu.courseSys.model.ICourseOperationBean;
+import cn.edu.xmu.courseSys.model.IPersonBean;
+
+
+/**
+* <p>
+* Title: RemoteBeanFactory Class
+* </p>
+* <p>
+* Description: all remoteBean can get through the methods that put into this class
+* </p>
+* <p>
+* Copyright: Copyright (c) 2011
+* </p>
+* <p>
+* Company: Software School, Xiamen University
+* </p>
+* 
+* @author cxj
+* @version 1.0 2012-5-19
+*/
+public class RemoteDataFactory {
+
+	private static RemoteDataFactory instance=null;
+	
+	private RemoteDataFactory()
+	{
+		
+	}
+	/**
+	 * get the singleton instance
+	 * @return RemoteBeanFactory
+	 */
+	public static synchronized RemoteDataFactory getInstance(){
+		if (instance == null)
+			instance = new RemoteDataFactory();
+		return instance;
+	}
+	
+	/**
+	 * look up the CourseOperationBean interface from jndi
+	 * 
+	 * @author cxj
+	 * @return CourseOperationLocal
+	 * @throws NamingException
+	 */
+	public  ICourseOperationBean getICourseOperationBean()
+			throws NamingException {
+		// load the initial context from jndi.properties
+		InitialContext ctx = new InitialContext();
+		return (ICourseOperationBean) ctx
+				.lookup("CourseSysEJB/CourseOperationBean/remote");
+	}
+	
+	/**
+	 * look up the PersonBean interface from jndi
+	 * 
+	 * @author cxj
+	 * @return PersonBean
+	 * @throws NamingException
+	 */
+	public  IPersonBean getIPersonBean()
+			throws NamingException {
+		// load the initial context from jndi.properties
+		InitialContext ctx = new InitialContext();
+		return (IPersonBean) ctx
+				.lookup("CourseSysEJB/PersonBean/remote");
+	}
+}

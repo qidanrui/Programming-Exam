@@ -1,0 +1,48 @@
+package Teaching.model;
+
+import java.util.List;
+
+public class User {
+     private String UserId;//学号
+     private String UserName;//姓名
+     private String password;//密码
+     private List<Course> courses;//用户当天的所有课程
+     
+     public User(){};
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return UserId;
+	}
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		UserId = userId;
+	}
+	/**
+	 * @return the userName
+	 */
+	public String getUserName() {
+		return UserName;
+	}
+	/**
+	 * @param userName the userName to set
+	 */
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+	/**
+	 * @return the courses
+	 */
+	public List<Course> getCourses() {
+		return courses;
+	}
+	/**
+	 * @param courses the courses to set
+	 */
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+}

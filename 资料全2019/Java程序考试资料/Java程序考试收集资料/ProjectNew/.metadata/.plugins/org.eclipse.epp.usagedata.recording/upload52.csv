@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Error in JDT Core during AST creation",1334810183023
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810184006
+error,log,,,"Unexpected runtime error while computing a text hover",1334810184617
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage iterator;\r\n\r\n//利用iterator方法建立一个实现Iterator接口的类对象实例instance\r\npublic interface Aggregate {\r\n    public abstract Iterator iterator();\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810184654
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810184660
+error,log,,,"Error in JDT Core during reconcile",1334810184663
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810184673
+error,log,,,"Error in JDT Core during AST creation",1334810184675
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810184683
+error,log,,,"Error in JDT Core during AST creation",1334810184686
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810184692
+error,log,,,"Error in JDT Core during AST creation",1334810184695
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810184701
+error,log,,,"Error in JDT Core during AST creation",1334810184705
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810184710
+error,log,,,"Error in JDT Core during AST creation",1334810184715
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810184726
+error,log,,,"Error in JDT Core during AST creation",1334810184733
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810185435
+error,log,,,"Error in JDT Core during AST creation",1334810185437
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810186118
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage iterator;\r\n\r\n//利用iterator方法建立一个实现Iterator接口的类对象实例instance\r\npublic interface Aggregate {\r\n    public abstract Iterator iterator();\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810187202
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810187206
+error,log,,,"Error in JDT Core during reconcile",1334810187211
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810187220
+error,log,,,"Error in JDT Core during AST creation",1334810187248
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810187885
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810188138
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810188490
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810190321
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810197568
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.selectAll",1334810198383
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810198919
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810199637
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810201867
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810203960
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810204808
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810205004
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810206566
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810208179
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810208431
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810208596
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npublic class BookShelf implements Aggregate {\r\n    private Book[] books;\r\n    private int last = 0;\r\n    public BookShelf(int maxsize) {\r\n        this.books = new Book[maxsize];\r\n    }\r\n    public Book getBookAt(int index) {\r\n        return books[index];\r\n    }\r\n    public void appendBook(Book book) {\r\n        this.books[last] = book;\r\n        last++;\r\n    }\r\n    public int getLength() {\r\n        return last;\r\n    }\r\n    public Iterator iterator() {\r\n        return new BookShelfIterator(this);\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810208934
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810208937
+error,log,,,"Error in JDT Core during reconcile",1334810208939
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810208953
+error,log,,,"Error in JDT Core during AST creation",1334810208954
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810208958
+error,log,,,"Error in JDT Core during AST creation",1334810208961
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810208970
+error,log,,,"Error in JDT Core during AST creation",1334810208971
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810208976
+error,log,,,"Error in JDT Core during AST creation",1334810208978
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810208982
+error,log,,,"Error in JDT Core during AST creation",1334810208988
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209036
+error,log,,,"Error in JDT Core during AST creation",1334810209040
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209046
+error,log,,,"Error in JDT Core during AST creation",1334810209047
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209053
+error,log,,,"Error in JDT Core during AST creation",1334810209055
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209059
+error,log,,,"Error in JDT Core during AST creation",1334810209061
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209069
+error,log,,,"Error in JDT Core during AST creation",1334810209073
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209077
+error,log,,,"Error in JDT Core during AST creation",1334810209079
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209084
+error,log,,,"Error in JDT Core during AST creation",1334810209086
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209091
+error,log,,,"Error in JDT Core during AST creation",1334810209093
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209097
+error,log,,,"Error in JDT Core during AST creation",1334810209099
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209109
+error,log,,,"Error in JDT Core during AST creation",1334810209110
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209127
+error,log,,,"Error in JDT Core during AST creation",1334810209128
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209135
+error,log,,,"Error in JDT Core during AST creation",1334810209136
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209141
+error,log,,,"Error in JDT Core during AST creation",1334810209147
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209158
+error,log,,,"Error in JDT Core during AST creation",1334810209159
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209165
+error,log,,,"Error in JDT Core during AST creation",1334810209167
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209172
+error,log,,,"Error in JDT Core during AST creation",1334810209173
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209178
+error,log,,,"Error in JDT Core during AST creation",1334810209179
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209185
+error,log,,,"Error in JDT Core during AST creation",1334810209187
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209196
+error,log,,,"Error in JDT Core during AST creation",1334810209197
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209202
+error,log,,,"Error in JDT Core during AST creation",1334810209203
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209244
+error,log,,,"Error in JDT Core during AST creation",1334810209246
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209303
+error,log,,,"Error in JDT Core during AST creation",1334810209306
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810209500
+error,log,,,"Error in JDT Core during AST creation",1334810209502
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210052
+error,log,,,"Error in JDT Core during AST creation",1334810210062
+error,log,,,"Unexpected runtime error while computing a text hover",1334810210066
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210166
+error,log,,,"Error in JDT Core during AST creation",1334810210171
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210355
+error,log,,,"Error in JDT Core during AST creation",1334810210356
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210383
+error,log,,,"Error in JDT Core during AST creation",1334810210386
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210447
+error,log,,,"Error in JDT Core during AST creation",1334810210452
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210467
+error,log,,,"Error in JDT Core during AST creation",1334810210468
+error,log,,,"Unexpected runtime error while computing a text hover",1334810210473
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210484
+error,log,,,"Error in JDT Core during AST creation",1334810210485
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210510
+error,log,,,"Error in JDT Core during AST creation",1334810210511
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210534
+error,log,,,"Error in JDT Core during AST creation",1334810210536
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210842
+error,log,,,"Error in JDT Core during AST creation",1334810210843
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210873
+error,log,,,"Error in JDT Core during AST creation",1334810210875
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210886
+error,log,,,"Error in JDT Core during AST creation",1334810210887
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810210906
+error,log,,,"Error in JDT Core during AST creation",1334810210908
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810212040
+error,log,,,"Error in JDT Core during AST creation",1334810212042
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810212053
+error,log,,,"Error in JDT Core during AST creation",1334810212056
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810212085
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810212106
+error,log,,,"Error in JDT Core during AST creation",1334810212110
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810212117
+error,log,,,"An error occurred while computing quick assists. Check log for details.",1334810212126
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810212186
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810212636
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810212650
+error,log,,,"Error in JDT Core during AST creation",1334810212658
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810212845
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage iterator;\r\n\r\npublic class BookShelf implements Aggregate {\r\n    private Book[] books;\r\n    private int last = 0;\r\n    public BookShelf(int maxsize) {\r\n        this.books = new Book[maxsize];\r\n    }\r\n    public Book getBookAt(int index) {\r\n        return books[index];\r\n    }\r\n    public void appendBook(Book book) {\r\n        this.books[last] = book;\r\n        last++;\r\n    }\r\n    public int getLength() {\r\n        return last;\r\n    }\r\n    public Iterator iterator() {\r\n        return new BookShelfIterator(this);\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810213476
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213478
+error,log,,,"Error in JDT Core during reconcile",1334810213481
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213484
+error,log,,,"Error in JDT Core during AST creation",1334810213486
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213491
+error,log,,,"Error in JDT Core during AST creation",1334810213492
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213496
+error,log,,,"Error in JDT Core during AST creation",1334810213498
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213505
+error,log,,,"Error in JDT Core during AST creation",1334810213507
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213511
+error,log,,,"Error in JDT Core during AST creation",1334810213513
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213516
+error,log,,,"Error in JDT Core during AST creation",1334810213518
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213522
+error,log,,,"Error in JDT Core during AST creation",1334810213523
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213527
+error,log,,,"Error in JDT Core during AST creation",1334810213528
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213534
+error,log,,,"Error in JDT Core during AST creation",1334810213539
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213545
+error,log,,,"Error in JDT Core during AST creation",1334810213548
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213553
+error,log,,,"Error in JDT Core during AST creation",1334810213555
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213560
+error,log,,,"Error in JDT Core during AST creation",1334810213562
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213566
+error,log,,,"Error in JDT Core during AST creation",1334810213567
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213572
+error,log,,,"Error in JDT Core during AST creation",1334810213573
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213580
+error,log,,,"Error in JDT Core during AST creation",1334810213583
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213588
+error,log,,,"Error in JDT Core during AST creation",1334810213594
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213598
+error,log,,,"Error in JDT Core during AST creation",1334810213599
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213604
+error,log,,,"Error in JDT Core during AST creation",1334810213605
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213611
+error,log,,,"Error in JDT Core during AST creation",1334810213612
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213621
+error,log,,,"Error in JDT Core during AST creation",1334810213622
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213627
+error,log,,,"Error in JDT Core during AST creation",1334810213629
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213634
+error,log,,,"Error in JDT Core during AST creation",1334810213635
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213641
+error,log,,,"Error in JDT Core during AST creation",1334810213646
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810213650
+error,log,,,"Error in JDT Core during AST creation",1334810213651
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810214174
+error,log,,,"Error in JDT Core during AST creation",1334810214178
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810214324
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage iterator;\r\n\r\npublic class BookShelf implements Aggregate {\r\n    private Book[] books;\r\n    private int last = 0;\r\n    public BookShelf(int maxsize) {\r\n        this.books = new Book[maxsize];\r\n    }\r\n    public Book getBookAt(int index) {\r\n        return books[index];\r\n    }\r\n    public void appendBook(Book book) {\r\n        this.books[last] = book;\r\n        last++;\r\n    }\r\n    public int getLength() {\r\n        return last;\r\n    }\r\n    public Iterator iterator() {\r\n        return new BookShelfIterator(this);\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810214989
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810214992
+error,log,,,"Error in JDT Core during reconcile",1334810214996
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810215013
+error,log,,,"Error in JDT Core during AST creation",1334810215015
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810215020
+error,log,,,"Error in JDT Core during AST creation",1334810215023
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810215047
+error,log,,,"Error in JDT Core during AST creation",1334810215049
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810215054
+error,log,,,"Error in JDT Core during AST creation",1334810215056
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810215198
+error,log,,,"Error in JDT Core during AST creation",1334810215203
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810215763
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810216113
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810216290
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\n//???Iterator???????BookShelfIterator???Iterator???д???\r\npublic class BookShelfIterator implements Iterator {\r\n    private BookShelf bookShelf;\r\n    private int index;\r\n    public BookShelfIterator(BookShelf bookShelf) {\r\n        this.bookShelf = bookShelf;\r\n        this.index = 0;\r\n    }\r\n    public boolean hasNext() {\r\n        if (index < bookShelf.getLength()) {\r\n            return true;\r\n        } else {\r\n            return false;\r\n        }\r\n    }\r\n    //next?????????????飨Book????????????index?????????λ??\r\n    public Object next() {\r\n        Book book = bookShelf.getBookAt(index);\r\n        index++;\r\n        return book;\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810216605
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216610
+error,log,,,"Error in JDT Core during reconcile",1334810216612
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216630
+error,log,,,"Error in JDT Core during AST creation",1334810216632
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216637
+error,log,,,"Error in JDT Core during AST creation",1334810216640
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216644
+error,log,,,"Error in JDT Core during AST creation",1334810216648
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216651
+error,log,,,"Error in JDT Core during AST creation",1334810216654
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216658
+error,log,,,"Error in JDT Core during AST creation",1334810216661
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216667
+error,log,,,"Error in JDT Core during AST creation",1334810216694
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216697
+error,log,,,"Error in JDT Core during AST creation",1334810216698
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216722
+error,log,,,"Error in JDT Core during AST creation",1334810216724
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216731
+error,log,,,"Error in JDT Core during AST creation",1334810216740
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216744
+error,log,,,"Error in JDT Core during AST creation",1334810216745
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216754
+error,log,,,"Error in JDT Core during AST creation",1334810216756
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216760
+error,log,,,"Error in JDT Core during AST creation",1334810216762
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216766
+error,log,,,"Error in JDT Core during AST creation",1334810216768
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216858
+error,log,,,"Error in JDT Core during AST creation",1334810216861
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810216960
+error,log,,,"Error in JDT Core during AST creation",1334810216961
+error,log,,,"Unexpected runtime error while computing a text hover",1334810216963
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810217010
+error,log,,,"Error in JDT Core during AST creation",1334810217040
+error,log,,,"Unexpected runtime error while computing a text hover",1334810217042

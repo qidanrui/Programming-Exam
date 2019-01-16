@@ -1,0 +1,26 @@
+BigInteger bi = new BigInteger("333"); 
+BigInteger result;
+	
+result = bi.multiply(new BigInteger("8888"));// 整数乘法
+	
+
+result = bi.divide(new BigInteger("2"));// 整数除法
+		
+
+result = bi.add(new BigInteger("232"));// 整数加法
+		
+
+result = bi.subtract(new BigInteger("23122"));// 整数减法
+		
+
+result = bi.shiftRight(10);// 移位
+
+-------------------------------------------------------------------------------------------------------
+
+BigInteger result = BigInteger.valueOf(n).pow(n);// 求n的n次幂
+
+BigInteger temp = result.mod(new BigInteger("1000"));// 求模运算
+
+
+
+		

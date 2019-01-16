@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="KLJData">
+	  <typeAlias alias="KLJData" type="com.test.entity.KLJData"/>
+	
+	
+	<!-- 
+	 <resultMap class="PhoneBook" id="phone" >
+	 	<result property="id" column="id"/>
+	 	<result property="name" column="name"/>
+	 	<result property="phoneNumber" column="phone_number"/>
+	 </resultMap>
+ 	-->
+  	
+  	 <select id="selectKLJDataByJLH"  parameterClass="Integer"  
+        resultClass="KLJData">  
+        select JLH,SXX 
+        from HB_ZS201205231401  
+        where JLH like '%$JLH$%'   
+    </select> 
+
+ </sqlMap>

@@ -1,0 +1,9 @@
+package cn.edu.xmu.software.ui;
+
+public class StaticData {
+   public  static boolean loadPng;
+   public StaticData()
+   {
+	   loadPng=false;
+   }
+}

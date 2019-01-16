@@ -1,0 +1,10 @@
+package Teaching.model;
+
+import java.util.List;
+
+public class Student {
+    private String stuName;//名字
+    private String stuId;//学号
+    private String sex;//性别
+    private List<TimeCard> timeCards;
+}

@@ -1,0 +1,298 @@
+package cn.edu.xmu.software.ui;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.media.opengl.*;
+import javax.media.opengl.awt.GLCanvas;
+
+import org.jvnet.substance.SubstanceLookAndFeel;
+import org.jvnet.substance.skin.AutumnSkin;
+import org.jvnet.substance.skin.BusinessBlackSteelSkin;
+import org.jvnet.substance.skin.BusinessBlueSteelSkin;
+import org.jvnet.substance.skin.BusinessSkin;
+import org.jvnet.substance.skin.ChallengerDeepSkin;
+import org.jvnet.substance.skin.CremeCoffeeSkin;
+import org.jvnet.substance.skin.CremeSkin;
+import org.jvnet.substance.skin.EmeraldDuskSkin;
+import org.jvnet.substance.skin.ModerateSkin;
+import org.jvnet.substance.skin.NebulaBrickWallSkin;
+import org.jvnet.substance.skin.NebulaSkin;
+import org.jvnet.substance.skin.OfficeBlue2007Skin;
+import org.jvnet.substance.skin.OfficeSilver2007Skin;
+import org.jvnet.substance.skin.RavenSkin;
+import org.jvnet.substance.skin.SaharaSkin;
+import org.jvnet.substance.skin.SubstanceModerateLookAndFeel;
+public class DiffusionCurvesUI extends JFrame implements ActionListener{
+	
+	JMenuBar topMenuBar;
+	JMenu fileMenu,editMenu;
+	JMenuItem item1,item2,item3,item4,item5,item6,item7,item8,item9,item10;
+	JButton button_draw,button_lcolor,button_rcolor,button_adjust,button_color,
+	        button_exchange,button_extractcolor,button_colorbucket,
+	        button_selectmulti,button_contrastincr,button_contrastdecr,
+	        button_handpan,button_zoomin,button_zoomout,button_stylize,
+	        button_smooth,button_magnet,button_sample ;
+	JCheckBox checkbox_left,checkbox_right,checkbox_bitmap,checkbox_spline,checkbox_activeblur ;
+	JLabel label_blur,label_draw,label_edit,label_globalcontrol,label_bitmap,
+	       label_iteration,label_lifetime,label_others ;
+	JSlider slider_blur,slider_iteration,slider_lifetime ;
+	JSeparator js1,js2,js3,js4;
+	
+	public DiffusionCurvesUI()
+	{
+		topMenuBar = new JMenuBar();
+		this.setJMenuBar(topMenuBar);
+		
+		fileMenu = new JMenu("File");
+		topMenuBar.add(fileMenu);
+		
+		editMenu = new JMenu("Edit");
+		topMenuBar.add(editMenu);
+		
+		item1 = new JMenuItem("Load XML");
+		item2 = new JMenuItem("Save as Png");
+		item3 = new JMenuItem("Save as XML");
+		item4 = new JMenuItem("Keyframing");
+		item5 = new JMenuItem("Load Bitmap");
+		
+		item2.addActionListener(this);
+		item5.addActionListener(this);
+		fileMenu.add(item1);
+		fileMenu.addSeparator();
+		fileMenu.add(item2);
+		fileMenu.addSeparator();
+		fileMenu.add(item3);
+		fileMenu.addSeparator();
+		fileMenu.add(item4);
+		fileMenu.addSeparator();
+		fileMenu.add(item5);
+		
+		item6 = new JMenuItem("Copy(Ctrl+C)");
+		item7 = new JMenuItem("Paste(Ctrl+V)");
+		item8 = new JMenuItem("Cut(Ctrl+X)");
+		item9 = new JMenuItem("Copy Blur(Ctrl+D)");
+		item10 = new JMenuItem("Paste Blur(Ctrl+F)");
+		editMenu.add(item6);
+		editMenu.addSeparator();
+		editMenu.add(item7);
+		editMenu.addSeparator();
+		editMenu.add(item8);
+		editMenu.addSeparator();
+		editMenu.add(item9);
+		editMenu.addSeparator();
+		editMenu.add(item10);
+		
+        JPanel panel=new JPanel();
+        panel.setLayout(null);
+		
+		button_draw = new JButton(new ImageIcon("icons\\drawCatmull.png"));
+		button_draw.setBounds(10, 10, 20, 20);
+		panel.add(button_draw);
+		
+		button_lcolor = new JButton("Left Color");
+		button_lcolor.setBounds(35, 10, 70, 20);
+		button_lcolor.setMargin(new Insets(0,0,0,0));
+		panel.add(button_lcolor);
+		
+		checkbox_left = new JCheckBox();
+		checkbox_left.setBounds(107, 10, 20, 20);
+		panel.add(checkbox_left);
+		
+		button_rcolor = new JButton("Right Color");
+		button_rcolor.setBounds(132, 10, 70, 20);
+		button_rcolor.setMargin(new Insets(0,0,0,0));
+		panel.add(button_rcolor);
+		
+		checkbox_right = new JCheckBox();
+		checkbox_right.setBounds(204, 10, 20, 20);
+		panel.add(checkbox_right);
+		
+		label_blur = new JLabel("Blur : ");
+		label_blur.setBounds(10, 35, 40, 20);
+		panel.add(label_blur);
+		
+		slider_blur = new JSlider(0,5,0);
+		slider_blur.setBounds(52, 35, 160, 20);
+		panel.add(slider_blur);
+		
+		label_draw = new JLabel("Draw");
+		label_draw.setBounds(90,60,40,20);
+		panel.add(label_draw);
+		
+        js1 = new JSeparator();
+        js1.setBounds(234, 5, 1, 75);
+        js1.setOrientation(JSeparator.VERTICAL);
+        panel.add(js1);
+        
+		button_adjust = new JButton(new ImageIcon("icons\\movePoint.png"));
+		button_adjust.setBounds(244, 10, 20, 20);
+		panel.add(button_adjust);
+		
+		button_color = new JButton(new ImageIcon("icons\\modifAttrib.png"));
+		button_color.setBounds(269, 10, 20, 20);
+		panel.add(button_color);
+		
+		button_exchange = new JButton(new ImageIcon("icons\\switch_clr.png"));
+		button_exchange.setBounds(294, 10, 20, 20);
+		panel.add(button_exchange);
+		
+		button_extractcolor = new JButton(new ImageIcon("icons\\picker.png"));
+		button_extractcolor.setBounds(244, 35, 20, 20);
+		panel.add(button_extractcolor);
+		
+		button_colorbucket = new JButton(new ImageIcon("icons\\bucket.png"));
+		button_colorbucket.setBounds(269, 35, 20, 20);
+		panel.add(button_colorbucket);
+		
+		label_edit = new JLabel("Edit");
+		label_edit.setBounds(260, 60, 40, 20);
+		panel.add(label_edit);
+		
+        js2 = new JSeparator();
+        js2.setBounds(324, 5, 1, 75);
+        js2.setOrientation(JSeparator.VERTICAL);
+        panel.add(js2);
+        
+		button_selectmulti = new JButton(new ImageIcon("icons\\selectMulti.png"));
+		button_selectmulti.setBounds(334, 10, 20, 20);
+		panel.add(button_selectmulti);
+		
+		button_contrastincr = new JButton(new ImageIcon("icons\\contrast_incr.png"));
+		button_contrastincr.setBounds(359, 10, 20, 20);
+		panel.add(button_contrastincr);
+		
+		button_contrastdecr = new JButton(new ImageIcon("icons\\contrast_decr.png"));
+		button_contrastdecr.setBounds(384, 10, 20, 20);
+		panel.add(button_contrastdecr);
+		
+		button_handpan = new JButton(new ImageIcon("icons\\handPan.png"));
+		button_handpan.setBounds(409, 10, 20, 20);
+		panel.add(button_handpan);
+		
+		button_zoomin = new JButton(new ImageIcon("icons\\zoomIn.png"));
+		button_zoomin.setBounds(334, 35, 20, 20);
+		panel.add(button_zoomin);
+		
+		button_zoomout = new JButton(new ImageIcon("icons\\zoomOut.png"));
+		button_zoomout.setBounds(359, 35, 20, 20);
+		panel.add(button_zoomout);
+		
+		button_stylize = new JButton(new ImageIcon("icons\\stylize.png"));
+		button_stylize.setBounds(384, 35, 20, 20);
+		panel.add(button_stylize);
+		
+		button_smooth = new JButton(new ImageIcon("icons\\droplet.png"));
+		button_smooth.setBounds(409, 35, 20, 20);
+		panel.add(button_smooth);
+		
+		label_globalcontrol = new JLabel("Global Control");
+		label_globalcontrol.setBounds(335, 60, 100, 20);
+		panel.add(label_globalcontrol);
+		
+        js3 = new JSeparator();
+        js3.setBounds(439, 5, 1, 75);
+        js3.setOrientation(JSeparator.VERTICAL);
+        panel.add(js3);
+        
+        //从这儿开始
+		checkbox_bitmap = new JCheckBox("Show Bitmap");
+		checkbox_bitmap.setBounds(440, 35, 100, 20);
+		panel.add(checkbox_bitmap);
+		
+		button_magnet = new JButton(new ImageIcon("icons\\magnet.png"));
+		button_magnet.setBounds(465, 10, 20, 20);
+		panel.add(button_magnet);
+		
+		button_sample = new JButton(new ImageIcon("icons\\sample.png"));
+		button_sample.setBounds(490, 10, 20, 20);
+		panel.add(button_sample);
+		
+		label_bitmap = new JLabel("Bitmap");
+		label_bitmap.setBounds(470, 60, 40, 20);
+		panel.add(label_bitmap);
+		
+        js4 = new JSeparator();
+        js4.setBounds(540, 5, 1, 75);
+        js4.setOrientation(JSeparator.VERTICAL);
+        panel.add(js4);
+        
+		checkbox_spline = new JCheckBox("Show Splines");
+		checkbox_spline.setBounds(550, 10, 120, 20);
+		panel.add(checkbox_spline);
+		
+		checkbox_activeblur = new JCheckBox("Active Blur");
+		checkbox_activeblur.setBounds(550, 35, 120, 20);
+		panel.add(checkbox_activeblur);
+		
+		label_iteration = new JLabel("Iteration :");
+		label_iteration.setBounds(675, 10, 65, 20);
+		panel.add(label_iteration);
+		
+		slider_iteration = new JSlider(0,5,0);
+		slider_iteration.setBounds(742, 10, 160, 20);
+		panel.add(slider_iteration);
+		
+		label_lifetime = new JLabel("Lifetime :");
+		label_lifetime.setBounds(675, 35, 65, 20);
+		panel.add(label_lifetime);
+		
+		slider_lifetime = new JSlider(0,5,0);
+		slider_lifetime.setBounds(742, 35, 160, 20);
+		panel.add(slider_lifetime);
+		
+		label_others = new JLabel("Others");
+		label_others.setBounds(710, 60, 40, 20);
+		panel.add(label_others);
+		
+        GLProfile profile = GLProfile.get(GLProfile.GL2);
+        GLCapabilities capabilities = new GLCapabilities(profile);
+        GLCanvas glcanvas = new GLCanvas(capabilities);
+        //glcanvas.addGLEventListener(new Render());
+        glcanvas.setBounds(10, 85, 885, 480);       
+        this.getContentPane().add(glcanvas,BorderLayout.CENTER);
+		
+        this.add(panel);
+        this.setVisible(true);
+        this.setTitle("UIDemo");
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setBounds(160, 50, 920, 640);
+	}
+	
+	public static void main(String args[])
+	{
+		
+		JFrame.setDefaultLookAndFeelDecorated(true);		
+		SwingUtilities.invokeLater(new Runnable() 
+		{			
+			public void run()
+              {				
+						
+				 SubstanceLookAndFeel.setSkin(new ModerateSkin());			
+	
+				   DiffusionCurvesUI demo = new DiffusionCurvesUI();	
+				   demo.setVisible(true);			
+				   }				
+			}
+		);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getActionCommand().equals("Load Bitmap"))
+		{
+			FileDialog dialog=new FileDialog(this,"打开文件",FileDialog.LOAD);
+			dialog.show();
+		}
+		else if(e.getActionCommand().equals("Save as Png"))
+		{
+			FileDialog dialog=new FileDialog(this,"保存文件",FileDialog.SAVE);
+			dialog.show();
+		}
+	}
+}

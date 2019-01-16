@@ -1,0 +1,132 @@
+<projects>
+	
+	<project>
+		<category>Weld 1.0.1 for JBoss AS 6.0</category>
+		<name>weld-jsf-login</name>
+		<included-projects>weld-jsf-login</included-projects>
+		<shortDescription>Weld JSF login example</shortDescription>
+		<description>
+The example demonstrates user login/logout for an application that uses JSF.
+It will create the weld-jsf-login project in your workspace.
+		</description>
+		<size>8192</size>
+		<url>http://anonsvn.jboss.org/repos/jbosstools/workspace/snjeza/weld-examples/weld-jsf-login-1.0.1.zip</url>
+		<fixes>
+			<fix type="wtpruntime">
+				<property name="allowed-types">org.jboss.ide.eclipse.as.runtime.60</property>
+				<property name="description">This project example requires JBoss AS 6.0</property>
+			</fix>
+		</fixes>
+		<importType>maven</importType>
+		<importTypeDescription>The project example requires the m2eclipse-core, m2eclipse-wtp and JBoss Maven Project Examples feature.</importTypeDescription> 
+	</project>
+	
+	<project>
+		<category>Weld 1.1.0 for JBoss AS 6.0</category>
+		<name>weld-jsf-login</name>
+		<included-projects>weld-jsf-login</included-projects>
+		<shortDescription>Weld JSF login example</shortDescription>
+		<description>
+The example demonstrates user login/logout for an application that uses JSF.
+It will create the weld-jsf-login project in your workspace.
+		</description>
+		<size>8192</size>
+		<url>http://anonsvn.jboss.org/repos/jbosstools/workspace/snjeza/weld-examples/weld-jsf-login-1.1.0.zip</url>
+		<fixes>
+			<fix type="wtpruntime">
+				<property name="allowed-types">org.jboss.ide.eclipse.as.runtime.60</property>
+				<property name="description">This project example requires JBoss AS 6.0</property>
+			</fix>
+		</fixes>
+		<importType>maven</importType>
+		<importTypeDescription>The project example requires the m2eclipse-core, m2eclipse-wtp and JBoss Maven Project Examples feature.</importTypeDescription> 
+	</project>
+	
+	<project>
+		<category>Weld 1.1.0 for JBoss AS 6.0</category>
+		<name>weld-jsf-numberguess</name>
+		<included-projects>weld-jsf-numberguess</included-projects>
+		<shortDescription>Weld JSF Numberguess example</shortDescription>
+		<description>
+In the numberguess application you get 10 attempts to guess a number between 1 and 100.
+After each attempt, you're told whether your guess was too high or too low. 
+It will create the weld-jsf-numberguess project in your workspace.
+		</description>
+		<size>32768</size>
+		<url>http://anonsvn.jboss.org/repos/jbosstools/workspace/snjeza/weld-examples/weld-jsf-numberguess-1.1.0.zip</url>
+		<fixes>
+			<fix type="wtpruntime">
+				<property name="allowed-types">org.jboss.ide.eclipse.as.runtime.60</property>
+				<property name="description">This project example requires JBoss AS 6.0</property>
+			</fix>
+		</fixes>
+		<importType>maven</importType>
+		<importTypeDescription>The project example requires the m2eclipse-core, m2eclipse-wtp and JBoss Maven Project Examples feature.</importTypeDescription> 
+	</project>
+	<project>
+		<category>Weld 1.1.0 for JBoss AS 6.0</category>
+		<name>weld-jsf-pastecode</name>
+		<included-projects>weld-jsf-pastecode</included-projects>
+		<shortDescription>Weld JSF pastecode example</shortDescription>
+		<description>
+This example demonstrates the use of Weld in Java EE Environment. Contextual
+state management and dependency injection are handled by JSR-299. Transaction
+and persistence context management is handled by the EJB 3 container. 
+It will create the weld-jsf-pastecode project in your workspace.
+		</description>
+		<size>167936</size>
+		<url>http://anonsvn.jboss.org/repos/jbosstools/workspace/snjeza/weld-examples/weld-jsf-pastecode-1.1.0.zip</url>
+		<fixes>
+			<fix type="wtpruntime">
+				<property name="allowed-types">org.jboss.ide.eclipse.as.runtime.60</property>
+				<property name="description">This project example requires JBoss AS 6.0</property>
+			</fix>
+		</fixes>
+		<importType>maven</importType>
+		<importTypeDescription>The project example requires the m2eclipse-core, m2eclipse-wtp and JBoss Maven Project Examples feature.</importTypeDescription> 
+	</project>
+	<project>
+		<category>Weld 1.1.0 for JBoss AS 6.0</category>
+		<name>weld-jsf-permalink</name>
+		<included-projects>weld-jsf-permalink</included-projects>
+		<shortDescription>Weld JSF permalink example</shortDescription>
+		<description>
+This example demonstrates the use of Weld in Java EE Environment. Contextual
+state management and dependency injection are handled by JSR-299.  
+It will create the weld-jsf-permalink project in your workspace.
+		</description>
+		<size>106496</size>
+		<url>http://anonsvn.jboss.org/repos/jbosstools/workspace/snjeza/weld-examples/weld-jsf-permalink-1.1.0.zip</url>
+		<fixes>
+			<fix type="wtpruntime">
+				<property name="allowed-types">org.jboss.ide.eclipse.as.runtime.60</property>
+				<property name="description">This project example requires JBoss AS 6.0</property>
+			</fix>
+		</fixes>
+		<importType>maven</importType>
+		<importTypeDescription>The project example requires the m2eclipse-core, m2eclipse-wtp and JBoss Maven Project Examples feature.</importTypeDescription> 
+	</project>
+	<project>
+		<category>Weld 1.1.0 for JBoss AS 6.0</category>
+		<name>weld-jsf-translator</name>
+		<included-projects>weld-jsf-translator-parent,weld-jsf-translator-ear,weld-jsf-translator-ejb,weld-jsf-translator-war</included-projects>
+		<shortDescription>Weld JSF translator example</shortDescription>
+		<description>
+The translator example will take any sentences you enter, and translate them to Latin.
+(Well, not really, but the stub is there for you to implement, at least. Good luck!) 
+It will create the weld-jsf-translator-parent,weld-jsf-translator-ear,weld-jsf-translator-ejb and weld-jsf-translator-war project in your workspace.
+		</description>
+		<size>16384</size>
+		<url>http://anonsvn.jboss.org/repos/jbosstools/workspace/snjeza/weld-examples/weld-jsf-translator-1.1.0.zip</url>
+		<fixes>
+			<fix type="wtpruntime">
+				<property name="allowed-types">org.jboss.ide.eclipse.as.runtime.60</property>
+				<property name="description">This project example requires JBoss AS 6.0</property>
+			</fix>
+		</fixes>
+		<importType>maven</importType>
+		<importTypeDescription>The project example requires the m2eclipse-core, m2eclipse-wtp and JBoss Maven Project Examples feature.</importTypeDescription> 
+	</project>
+	
+	
+</projects>

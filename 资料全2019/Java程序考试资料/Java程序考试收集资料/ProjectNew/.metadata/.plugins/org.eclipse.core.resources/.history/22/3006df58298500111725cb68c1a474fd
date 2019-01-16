@@ -1,0 +1,21 @@
+package xmu.software.cxj.chatproc.server.dao;
+
+import javax.annotation.PostConstruct;
+import javax.persistence.EntityManagerFactory;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import xmu.software.cxj.mychat.shared.pojo.Information;
+
+@Repository("informationDAO")   
+public class InformationDao extends JpaDAO<String, Information>{
+	 @Autowired  
+	    EntityManagerFactory entityManagerFactory;   
+	       
+	    @PostConstruct  
+	    public void init() {   
+	        super.setEntityManagerFactory(entityManagerFactory);   
+	    }   
+	    
+}

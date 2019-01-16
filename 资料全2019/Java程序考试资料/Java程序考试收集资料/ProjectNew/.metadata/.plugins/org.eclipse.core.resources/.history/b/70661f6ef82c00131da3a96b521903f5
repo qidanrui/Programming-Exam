@@ -1,0 +1,30 @@
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+public class MPoint extends MyShape{
+	private int x;
+	private int y;
+	Color mycolor=Color.RED;
+	public MPoint(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+	public void setDashed(boolean a)
+	{
+		dashed=a;
+	}
+	public void Draw(Graphics2D g)
+	{
+		if(dashed)
+		{
+		  float dash1[] = {10.0f}; 
+		  g.setStroke(new BasicStroke(linestick, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND,1.0f,dash1, 0.0f));
+		}
+		else 
+		  g.setStroke(new BasicStroke(linestick));
+		g.setColor(mycolor);
+		g.drawLine(x, y, x2,y2);
+	}
+
+}

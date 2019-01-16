@@ -1,0 +1,120 @@
+package cn.edu.xmu.software.curveExctraction;
+
+import java.util.List;
+
+/**
+ * 保存一些常量及通用方法，主要包括4邻域，8邻域，16邻域方向等
+ * @author sinlly.chen
+ *
+ */
+public class Constants {
+	
+       public static final Point[] DIRECTION4 = {
+    	    new Point(1,  0), //Direction 0
+    	    new Point(0,  1), //Direction 1
+    	    new Point(-1, 0), //Direction 2
+    	    new Point(0, -1), //Direction 3
+        };//四方向
+       
+       public static final Point[] DIRECTION8 = {
+    	    new Point(1,  0), //Direction 0
+    	    new Point(1,  1), //Direction 1 
+    	    new Point(0,  1), //Direction 2
+    	    new Point(-1, 1), //Direction 3
+    	    new Point(-1, 0), //Direction 4
+    	    new Point(-1,-1), //Direction 5
+    	    new Point(0, -1), //Direction 6
+    	    new Point(1, -1)  //Direction 7
+       };//八方向
+       
+       public static final Point[]  DIRECTION16 = {
+    		new Point(2,  0), //Direction 0
+    		new Point(2,  1), //Direction 1 
+    		new Point(2,  2), //Direction 2
+    		new Point(1,  2), //Direction 3
+    		new Point(0,  2), //Direction 4
+    		new Point(-1, 2), //Direction 5
+    		new Point(-2, 2), //Direction 6
+    		new Point(-2, 1), //Direction 7
+    		new Point(-2, 0), //Direction 8
+    		new Point(-2,-1), //Direction 9 
+    		new Point(-2,-2), //Direction 10
+    		new Point(-1,-2), //Direction 11
+    		new Point(0, -2), //Direction 12
+    		new Point(1, -2), //Direction 13
+    		new Point(2, -2), //Direction 14
+    		new Point(2, -1)  //Direction 15
+    	};//十六方向
+       
+       public static final float[] DRT_ANGLE = {
+    		0.000000f,
+    		0.785398f,
+    		1.570796f,
+    		2.356194f,
+    		3.141593f,
+    		3.926991f,
+    		4.712389f,
+    		5.497787f
+    	};
+       
+      public static final float PI_FLOAT = 3.1415926535897932384626433832795f;
+      public static final float  PI2 = PI_FLOAT * 2.0f;
+      public static final float  PI_HALF = PI_FLOAT * 0.5f;
+      public static final double EPS = 1e-8;		// Epsilon (zero value)
+      
+      public static final float PI_QUARTER = PI_FLOAT * 0.25f; 
+      public static final float PI_EIGHTH = PI_FLOAT * 0.125f;
+      public static final int    IND_BG = 0xffffffff;
+      public static final int	   IND_NMS = 0xfffffffe;
+      public static final int	   IND_SR = 0xfffffffd;
+      
+      /**
+       * 
+       * @param number
+       * @return
+       */
+      public static  int cmSgn(float number)
+      {
+   	   if(Math.abs(number)<Constants.EPS)
+   		   return 0;
+   	   return number>0?1:-1;
+      }
+      
+      /**
+       * 排序
+       * @param data
+       */
+      public static  void sort(List<PointImp> data)
+      {
+   	   int minIndex;
+   	   for(int i=0;i<data.size();i++)
+   	   {
+   		   minIndex=i;
+   		   for(int j=i+1;j<data.size();j++)
+   		   {
+   			   if(data.get(j).getValue()<data.get(minIndex).getValue())
+   				   minIndex=j;
+   		   }
+   		   swap(data,i,minIndex);
+   	   }
+      }
+      
+      /**
+       * 交换
+       * @param data
+       * @param i
+       * @param j
+       */
+      public static  void swap(List<PointImp> data,int i,int j)
+      {
+   	   PointImp p=new PointImp();
+   	   p.setValue(data.get(i).getValue());
+   	   p.setPoint(new Point(data.get(i).getPoint()));
+   	   
+   	   data.get(i).setValue(data.get(j).getValue());
+   	   data.get(i).setPoint(new Point(data.get(j).getPoint()));
+   	   
+   	   data.get(j).setValue(p.getValue());
+   	   data.get(j).setPoint(new Point(p.getPoint()));
+      }
+}

@@ -1,0 +1,78 @@
+package teaching.adapter;
+import java.util.List;
+import java.util.Map;
+import teaching.core.KqylActivity;
+import teaching.core.R;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+/**
+ * 考勤一览上课考勤或者下课考勤列表
+ * @author Administrator
+ *
+ */
+public class KQYLSingleAdapter extends BaseAdapter{
+	private KqylActivity context;
+	private LayoutInflater listInflater;
+	private List<Map<String, Object>> listItems;
+	private int itemCount;
+	private String stuName;
+	private String stuNum;
+    private String kqStatus;
+	
+	public final class ListItemView{
+		public TextView stuName;
+		public TextView stuNum;
+		public TextView kqStatus;
+	}
+	public KQYLSingleAdapter(KqylActivity context, List<Map<String, Object>> listItems) {
+		// TODO Auto-generated constructor stub
+		this.context = context;
+		//this.listItems = new ArrayList<Map<String, Object>>();
+		this.listItems = listItems;
+		this.init();
+	}
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return this.itemCount;
+	}
+
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		ListItemView listItem = null;
+		listItem = new ListItemView();
+		convertView  = this.listInflater.inflate(R.layout.kaoqingyilan_totalitem,null);
+		listItem.stuName=(TextView)convertView.findViewById(R.id.kq_stuName);
+		listItem.stuNum=(TextView)convertView.findViewById(R.id.kq_stuNum);
+		listItem.kqStatus=(TextView)convertView.findViewById(R.id.kq_status);
+		
+		stuName=(String)(String)this.listItems.get(position).get("stuName");
+		stuNum=(String)this.listItems.get(position).get("stuNum");
+		kqStatus=(String)this.listItems.get(position).get("kqStatus");
+	
+		listItem.stuName.setText(stuName);
+		listItem.stuNum.setText(stuNum);
+		listItem.kqStatus.setText(kqStatus);
+	
+		return convertView;
+	}
+	public void init()
+	{
+	   this.itemCount = this.listItems.size();
+	   this.listInflater = LayoutInflater.from(this.context);
+	}
+
+}

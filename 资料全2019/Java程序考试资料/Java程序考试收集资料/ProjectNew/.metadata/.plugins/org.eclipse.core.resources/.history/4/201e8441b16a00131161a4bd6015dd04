@@ -1,0 +1,27 @@
+
+public class BubbleSort {
+	private static void BubbleSort(long[] A) 
+    {
+	  int j, k;
+	  int flag;
+	  flag = A.length;
+	  while (flag > 0)
+	  {
+		k = flag;
+		flag = 0;
+		for (j = 1; j < k-1; j++)
+			if (A[j] > A[j+1])
+			{
+				Common.swap(A, j+1, j);
+				flag = j;
+			}
+	   }
+   }
+	public static void main(String[] args)
+	{
+		long[] a={1,5,7,9,3,2,5,0};
+		BubbleSort(a);
+		for(int i=1;i<=a.length;i++)
+	}
+
+}

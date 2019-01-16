@@ -1,0 +1,156 @@
+package cn.edu.xmu.software.eventprocesser;
+
+import java.awt.Color;
+import java.util.ArrayList;
+
+import cn.edu.xmu.software.util.ColorControlPoint;
+import cn.edu.xmu.software.util.InputTrace;
+import cn.edu.xmu.software.util.Point;
+import cn.edu.xmu.software.util.ShapeControlPoint;
+import cn.edu.xmu.software.util.StaticData;
+
+/**
+ * 常用在eventProcesser中个各类公共的一些工具方法
+ * @author sinlly.chen
+ *
+ */
+public class MethodTool {
+	/**
+	 * 将当前状态保存到栈中
+	 */
+	public static void pushState()
+	{
+		ArrayList<InputTrace> curvesTemp=cloneCurves(StaticData.allCurves);
+		for(int i=0;i<StaticData.allCurves.size();i++)
+		{
+			InputTrace temp=new InputTrace();
+			for(int i=0;i<StaticData.allCurves)
+			curvesTemp.add(StaticData.allCurves.get(i));
+		}
+		StaticData.undoStack.push(curvesTemp);
+	}
+	public static ArrayList<InputTrace> cloneCurves(ArrayList<InputTrace> curves)
+	{
+		ArrayList<InputTrace> curvesTemp=new ArrayList<InputTrace>();
+		InputTrace temp;
+		InputTrace src;
+		 ArrayList<Point> inputTraceT;
+		 ArrayList<Point> leftCurveT;
+		 ArrayList<Point> rightCurveT;
+		 ArrayList<ColorControlPoint> colorControlPointsT;
+		 ArrayList<ShapeControlPoint> shapeControlPointsT;
+		 boolean isSelected;
+		 int minX,minY,maxX,maxY;
+		for(int i=0;i<StaticData.allCurves.size();i++)
+		{
+			 temp=new InputTrace();
+			 src=StaticData.allCurves.get(i);
+			 inputTraceT=new ArrayList<Point>();
+			 leftCurveT=new ArrayList<Point>();
+			 rightCurveT=new ArrayList<Point>();
+			 colorControlPointsT=new ArrayList<ColorControlPoint>();
+			 shapeControlPointsT=new ArrayList<ShapeControlPoint>();
+			 int j=0;
+			 for(;j<src.getInputTrace().size();j++)
+			 {
+				 inputTraceT.add(new Point(src.getInputTrace().get(j)));
+			 }
+			 for( j=0;j<src.getLeftCurve().size();j++)
+			 {
+				 leftCurveT.add(new Point(src.getLeftCurve().get(j)));
+			 }
+			 for(j=0;j<src.getRightCurve().size();j++)
+			 {
+				 rightCurveT.add(new Point(src.getRightCurve().get(j)));
+			 }
+			 for(j=0;j<src.getColorControlPoints().size();j++)
+			 {
+                  ColorControlPoint colorP=new ColorControlPoint(src.getColorControlPoints().get(j).getX(),src.getColorControlPoints().get(j).getY());		
+                  colorP.setIndex(src.getColorControlPoints().get(j).getIndex());
+                  Color c=src.getColorControlPoints().get(j).getLeftColor();
+                  colorP.setLeftColor(new Color(c.getRed(),c.getGreen(),c.getBlue()));
+                  c=src.getColorControlPoints().get(j).getRightColor();
+                  colorP.setRightColor(new Color(c.getRed(),c.getGreen(),c.getBlue()));
+                  colorP.setLeftColorPoint(new Point(src.getColorControlPoints().get(j).getLeftColorPoint()));
+                  colorP.setRightColorPoint(new Point(src.getColorControlPoints().get(j).getRightColorPoint()));
+                  colorP.setLeftPointSelected(src.getColorControlPoints().get(j).isLeftPointSelected());
+                  colorP.setRightPointSelected(src.getColorControlPoints().get(j).isRightPointSelected());
+                  colorControlPointsT.add(colorP);
+			 }
+			 for(j=0;j<src.getShapeControlPoints().size();j++)
+			 {
+				 ShapeControlPoint shapP=new ShapeControlPoint(src.getShapeControlPoints().get(j).getX(),src.getShapeControlPoints().get(j).getY());
+				 shapP.setIndex(src.getShapeControlPoints().get(j).getIndex());
+				 shapP.setLeftPointSelected(src.getShapeControlPoints().get(j).isLeftPointSelected());
+				 shapP.setRightPointSelected(src.getShapeControlPoints().get(j).isRightPointSelected());
+				 shapP.setLeftShapePoint(new Point(src.getShapeControlPoints().get(j).getLeftShapePoint()));
+				 shapP.setRightShapePoint(new Point(src.getShapeControlPoints().get(j).getRightShapePoint()));
+				 shapeControlPointsT.add(shapP);
+			 }
+			 isSelected=src.isSelected();
+			 minX=src.getMinX();
+			 minY=src.getMinY();
+			 maxX=src.getMaxX();
+			 maxY=src.getMaxY();
+			temp.setInputTrace(inputTraceT);
+			temp.setLeftCurve(leftCurveT);
+			temp.setRightCurve(rightCurveT);
+			temp.setColorControlPoints(colorControlPointsT);
+			temp.setShapeControlPoints(shapeControlPointsT);
+			temp.setSelected(isSelected);
+			temp.setMaxX(maxX);
+			temp.setMaxY(maxY);
+			temp.setMinX(minX);
+			temp.setMinY(minY);
+			curvesTemp.add(temp);
+		}
+		return curvesTemp;
+	}
+	/**
+	 * 计算两点之间距离
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public static  int getDis(Point a,Point b){
+		int x1=a.getX()-b.getX();
+		int x2=a.getY()-b.getY();
+		int dis=(int) Math.sqrt(x1*x1+x2*x2);
+		return dis;
+	}
+	/**
+	 * 得到左右曲线的正负偏移,分为8种情况，分别对8种情况进行分析得出结果
+	 * @param V
+	 * @return
+	 */
+	public static  double[] getPMValue(double[] V){
+		double[] PM=new double[2];
+		if(V[1]==0){
+			PM[1]=1;
+		}
+		else if(V[0]==0){
+			PM[0]=-1;
+		}
+		else{
+			PM[0]=-1;
+			PM[1]=1;
+		}
+		return PM;
+	}
+	/**
+	 * 计算法线
+	 * @param v
+	 * @return
+	 */
+	public static  double[] getNormal(double[] v){
+		double[] N=new double[2];
+		N[0]=10*v[1];
+		N[1]=10*v[0];
+		double distance=Math.sqrt((double)(N[0]*N[0]+N[1]*N[1]));
+		if(distance>0.0000001){
+			N[0]=N[0]/distance*StaticData.curveOffset;
+			N[1]=N[1]/distance*StaticData.curveOffset;
+		}
+		return N;
+	}
+}

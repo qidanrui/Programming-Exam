@@ -1,0 +1,126 @@
+package cn.edu.xmu.software.eventprocesser;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.media.opengl.awt.GLCanvas;
+import cn.edu.xmu.software.util.StaticData;
+
+
+/**
+ * 处理键盘事件
+ * @author::jimmy.cai
+ * @date::2013/03/09
+ */
+public class KeyProcesser implements KeyListener{
+	   private GLCanvas glcanvas;
+		public KeyProcesser(GLCanvas glcanvas)
+	    {
+	    	this.glcanvas=glcanvas;
+	    }
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		if(arg0.getKeyCode()==17){
+			StaticData.isMultipleSelecting=true;
+		}
+		if(arg0.getKeyCode()==KeyEvent.VK_DELETE)
+		{
+			StaticData.isAddLines=false;
+			StaticData.isZoomIn=false;
+			StaticData.isZoomOut=false;
+			StaticData.isHandPan=false;
+			StaticData.isDraw=true;
+			StaticData.isSelRColor=false;
+			StaticData.isSelLColor=false;
+			StaticData.isCleanAll=false;
+			StaticData.isBlurImage=false;
+			StaticData.isStForAdjusting=false;
+			StaticData.isStForMdColor=false;
+			MethodTool.pushState();
+			for(int i=0;i<StaticData.allCurves.size();i++){
+				if(StaticData.allCurves.get(i).isSelected()){
+				       StaticData.allCurves.remove(i);
+					}
+				}
+
+			glcanvas.display();
+		}
+		if(arg0.getKeyCode()==KeyEvent.VK_Z&& ((arg0.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0))
+		{
+			StaticData.isAddLines=false;
+			StaticData.isZoomIn=false;
+			StaticData.isZoomOut=false;
+			StaticData.isHandPan=false;
+			StaticData.isCleanAll=false;
+			StaticData.isBlurImage=false;
+			StaticData.isDraw=true;
+			StaticData.isSelRColor=false;
+			StaticData.isSelLColor=false;
+			StaticData.isStForAdjusting=false;
+			StaticData.isStForMdColor=false;
+			StaticData.stackFlag.add(-1);
+			StaticData.currentIndex++;
+			if(StaticData.undoStack.size()>0)
+			{
+				if(StaticData.currentIndex==1)
+            	{
+					StaticData.allCurves=StaticData.undoStack.pop();
+					StaticData.redoStack.push(StaticData.allCurves);
+            	}
+				if(StaticData.undoStack.size()>1&&StaticData.stackFlag.size()>1&&StaticData.stackFlag.get(StaticData.currentIndex-1)*StaticData.stackFlag.get(StaticData.currentIndex-2)<0)
+				{
+					StaticData.allCurves=StaticData.undoStack.pop();
+					StaticData.redoStack.push(StaticData.allCurves);
+				}
+				StaticData.allCurves=StaticData.undoStack.pop();
+				StaticData.redoStack.push(StaticData.allCurves);
+				glcanvas.display();
+			}
+		}
+		if(arg0.getKeyCode()==KeyEvent.VK_Y&& ((arg0.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0))
+		{
+			StaticData.isAddLines=false;
+			StaticData.isZoomIn=false;
+			StaticData.isZoomOut=false;
+			StaticData.isHandPan=false;
+			StaticData.isDraw=true;
+			StaticData.isCleanAll=false;
+			StaticData.isBlurImage=false;
+			StaticData.isSelRColor=false;
+			StaticData.isSelLColor=false;
+			StaticData.isStForAdjusting=false;
+			StaticData.isStForMdColor=false;
+			StaticData.stackFlag.add(1);
+			StaticData.currentIndex++;
+            if(StaticData.redoStack.size()>0)
+            {
+            	if(StaticData.currentIndex==1)
+            	{
+            		StaticData.allCurves=StaticData.redoStack.pop();
+            		StaticData.undoStack.push(StaticData.allCurves);
+            	}
+            	else if(StaticData.redoStack.size()>1&&StaticData.stackFlag.size()>1&&StaticData.stackFlag.get(StaticData.currentIndex-1)*StaticData.stackFlag.get(StaticData.currentIndex-2)<0)
+            	{
+            		StaticData.allCurves=StaticData.redoStack.pop();
+            		StaticData.undoStack.push(StaticData.allCurves);
+            	}
+            	StaticData.allCurves=StaticData.redoStack.pop();
+     			StaticData.undoStack.push(StaticData.allCurves);
+     			glcanvas.display();
+            }
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		if(arg0.getKeyCode()==17){
+			StaticData.isMultipleSelecting=false;
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

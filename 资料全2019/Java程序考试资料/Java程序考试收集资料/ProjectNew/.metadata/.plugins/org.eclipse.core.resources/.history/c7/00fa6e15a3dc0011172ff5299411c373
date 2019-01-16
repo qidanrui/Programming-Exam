@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/today_topbar"
+    style="@style/topbar_bg"
+     >
+    <Button android:id="@+id/menuBtn" android:background="@drawable/menu_unfold" style="@style/topbar_left_btn"/>
+    <TextView android:id="@+id/topbar_title" android:text="@string/inboxGoal" style="@style/topbar_text" />
+</RelativeLayout>

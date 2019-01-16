@@ -1,0 +1,7 @@
+package cn.edu.xmu.software.interfaces;
+
+import cn.edu.xmu.software.entity.Plan;
+
+public interface IPlanOpt {
+	public void createPlan(Plan p);//创建计划
+}

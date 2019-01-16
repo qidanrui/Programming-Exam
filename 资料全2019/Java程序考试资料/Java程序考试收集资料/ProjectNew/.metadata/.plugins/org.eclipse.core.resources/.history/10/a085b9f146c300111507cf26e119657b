@@ -1,0 +1,70 @@
+package com.demo;
+
+import java.util.Date;
+
+public class Account {
+
+	public String Name;
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return Name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		Name = name;
+	}
+
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return Age;
+	}
+
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		Age = age;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return Address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		Address = address;
+	}
+
+	/**
+	 * @return the birthday
+	 */
+	public String getBirthday() {
+		return Birthday;
+	}
+
+	/**
+	 * @param birthday the birthday to set
+	 */
+	public void setBirthday(String birthday) {
+		Birthday = birthday;
+	}
+
+	public int Age;
+
+	public String Address;
+
+	public String Birthday;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="PatchWizard">
+		<item value="4" key="PatchWizardPage1.INPUT_METHOD"/>
+		<item value="716" key="DIALOG_WIDTH"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
+		<item value="333" key="DIALOG_X_ORIGIN"/>
+		<item value="713" key="DIALOG_HEIGHT"/>
+		<item value="" key="PatchWizardPage1.PATCH_FILES"/>
+		<item value="" key="PatchWizardPage1.WORKSPACE_PATH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<list key="PatchWizardPage1.PATCH_URLS">
+			<item value="https://cxj/svn/MyProject/"/>
+		</list>
+		<list key="PatchWizardPage1.PATCH_FILES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="PreviewPatchPage">
+		<item value="false" key="generateRejects"/>
+		<item value="true" key="expandPatchOptions"/>
+	</section>
+</section>

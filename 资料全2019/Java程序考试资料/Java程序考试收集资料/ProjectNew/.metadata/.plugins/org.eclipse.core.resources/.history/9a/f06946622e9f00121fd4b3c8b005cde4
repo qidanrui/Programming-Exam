@@ -1,0 +1,7 @@
+public class TimeCard {
+        private String SelCourseId ;//签到课程
+        private String StudentId;//学生Id
+        private String signInType;//上课点名状态
+        private String signOutType;//下课点名状态
+}
+

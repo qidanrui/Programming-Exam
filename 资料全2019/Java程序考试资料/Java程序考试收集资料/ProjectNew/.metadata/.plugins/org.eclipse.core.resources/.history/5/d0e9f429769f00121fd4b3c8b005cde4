@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bitmap_login_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/titleBarColor" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="48.0dip">
+        <TextView android:gravity="left|center" android:id="@id/title" android:text="移动汇报登录" style="@style/TitleBarTextStyle" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/shape_bg_login" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+            <RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="@dimen/EditText_width">
+                <EditText android:textSize="15.0sp" android:textColor="#ff000000" android:textColorHint="@color/textColorHint" android:id="@id/account_login_account" android:background="@null" android:paddingLeft="48.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="" android:hint="请输入网即通通行证" android:maxLength="11" android:inputType="number" />
+                <TextView android:textSize="15.0sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="账号" android:layout_alignBaseline="@id/account_login_account" />
+            </RelativeLayout>
+            <View android:background="#ffdddddd" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="1.0px" android:layout_marginRight="1.0px" />
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/EditText_width" android:layout_marginTop="0.0dip">
+                <EditText android:textSize="15.0sp" android:textColor="#ff000000" android:textColorHint="@color/textColorHint" android:id="@id/account_login_password" android:background="@null" android:paddingLeft="48.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="" android:hint="请输入密码" android:maxLength="15" android:inputType="textPassword" />
+                <TextView android:textSize="15.0sp" android:textColor="#ff666666" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="密码" android:layout_alignBaseline="@id/account_login_password" />
+            </RelativeLayout>
+        </LinearLayout>
+        <Button android:textSize="20.0sp" android:textColor="#ff000000" android:id="@id/account_login_login" android:background="@drawable/selector_button_login2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:text="登录" />
+        <LinearLayout android:orientation="horizontal" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="@dimen/EditText_width" android:layout_marginLeft="10.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="10.0dip">
+            <CheckBox android:textColor="#ff779dc1" android:id="@id/account_login_autoLogin" android:background="#00000000" android:layout_width="0.0dip" android:layout_height="wrap_content" android:button="@null" android:text="自动登录" android:drawableLeft="@drawable/selector_checkbox_login" android:layout_weight="1.0" />
+            <Button android:textColor="#ffffffff" android:id="@id/top_button_right" android:background="@drawable/selector_button_login_reg" android:paddingLeft="10.0dip" android:paddingTop="5.0dip" android:paddingRight="10.0dip" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="注册新账号" android:drawableRight="@drawable/btn_login_reg_arrow" android:drawablePadding="15.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <EditText android:id="@id/test_ip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <Button android:id="@id/test_ip_sure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="自定义地址" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button android:id="@id/test_ip_service" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="服务器域名" />
+            <Button android:id="@id/test_ip_serviceip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="服务器IP" />
+            <Button android:id="@id/test_ip_neice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="内测IP" />
+            <Button android:id="@id/test_ip_local" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开发者IP" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textColor="#ffffffff" android:id="@id/account_login_feedBack" android:background="@drawable/selector_button_login_feedback" android:paddingLeft="10.0dip" android:paddingTop="5.0dip" android:paddingRight="10.0dip" android:paddingBottom="5.0dip" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="[意见问题]反馈" android:layout_alignParentRight="true" android:onClick="FeedBackOnClick" />
+    </RelativeLayout>
+    <include layout="@layout/share_app_show" />
+    <include layout="@layout/share_ad" />
+</LinearLayout>

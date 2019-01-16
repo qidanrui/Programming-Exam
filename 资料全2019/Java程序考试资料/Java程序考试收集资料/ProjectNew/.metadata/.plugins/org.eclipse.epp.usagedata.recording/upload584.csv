@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Failed to compute completion proposal",1379479418752
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479430535
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479467872
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479467981
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479469719
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479471799
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479501320
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479503419
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479505568
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479505627
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479513633
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479517506
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479519780
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479556041
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479559341
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479562075
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479562163
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479567183
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479567288
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1379479572253
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479573544
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479577507
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479582565
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479596528
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479603828
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1379479606442
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479607813
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479629075
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479629158
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479641365
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479706571
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479715722
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479723081
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479730351
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479746847
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479755091
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1379479758945
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479760975
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479777524
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479777599
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1379479779647
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479782482
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479817381
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479817474
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479820005
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1379479829135
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1379479829347
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479838803
+error,log,,,"Failed to compute completion proposal",1379479866900
+error,log,,,"Failed to compute completion proposal",1379479869816
+error,log,,,"Failed to compute completion proposal",1379479873730
+error,log,,,"Failed to compute completion proposal",1379479877369
+error,log,,,"Failed to compute completion proposal",1379479881993
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479890523
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479898782
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1379479900218
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1379479900442
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1379479949875
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479951311
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479959249
+error,log,,,"Failed to compute completion proposal",1379479962823
+error,log,,,"Failed to compute completion proposal",1379479966480
+error,log,,,"Failed to compute completion proposal",1379479966860
+error,log,,,"Failed to compute completion proposal",1379479966962
+error,log,,,"Failed to compute completion proposal",1379479967100
+error,log,,,"Failed to compute completion proposal",1379479967222
+error,log,,,"Failed to compute completion proposal",1379479967351
+error,log,,,"Failed to compute completion proposal",1379479967466
+error,log,,,"Failed to compute completion proposal",1379479967612
+error,log,,,"Failed to compute completion proposal",1379479970121
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1379479976068
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379479978081
+error,log,,,"Failed to compute completion proposal",1379479980063
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479990611
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479994222
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379479994341
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379479996444
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379480056962
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379480254513
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379480257119
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379480264042
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379480264054
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487639661
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487653692
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487765387
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1379487767627
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1379487768010
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487768551
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487769499
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1379487773480
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1379487773561
+error,log,,,"Failed to compute completion proposal",1379487793933
+error,log,,,"Failed to compute completion proposal",1379487871920
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487892231
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487916707
+error,log,,,"Failed to compute completion proposal",1379487921414
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379487940251
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488179813
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488202147
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488202247
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488204073
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488204167
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488206179
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488216279
+error,log,,,"Failed to compute completion proposal",1379488250879
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488257360
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488257438
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488259704
+error,log,,,"Failed to compute completion proposal",1379488274100
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488282912
+error,log,,,"Failed to compute completion proposal",1379488286289
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488294567
+error,log,,,"Failed to compute completion proposal",1379488309454
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488314051
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488314132
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488342101
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488342181
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488355773
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488355853
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488379684
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488379777
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488382680
+error,log,,,"Failed to compute completion proposal",1379488393008
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488393040
+error,log,,,"Failed to compute completion proposal",1379488422371
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488422414
+error,log,,,"Failed to compute completion proposal",1379488448800
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488448820
+error,log,,,"Failed to compute completion proposal",1379488458830
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488458856
+error,log,,,"Failed to compute completion proposal",1379488474335
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488474368
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488485494
+error,log,,,"Failed to compute completion proposal",1379488497473
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488497493
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488504736
+error,log,,,"Failed to compute completion proposal",1379488511097
+error,log,,,"Failed to compute completion proposal",1379488518975
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488519039
+error,log,,,"Failed to compute completion proposal",1379488520719
+error,log,,,"Failed to compute completion proposal",1379488530430
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488530470
+error,log,,,"Failed to compute completion proposal",1379488531910
+error,log,,,"Failed to compute completion proposal",1379488540792
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488540828
+error,log,,,"Failed to compute completion proposal",1379488542203
+error,log,,,"Failed to compute completion proposal",1379488554302
+error,log,,,"Failed to compute completion proposal",1379488561062
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488561085
+error,log,,,"Failed to compute completion proposal",1379488563104
+error,log,,,"Failed to compute completion proposal",1379488564221
+error,log,,,"Failed to compute completion proposal",1379488564433
+error,log,,,"Failed to compute completion proposal",1379488575658
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488575686
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488581731
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488592035
+error,log,,,"Failed to compute completion proposal",1379488650065
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379488650110
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1379488710387
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1379488711933
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488738553
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488739592
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488740619
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488740723
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488741066
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488742538
+error,log,,,"Failed to compute completion proposal",1379488749959
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488753312
+activated,view,org.eclipse.ui.navigator.resources,3.4.300.I20110421-1800,"org.eclipse.ui.navigator.ProjectExplorer",1379488755363
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1379488755670
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488783872
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488787921
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488788029
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488791041
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488811216
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488849342
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1379488881338
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379488882886
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488884340
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488887591
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1379488974753
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379488976595
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488979157
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1379488982438
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379488983920
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488987614
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488987701
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379488992309
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488998160
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379488998253
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1379489004509
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1379489005713
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379489008468
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1379489008574
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379489009988
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379489023641
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379489033301
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379489050154
+error,log,,,"Failed to compute completion proposal",1379489062985
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379489065781
+error,log,,,"Failed to compute completion proposal",1379489081084
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379489083093
+error,log,,,"Failed to compute completion proposal",1379489091582
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.text.contentAssist.proposals",1379489091611
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1379489101199
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105779
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105779
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105779
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105779
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105780
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105790
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105790
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105790
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105790
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105791
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105791
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105791
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105791
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105791
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105791
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105791
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105797
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105797
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105798
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.cutcolumn",1379489105799

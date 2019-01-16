@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;OpenGLTest&apos; to &apos;OpenGLTest2&apos;&#x0D;&#x0A;- Original project: &apos;OpenGL&apos;&#x0D;&#x0A;- Original element: &apos;OpenGLTest&apos;&#x0D;&#x0A;- Renamed element: &apos;OpenGLTest2&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;OpenGLTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{OpenGLTest.java[OpenGLTest" matchStrategy="1" name="OpenGLTest2" qualified="false" references="true" similarDeclarations="false" stamp="1360318678465" textual="false" version="1.0"/>
+</session>

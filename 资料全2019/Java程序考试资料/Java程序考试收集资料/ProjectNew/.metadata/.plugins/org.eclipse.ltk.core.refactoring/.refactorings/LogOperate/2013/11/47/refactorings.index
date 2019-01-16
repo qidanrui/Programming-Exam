@@ -1,0 +1,10 @@
+1385109518108	Encapsulate field 'file'
+1385110047639	Encapsulate field 'data'
+1385110352755	Rename type 'FileReader'
+1385112426780	Encapsulate field 'mostModify'
+1385112657839	Encapsulate field 'name'
+1385112661255	Encapsulate field 'modifyCount'
+1385112665328	Encapsulate field 'modifyLine'
+1385112747611	Delete element
+1385113007420	Encapsulate field 'mostLineModify'
+1385133861126	Delete element

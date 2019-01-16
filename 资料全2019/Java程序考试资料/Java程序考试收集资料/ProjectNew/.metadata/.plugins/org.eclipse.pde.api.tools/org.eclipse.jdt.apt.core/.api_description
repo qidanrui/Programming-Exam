@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.jdt.apt.core" modificationStamp="318591" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{MirroredTypesException.java[MirroredTypesException" modificationStamp="318723" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{AnnotationType.java[AnnotationType" modificationStamp="318716" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{WildcardType.java[WildcardType" modificationStamp="318729" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{VoidType.java[VoidType" modificationStamp="318728" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{TypeMirror.java[TypeMirror" modificationStamp="318726" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{InterfaceType.java[InterfaceType" modificationStamp="318721" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{EnumType.java[EnumType" modificationStamp="318720" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{TypeVariable.java[TypeVariable" modificationStamp="318727" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{MirroredTypeException.java[MirroredTypeException" modificationStamp="318722" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{ArrayType.java[ArrayType" modificationStamp="318717" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{DeclaredType.java[DeclaredType" modificationStamp="318719" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{ClassType.java[ClassType" modificationStamp="318718" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{PrimitiveType.java[PrimitiveType" modificationStamp="318724" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.type{ReferenceType.java[ReferenceType" modificationStamp="318725" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{Filer.java[Filer" modificationStamp="318690" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{RoundCompleteListener.java[RoundCompleteListener" modificationStamp="318693" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{AnnotationProcessorFactory.java[AnnotationProcessorFactory" modificationStamp="318687" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{AnnotationProcessorListener.java[AnnotationProcessorListener" modificationStamp="318688" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{RoundCompleteEvent.java[RoundCompleteEvent" modificationStamp="318692" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{RoundState.java[RoundState" modificationStamp="318694" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{AnnotationProcessor.java[AnnotationProcessor" modificationStamp="318685" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{AnnotationProcessors.java[AnnotationProcessors" modificationStamp="318689" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{Messager.java[Messager" modificationStamp="318691" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.apt{AnnotationProcessorEnvironment.java[AnnotationProcessorEnvironment" modificationStamp="318686" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{DeclarationScanner.java[DeclarationScanner" modificationStamp="318732" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{Types.java[Types" modificationStamp="318741" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{DeclarationVisitors.java[DeclarationVisitors" modificationStamp="318734" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{Declarations.java[Declarations" modificationStamp="318735" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{TypeVisitor.java[TypeVisitor" modificationStamp="318740" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{SimpleDeclarationVisitor.java[SimpleDeclarationVisitor" modificationStamp="318736" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{SourceOrderDeclScanner.java[SourceOrderDeclScanner" modificationStamp="318738" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{DeclarationFilter.java[DeclarationFilter" modificationStamp="318731" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{SourcePosition.java[SourcePosition" modificationStamp="318739" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{SimpleTypeVisitor.java[SimpleTypeVisitor" modificationStamp="318737" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.util{DeclarationVisitor.java[DeclarationVisitor" modificationStamp="318733" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.util"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.util{AptUtil.java[AptUtil" modificationStamp="318832" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.util{EclipseMessager.java[EclipseMessager" modificationStamp="318833" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.util{AptConfig.java[AptConfig" modificationStamp="318830" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.util{IFactoryPath.java[IFactoryPath" modificationStamp="318834" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.util{AptPreferenceConstants.java[AptPreferenceConstants" modificationStamp="318835" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.build"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.build{AptBuilder.java[AptBuilder" modificationStamp="318798" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.build{JdtApt.java[JdtApt" modificationStamp="318799" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{AnnotationValue.java[AnnotationValue" modificationStamp="318699" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{ExecutableDeclaration.java[ExecutableDeclaration" modificationStamp="318705" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{AnnotationMirror.java[AnnotationMirror" modificationStamp="318696" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{EnumConstantDeclaration.java[EnumConstantDeclaration" modificationStamp="318703" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{PackageDeclaration.java[PackageDeclaration" modificationStamp="318711" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{MemberDeclaration.java[MemberDeclaration" modificationStamp="318708" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{EnumDeclaration.java[EnumDeclaration" modificationStamp="318704" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{ClassDeclaration.java[ClassDeclaration" modificationStamp="318700" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{MethodDeclaration.java[MethodDeclaration" modificationStamp="318709" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{ConstructorDeclaration.java[ConstructorDeclaration" modificationStamp="318701" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{InterfaceDeclaration.java[InterfaceDeclaration" modificationStamp="318707" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{TypeDeclaration.java[TypeDeclaration" modificationStamp="318713" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{FieldDeclaration.java[FieldDeclaration" modificationStamp="318706" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{Declaration.java[Declaration" modificationStamp="318702" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{Modifier.java[Modifier" modificationStamp="318710" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{TypeParameterDeclaration.java[TypeParameterDeclaration" modificationStamp="318714" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{AnnotationTypeElementDeclaration.java[AnnotationTypeElementDeclaration" modificationStamp="318698" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{AnnotationTypeDeclaration.java[AnnotationTypeDeclaration" modificationStamp="318697" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;com.sun.mirror.declaration{ParameterDeclaration.java[ParameterDeclaration" modificationStamp="318712" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.env"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.env{Phase.java[Phase" modificationStamp="318804" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.env{EclipseAnnotationProcessorFactory.java[EclipseAnnotationProcessorFactory" modificationStamp="318802" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.env{EnvironmentFactory.java[EnvironmentFactory" modificationStamp="318803" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.jdt.apt.core/src&lt;org.eclipse.jdt.apt.core.env{EclipseAnnotationProcessorEnvironment.java[EclipseAnnotationProcessorEnvironment" modificationStamp="318801" restrictions="0" visibility="0"/>
+    </package>
+</component>

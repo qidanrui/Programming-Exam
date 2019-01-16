@@ -1,0 +1,33 @@
+package Teaching.Common;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class DataVerify {
+	private static String regex = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+
+	 /**
+	  * 密码校验
+	  * @param p
+	  * @param pswd
+	  * @return
+	  */
+		public static boolean verifyPassword(String p,String pswd)
+		{
+			if(p.equals(pswd))
+				return true;
+			else 
+				return false;
+		}
+		/**
+		 * 邮箱校验，判断是否有邮箱或者邮箱是否合格
+		 * @param mailString
+		 * @return
+		 */
+		public static boolean verifyMail(String mailString)
+		{
+			Pattern regexPattern = Pattern.compile(regex);
+			 Matcher matcher = regexPattern.matcher(mailString);
+			return  matcher.matches();
+		}
+}

@@ -1,0 +1,21 @@
+
+public class BubbleSort {
+	BubbleSort(long[] A) 
+    {
+	  int j, k;
+	  int flag;
+	  flag = A.length;
+	  while (flag > 0)
+	  {
+		k = flag;
+		flag = 0;
+		for (j = 1; j < k-1; j++)
+			if (A[j] > A[j+1])
+			{
+				Common.swap(A, j+1, j);
+				flag = j;
+			}
+	   }
+}
+
+}

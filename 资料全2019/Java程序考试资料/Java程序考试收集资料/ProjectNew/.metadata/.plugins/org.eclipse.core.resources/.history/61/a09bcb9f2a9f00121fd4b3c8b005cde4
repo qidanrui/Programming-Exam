@@ -1,0 +1,47 @@
+package Teaching.Common;
+
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.entity.Plan;
+import cn.edu.xmu.software.entity.User;
+
+public class ContextUtil {
+      private static  User currentUser;    //当前用户
+      private static  Plan  currentPlan;   //当前操作的某个计划
+      private static  Goal  currentGoal;  //当前操作的某个目标
+	/**
+	 * @return the currentUser
+	 */
+	public static User getCurrentUser() {
+		return currentUser;
+	}
+	/**
+	 * @param currentUser the currentUser to set
+	 */
+	public static void setCurrentUser(User currentUser) {
+		ContextUtil.currentUser = currentUser;
+	}
+	/**
+	 * @return the currentPlan
+	 */
+	public static Plan getCurrentPlan() {
+		return currentPlan;
+	}
+	/**
+	 * @param currentPlan the currentPlan to set
+	 */
+	public static void setCurrentPlan(Plan currentPlan) {
+		ContextUtil.currentPlan = currentPlan;
+	}
+	/**
+	 * @return the currentGoal
+	 */
+	public static Goal getCurrentGoal() {
+		return currentGoal;
+	}
+	/**
+	 * @param currentGoal the currentGoal to set
+	 */
+	public static void setCurrentGoal(Goal currentGoal) {
+		ContextUtil.currentGoal = currentGoal;
+	}
+}

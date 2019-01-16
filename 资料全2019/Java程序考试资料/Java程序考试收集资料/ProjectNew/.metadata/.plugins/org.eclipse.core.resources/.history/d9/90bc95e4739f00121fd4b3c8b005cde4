@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">移动汇报</string>
+    <string name="dianjibang">单机版</string>
+    <string name="wangluobang">网络版</string>
+</resources>

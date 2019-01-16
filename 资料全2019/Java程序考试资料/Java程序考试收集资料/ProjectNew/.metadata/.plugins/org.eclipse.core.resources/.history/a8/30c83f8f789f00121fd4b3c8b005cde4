@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyAppStyle" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="translucent" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="TitleButton_Exit">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">@drawable/selector_button_top_left</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:text">退出</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:onClick">ExitOnClick</item>
+    </style>
+    <style name="TitleButton_Return">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">@drawable/selector_button_top_left</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:text">返回</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:onClick">ReturnOnClick</item>
+    </style>
+    <style name="InfoModify">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/info_modify</item>
+        <item name="android:onClick">ModifyOnClick</item>
+    </style>
+    <style name="AdminHomeBtn">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">@drawable/selector_button_admin_home</item>
+        <item name="android:padding">10.0dip</item>
+        <item name="android:layout_width">@dimen/MainButtonSize</item>
+        <item name="android:layout_height">@dimen/MainButtonSize</item>
+        <item name="android:drawablePadding">10.0dip</item>
+    </style>
+    <style name="TitleBarTextStyle">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:shadowColor">#ff666666</item>
+        <item name="android:shadowDx">3.0</item>
+        <item name="android:shadowDy">3.0</item>
+        <item name="android:shadowRadius">2.0</item>
+    </style>
+    <style name="PunchLogTitleTextStyle">
+        <item name="android:typeface">monospace</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#ff000000</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+    </style>
+    <style name="staff_main_radio">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/staff_table_radio</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/selector_button_staff_main</item>
+        <item name="android:paddingTop">2.0dip</item>
+        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:layout_marginTop">0.0dip</item>
+        <item name="android:layout_marginRight">0.0dip</item>
+        <item name="android:layout_marginBottom">0.0dip</item>
+        <item name="android:button">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">0.0dip</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+</resources>

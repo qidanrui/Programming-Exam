@@ -1,0 +1,106 @@
+package Teaching.model;
+
+import java.util.List;
+
+public class Course {
+    private String courseId;//课程Id(不要显示)
+    private String courseName;//课程名称
+    private String TeacherName;//任课教师姓名
+    private String courseTime;//上课时间
+    private List<Student> students;
+    private Boolean flag;//标记该门课程是否可以进行上/下课点名
+    /**
+	 * @return the flag
+	 */
+	public Boolean getFlag() {
+		return flag;
+	}
+
+	/**
+	 * @param flag the flag to set
+	 */
+	public void setFlag(Boolean flag) {
+		this.flag = flag;
+	}
+
+	public Course(){};
+    
+    /**
+     * 判断该门课程是否可以进行点名
+     * @return
+     */
+    public Boolean IsCourseTime()
+    {
+         return flag;
+    }
+
+	/**
+	 * @return the courseId
+	 */
+	public String getCourseId() {
+		return courseId;
+	}
+
+	/**
+	 * @param courseId the courseId to set
+	 */
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+
+	/**
+	 * @return the courseName
+	 */
+	public String getCourseName() {
+		return courseName;
+	}
+
+	/**
+	 * @param courseName the courseName to set
+	 */
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	/**
+	 * @return the teacherName
+	 */
+	public String getTeacherName() {
+		return TeacherName;
+	}
+
+	/**
+	 * @param teacherName the teacherName to set
+	 */
+	public void setTeacherName(String teacherName) {
+		TeacherName = teacherName;
+	}
+
+	/**
+	 * @return the courseTime
+	 */
+	public String getCourseTime() {
+		return courseTime;
+	}
+
+	/**
+	 * @param courseTime the courseTime to set
+	 */
+	public void setCourseTime(String courseTime) {
+		this.courseTime = courseTime;
+	}
+
+	/**
+	 * @return the students
+	 */
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	/**
+	 * @param students the students to set
+	 */
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+}

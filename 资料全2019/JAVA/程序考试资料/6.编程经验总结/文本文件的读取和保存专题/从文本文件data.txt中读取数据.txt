@@ -1,0 +1,34 @@
+从文本文件data.txt中读取数据：
+
+BufferedReader br = new BufferedReader(new FileReader("data.txt"));
+String input = br.readLine();
+...
+br.close();//最后不要忘记关闭输入流
+
+如果要判断文件是否存在，存在才去读则写成：
+
+File f = new File("data.txt");
+if (!f.exists())
+{
+    JOptionPane.showMessageDialog(null, "文件不存在！");
+}
+BufferedReader br = new BufferedReader(new FileReader(f));
+String input = br.readLine();
+...
+br.close();//最后不要忘记关闭输入流
+
+-------------------------------------------------------------------------------------------------------
+
+BufferedReader bf = new BufferedReader(new FileReader("score.txt"));
+
+while ((temp = br.readLine()) != null)// 当没有读到文件末尾的时候
+    result += temp + "\n";
+
+String input = new String(result.substring(4, result.length()));// 去掉result开头的null这4字符
+
+score = input.split("(\\s)+");
+bf.close();
+
+
+
+

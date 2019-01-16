@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.edu.xmu.software"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="Pick_startTime" android:label="@string/start_time" />
+        <activity android:name="Reminder" android:label="@string/reminder" />
+        <activity android:name="ContextSelectedActivity" android:label="@string/context"/>
+        <activity android:name="ProSelectedActivity" android:label="@string/project"></activity>
+        <activity android:name="TagsSelectedActivity" android:label="@string/tags"></activity>
+        <activity android:name="Project_Activity" android:label="@string/project"></activity>
+        <activity android:name="Goal_Activity" android:label="@string/add_aim"></activity>
+        <activity android:name="LoginActivity" ></activity>
+        <activity android:name="TodayTaskListActivity" ></activity>
+    </application>
+
+</manifest>

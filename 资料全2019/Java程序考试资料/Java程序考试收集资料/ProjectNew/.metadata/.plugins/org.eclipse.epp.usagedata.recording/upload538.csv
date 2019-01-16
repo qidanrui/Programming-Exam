@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346099610
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346099713
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346111602
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346123034
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346123692
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346124562
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346124871
+error,log,,,"higher_version.xml: Paint.setShadowLayer is not supported.",1365346127360
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346127681
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346127781
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346131451
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346131781
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346133983
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346134152
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346136012
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346137155
+error,log,,,"my_info.xml: Paint.setShadowLayer is not supported.",1365346137724
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346137912
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346138024
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346141592
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346141827
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346174766
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346189694
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346205584
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346213677
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346229534
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346240896
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346363227
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346385067
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346385095
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346388138
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346392186
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346395757
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346407077
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346414958
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346416092
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346418522
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346424778
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346425400
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346425539
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346426263
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346427151
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346428189
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346428427
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346429873
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346431427
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346432514
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346434195
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346434277
+error,log,,,"company_setting_punch.xml: Paint.setShadowLayer is not supported.",1365346435622
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346435871
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346435974
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346448198
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346449171
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346453022
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346453727
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346454081
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346454997
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346455079
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346456562
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346457566
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346458591
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346460002
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346460578
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346460726
+error,log,,,"new_version.xml: Paint.setShadowLayer is not supported.",1365346468889
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346469335
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346469444
+error,log,,,"panch_by_location.xml: Paint.setShadowLayer is not supported.",1365346472205
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346472410
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346472773
+error,log,,,"panch_main.xml: Paint.setShadowLayer is not supported.",1365346474942
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346475249
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346475638
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346479863
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346480730
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346493237
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346494950
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346501818
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346503108
+activated,view,com.android.ide.eclipse.ddms,18.0.0.v201203301601-306762,"com.android.ide.eclipse.ddms.views.LogCatView",1365346503123
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346514051
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346519851
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346520479
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1365346523033
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346525007
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346534410
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365346534555
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365346542181
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346542463
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346542632
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346565101
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346567747
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346568612
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346579429
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346600729
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346630736
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346641410
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346648554
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346656423
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365346656460
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346659416
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346684599
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346689717
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346689914
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346694207
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346695285
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346703825
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346707966
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365346802218
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365346877751
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346898569
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365346903494
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346919172
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365346924018
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365346944255
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365346999937
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347003605
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347011366
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347013689
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347020963
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347040776
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347056780
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347059519
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347067173
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1365347073401
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347074340
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365347079332
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347081874
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347088177
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347088189
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347090935
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347169041
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347171789
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347186449
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347186978
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347187350
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347187832
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347188213
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347188952
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347189413
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347189978
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347190786
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347191487
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347200004
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347202716
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347283291
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347286362
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347303121
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347303968
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347307653
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347315329
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347315492
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347322444
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347336352
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347338537
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347339029
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347339420
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347339799
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347340262
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347340637
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347341006
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347343392
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347345450
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347346708
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1365347364211
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347367130
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347399595
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347399722
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347415846
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.undo",1365347430529
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347438638
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347470088
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347473853
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347476012
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347491549
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347492689
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347494272
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347537832
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1365347568242
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365347575285
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347577991
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347581544
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347597237
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347601963
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347762479
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347765407
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1365347783156
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347784350
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347787688
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347804889
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347813734
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347813889
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347814996
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365347824650
+error,log,,,"course_admin.xml: Paint.setShadowLayer is not supported.",1365347833985
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347834130
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1365347896788
+error,log,,,"account_register.xml: Paint.setShadowLayer is not supported.",1365347898854
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347899204
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365347903607
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365347908435
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347911822
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347913377
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347940856
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365347940968
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365347941260
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365347944519
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1365347985540
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365347996613
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365348003219
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365348010510
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365348015569
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348016863
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365348019388
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1365348096649
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365348109890
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348113636
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348136769
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348176830
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348176981
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365348179493
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348215351
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365348218206
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348255046
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365348262045
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348295334
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348299513
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348299678
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365348305208
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.cut",1365348358904
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348388740
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365348393316
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1365348439355
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365348445793
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.copy",1365348468787
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365348471473
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1365348475430
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1365348478166
+error,log,,,"kaishikaoqing.xml: Paint.setShadowLayer is not supported.",1365348482991
+error,log,,,"panch_main.xml: Paint.setShadowLayer is not supported.",1365348491478
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365348491977
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365348494679
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365348540367
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365348542718
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348683931
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348687464
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348689309
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1365348719700
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1365348740594

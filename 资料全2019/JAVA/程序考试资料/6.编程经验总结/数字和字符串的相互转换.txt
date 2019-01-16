@@ -1,0 +1,6 @@
+×Ö·û´®×ªÊý×Ö£º
+Double.parseDouble(String s)
+Integer.parseInt(String s)
+
+Êý×Ö×ª×Ö·û´®£º
+String.valueOf(int x)

@@ -1,0 +1,98 @@
+package cn.edu.xmu.software.adapter;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import cn.edu.xmu.software.R;
+
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class TodayTaskListAdapter extends BaseAdapter {
+	
+	private Context context;
+	private LayoutInflater listInflater;
+	private CheckBox checkBox;
+	private Button task_tag;
+	private List<Map<String, Object>> listItems;
+	private int itemCount;
+	private int[] colorId = {R.color.pri0 ,R.color.pri1, R.color.pri2,
+			R.color.pri3, R.color.pri4, R.color.pri5};
+	
+	public final class ListItemView{
+		public ImageView task_pri;
+		public CheckBox doit_now;
+		public TextView task_title;
+		
+		public  TextView task_startat;
+	}
+	public TodayTaskListAdapter(Context context, List<Map<String, Object>> listItems) {
+		// TODO Auto-generated constructor stub
+		this.context = context;
+		//this.listItems = new ArrayList<Map<String, Object>>();
+		this.listItems = listItems;
+		this.init();
+	} 
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return this.itemCount;
+	}
+
+	@Override
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		ListItemView listItem = null;
+		String tag = null;
+		listItem = new ListItemView();
+		tag = (String)this.listItems.get(position).get("Tag"); 
+		if(tag == null){
+			
+			listItem = new ListItemView();
+			convertView  = this.listInflater.inflate(R.layout.task_list_item, null);
+			listItem.task_pri = (ImageView)convertView.findViewById(R.id.task_item_pri);
+			listItem.doit_now = (CheckBox)convertView.findViewById(R.id.doit_now);
+			listItem.task_title = (TextView)convertView.findViewById(R.id.task_title);
+			
+			int color_id = (Integer)this.listItems.get(position).get("pri");
+			String text = (String)this.listItems.get(position).get("title");
+			listItem.task_pri.setBackgroundResource(this.colorId[color_id % 6]);
+			listItem.task_title.setText(text);
+		}
+		else{
+			convertView  = this.listInflater.inflate(R.layout.task_list_item_tag, null);
+			this.task_tag = (Button)convertView.findViewById(R.id.task_tag);
+			String text = (String)this.listItems.get(position).get("text");
+			this.task_tag.setText(text);
+		}
+		return convertView;
+	}
+	
+	private void init(){
+		
+		this.itemCount = this.listItems.size();
+		this.listInflater = LayoutInflater.from(this.context);
+	}
+}

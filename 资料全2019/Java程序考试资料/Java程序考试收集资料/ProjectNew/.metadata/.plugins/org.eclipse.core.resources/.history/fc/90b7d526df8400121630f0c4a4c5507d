@@ -1,0 +1,52 @@
+package cn.edu.xmu.software.curveExctraction;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.googlecode.javacv.cpp.opencv_core.CvMat;
+import static com.googlecode.javacv.cpp.opencv_core.*;  
+import static com.googlecode.javacv.cpp.opencv_highgui.*;  
+
+public class CurveExtractOpt {
+	 private List<Edge> edges;
+	 CurveExtractOpt()
+	 {
+		 edges=new ArrayList<Edge>();
+	 }
+	 public  void CurveOperate(CvMat img1u,boolean isCartoon)
+	 {
+		    CvMat srcImg1f=cvCreateMat(img1u.cvSize().width(),img1u.cvSize().height(),CV_8UC3);
+		    CvMat show3u=cvCreateMat(img1u.cvSize().width(),img1u.cvSize().height(),CV_8UC3);
+		    cvConvertScaleAbs( img1u, srcImg1f,1.0/255,0);
+		    CurveExtract dEdge=new CurveExtract(srcImg1f);
+		    if (isCartoon)
+				dEdge.calSecDer(5, 0.01f, 0.1f);
+			else
+				dEdge.calFirDer(5, 0.05f, 0.2f);
+			dEdge.link(3);
+		    edges=dEdge.getEdges();
+		    cvSet(srcImg1f,CV_RGB( 0,0,0),null);
+		    for(int i=0;i<edges.size();i++)
+		    {
+		    	for(int j=0;j<edges.get(i).getPnts().size();j++)
+		    	{
+		    		Point p=edges.get(i).getPnts().get(j);
+		    		cvSet2D(show3u,p.getX(),p.getY(),CV_RGB(255,0,0));//ºìÉ«
+		    	}
+		    }
+		    cvShowImage("Image", img1u);
+		    cvShowImage("Curve", show3u);
+		    cvWaitKey(0);
+	   }
+	public static void main(String[] args)
+     {
+		CvMat cImg = cvLoadImageM("images\\Cartoon.png", CV_LOAD_IMAGE_GRAYSCALE);
+		//CvMat nImg = cvLoadImageM("images\\Nature.png", CV_LOAD_IMAGE_GRAYSCALE);
+		CurveExtractOpt opt=new CurveExtractOpt();
+		opt.CurveOperate(cImg, true);
+		
+//		CmCurveEx::Demo(cImg, true);
+//		CmCurveEx::Demo(nImg, false);
+    	 
+     }
+}

@@ -1,0 +1,17 @@
+package Teaching.model;
+public class User {
+     private String UserId;//学号
+     private String UserName;//姓名
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return UserId;
+	}
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		UserId = userId;
+	}
+}

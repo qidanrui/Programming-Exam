@@ -1,0 +1,1 @@
+cmd --进到该目录--java -jar XX.jar 

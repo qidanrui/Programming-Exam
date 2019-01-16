@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="106" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0"/>
+	<item value="190" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1"/>
+	<item value="1" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn"/>
+	<item value="91" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2"/>
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=OpenGLTest/src&amp;lt;{OpenGLTest.java[OpenGLTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=iList/\/iList\/libs\/examples.jar&amp;lt;com.sun.jna.examples(X11AlphaMaskTest.class[X11AlphaMaskTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=iList/\/iList\/libs\/examples.jar&amp;lt;com.sun.jna.examples(AlphaMaskDemo.class[AlphaMaskDemo&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=iList/\/iList\/libs\/examples.jar&amp;lt;com.sun.jna.examples(ShapedWindowDemo.class[ShapedWindowDemo&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=iList/\/iList\/libs\/examples.jar&amp;lt;com.sun.jna.examples(BalloonManagerDemo.class[BalloonManagerDemo&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=iList/\/iList\/libs\/CustomizedToolbar.jar&amp;lt;com.bric.swing.toolbar(CustomizedToolbar.class[CustomizedToolbar&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=iList/src&amp;lt;ilist{MainPlugin.java[MainPlugin&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=DiffusionCurves/src&amp;lt;cn.edu.xmu.software.ui{DiffusionCurvesUI.java[DiffusionCurvesUI&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=DQCupChenXJ/src&amp;lt;dqcup.repair.test{Test.java[Test&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="427" key="DIALOG_WIDTH"/>
+			<item value="39" key="DIALOG_Y_ORIGIN"/>
+			<item value="568" key="DIALOG_HEIGHT"/>
+			<item value="391" key="DIALOG_X_ORIGIN"/>
+			<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
+		<item value="502" key="SashWeightDetails"/>
+		<item value="497" key="SashWeightTree"/>
+		<item value="218" key="HEIGHT"/>
+		<item value="614" key="WIDTH"/>
+	</section>
+</section>

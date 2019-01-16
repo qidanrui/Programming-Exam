@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.wst.server.ui.launchConfigurationType">
+<stringAttribute key="client-id" value="org.jboss.ide.eclipse.as.core.server.internal.launch.jbtLaunchClient"/>
+<stringAttribute key="launchable-adapter-id" value="org.jboss.ide.eclipse.as.core.launchableAdapter1"/>
+<stringAttribute key="module-artifact" value="org.eclipse.jst.jee.server:CourseSysWebClient///page/login.jsf"/>
+<stringAttribute key="module-artifact-class" value="org.eclipse.wst.server.core.util.WebResource"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/CourseSysWebClient"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="server-id" value="JBoss 6.x Runtime Server1336652020929"/>
+</launchConfiguration>

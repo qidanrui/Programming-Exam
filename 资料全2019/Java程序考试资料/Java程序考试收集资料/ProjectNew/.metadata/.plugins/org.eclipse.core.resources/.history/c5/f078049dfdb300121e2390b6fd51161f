@@ -1,0 +1,800 @@
+package cn.edu.xmu.software.curveextraction;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.edu.xmu.software.util.Constants;
+import cn.edu.xmu.software.util.Point;
+import static com.googlecode.javacv.cpp.opencv_core.*;  
+import static com.googlecode.javacv.cpp.opencv_imgproc.*;  
+import static com.googlecode.javacv.cpp.opencv_highgui.*;  
+
+/**
+ * 边缘提取基本操作
+ * @author sinlly.chen
+ *
+ */
+public class CurveExtract {
+   private CvMat srcImg;//输入图像的矩阵
+   private CvMat p_Der;//保存点的一阶或者二阶导数,32FC1(保存32位浮点单通道矩阵)
+   private CvMat p_Ornt;//保存点的方向矩阵,32FC1(保存32位浮点单通道矩阵)
+   private CvMat p_Label;//保存线的序列号,32FC1(保存32位浮点单通道矩阵)
+   private CvMat p_NextP;//保存下一个点8方向的序号,[0,1,...,7],32SC1(保存32位浮点单通道矩阵)
+   private PointMap pntImp;//点映射，每个点对应一个序号
+   private List<PointMap> startPnt;//保存当前点寻找的边缘点
+   private List<Edge> edges;//保存寻找到的所有边缘
+   private int img_h;//图像的高
+   private int img_w;//图像的宽
+   private int kSize;//光滑内核，一般为1,3,5,7
+   private float maxAngDif;//最大允许的角差在一个曲线上
+   private boolean flag;
+   private float orntTemp;
+   
+   CurveExtract(CvMat srcImg)
+   {
+	   setSrcImg(srcImg);
+	   maxAngDif=0.15f*Constants.PI_FLOAT;
+	   img_h=srcImg.rows();
+	   img_w=srcImg.cols();
+	   p_Der=cvCreateMat(img_h, img_w, CV_32FC1);
+	   p_Ornt=cvCreateMat(img_h, img_w, CV_32FC1);
+	   p_Label=cvCreateMat(img_h, img_w, CV_32SC1);
+	   p_NextP=cvCreateMat(img_h, img_w, CV_32SC1);
+	   pntImp=new PointMap();
+	   startPnt=new ArrayList<PointMap>();
+	   edges=new ArrayList<Edge>();
+   }
+   
+   /**
+    * 计算二阶导数，用于需要检测既需要装饰曲线也需要边界曲线的图像
+    * @param kSize   Sobel算子的内核大小，用kSize*kSize的来计算差分
+    * @param linkEndBound   连接起点约束
+    * @param linkStartBound  连接终点约束
+    * @return
+    */
+   public CvMat calSecDer(int kSize,float linkEndBound,float linkStartBound)
+   {
+	    CvMat dxx=cvCreateMat(img_h, img_w, CV_32F);
+	    CvMat dxy=cvCreateMat(img_h, img_w, CV_32F);
+	    CvMat dyy=cvCreateMat(img_h, img_w, CV_32F);
+
+		cvSobel(srcImg, dxx, 2, 0, kSize);
+		cvSobel(srcImg, dxy, 1, 1, kSize);
+		cvSobel(srcImg, dyy, 0, 2, kSize);//1   参数个数不一致
+
+		double[] eigval = new double[2];
+		double[][] eigvec = new double[2][2];
+		for (int y = 0; y < img_h; y++)//图像高度
+		{
+			for (int x = 0; x < img_w; x++)
+			{
+				computeEigenvals(dyy.get(y, x), dxy.get(y,x), dxx.get(y,x), eigval, eigvec);
+				p_Ornt.put(y,x,(float)Math.atan2(-eigvec[0][1], eigvec[0][0])); //计算法线方向
+				float value=(float)p_Ornt.get(y,x);
+				if (value < 0.0f)
+				{
+					value += Constants.PI2;
+					p_Ornt.put(y,x,value); 
+				}
+                value=(float)(eigval[0]>0.0f? eigval[0]:0.0f);
+                p_Der.put(y,x,value);//计算二阶导数
+			}
+		}
+		GaussianBlur(p_Der, p_Der, cvSize(3, 3), 0,0.0,4);//GaussianBlur(m_pDer1f, m_pDer1f, cvSize(3, 3), 0,0.0,4); 高斯滤波函数,0.0和0.4高斯滤波在横线和竖向的滤波系数
+		cvNormalize(p_Der, p_Der, 0, 1, NORM_MINMAX,null);//	cvNormalize(m_pDer1f, m_pDer1f, 0, 1, NORM_MINMAX,null);该函数归一化输入数组使它的范数或者数值范围在一定的范围内
+		noneMaximalSuppress(linkEndBound, linkStartBound);		
+//		 cvShowImage("dyy", p_Der);
+//		 cvWaitKey(0);
+		return p_Der;
+   }
+   
+   /**
+    * 计算一阶导数，相当于计算梯度，用于检测只需要边界曲线而无需装饰曲线的图像
+    * @param kSize  Sobel算子的内核大小，用kSize*kSize的来计算差分
+    * @param linkEndBound  连接起点约束
+    * @param linkStartBound  连接终点约束
+    * @return
+    */
+   public  CvMat calFirDer(int kSize,float linkEndBound,float linkStartBound)
+   {
+	   CvMat dxMat=cvCreateMat(img_h, img_w, CV_32FC1);
+	   CvMat dyMat=cvCreateMat(img_h, img_w, CV_32FC1);
+	   
+	   cvSobel(srcImg, dxMat, 1, 0, kSize);
+	   cvSobel(srcImg, dyMat, 0, 1, kSize);
+		for (int y = 0; y < img_h; y++)
+		{
+			for (int x = 0; x < img_w; x++)
+			{
+				p_Ornt.put(y,x,(float)Math.atan2(dxMat.get(y,x), -dyMat.get(y,x)));//Math.atan2
+				double value=p_Ornt.get(y,x);
+				if (value < 0.0f)
+				{
+					value += Constants.PI2;
+					p_Ornt.put(y,x,value); 
+				}
+                value=Math.sqrt(dxMat.get(y,x)*dxMat.get(y,x)+dyMat.get(y,x)*dyMat.get(y,x));
+                p_Der.put(y,x,value);
+			}
+		}
+
+		GaussianBlur(p_Der, p_Der, cvSize(3, 3), 0,0.0,0);
+		cvNormalize(p_Der, p_Der, 0, 1, NORM_MINMAX,null);
+		noneMaximalSuppress(linkEndBound, linkStartBound);
+//	   cvShowImage("dx", p_Der);
+//	   cvWaitKey(0);
+		return p_Der;
+   }
+   
+   /**
+    * 连接边缘点主函数
+    * @param shortRemoveBound  每条边缘组成的最小边缘点个数
+    * @return
+    */
+   public  List<Edge> link(int shortRemoveBound)
+   {
+	    Constants.sort(startPnt);//根据偏导数大小进行降序排列
+	    
+	    for(int i=0;i<p_NextP.rows();i++)
+	    	   for(int j=0;j<p_NextP.cols();j++)
+	    		   p_NextP.put(i,j,-1);
+		edges.clear();//保存边缘的数组
+		Edge crtEdge;//当前边
+		
+		for (int i=0,index=0; i<startPnt.size(); i++)
+		{
+			Point pnt = new Point(startPnt.get(i).getPoint());//获取偏导数最大的点作为起始点
+			if ((int)p_Label.get(pnt.getY(),pnt.getX())!= Constants.IND_NMS)//若该像素点不是极大值则跳过
+				continue;
+			crtEdge=new Edge(index);
+			findEdge(pnt, crtEdge, false);//往前找
+			findEdge(pnt, crtEdge, true);//往后找
+			if (crtEdge.getPointNum() <= shortRemoveBound) {
+				Point point =new Point(crtEdge.getStart());
+				int j, nextInd;
+				for (j = 1; j < crtEdge.getPointNum(); j++) {
+					p_Label.put(point.getY(),point.getX(),Constants.IND_SR);
+					nextInd = (int) p_NextP.get(point.getY(),point.getX());
+					   point=Constants.add(point, Constants.DIRECTION8[nextInd]);
+				}
+				p_Label.put(point.getY(),point.getX(),Constants.IND_SR);
+			}
+			else
+			{
+				Edge temp=new Edge(crtEdge);
+				edges.add(temp);
+				index++;
+			}
+		}
+
+		// Get edge information
+		int edgNum = (int)edges.size();
+		for (int i = 0; i < edgNum; i++)
+		{
+			Edge edge = edges.get(i);
+		    List<Point> pntsArray=new ArrayList<Point>(edge.getPointNum());
+		    pntsArray.add(new Point(edge.getStart()));
+			//pntsArray.set(0, new Point(edge.getStart()));
+			for (int j = 1; j < edge.getPointNum(); j++)
+			{
+				Point p=Constants.add(pntsArray.get(j-1),Constants.DIRECTION8[(int) p_NextP.get(pntsArray.get(j-1).getY(), pntsArray.get(j-1).getX())] );
+				pntsArray.add(new Point(p));
+			}
+            edge.setPnts(pntsArray);
+		}
+		return edges;
+   }
+   
+   /**
+    * 非极大抑制  判断点是否为极值，若是则为边缘点，用于检测装饰曲线
+    * @param linkEndBound    连接起点约束
+    * @param linkStartBound   连接终点约束
+    */
+   private void noneMaximalSuppress(float linkEndBound,float linkStartBound)
+   {
+	   startPnt.clear();
+	   PointMap linePoint;
+	   
+       for(int i=0;i<p_Label.rows();i++)
+    	   for(int j=0;j<p_Label.cols();j++)
+	          p_Label.put(i,j,Constants.IND_BG);//Mat类型，line index矩阵，初始化
+       
+		for (int r = 1; r < img_h-1; r++)
+		{
+			for (int c = 1; c < img_w-1; c++)
+			{
+				if (p_Der.get(r,c) < linkEndBound)
+					continue;
+				float cosN = (float) Math.sin(p_Ornt.get(r,c));
+				float sinN = (float) -Math.cos(p_Ornt.get(r,c));
+				int xSgn = Constants.cmSgn(cosN);//若绝对值<0则返回0，若>0则返回1，否则返回-1
+				int ySgn =Constants.cmSgn(sinN);
+				cosN *= cosN;
+				sinN *= sinN;
+
+				if (p_Der.get(r,c) >= (p_Der.get(r,c + xSgn) * cosN +(float) p_Der.get(r + ySgn, c) * sinN) 
+					&& p_Der.get(r,c) >= (p_Der.get(r,c - xSgn) * cosN + (float)p_Der.get(r - ySgn, c) * sinN)) {
+					    p_Label.put(r,c,Constants.IND_NMS);
+						if (p_Der.get(r,c) < linkStartBound)
+							continue;
+
+						//add to StartPoint
+						linePoint=new PointMap();
+						linePoint.setPoint(new Point(c, r));
+						linePoint.setValue((float) p_Der.get(r,c));
+						startPnt.add(linePoint);
+				}
+			}
+		}
+   }
+   
+   /**
+    * 查找边缘
+    * @param seed 起始点
+    * @param srcEdge 查找到的边缘
+    * @param isBackWard 若为false向点的切线方向寻找边缘,若为true则向点的切线的反方向寻找边缘
+    * @return
+    */
+   private void findEdge(Point seed,Edge srcEdge ,boolean isBackWard)
+   {
+	   Point pnt = new Point(seed);
+   
+		float ornt = (float) p_Ornt.get(pnt.getY(),pnt.getX());//获得该点的方向
+		if (isBackWard){//向后连接边缘点
+			ornt += Constants.PI_FLOAT;//PI_FLOAT=3.14...
+			if (ornt >= Constants.PI2)//PI2=2*PI_FLOAT
+				ornt -=Constants.PI2;
+		}
+		else{//向前连接边缘点,相当于是切线方向
+			srcEdge.setPointNum(1);
+			p_Label.put(pnt.getY(),pnt.getX(),srcEdge.getIndex());//index=0
+		}
+
+		int orntInd, nextInd1, nextInd2;
+		float x,y;
+		while (true) { 
+			/*************按照优先级寻找下一个点，方向差异较大不加入**************/
+			//下一个点在DIRECTION16最佳方向上找
+			orntInd = (int)(ornt/Constants.PI_EIGHTH + 0.5f) % 16;//PI_EIGHT=1/8*PI_FLOAT
+			ornt=jumpNext(pnt, ornt, srcEdge, orntInd, isBackWard);
+			if (flag) 
+				continue;
+			//下一个点在DIRECTION8最佳方向上找
+			orntInd = (int)(ornt/Constants.PI_QUARTER + 0.5f) % 8;
+			ornt=goNext(pnt, ornt, srcEdge, orntInd, isBackWard);
+			if (flag) 
+				continue;
+			//下一个点在DIRECTION16次优方向上找
+			orntInd = (int)(ornt/Constants.PI_EIGHTH + 0.5f) % 16;
+			nextInd1 = (orntInd + 1) % 16;
+			nextInd2 = (orntInd + 15) % 16;
+			x=nextInd1>=8? 0:Constants.DRT_ANGLE[nextInd1];
+			y=nextInd2>=8? 0:Constants.DRT_ANGLE[nextInd2];
+			if (angle(x, ornt) < angle(y, ornt)) {
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+			}
+			else{//下一个点在DIRECTION16另一个方向上找
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+			}
+			//下一个点在DIRECTION8次优方向上找
+			orntInd = (int)(ornt/Constants.PI_QUARTER + 0.5f) % 8;
+			nextInd1 = (orntInd + 1) % 8;
+			nextInd2 = (orntInd + 7) % 8;
+			if (angle(Constants.DRT_ANGLE[nextInd1], ornt) < angle(Constants.DRT_ANGLE[nextInd2], ornt)) {
+				ornt=goNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+				ornt=goNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+			}
+			else{//下一个点在DIRECTION8另一个方向上找
+				ornt=goNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+				ornt=goNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+			}
+
+
+			/*************按照优先级寻找下一个点，方向差异较大也加入**************/
+			//下一个点在DIRECTION16最佳方向上找
+			orntInd = (int)(ornt/Constants.PI_EIGHTH + 0.5f) % 16;
+			ornt=jumpNext(pnt, ornt, srcEdge, orntInd, isBackWard);
+			if (flag) 
+				continue;
+			//下一个点在DIRECTION8最佳方向上找
+			orntInd = (int)(ornt/Constants.PI_QUARTER + 0.5f) % 8;
+			ornt=goNext(pnt, ornt, srcEdge, orntInd, isBackWard);
+			if (flag) 
+				continue;
+			//下一个点在DIRECTION16次优方向上找
+			orntInd = (int)(ornt/Constants.PI_EIGHTH + 0.5f) % 16;
+			nextInd1 = (orntInd + 1) % 16;
+			nextInd2 = (orntInd + 15) % 16;
+			x=nextInd1>=8? 0:Constants.DRT_ANGLE[nextInd1];
+			y=nextInd2>=8? 0:Constants.DRT_ANGLE[nextInd2];
+			if (angle(x, ornt) < angle(y, ornt)) {
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+			}
+			else{//下一个点在DIRECTION16另一个方向上找
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+				ornt=jumpNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+			}
+			//下一个点在DIRECTION8次优方向上找
+			orntInd = (int)(ornt/Constants.PI_QUARTER + 0.5f) % 8;
+			nextInd1 = (orntInd + 1) % 8;
+			nextInd2 = (orntInd + 7) % 8;
+			if (angle(Constants.DRT_ANGLE[nextInd1], ornt) < angle(Constants.DRT_ANGLE[nextInd2], ornt)) {
+				ornt=goNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+				ornt=goNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+			}
+			else{//下一个点在DIRECTION8另一个方向上找
+				ornt=goNext(pnt, ornt, srcEdge, nextInd2, isBackWard);
+				if(flag)
+					continue;
+				ornt=goNext(pnt, ornt, srcEdge, nextInd1, isBackWard);
+				if(flag)
+					continue;
+			}
+
+			break;//如果ornt附近的三个方向上都没有的话,结束寻找
+		}
+
+		if (isBackWard)
+			srcEdge.setStart(new Point(pnt));
+		else
+			srcEdge.setEnd(new Point(pnt));
+   }
+   
+   /**
+    * 跳到下一点
+    * @param pnt
+    * @param ornt
+    * @param srcEdge
+    * @param orntInd
+    * @param isBackWard
+    * @return
+    */
+   private float goNext(Point pnt,float ornt,Edge srcEdge,int orntInd,boolean isBackWard)
+   {  
+	   Point pntN = Constants.add(pnt,Constants.DIRECTION8[orntInd]);
+		int label = (int) p_Label.get(pntN.getY(),pntN.getX());//此处为引用
+
+		//如果该点方向与当前线方向差别比较大则不加入/***********一个可变域值**********************/
+		if (chkBoundary(pntN) && (label == Constants.IND_NMS || label == Constants.IND_SR)) {			
+			
+			if (angle(ornt,(float)p_Ornt.get(pntN.getY(),pntN.getX())) > maxAngDif)
+			{
+				flag=false;
+				return ornt;
+			}
+			label = srcEdge.getIndex();
+			p_Label.put(pntN.getY(),pntN.getX(),label);//修改label，因为label本应为引用类型
+			
+			if (isBackWard)
+				p_NextP.put(pntN.getY(),pntN.getX(),(orntInd + 4) % 8);
+			else
+				p_NextP.put(pnt.getY(),pnt.getX(),orntInd);
+			srcEdge.setPointNum(srcEdge.getPointNum()+1);
+
+			p_Ornt.put(pntN.getY(),pntN.getX(),refreshOrnt(ornt,(float)p_Ornt.get(pntN.getY(),pntN.getX())));//更新切线方向
+			pnt.setX(pntN.getX());
+			pnt.setY(pntN.getY());
+			ornt=orntTemp;
+			flag=true;
+			return ornt;
+		}
+		flag=false;
+		return ornt;
+   }
+   
+   /**
+    * 跳过下一点，相当于间隔了一点
+    * @param pnt
+    * @param ornt
+    * @param srcEdge
+    * @param orntInd
+    * @param isBackWard
+    * @return
+    */
+   private float jumpNext(Point pnt,float ornt,Edge srcEdge,int orntInd,boolean isBackWard)
+   {
+	   Point pnt2 = Constants.add(pnt,Constants.DIRECTION16[orntInd]); //16方向表示半径为2的正方形的点。起到跳跃一个像素的作用
+		if (chkBoundary(pnt2) && (int)p_Label.get(pnt2.getY(),pnt2.getX()) <= Constants.IND_NMS) {	//若该像素点在图像w和h方位内，并且该点index小于等于-2	
+				if (angle(ornt, (float)p_Ornt.get(pnt2.getY(),pnt2.getX())) > maxAngDif) //如果该点方向与当前线方向差别比较大则不加入
+				{
+				   flag=false;
+				   return ornt;
+				}
+			// DIRECTION16方向上的orntInd相当于DIRECTION8方向上两个orntInd1,orntInd2
+			// 的叠加,满足orntInd = orntInd1 + orntInd2.此处优先选择使得组合上的点具
+			// IND_NMS标记的方向组合。(orntInd1,orntInd2在floor(orntInd/2)和
+			// ceil(orntInd/2)中选择
+			int orntInd1 = orntInd >> 1, orntInd2;//将orntInd二进制位数右移一位(相当于变为原数的一半)
+			Point pnt1 = Constants.add(pnt,Constants.DIRECTION8[orntInd1]); 
+			if (((int)p_Label.get(pnt1.getY(),pnt1.getX())>= Constants.IND_BG )&& (orntInd%2)!=0) {
+				orntInd1 = ((orntInd + 1) >> 1) % 8;
+				pnt1 = Constants.add(pnt,Constants.DIRECTION8[orntInd1]);
+			}
+			int lineIdx1 = (int) p_Label.get(pnt1.getY(),pnt1.getX());
+			if (lineIdx1 != -1) //当前nPos1点为其它线上的点，不能归入当前线
+				{
+				   flag=false;
+				   return ornt;
+				}
+
+			orntInd2 = orntInd - orntInd1;
+			orntInd2 %= 8;
+
+			lineIdx1 = srcEdge.getIndex();
+			p_Label.put(pnt1.getY(),pnt1.getX(),lineIdx1);
+			
+			p_Label.put(pnt2.getY(),pnt2.getX(),srcEdge.getIndex());
+			if (isBackWard) {
+				p_NextP.put(pnt1.getY(),pnt1.getX(),(orntInd1 + 4) % 8);
+				p_NextP.put(pnt2.getY(),pnt2.getX(),(orntInd2 + 4) % 8);
+			}
+			else{
+				p_NextP.put(pnt.getY(),pnt.getX(),orntInd1);
+				p_NextP.put(pnt1.getY(),pnt1.getX(),orntInd2);
+			}
+			srcEdge.setPointNum(srcEdge.getPointNum()+2);
+            
+			p_Ornt.put(pnt1.getY(),pnt1.getX(),refreshOrnt(ornt,(float)p_Ornt.get(pnt1.getY(),pnt1.getX())));
+			p_Ornt.put(pnt2.getY(),pnt2.getX(),refreshOrnt(orntTemp,(float)p_Ornt.get(pnt2.getY(),pnt2.getX())));
+			pnt.setX(pnt2.getX());
+			pnt.setY(pnt2.getY());
+			flag=true;
+			ornt=orntTemp;
+			return ornt;
+		}
+		flag=false;
+		return ornt;
+   }
+   
+   /**
+    * 计算海赛矩阵的特征值与特征向量
+    * @param dfdrr
+    * @param dfdrc
+    * @param dfdcc
+    * @param eigval
+    * @param eigvec
+    */
+   private void computeEigenvals(double dfdrr,double dfdrc,double dfdcc,double[] eigval,double[][] eigvec )
+   {
+	   double theta, t, c, s, e1, e2, n1, n2; /* , phi; */
+
+		/* Compute the eigenvalues and eigenvectors of the Hessian matrix. */
+		if (dfdrc != 0.0) {
+			theta = 0.5*(dfdcc-dfdrr)/dfdrc;
+			t = 1.0/(Math.abs(theta)+Math.sqrt(theta*theta+1.0));
+			if (theta < 0.0) t = -t;
+			c = 1.0/Math.sqrt(t*t+1.0);
+			s = t*c;
+			e1 = dfdrr-t*dfdrc;
+			e2 = dfdcc+t*dfdrc;
+		} else {
+			c = 1.0;
+			s = 0.0;
+			e1 = dfdrr;
+			e2 = dfdcc;
+		}
+		n1 = c;
+		n2 = -s;
+
+		/* If the absolute value of an eigenvalue is larger than the other, put that
+		eigenvalue into first position.  If both are of equal absolute value, put
+		the negative one first. */
+		if (Math.abs(e1) >Math.abs(e2)) {
+			eigval[0] = e1;
+			eigval[1] = e2;
+			eigvec[0][0] = n1;
+			eigvec[0][1] = n2;
+			eigvec[1][0] = -n2;
+			eigvec[1][1] = n1;
+		} else if (Math.abs(e1) < Math.abs(e2)) {
+			eigval[0] = e2;
+			eigval[1] = e1;
+			eigvec[0][0] = -n2;
+			eigvec[0][1] = n1;
+			eigvec[1][0] = n1;
+			eigvec[1][1] = n2;
+		} else {//e1的绝对值等于e2,负值作为第一个特征值
+			if (e1 < e2) { 
+				eigval[0] = e1;
+				eigval[1] = e2;
+				eigvec[0][0] = n1;
+				eigvec[0][1] = n2;
+				eigvec[1][0] = -n2;
+				eigvec[1][1] = n1;
+			} else {
+				eigval[0] = e2;
+				eigval[1] = e1;
+				eigvec[0][0] = -n2;
+				eigvec[0][1] = n1;
+				eigvec[1][0] = n1;
+				eigvec[1][1] = n2;
+			}
+		}
+   }
+   
+   /**
+    * 计算两个方向之间的角度
+    * @param ornt1
+    * @param ornt2
+    * @return
+    */
+   private float angle(float ornt1,float ornt2)
+   {
+	   float agl = ornt1 - ornt2;
+		if (agl < 0)//若为负数的角则加上360度数转化为正的角
+			agl += Constants.PI2;
+		if (agl >= Constants.PI_FLOAT)
+			agl -= Constants.PI_FLOAT;
+		if (agl >= Constants.PI_HALF)
+			agl -= Constants.PI_FLOAT;
+		return Math.abs(agl);
+   }
+   
+   /**
+    * 更新方向
+    * @param ornt
+    * @return
+    */
+   public float refreshOrnt(float ornt,float newOrnt)
+   {
+	     final float weightOld = 0.0f;
+		 final float weightNew = 1.0f - weightOld;
+
+		 final float largeBound =Constants.PI_FLOAT + Constants.PI_HALF;
+		 final float smallBound =Constants.PI_HALF;
+
+		if (newOrnt >= ornt + largeBound){
+			newOrnt -= Constants.PI2;
+			ornt = ornt * weightOld + newOrnt * weightNew;
+			if (ornt < 0.0f)
+				ornt += Constants.PI2;
+		}
+		else if (newOrnt + largeBound <= ornt){
+			newOrnt += Constants.PI2;
+			ornt = ornt * weightOld + newOrnt * weightNew;
+			if (ornt >= Constants.PI2)
+				ornt -= Constants.PI2;
+		}
+		else if (newOrnt >= ornt + smallBound){
+			newOrnt -= Constants.PI_FLOAT;
+			ornt = ornt * weightOld + newOrnt * weightNew;
+			if (ornt < 0.0f)
+				ornt += Constants.PI2;   
+		}
+		else if(newOrnt + smallBound <= ornt){
+			newOrnt += Constants.PI_FLOAT;
+			ornt = ornt * weightOld + newOrnt * weightNew;
+			if (ornt >= Constants.PI2)
+				ornt -= Constants.PI2;
+		}
+		else
+			ornt = ornt * weightOld + newOrnt * weightNew;
+		newOrnt = ornt;
+		orntTemp=ornt;
+		return newOrnt;
+   }
+   
+   /**
+    * 判断点是否超出图像边界
+    * @param p
+    * @return
+    */
+   public  boolean chkBoundary(Point p)
+   {
+ 	  if(p.getX()>=0&&p.getX()<img_w&&p.getY()>=0&&p.getY()<img_h)
+          return true;
+ 	  else 
+ 		  return false;
+   }
+   
+/**
+ * @return the p_Der
+ */
+public CvMat getp_Der() {
+	return p_Der;
+}
+
+/**
+ * @param p_Der the p_Der to set
+ */
+public void setp_Der(CvMat p_Der) {
+	this.p_Der = p_Der;
+}
+
+/**
+ * @return the p_Ornt
+ */
+public CvMat getp_Ornt() {
+	return p_Ornt;
+}
+
+/**
+ * @param p_Ornt the p_Ornt to set
+ */
+public void setp_Ornt(CvMat p_Ornt) {
+	this.p_Ornt = p_Ornt;
+}
+
+/**
+ * @return the p_Label
+ */
+public CvMat getp_Label() {
+	return p_Label;
+}
+
+/**
+ * @param p_Label the p_Label to set
+ */
+public void setp_Label(CvMat p_Label) {
+	this.p_Label = p_Label;
+}
+
+/**
+ * @return the p_NextP
+ */
+public CvMat getp_NextP() {
+	return p_NextP;
+}
+
+/**
+ * @param p_NextP the p_NextP to set
+ */
+public void setp_NextP(CvMat p_NextP) {
+	this.p_NextP = p_NextP;
+}
+
+/**
+ * @return the pntImp
+ */
+public PointMap getPntImp() {
+	return pntImp;
+}
+
+/**
+ * @param pntImp the pntImp to set
+ */
+public void setPntImp(PointMap pntImp) {
+	this.pntImp = pntImp;
+}
+
+/**
+ * @return the startPnt
+ */
+public List<PointMap> getStartPnt() {
+	return startPnt;
+}
+
+/**
+ * @param startPnt the startPnt to set
+ */
+public void setStartPnt(List<PointMap> startPnt) {
+	this.startPnt = startPnt;
+}
+
+/**
+ * @return the img_h
+ */
+public int getImg_h() {
+	return img_h;
+}
+
+/**
+ * @param img_h the img_h to set
+ */
+public void setImg_h(int img_h) {
+	this.img_h = img_h;
+}
+
+/**
+ * @return the img_w
+ */
+public int getImg_w() {
+	return img_w;
+}
+
+/**
+ * @param img_w the img_w to set
+ */
+public void setImg_w(int img_w) {
+	this.img_w = img_w;
+}
+
+/**
+ * @return the kSize
+ */
+public int getkSize() {
+	return kSize;
+}
+
+/**
+ * @param kSize the kSize to set
+ */
+public void setkSize(int kSize) {
+	this.kSize = kSize;
+}
+
+/**
+ * @return the maxAngDif
+ */
+public float getMaxAngDif() {
+	return maxAngDif;
+}
+
+/**
+ * @param maxAngDif the maxAngDif to set
+ */
+public void setMaxAngDif(float maxAngDif) {
+	this.maxAngDif = maxAngDif;
+}
+
+/**
+ * @return the srcImg
+ */
+public CvMat getSrcImg() {
+	return srcImg;
+}
+
+/**
+ * @param srcImg the srcImg to set
+ */
+public void setSrcImg(CvMat srcImg) {
+	this.srcImg = srcImg;
+}
+/**
+* @return the edges
+*/
+public List<Edge> getEdges() {
+	return edges;
+}
+
+/**
+* @param edges the edges to set
+*/
+public void setEdges(List<Edge> edges) {
+	this.edges = edges;
+}
+/**
+* @return the orntTemp
+*/
+public float getOrntTemp() {
+	return orntTemp;
+}
+
+/**
+* @param orntTemp the orntTemp to set
+*/
+public void setOrntTemp(float orntTemp) {
+	this.orntTemp = orntTemp;
+}
+}

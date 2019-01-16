@@ -1,0 +1,717 @@
+package cn.edu.xmu.software.ui;
+
+
+import javax.media.opengl.*;
+import javax.media.opengl.awt.GLCanvas;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.pushingpixels.substance.api.SubstanceLookAndFeel;
+import org.pushingpixels.substance.api.skin.CremeCoffeeSkin;
+
+import cn.edu.xmu.software.eventprocesser.GLEventProcesser;
+import cn.edu.xmu.software.util.Constants;
+/**
+ * 界面实现
+ * @author sinlly.chen ,gaoguo.sun
+ *
+ */
+public class DiffusionCurvesUI extends JFrame{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JMenuBar    topMenuBar;
+	private JMenu         fileMenu,editMenu;
+	private JMenuItem  loadXmlItem,  saveAsPngItem,  saveAsXmlItem, 
+	                               loadBitmapItem,  copyItem,  pasteItem,  cutItem;
+	private JButton       drawBtn,   lColorBtn,   rColorBtn,   adjustBtn,   modifyColorBtn,
+	                               exchangeBtn,   selectMultiBtn,  contrastIncrBtn,   contrastDecrBtn,
+	                               handPanBtn,  zoomInBtn,  zoomOutBtn,  stylizeBtn,
+	                               smoothBtn,  magnetBtn,  sampleBtn ,undoBtn,redoBtn;
+	private JCheckBox   leftChk,  rightChk,  bitmapChk,  splineChk,  activeBlurChk ,cartoonChk;
+	private JLabel          blurLbl,  drawLbl,  editLbl,  globalControlLbl,  bitmapLbl,
+	                                othersLbl ;
+	private JSlider         blurSlider ;
+	private JSeparator   js1,  js2,  js3,  js4, js5;
+	
+	private JPanel       colorPanel;
+	private JButton     rgbColorBtn;
+	private JLabel       rLabel;
+	private JLabel       gLabel;
+	private JLabel       bLabel;
+	private JTextField  rTxt;
+	private JTextField  gTxt;	
+	private JTextField  bTxt;
+	private JSlider       rSlider;
+	private JSlider       gSlider;
+	private JSlider       bSlider;
+	private List<JButton>  colorBtns;
+	private List<JButton>  customColorBtns;
+	private GLProfile profile;
+	private GLCapabilities capabilities;
+	private GLCanvas glcanvas;
+	private Image  srcImage;
+	private ControlsListener controlListener;
+	private JButton  customBtn,addBtn;
+	
+	public DiffusionCurvesUI()
+	{
+		controlListener =new ControlsListener(this);//事件监听器（包括所有的事件)
+		topMenuBar = new JMenuBar();
+		this.setJMenuBar(topMenuBar);
+		
+		fileMenu = new JMenu("File");
+		topMenuBar.add(fileMenu);
+		
+		editMenu = new JMenu("Edit");
+		topMenuBar.add(editMenu);
+		
+		loadXmlItem = new JMenuItem("Load XML"); //载入xml文件
+		saveAsPngItem = new JMenuItem("Save as Png");//保存文件格式为png
+		saveAsXmlItem = new JMenuItem("Save as XML");//保存文件格式为xml
+		loadBitmapItem = new JMenuItem("Load Bitmap");//载入bitmap文件
+		fileMenu.add(loadXmlItem);
+		fileMenu.addSeparator();
+		fileMenu.add(saveAsPngItem);
+		fileMenu.addSeparator();
+		fileMenu.add(saveAsXmlItem);
+		fileMenu.addSeparator();
+		fileMenu.addSeparator();
+		fileMenu.add(loadBitmapItem);
+        loadXmlItem.addActionListener(controlListener);
+		saveAsPngItem.addActionListener(controlListener);
+		saveAsXmlItem.addActionListener(controlListener);
+		loadBitmapItem.addActionListener(controlListener);
+		
+		copyItem = new JMenuItem("Copy(Ctrl+C)");//复制
+		pasteItem = new JMenuItem("Paste(Ctrl+V)");//粘贴
+		cutItem= new JMenuItem("Cut(Ctrl+X)");//剪切
+		editMenu.add(copyItem);
+		editMenu.addSeparator();
+		editMenu.add(pasteItem);
+		editMenu.addSeparator();
+		editMenu.add(cutItem);
+		editMenu.addSeparator();
+		editMenu.addSeparator();
+		copyItem.addActionListener(controlListener);
+		pasteItem.addActionListener(controlListener);
+		cutItem.addActionListener(controlListener);
+		
+        JPanel panel=new JPanel();
+        panel.setLayout(null);
+		
+		drawBtn = new JButton(new ImageIcon("icons\\drawCatmull.png")); //画曲线
+		drawBtn.setBounds(10, 10, 20, 20);
+		panel.add(drawBtn);
+		drawBtn.addActionListener(controlListener);
+		
+		lColorBtn = new JButton("Left Color");
+		lColorBtn.setBounds(35, 10, 80, 20);
+		lColorBtn.setMargin(new Insets(0,0,0,0));
+		panel.add(lColorBtn);
+		
+		leftChk = new JCheckBox(); //是否显示左边颜色控制点
+		leftChk.setBounds(117, 10, 20, 20);
+		panel.add(leftChk);
+		
+		rColorBtn = new JButton("Right Color");
+		rColorBtn.setBounds(142, 10, 85, 20);
+		rColorBtn.setMargin(new Insets(0,0,0,0));
+		panel.add(rColorBtn);
+		
+		rightChk = new JCheckBox();//是否显示右边颜色控制点
+		rightChk.setBounds(226, 10, 20, 20);
+		panel.add(rightChk);
+		
+		blurLbl = new JLabel("Blur : ");
+		blurLbl.setBounds(10, 35, 40, 20);
+		panel.add(blurLbl);
+		
+		blurSlider = new JSlider(0,5,0); //调整画面模糊值
+		blurSlider.setBounds(62, 35, 160, 20);
+		panel.add(blurSlider);
+		
+		drawLbl = new JLabel("Draw");
+		drawLbl.setBounds(100,60,40,20);
+		panel.add(drawLbl);
+		
+        js1 = new JSeparator();
+        js1.setBounds(248, 5, 1, 75);
+        js1.setOrientation(JSeparator.VERTICAL);
+        panel.add(js1);
+        
+		adjustBtn = new JButton(new ImageIcon("icons\\movePoint.png")); //编辑曲线（显示控制点)
+		adjustBtn.setBounds(260, 10, 20, 20);
+		panel.add(adjustBtn);
+		
+		modifyColorBtn = new JButton(new ImageIcon("icons\\modifAttrib.png")); //编辑曲线两端颜色（显示颜色点及模糊值)
+		modifyColorBtn.setBounds(289, 10, 20, 20);
+		panel.add(modifyColorBtn);
+		
+		exchangeBtn = new JButton(new ImageIcon("icons\\switch_clr.png"));//交换曲线两侧颜色
+		exchangeBtn.setBounds(260, 35, 20, 20);
+		panel.add(exchangeBtn);
+		
+		editLbl = new JLabel("Edit");
+		editLbl.setBounds(270, 60, 40, 20);
+		panel.add(editLbl);
+		
+        js2 = new JSeparator();
+        js2.setBounds(320, 5, 1, 75);
+        js2.setOrientation(JSeparator.VERTICAL);
+        panel.add(js2);
+        
+		selectMultiBtn = new JButton(new ImageIcon("icons\\selectMulti.png"));//选择多条曲线
+		selectMultiBtn.setBounds(334, 10, 20, 20);
+		panel.add(selectMultiBtn);
+		
+		contrastIncrBtn = new JButton(new ImageIcon("icons\\contrast_incr.png"));//增加图像亮度
+		contrastIncrBtn.setBounds(363, 10, 20, 20);
+		panel.add(contrastIncrBtn);
+		
+		contrastDecrBtn = new JButton(new ImageIcon("icons\\contrast_decr.png"));//减少图像亮度
+		contrastDecrBtn.setBounds(390, 10, 20, 20);
+		panel.add(contrastDecrBtn);
+		
+		handPanBtn = new JButton(new ImageIcon("icons\\handPan.png"));//鼠标形状为手势，可以拖动图片
+		handPanBtn.setBounds(419, 10, 20, 20);
+		panel.add(handPanBtn);
+		handPanBtn.addActionListener(controlListener);
+		
+		zoomInBtn = new JButton(new ImageIcon("icons\\zoomIn.png"));//图像放大
+		zoomInBtn.setBounds(334, 35, 20, 20);
+		panel.add(zoomInBtn);
+		zoomInBtn.addActionListener(controlListener);
+		
+		zoomOutBtn = new JButton(new ImageIcon("icons\\zoomOut.png"));//图像缩小
+		zoomOutBtn.setBounds(363, 35, 20, 20);
+		panel.add(zoomOutBtn);
+		zoomOutBtn.addActionListener(controlListener);
+		
+		stylizeBtn = new JButton(new ImageIcon("icons\\stylize.png"));//图像锐化
+		stylizeBtn.setBounds(390, 35, 20, 20);
+		panel.add(stylizeBtn);
+		
+		smoothBtn = new JButton(new ImageIcon("icons\\droplet.png"));//图像模糊
+		smoothBtn.setBounds(419, 35, 20, 20);
+		panel.add(smoothBtn);
+		
+		globalControlLbl = new JLabel("Global Control");
+		globalControlLbl.setBounds(340, 60, 100, 20);
+		panel.add(globalControlLbl);
+		
+        js3 = new JSeparator();
+        js3.setBounds(449, 5, 1, 75);
+        js3.setOrientation(JSeparator.VERTICAL);
+        panel.add(js3);
+        
+        //从这儿开始
+		bitmapChk = new JCheckBox("Show Bitmap");//是否显示位图
+		bitmapChk.setBounds(455, 35, 110, 20);
+		panel.add(bitmapChk);
+		
+		magnetBtn = new JButton(new ImageIcon("icons\\magnet.png"));//套磁工具
+		magnetBtn.setBounds(475, 10, 20, 20);
+		panel.add(magnetBtn);
+		
+		sampleBtn = new JButton(new ImageIcon("icons\\sample.png"));//取样工具，用于图像矢量化（点击之后显示矢量化图像)
+		sampleBtn.setBounds(515, 10, 20, 20);
+		panel.add(sampleBtn);
+		
+		bitmapLbl = new JLabel("Bitmap");
+		bitmapLbl.setBounds(485, 60, 80, 20);
+		panel.add(bitmapLbl);
+		
+        js4 = new JSeparator();
+        js4.setBounds(570, 5, 1, 75);
+        js4.setOrientation(JSeparator.VERTICAL);
+        panel.add(js4);
+        
+		splineChk = new JCheckBox("Show Splines");//是否显示曲线
+		splineChk.setBounds(575, 35, 120, 20);
+		panel.add(splineChk);
+		
+		activeBlurChk = new JCheckBox("Active Blur");//是否需要模糊
+		activeBlurChk.setBounds(700, 35, 110, 20);
+		panel.add(activeBlurChk);
+		
+		
+		undoBtn=new JButton(new ImageIcon("icons\\undo.png"));//向后撤销操作
+		undoBtn.setBounds(600,10,20,20);
+		panel.add(undoBtn);
+		
+		redoBtn=new JButton(new ImageIcon("icons\\redo.png"));//向前撤销
+		redoBtn.setBounds(640,10,20,20);
+		panel.add(redoBtn);
+			
+		othersLbl = new JLabel("Others");
+		othersLbl.setBounds(658, 60, 40, 20);
+		panel.add(othersLbl);
+		
+		 js5 = new JSeparator();
+	     js5.setBounds(812, 5, 1, 75);
+	     js5.setOrientation(JSeparator.VERTICAL);
+	     panel.add(js5);
+		
+	    JTabbedPane colorTab=new JTabbedPane();
+		colorPanel =new JPanel();
+		colorPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		rgbColorBtn=new JButton();  //显示自定义颜色
+		rgbColorBtn.setBackground(new Color(0,0,0));
+		rgbColorBtn.setPreferredSize(new Dimension(45,80));
+		colorPanel.add(rgbColorBtn);
+		JPanel rPanel=new JPanel(new FlowLayout());
+		rLabel=new JLabel("R");
+		rSlider=new JSlider(0,255,0);     //调整RGB颜色中R的值
+		rSlider.addChangeListener(controlListener);
+		rSlider.setPreferredSize(new Dimension(160,20));
+		rTxt=new JTextField("0");        //显示调整后的RGB颜色中R的值
+		rTxt.addActionListener(controlListener);
+		rTxt.setPreferredSize(new Dimension(45,25));
+		rTxt.setSize(10, 4);
+		rPanel.add(rLabel);
+		rPanel.add(rSlider);
+		rPanel.add(rTxt);
+		JPanel gPanel=new JPanel(new FlowLayout());
+		gLabel=new JLabel("G");
+		gSlider=new JSlider(0,255,0);   //调整RGB颜色中G的值
+		gSlider.setPreferredSize(new Dimension(160,20));
+		gSlider.addChangeListener(controlListener);
+		gTxt=new JTextField("0");     //显示调整后的RGB颜色中的G的值
+		gTxt.addActionListener(controlListener);
+		gTxt.setPreferredSize(new Dimension(45,25));
+		gPanel.add(gLabel);
+		gPanel.add(gSlider);
+		gPanel.add(gTxt);
+		JPanel bPanel=new JPanel(new FlowLayout());
+		bLabel=new JLabel("B");
+		bSlider=new JSlider(0,255,0);   //调整RGB颜色中B的值
+		bSlider.addChangeListener(controlListener);
+		bSlider.setPreferredSize(new Dimension(160,20));
+		bTxt=new JTextField("0");    //显示调整后的RGB颜色中的G的值
+		bTxt.addActionListener(controlListener);
+		bTxt.setPreferredSize(new Dimension(45,25));
+		bPanel.add(bLabel);
+		bPanel.add(bSlider);
+		bPanel.add(bTxt);
+		JPanel rightPanel=new JPanel(new GridLayout(3,1,0,0));
+		rightPanel.add(rPanel);
+		rightPanel.add(gPanel);
+		rightPanel.add(bPanel);
+		colorPanel.add(rgbColorBtn);
+		colorPanel.add(rightPanel);
+		//colorPanel.setBounds(0, 0, 400, 300);
+		addBtn=new JButton("Add");     //添加自定义颜色
+		addBtn.addActionListener(controlListener);
+		colorPanel.add(addBtn);
+		colorTab.add(colorPanel);
+	    colorTab.setTitleAt(0, "Custom Color");
+		colorTab.setPreferredSize(new Dimension(310,200));
+		
+		JPanel  colorRightPanel=new JPanel();
+        colorRightPanel.setBounds(585,0,320 ,700);
+		JTabbedPane paletteTab=new JTabbedPane();
+		JPanel palettePanel=new JPanel();
+		//palettePanel.setLayout(new GridLayout(9,15));
+		JPanel topPanel=new JPanel();
+		topPanel.setPreferredSize(new Dimension(310,135));
+		topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		colorBtns=new ArrayList<JButton>();    //显示常见颜色
+		for(int i=0;i<Constants.COLORS.length;i++)
+		{
+			JButton btn=new JButton();
+			btn.setPreferredSize(new Dimension(20,20));
+			btn.setBackground(Constants.COLORS[i]);
+			btn.addActionListener(controlListener);
+			colorBtns.add(btn);
+			topPanel.add(btn);
+		}
+		customBtn=new JButton("Custom");   //调用调色板自定义颜色
+		customBtn.setPreferredSize(new Dimension(80,30));
+		topPanel.add(customBtn);
+		JPanel bottomPanel=new JPanel();
+		bottomPanel.setPreferredSize(new Dimension(310,80));
+		customColorBtns=new ArrayList<JButton>();  //用户自定义颜色保存
+		for(int i=0;i<36;i++)
+		{
+			JButton btn=new JButton();
+			btn.setPreferredSize(new Dimension(20,20));
+			btn.addActionListener(controlListener);
+			btn.setBackground(Color.WHITE);
+			customColorBtns.add(btn);
+			bottomPanel.add(btn);
+		}
+		palettePanel.add(topPanel);
+		palettePanel.add(bottomPanel);
+		paletteTab.add(palettePanel);
+		paletteTab.setTitleAt(0, "Color Palette");
+		//palettePanel.setBounds(0, 500, 400, 300);
+		paletteTab.setPreferredSize(new Dimension(310,370));
+		colorRightPanel.add(colorTab);
+		colorRightPanel.add(paletteTab);
+		
+        profile = GLProfile.get(GLProfile.GL2);
+        capabilities = new GLCapabilities(profile);
+        glcanvas = new GLCanvas(capabilities);
+        GLEventProcesser glEventProcesser=new GLEventProcesser(glcanvas);
+        glcanvas.addGLEventListener(glEventProcesser);
+        glcanvas.setBounds(0, 0, 580, 580);
+        glcanvas.setBackground(Color.WHITE);
+        JPanel centerPanel=new JPanel();
+        centerPanel.setLayout(null);
+		centerPanel.add(glcanvas);
+		centerPanel.add(colorRightPanel);
+		centerPanel.setBounds(10, 85, 930, 725);
+        this.getContentPane().add(centerPanel,BorderLayout.CENTER);
+		
+        this.add(panel);
+        this.setVisible(true);
+        this.setTitle("UIDemo");
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setBounds(160, 50, 930, 725);
+	}
+	
+    /**
+	 * @return the loadXmlItem
+	 */
+	public JMenuItem getLoadXmlItem() {
+		return loadXmlItem;
+	}
+
+	/**
+	 * @return the saveAsPngItem
+	 */
+	public JMenuItem getSaveAsPngItem() {
+		return saveAsPngItem;
+	}
+
+	/**
+	 * @return the saveAsXmlItem
+	 */
+	public JMenuItem getSaveAsXmlItem() {
+		return saveAsXmlItem;
+	}
+
+	/**
+	 * @return the loadBitmapItem
+	 */
+	public JMenuItem getLoadBitmapItem() {
+		return loadBitmapItem;
+	}
+
+	/**
+	 * @return the copyItem
+	 */
+	public JMenuItem getCopyItem() {
+		return copyItem;
+	}
+
+	/**
+	 * @return the pasteItem
+	 */
+	public JMenuItem getPasteItem() {
+		return pasteItem;
+	}
+
+	/**
+	 * @return the cutItem
+	 */
+	public JMenuItem getCutItem() {
+		return cutItem;
+	}
+
+	/**
+	 * @return the drawBtn
+	 */
+	public JButton getDrawBtn() {
+		return drawBtn;
+	}
+
+	/**
+	 * @return the lColorBtn
+	 */
+	public JButton getlColorBtn() {
+		return lColorBtn;
+	}
+
+	/**
+	 * @return the rColorBtn
+	 */
+	public JButton getrColorBtn() {
+		return rColorBtn;
+	}
+
+	/**
+	 * @return the adjustBtn
+	 */
+	public JButton getAdjustBtn() {
+		return adjustBtn;
+	}
+
+	/**
+	 * @return the modifyColorBtn
+	 */
+	public JButton getModifyColorBtn() {
+		return modifyColorBtn;
+	}
+
+	/**
+	 * @return the exchangeBtn
+	 */
+	public JButton getExchangeBtn() {
+		return exchangeBtn;
+	}
+
+	/**
+	 * @return the selectMultiBtn
+	 */
+	public JButton getSelectMultiBtn() {
+		return selectMultiBtn;
+	}
+
+	/**
+	 * @return the contrastIncrBtn
+	 */
+	public JButton getContrastIncrBtn() {
+		return contrastIncrBtn;
+	}
+
+	/**
+	 * @return the contrastDecrBtn
+	 */
+	public JButton getContrastDecrBtn() {
+		return contrastDecrBtn;
+	}
+
+	/**
+	 * @return the handPanBtn
+	 */
+	public JButton getHandPanBtn() {
+		return handPanBtn;
+	}
+
+	/**
+	 * @return the zoomInBtn
+	 */
+	public JButton getZoomInBtn() {
+		return zoomInBtn;
+	}
+
+	/**
+	 * @return the zoomOutBtn
+	 */
+	public JButton getZoomOutBtn() {
+		return zoomOutBtn;
+	}
+
+	/**
+	 * @return the stylizeBtn
+	 */
+	public JButton getStylizeBtn() {
+		return stylizeBtn;
+	}
+
+	/**
+	 * @return the smoothBtn
+	 */
+	public JButton getSmoothBtn() {
+		return smoothBtn;
+	}
+
+	/**
+	 * @return the magnetBtn
+	 */
+	public JButton getMagnetBtn() {
+		return magnetBtn;
+	}
+
+	/**
+	 * @return the sampleBtn
+	 */
+	public JButton getSampleBtn() {
+		return sampleBtn;
+	}
+
+	/**
+	 * @return the undoBtn
+	 */
+	public JButton getUndoBtn() {
+		return undoBtn;
+	}
+
+	/**
+	 * @return the redoBtn
+	 */
+	public JButton getRedoBtn() {
+		return redoBtn;
+	}
+
+	/**
+	 * @return the leftChk
+	 */
+	public JCheckBox getLeftChk() {
+		return leftChk;
+	}
+
+	/**
+	 * @return the rightChk
+	 */
+	public JCheckBox getRightChk() {
+		return rightChk;
+	}
+
+	/**
+	 * @return the bitmapChk
+	 */
+	public JCheckBox getBitmapChk() {
+		return bitmapChk;
+	}
+
+	/**
+	 * @return the splineChk
+	 */
+	public JCheckBox getSplineChk() {
+		return splineChk;
+	}
+
+	/**
+	 * @return the activeBlurChk
+	 */
+	public JCheckBox getActiveBlurChk() {
+		return activeBlurChk;
+	}
+
+	/**
+	 * @return the blurSlider
+	 */
+	public JSlider getBlurSlider() {
+		return blurSlider;
+	}
+
+	/**
+	 * @return the rgbColorBtn
+	 */
+	public JButton getRgbColorBtn() {
+		return rgbColorBtn;
+	}
+
+	/**
+	 * @return the rTxt
+	 */
+	public JTextField getrTxt() {
+		return rTxt;
+	}
+
+	/**
+	 * @return the gTxt
+	 */
+	public JTextField getgTxt() {
+		return gTxt;
+	}
+
+	/**
+	 * @return the bTxt
+	 */
+	public JTextField getbTxt() {
+		return bTxt;
+	}
+
+	/**
+	 * @return the rSlider
+	 */
+	public JSlider getrSlider() {
+		return rSlider;
+	}
+
+	/**
+	 * @return the gSlider
+	 */
+	public JSlider getgSlider() {
+		return gSlider;
+	}
+
+	/**
+	 * @return the bSlider
+	 */
+	public JSlider getbSlider() {
+		return bSlider;
+	}
+
+	/**
+	 * @return the colorBtns
+	 */
+	public List<JButton> getColorBtns() {
+		return colorBtns;
+	}
+
+	/**
+	 * @return the customColorBtns
+	 */
+	public List<JButton> getCustomColorBtns() {
+		return customColorBtns;
+	}
+
+	/**
+	 * @return the customBtn
+	 */
+	public JButton getCustomBtn() {
+		return customBtn;
+	}
+
+	/**
+	 * @return the addBtn
+	 */
+	public JButton getAddBtn() {
+		return addBtn;
+	}
+	
+	/**
+	 * @return the glcanvas
+	 */
+	public GLCanvas getGLCanvas() {
+		return glcanvas;
+	}
+
+	public static void main(String[] args)
+    {
+    	 JFrame.setDefaultLookAndFeelDecorated(true);   
+         JDialog.setDefaultLookAndFeelDecorated(true);   
+   
+         SwingUtilities.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub 
+	                 SubstanceLookAndFeel.setSkin(new CremeCoffeeSkin());
+	                 DiffusionCurvesUI object=new DiffusionCurvesUI();
+			}
+         });
+            
+    }
+}

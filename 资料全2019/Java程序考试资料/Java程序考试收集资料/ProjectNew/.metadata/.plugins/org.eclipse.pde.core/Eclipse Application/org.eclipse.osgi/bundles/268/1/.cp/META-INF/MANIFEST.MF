@@ -1,0 +1,813 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Built-By: genie.technology.egit
+Bundle-SymbolicName: org.eclipse.egit.doc;singleton:=true
+Eclipse-SourceReferences: scm:git:https://git.eclipse.org/r/p/egit/egi
+ t.git;path="org.eclipse.egit.doc";commitId=ee9d5828eb6f9ff6a746568b61
+ 1bae0cf55d1473
+Require-Bundle: org.eclipse.mylyn.wikitext.core;bundle-version="[1.3.0
+ ,2.0.0)";resolution:=optional,org.eclipse.mylyn.wikitext.mediawiki.co
+ re;bundle-version="[1.3.0,2.0.0)";resolution:=optional,org.eclipse.ui
+ .cheatsheets;bundle-version="[3.3.0,4.0.0)"
+Bundle-Version: 3.0.3.201309161630-r
+Build-Jdk: 1.7.0_25
+Bundle-Vendor: %Bundle-Vendor
+Bundle-Name: %Bundle-Name
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Bundle-ManifestVersion: 2
+
+Name: images/next.gif
+SHA1-Digest: lmLlDPE2WjVohevt+GNU13MFL5w=
+
+Name: help/EGit/User_Guide/images/RepoMgrOpenTextEditor.png
+SHA1-Digest: /tC0i9CbzGdtWV9AKw8+GeO8kms=
+
+Name: help/EGit/New_and_Noteworthy/3.0/images/EGit-3.0-file-diff-renam
+ e.png
+SHA1-Digest: R/xjnT1cGKEwRaHr0Dt838cZSww=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-search.png
+SHA1-Digest: 1G4zgRyPbElDCWJGbVq30Dqu/dQ=
+
+Name: help/EGit/User_Guide/images/Git-open-commit-toolbar.png
+SHA1-Digest: OzW/ursdmaFAx16rjzPiVZFjyP8=
+
+Name: help/JGit/New_and_Noteworthy/3.0/Commands.html
+SHA1-Digest: Xw0IVYoU4VlttPYSwHTbxKem+60=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-conflict-modify
+ .png
+SHA1-Digest: SFFIwGe+iZCItzk4kS2bqRJKpsI=
+
+Name: help/EGit/User_Guide/images/06-QuickDiffInEditorPopup.png
+SHA1-Digest: 8bTKa9YK6o7F12AlQ+FUnSAOPfw=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-import-projects-filled-lis
+ t.png
+SHA1-Digest: 1uAEHuXWTNHmIbjzk0uA0OQBrBM=
+
+Name: help/EGit/User_Guide/images/EGit-Corrected.png
+SHA1-Digest: Yo4V3v6BOK/l1gmZnwl+D/xLVJ4=
+
+Name: help/EGit/User_Guide/images/01-TextDecorations.png
+SHA1-Digest: YfLAJ4G4Kbd3FB2QBPLY5jU/R4Q=
+
+Name: help/EGit/User_Guide/images/RepoMgrLinkWithEditor.png
+SHA1-Digest: W2XxP4Ewqnx/6BS53d0aSvUF6qg=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-refspec-allbran
+ ches.png
+SHA1-Digest: p0UyZa19wozcrsnbpdDfImh6TwQ=
+
+Name: intro/css/overview.properties
+SHA1-Digest: hnayruqGk6XyyxKfCbhXcQnafBQ=
+
+Name: help/JGit/New_and_Noteworthy/3.0/Bug-Fixes.html
+SHA1-Digest: adgNkMBJ3DWByAGuyxj0ooOdqtY=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-repoview-repository-menu.pn
+ g
+SHA1-Digest: bNM1yrnM8JSId+TFJ6wFj/H7CYM=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-allbranchesTog
+ gle.png
+SHA1-Digest: 9w0/nDW3qveiEGZd+Si7QRbchGw=
+
+Name: help/EGit/Git_For_Eclipse_Users/Updating-This-Document.html
+SHA1-Digest: 0jR8DdVx+uO732hDozOCukiXJ5E=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-outgoing-change
+ .png
+SHA1-Digest: vXpJinjj8eHZ8eJzboRsPP0WopY=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-github-cloneurl.png
+SHA1-Digest: j1OZg4ZJct24ZNxJRrIlQw/QpSE=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-delete-refspec.
+ png
+SHA1-Digest: 07/DogV9R26aBw6kS+w5TF79JL8=
+
+Name: help/EGit/User_Guide/images/Egit-2.1-pushChangeToGerritDialog.pn
+ g
+SHA1-Digest: FKKSxcA0qeYZBsQskHJas59sCg0=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-destination-pag
+ e.png
+SHA1-Digest: Krvf+g3KllCrMyNvmH0vQQQJNnI=
+
+Name: help/EGit/User_Guide/images/Pe_downarrow1.png
+SHA1-Digest: UueP59i8zjD3W1kSd81jE+C0xFU=
+
+Name: help/EGit/User_Guide/images/Egit-2.1-clone-wizard-gerrit-page.pn
+ g
+SHA1-Digest: 5V8SI6L2izm60TGKgV7T63xrqnA=
+
+Name: help/EGit/User_Guide/images/RepoMgrCloneRepositoryIcon.png
+SHA1-Digest: LrVo9UNmQrQlnmqwwKo+6JH8i74=
+
+Name: help/EGit/User_Guide/images/RepoMgrBranchesAndTags.png
+SHA1-Digest: acvLkPft65vYxojWxLs6fjwXJ4k=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-branchAndMerge
+ .png
+SHA1-Digest: 4OQ/tNRwPctP9NUp2CBessOv6Oo=
+
+Name: help/EGit/User_Guide/Reference.html
+SHA1-Digest: t2msuNLHgEoQ+RyQa0CIsSoG5Ao=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-staging-view.png
+SHA1-Digest: Ld1JqYv/YA7Dfo7KswtVnrcX23M=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-commit.png
+SHA1-Digest: rErgw96fZsJJrnt2W9CPMiixB1M=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-lifecycle-file.png
+SHA1-Digest: 8mKM5x8WRqa2eRQVn6t4UrbSc94=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-mode.png
+SHA1-Digest: pJEu8bo+BNEmZZHfwZ/69O4pczs=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-conflict-add.pn
+ g
+SHA1-Digest: a58GJOqz0PwPA89Mn5V0wsxQcOw=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-push-result.png
+SHA1-Digest: xGZmA3FqLQamdhejyB+tFw7apYE=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-ImportProjectsFromRepoView
+ .png
+SHA1-Digest: 3JuqAxMwuOHhoCYUgS4dpA77vnE=
+
+Name: help/EGit/User_Guide/images/CherryPick2.png
+SHA1-Digest: xOi7zO3tI/U2yyf5ofd03mP2sQw=
+
+Name: help/EGit/User_Guide/images/TagCreation.png
+SHA1-Digest: RSBaZJJGcgCapZZzTUCCNJ1g7Jk=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-openAndCompare
+ .png
+SHA1-Digest: 544j8h08YcL9wIdf2aO11h1pe8Y=
+
+Name: help/JGit/User_Guide/Advanced-Topics.html
+SHA1-Digest: 82yjdj6YvZPXmIl1vgYr1C/9pPY=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-fetch-wizard-result.png
+SHA1-Digest: ry48qlThfClxkFUAsHp9+GVdBCY=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-project-menu-main.png
+SHA1-Digest: z6HR0rNA/j84NtWj1xEWPJhJYzM=
+
+Name: help/EGit/User_Guide/images/05-QuickDiffInEditor.png
+SHA1-Digest: pqRMFl7rz5JKfTdofzvXCis8EqA=
+
+Name: help/JGit/User_Guide/Reference.html
+SHA1-Digest: 0JtU6hVxuNAUSGRbcXQQx9dA3rQ=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-DeleteRepository.png
+SHA1-Digest: i0D2SmpLBB9gZ31kpF366Oev6W0=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-commit-dialog-spell-quickfi
+ x.png
+SHA1-Digest: r5nODUgkKzDHhs/q/CW2gFrnLO8=
+
+Name: help/JGit/User_Guide/Updating-This-Document.html
+SHA1-Digest: QpcTW72xZV4WhN17x/HvOqgF9Gw=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-accept-hostkey.
+ png
+SHA1-Digest: DnFF7Kfs+VDW4PI9+pfgRn5+HFU=
+
+Name: help/EGit/User_Guide/images/RepoMgrCreateRepositoryDialog.png
+SHA1-Digest: nA9yazOHh+hyvhzHVNAoJuYuvLE=
+
+Name: help/EGit/User_Guide/images/Egit-0.8-tag-replace.png
+SHA1-Digest: bZS/EvAMqWxJwUHFMDMaqS2r8uY=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-import-projects-select-proj
+ ects.png
+SHA1-Digest: 1smn8lR7t05ZeZkdgIZOfvhxSj4=
+
+Name: help/images/prev.gif
+SHA1-Digest: qx89HZcOfCNP8URrsbXsnJSbNro=
+
+Name: help/EGit/User_Guide/images/Egit-2.1-history-view-menu.png
+SHA1-Digest: XLHNi4vDaPDkHgVUuJj91c3OJkI=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-conflict-delete
+ .png
+SHA1-Digest: XJgftChCnX280Bn9z0ANG0Et4Yw=
+
+Name: help/EGit/User_Guide/Concepts.html
+SHA1-Digest: lwsZ/eiaJdbPan6pd1UEb2SeNQs=
+
+Name: help/EGit/New_and_Noteworthy/3.0/Bug-Fixes.html
+SHA1-Digest: cNh4/5jV9UsGXVDqS6vOXh/0iyA=
+
+Name: help/EGit/User_Guide/images/ResolvedConflicts.png
+SHA1-Digest: OOmoDHP/AGL9MvrMw3QFDHEzWog=
+
+Name: help/EGit/User_Guide/images/Commit-editor-diff-page.png
+SHA1-Digest: oCVE+6BvuILEzPJgbyandbcdv38=
+
+Name: META-INF/maven/org.eclipse.egit/org.eclipse.egit.doc/pom.xml
+SHA1-Digest: 1uiscv2dU1LvhIVGYsZD7JywEew=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view.png
+SHA1-Digest: GOXfa3JXMPfM3rYwCoT5K+a5wX8=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-commit-dialog.png
+SHA1-Digest: apXiMa7dZ02wRWUqmXD6L8C/1AE=
+
+Name: help/book.css
+SHA1-Digest: AmjW0SBO58kGOEUVWEGWOQrniPU=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-select-merge-mode.png
+SHA1-Digest: DBkb2o4yRiFEJJVQtVPj2meZv3E=
+
+Name: help/JGit/User_Guide/User-Guide.html
+SHA1-Digest: rKzvRopGkyRusBJv6BWG+C+aJBM=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-name.png
+SHA1-Digest: kmspGuytQMXHko7Q0XRtJnDypZk=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-project-created.
+ png
+SHA1-Digest: 8/u7i5TbkfPWCECYMfzMPhdP/Hw=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-outgoing-delete
+ .png
+SHA1-Digest: n6t0AY3h8f49z8MfYezwm/9rml4=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-ConfigurePushToUpstream.pn
+ g
+SHA1-Digest: rmpcAqBizapsjLXtL9woDsXehDw=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-config.png
+SHA1-Digest: cJme8C32oQgl6jBr7IsOXSVzB+Q=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-incoming-add.pn
+ g
+SHA1-Digest: rs79UhvYx2vPzgVJ1rIXVNHX3iY=
+
+Name: help/EGit/User_Guide/Updating-This-Document.html
+SHA1-Digest: /TOcMThslz+zeHoHUOtLa4F77CE=
+
+Name: help/EGit/User_Guide/images/Commit-editor-notes-page.png
+SHA1-Digest: P3JhmD7/soMFal0us5x5imlSSfM=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-commited.png
+SHA1-Digest: xOhCqiB9FNdfhdyc+FZjOt/F8Pw=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-github-create-repo.png
+SHA1-Digest: bsPNfW0M+hKaPSnh5tcCiOapQAU=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-allbranches.pn
+ g
+SHA1-Digest: kj3DlZCnjHEtDGP3nf2LVT4R/98=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-commit-dialog-amend.png
+SHA1-Digest: 0j0C0TIjUl4/G3RZ/2q4AG8OGA0=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-PushResultDialog.png
+SHA1-Digest: 4pbpT8bJHpCsXbONnUoUALR5RF0=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-configure-commit-template.
+ png
+SHA1-Digest: YTsq2CDPEgzGi7ZsXzYDNMRB9Ko=
+
+Name: help/EGit/User_Guide/images/Filters.png
+SHA1-Digest: BfvANI8vitHn1vuQDIf890vQxc4=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-RepoViewTopLevel.png
+SHA1-Digest: O5eABomI7kFkEJnBLy4RjPim0vE=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-merge-conflict.png
+SHA1-Digest: KGt6krFd4iDXy7+gcTt9U8DkSg8=
+
+Name: help/EGit/User_Guide/images/MergeResultMerged.png
+SHA1-Digest: DXVJEcMxakKKB811eRpAKCsY6FY=
+
+Name: help/EGit/User_Guide/images/RepoMgrBareRepository.png
+SHA1-Digest: 1f+17AUeZ1mvDjRQOAGOK/1/xhI=
+
+Name: help/EGit/New_and_Noteworthy/3.0/API-changes.html
+SHA1-Digest: PX6UiF1M769OeDV0D3LzQCQzc6s=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-repoview-workingtree-menu.p
+ ng
+SHA1-Digest: 7DjSjEVvfL2ZDd9S8DwjrA7dSI4=
+
+Name: intro/css/tutorials.properties
+SHA1-Digest: Veyb36b3yPFp08OABj7r53Y1fbM=
+
+Name: help/EGit/User_Guide/images/02-IconDecorations.png
+SHA1-Digest: C5y9HfLez/o9ZL1G4IHjlRkm7LA=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-commit-using-template.png
+SHA1-Digest: p1ZhvK0RqgMUQArtgGzWyPTlci8=
+
+Name: help/EGit/User_Guide/images/RepoMgrSimpleFetch.png
+SHA1-Digest: WWkU+FRS+siJczarfE8eJSxxw6o=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-comparemode.pn
+ g
+SHA1-Digest: LfgzWbmKUjqWrbyRKBHDMQG5bkU=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-historyview-menu.png
+SHA1-Digest: JXbVzrN6BbiDroou93g/U16L+f8=
+
+Name: META-INF/maven/org.eclipse.egit/org.eclipse.egit.doc/pom.propert
+ ies
+SHA1-Digest: j8pmj4DDMPcMWFkndo1g6BAu8yY=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-overview-labels
+ .png
+SHA1-Digest: GoYIzgIGJ2wwbCBbo/spgjT4o8k=
+
+Name: help/EGit/User_Guide/images/RepoMgrRemoteConfig.png
+SHA1-Digest: U+3ZtU13EZcNnqQovkSa9vkjUIE=
+
+Name: help/EGit/User_Guide/images/RepoMgrCheckedOutBranch.png
+SHA1-Digest: fiOiZjzeLLW7ifwFyMr0tVTDZdE=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-github-push-preview.png
+SHA1-Digest: Ke9M5Ka3Dp+dJtOMo0vHujXGOVE=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-FetchResultDialog.png
+SHA1-Digest: cmMf+U4KrEbks4NiW/i8mUdge1E=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-getstarted-history2.png
+SHA1-Digest: hB/bSAaHRvA4JGejH2hLR7tDiAc=
+
+Name: help/EGit/User_Guide/images/EGit-0.10-MergeDemoHistory.png
+SHA1-Digest: 7NGeywI2KNKT2OqHI45n29b1HNk=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-repoview-pushconfig-menu.pn
+ g
+SHA1-Digest: NuMXcx5d2T0bgZPUP01DHGBlSfg=
+
+Name: cheatsheets/push.xml
+SHA1-Digest: VaOf/I+yglCfKeYvmSSxwfOM3Ms=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-github-push-refspec.png
+SHA1-Digest: AgOZJAcqPxJcDGtGckvaFy4pBPs=
+
+Name: help/EGit/User_Guide/images/EGit-0.10-RebaseConflictDialog.png
+SHA1-Digest: bKk3qDFLCFWp0yyCbpNgOUJAnnc=
+
+Name: plugin.properties
+SHA1-Digest: 4oDNuJanbgyqkwKFm9sTcPa5Rjk=
+
+Name: help/EGit/User_Guide/images/CherryPick1.png
+SHA1-Digest: itvLwQlp6WbeOiPkX864dCikZrc=
+
+Name: help/JGit/New_and_Noteworthy/3.0/Performance-Improvements.html
+SHA1-Digest: y/1gWNMWDS3L7HIwe35ecG8goFY=
+
+Name: intro/whatsnewExtensionContent.xml
+SHA1-Digest: rxtW73qDWduOZPA1z+Dgf5xbIO4=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-fetch-wizard-source-page.pn
+ g
+SHA1-Digest: LyVmRZUlPGPmeRsfyepvpww0qXw=
+
+Name: plugin.xml
+SHA1-Digest: SXxqY8+YDIgAQoKVOMEqJTOWWnY=
+
+Name: images/topiclabel/git48.png
+SHA1-Digest: wU322aLjV3BnRpmwlyDYubaUokY=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-resource-menu.png
+SHA1-Digest: Q7lpsFQk00wY00fbK/z6/xpzD7w=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-project-menu-remote.png
+SHA1-Digest: 1YAXJYShwQL7J1LiLA63qp/50qA=
+
+Name: help/EGit/User_Guide/images/Egit-1.0-synchronize-dynamic.png
+SHA1-Digest: dtydUek6ba/S+gXfyZW6cUdgZfk=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-ssh-passphrase.
+ png
+SHA1-Digest: AC9lgdwPkP7ujIqo0AvzvgB8eAE=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-github-pushresult.png
+SHA1-Digest: brR30IBqCVg0pymkvSSY3ogNZaY=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-GitTreeCompareView.png
+SHA1-Digest: qkx0+2wsZCR1JE56oStUJBOmTAw=
+
+Name: help/EGit/User_Guide/images/Git-search-results.png
+SHA1-Digest: pQKFZZDm6VNNy+gQ8oizPGAzsNA=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-getstarted-ignore-added.pn
+ g
+SHA1-Digest: 1sMWLlaXsw+JqzWbouUWzvN+Bkc=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-expand-collapse
+ .png
+SHA1-Digest: 3xTMhJGchzkgDQITfV0ctZ4O1Ow=
+
+Name: help/EGit/User_Guide/images/RepoMgrRefresh.png
+SHA1-Digest: Ia5VZ08TTqKgQsrG0A1NduC0eQA=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-import-projects-general-pro
+ ject.png
+SHA1-Digest: vTZjvT5yg7htm8qkxS1hGR2jBYU=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-fetch-wizard-source-url-pag
+ e.png
+SHA1-Digest: cdBFGMMlVW4rn3PUEp9Jn99pz9A=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-GitTreeCompareViewRepo.png
+SHA1-Digest: nWwitEdKIhFj8U9lTM1qYv/Y1dY=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-workbench-menu.png
+SHA1-Digest: THg2J9TAZiCWYLEO4DK0+NVQaZk=
+
+Name: help/JGit/User_Guide/Concepts.html
+SHA1-Digest: ry3QKXCeb1lMO2LY4sUEEj9iCbw=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-project.png
+SHA1-Digest: YrJ+sbk6RM+snPhJWRmMc4k04Zs=
+
+Name: help/EGit/User_Guide/images/Egit-0.0-create-patch-dialog.png
+SHA1-Digest: oyUbXhmEzoKNoNTHk86YVEFlvQI=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-email.png
+SHA1-Digest: Gmiv3rqZC096n9EwIm29a9mbqjI=
+
+Name: help/EGit/New_and_Noteworthy/3.0/Updating-This-Document.html
+SHA1-Digest: O1BXpDY72RRfiWzbs+hq1AY9G6k=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-repoview.png
+SHA1-Digest: 5kgV6jvS+PF7+O8et/FFiy5Sq2I=
+
+Name: help/EGit/User_Guide/images/EGit-0.12-SetupRepo-RepoStructureTwo
+ Projects.jpg
+SHA1-Digest: +bSpcTPx6K8OKZEIAV/Fux+p9Dw=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-github-pushed-repo.png
+SHA1-Digest: KkzKYRk5k9su4elZHzV2QmnUVWE=
+
+Name: help/EGit/User_Guide/images/RepoMgrViewWithRepos.png
+SHA1-Digest: Hq7q7SoWd3A0D7Tfg8CGLeS4mSs=
+
+Name: help/EGit/New_and_Noteworthy/3.0/Contributors.html
+SHA1-Digest: RGpApBhg371ZhBDEjxfb4pmVCIU=
+
+Name: help/images/topiclabel/git48.png
+SHA1-Digest: wU322aLjV3BnRpmwlyDYubaUokY=
+
+Name: help/EGit/User_Guide/images/Commit-editor-commit-page.png
+SHA1-Digest: Oe5zgHX/IcCIUDskI3pJ7wYtCRY=
+
+Name: help/JGit/User_Guide/images/Jgit-glog.png
+SHA1-Digest: HrgtxeY4qLw4YAfKXjx0G/foUPk=
+
+Name: help/EGit/New_and_Noteworthy/3.0/images/EGit-3.0-reset-to-expres
+ sion.png
+SHA1-Digest: fiwu3wdyHShzL/2EDH/kEYLxuLo=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-github-pushurl.png
+SHA1-Digest: 7P+iNtfvqGndFYHwLpEI0WDZYbI=
+
+Name: help/EGit/User_Guide/images/RepoMgrCreateRepositoryIcon.png
+SHA1-Digest: 8P+uexGO5Ae/WCHU8oC9sn/Rn2w=
+
+Name: help/images/home.gif
+SHA1-Digest: 6ZkfXx5mGrHfp+Vr+YCQGGUsRIQ=
+
+Name: help/EGit/User_Guide/images/RepoMgrNewRemote.png
+SHA1-Digest: XdrfTL6/7pmBFxyW4G4iTCstWs0=
+
+Name: help/EGit/New_and_Noteworthy/3.0/GitHub-Connector-Features.html
+SHA1-Digest: zuttQ7SDpjNEi05yuoLy5iIo0eM=
+
+Name: help/EGit/User_Guide/images/04-QuickDiffPreferences.png
+SHA1-Digest: kDUVNwo/IofI1OEJNZ8/33QNN3w=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-ConfigureFetchFromUpstream
+ .png
+SHA1-Digest: OQkDs+xGtHoECQcw7SS4/w5BerI=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-incoming-change
+ .png
+SHA1-Digest: HAlpz3FUXbXUEsHgeN/oWPG/irQ=
+
+Name: help/EGit/User_Guide/images/Egit-1.3-CloneSources.png
+SHA1-Digest: KPiClQKypOCalc1M3thkh6p73Gs=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-repoview-refmenu.png
+SHA1-Digest: EwGNt1c5JoBToFlt9Ez+vJin0cU=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-repoview-fetchconfig-menu.p
+ ng
+SHA1-Digest: V/zJBqHoVQkJiuRdlQ4jxHwyRwo=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-RepoViewReferencesNode.png
+SHA1-Digest: PfXWhtaL0VM571nf1eka87VGsMM=
+
+Name: help/images/next.gif
+SHA1-Digest: lmLlDPE2WjVohevt+GNU13MFL5w=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-import-projects-select-wiz
+ ard.png
+SHA1-Digest: Jvpr8sPF1jRjLH5VtmiNnnOY2oA=
+
+Name: help/EGit/User_Guide/images/EGit-Typo.png
+SHA1-Digest: Zcrs4utqwIuQkgvkeQ0AbuXEhRk=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-import-projects-select-repo
+ sitory.png
+SHA1-Digest: DXq1ZeKBe4i+jpezKWPGGkJgq6U=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-confirm-push.pn
+ g
+SHA1-Digest: fgl6yf2+MHck3f4ura3ADa0wVgo=
+
+Name: intro/overviewExtensionContent.xml
+SHA1-Digest: VME+Vsd2AdnPrqbUg8ZYA+4zgZk=
+
+Name: images/prev.gif
+SHA1-Digest: qx89HZcOfCNP8URrsbXsnJSbNro=
+
+Name: help/EGit/User_Guide/images/EGit-0.7-ViewDiffInResourceHistory.p
+ ng
+SHA1-Digest: TPenlONYCn/RphEKpd9XkbNaL2I=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-project-menu-advanced.png
+SHA1-Digest: 2mtf27rHKumC6KYyuZAnWw/RGCM=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-incoming-deleti
+ on.png
+SHA1-Digest: rl3R/P7k6cbBI4s0uii7RzzyVic=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-getstarted-history1.png
+SHA1-Digest: ak6N2flKoL84s4SGJMwEvNuyUq4=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-initialConfigurationDialog
+ .png
+SHA1-Digest: zVLVamQRWwIyU9JyRtgK9ERpOBc=
+
+Name: help/EGit/User_Guide/images/Egit-1.1-tags.png
+SHA1-Digest: fLOC4rHCC0HpV8ArcNsZrGCU4Dw=
+
+Name: help/JGit/New_and_Noteworthy/3.0/Updating-This-Document.html
+SHA1-Digest: pb1cnxxACUdCM5nULNbMFjFMJQ0=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-clone-wizard-url-page.png
+SHA1-Digest: cxqwh0xpUN0T3pYsWok5wLO3/v0=
+
+Name: help/EGit/User_Guide/User-Guide.html
+SHA1-Digest: hlWe2E24UoxjdEAASGhI+J+zluE=
+
+Name: help/EGit/User_Guide/images/Egit-13-clone-submodules-wizard.png
+SHA1-Digest: 0Iq4erVb4mgG3RlU63RTmYDNNwY=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-project-menu-switchto.png
+SHA1-Digest: MzYyFRu+/MUfrLKL65cwJo48diY=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-getstarted-compare.png
+SHA1-Digest: 48Lp3HGkPJlPw5zi04WLHTjpEuE=
+
+Name: help/EGit/User_Guide/images/Git-search-dropdown.png
+SHA1-Digest: amOAOBIqakHBNUy9qKp2JSxt0og=
+
+Name: help/EGit/User_Guide/images/Egit-13-submodules-node.png
+SHA1-Digest: /HkPQbDIcF+GicAMC3npMniZhmw=
+
+Name: help/EGit/User_Guide/images/Git-open-commit.png
+SHA1-Digest: sCNogcmap1rgIwavcgWgvhgkNWI=
+
+Name: help/EGit/User_Guide/images/Egit-0.0-create-patch-menu.png
+SHA1-Digest: 9biWusItLPQ99w6Haa/1yCSLd/o=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-ConfirmProjectRemoval.png
+SHA1-Digest: YykoQ8Vvu5BS2OaXY6Nj3IAb3vI=
+
+Name: help/EGit/User_Guide/Tasks.html
+SHA1-Digest: CruJU3S3u+IwNlMsLpk7KesGGos=
+
+Name: help/JGit/New_and_Noteworthy/3.0/API-Changes-and-Migration-Hints
+ .html
+SHA1-Digest: hwgG7Qvxaszak8Mmsdi5ZnlyDms=
+
+Name: about.html
+SHA1-Digest: rXP/myvey1eRr+b4zHNxgEJ+NyA=
+
+Name: help/JGit/New_and_Noteworthy/3.0/3.0.html
+SHA1-Digest: TwBe0NG/TxI68YToN69R4off+6I=
+
+Name: intro/tutorialsExtensionContent.xml
+SHA1-Digest: cz37ykiZLTnCCFDiSXcM1WzyULk=
+
+Name: intro/css/whatsnew.css
+SHA1-Digest: Zpx7r0gK4IeC2VOt3L6okMw05QU=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-filtersettings
+ .png
+SHA1-Digest: 8oXAUQGf15acAAJUYVVZbAWdHxw=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-BranchCreationDialog.png
+SHA1-Digest: lFycoLNYHZEIsO6Sf6T36CB4xT4=
+
+Name: intro/css/tutorials.css
+SHA1-Digest: tyyQZ1INwNxsqSqDzQXmwRAj1NA=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-RemoveRepository.png
+SHA1-Digest: rr1C/3wI5szGX17e+eKIugzlRH0=
+
+Name: cheatsheets/clone.xml
+SHA1-Digest: QVWEG/ErTcjFRkJ6tQZQsx6EqYo=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-ConfirmRepositoryDeletion.
+ png
+SHA1-Digest: L1WS8t/jWv362KvLafPCO9vclME=
+
+Name: intro/css/whatsnew.properties
+SHA1-Digest: Dd82j0t0B105Q98L9ihau7qBuUQ=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-commit-dialog-path-assist.p
+ ng
+SHA1-Digest: GeWkXN9LuHksQZk3NNF0EiJwvbE=
+
+Name: help/EGit/Git_For_Eclipse_Users/Git-For-Eclipse-Users.html
+SHA1-Digest: ne0G8MHOU1T0G+dnZEAwxKxxv8o=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-clone-wizard-destination-pa
+ ge.png
+SHA1-Digest: pxICzTNm/NsZgxfqsTA67/xXfPM=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-repo-view-createRemoteWizar
+ dFetch.png
+SHA1-Digest: E8XbpWuDu5vXwj5911R901tOqNM=
+
+Name: help/EGit/User_Guide/images/Egit-1.1-tags-history.png
+SHA1-Digest: Y16ds4ePK1dtGpl89CLObW2dDSQ=
+
+Name: help/JGit/New_and_Noteworthy/3.0/Contributors.html
+SHA1-Digest: eXpxECvysjWVu6SJ1NdKvQmiqOM=
+
+Name: help/EGit/New_and_Noteworthy/3.0/3.0.html
+SHA1-Digest: cEDP8nL0mPTONttPSh9fPCo2sD4=
+
+Name: help/EGit/User_Guide/images/Conflicts.png
+SHA1-Digest: fUFirFqlqhh7qeuvJGn3NGG6nIY=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-history-view-openAndCompare
+ FromDetails.png
+SHA1-Digest: qaK7PLKSB4sA0R9QqS+EtzOfvdc=
+
+Name: help/EGit/User_Guide/images/RepoMgrPasteRepositoryPath.png
+SHA1-Digest: +iqKF2nMLc3cWzdP9Lwa5EX0iE4=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-overview.png
+SHA1-Digest: ItiMQJ0f+1lNjfHGxR48HHMSOAs=
+
+Name: help/EGit/User_Guide/images/Egit-1.0-synchronize-custom.png
+SHA1-Digest: 94lKltLST7V3jalQmHQacyyOpok=
+
+Name: help/toc.xml
+SHA1-Digest: QyO39iHOwfK2Euy6l4xmDo6urtY=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-historyview-file-menu.png
+SHA1-Digest: IZ5XwJQ25oCk2Mw2nmwIO8b/Yac=
+
+Name: help/EGit/User_Guide/images/RepoMgrLinkWithSelection.png
+SHA1-Digest: d93gP0qkjbUcTfc9MTLDe3QyX2s=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-fetch-wizard-refspec.png
+SHA1-Digest: BYJdEAA0zIgsZTLIPHS1JRYGDaE=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-push-wizard-refspec-conflic
+ t.png
+SHA1-Digest: 3fMUfaM0fgRO9sIQWxb5WDYoAdk=
+
+Name: help/EGit/User_Guide/images/EGit-0.10-StartRebaseFromRepoView.pn
+ g
+SHA1-Digest: nfUxilbuL0X8SKM993Z4cKHwLug=
+
+Name: help/EGit/User_Guide/images/RepoMgrHierarchicalBranchLayout.png
+SHA1-Digest: EHhKGQ9wZQHGRRiJz6lhxy1ShM8=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-workbench-toolbar.png
+SHA1-Digest: cUR/SCBGT0wQFIbv+dlFZq0GytQ=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-application.png
+SHA1-Digest: NQzrcAnzIXYseBuCmeFIMMC4p0I=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-ssh-preferences.png
+SHA1-Digest: vifXvs9i+tsBSxnMWV/E3EqbZjw=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-historyview-2files-menu.png
+SHA1-Digest: 9ERag6pyG0EABRJxaAWFrM1kjyA=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-repo-view-createRemoteWizar
+ dPush.png
+SHA1-Digest: 7RgavwBI+r0kbG9y/yxF6i3usYI=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-shared-project.p
+ ng
+SHA1-Digest: JMgASGDBik80aKap/htNfL/yiys=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-repoview-branch-menu.png
+SHA1-Digest: DG99p7NWHEIMZP2rlGwQDzL7WV0=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-share.png
+SHA1-Digest: W9HudqMyeHbM8QiaFBgeYd96dpM=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-reflog-view.png
+SHA1-Digest: jWsYHrJjuhL6SpedWFBxDaA8ZvU=
+
+Name: help/JGit/New_and_Noteworthy/3.0/Library.html
+SHA1-Digest: +qBRPk05XzxFcNrOrMJefogNNqA=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-import-projects-add-dialog
+ .png
+SHA1-Digest: 7ns/yQhyCO36GDWjgK3RxiI7ls4=
+
+Name: contexts.xml
+SHA1-Digest: +dxj4ax9wqrIqVo5mh7/MadQYyw=
+
+Name: help/EGit/New_and_Noteworthy/3.0/Performance-Improvements.html
+SHA1-Digest: P+NnpxxsS4+nj2Hzv4iFk+i3hiQ=
+
+Name: help/EGit/User_Guide/images/Egit-1.2-repoview-tag-menu.png
+SHA1-Digest: 341eHj1xXtA4SpCuN5n/whkUG50=
+
+Name: help/EGit/User_Guide/images/Git-search-page.png
+SHA1-Digest: 4Zolsq6OGZvMDbYhlwmsnXSnzEM=
+
+Name: help/EGit/User_Guide/images/CherryPick3.png
+SHA1-Digest: g6ti6YOk6sA5YagEWZqejao1noI=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-getstarted-create-project.p
+ ng
+SHA1-Digest: 14B9+z/FEEcx4edoVz9XNEfNXC0=
+
+Name: help/EGit/User_Guide/images/MergeDialog.png
+SHA1-Digest: skjUd9XN3HyFOxZpVXlzs1kReqg=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-label-decorators.png
+SHA1-Digest: Ifvkn81IH9joYJh4J6TnQD68tEE=
+
+Name: help/EGit/User_Guide/images/RepoMgrRemoteCreated.png
+SHA1-Digest: u5bU9idvhbadxYCoETRKghfaHvI=
+
+Name: intro/css/overview.css
+SHA1-Digest: dbluPLMxOhYgLh7Vrk1H3i5QemE=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-ContentAssistGerritChange.
+ png
+SHA1-Digest: NvSpHqvqGZhkysPeV6lAJQAMN7E=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-outgoing-add.pn
+ g
+SHA1-Digest: /O1K/9uRaaX/RghIyYTnXz+7k1Y=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-activate-task.png
+SHA1-Digest: q9c6hK/VMXso6dUosUH34E1x4Wg=
+
+Name: help/EGit/User_Guide/images/Egit_no_home.png
+SHA1-Digest: P4PsFzbd70yGu4Krt44KVxzIIJY=
+
+Name: images/home.gif
+SHA1-Digest: 6ZkfXx5mGrHfp+Vr+YCQGGUsRIQ=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-fetchChangeFromGerritDialo
+ g.png
+SHA1-Digest: rQQN8zXCuhYfzp+1GfwXuGW4/OU=
+
+Name: help/EGit/User_Guide/images/EGit-0.10-MergeDemoHistoryAfterRebas
+ e.png
+SHA1-Digest: aWf+48rI1mGqc4WoLwIbBcV6Pyg=
+
+Name: help/EGit/User_Guide/images/03-ExampleDecoration.png
+SHA1-Digest: LS6XH+VrRCBvkq4ngtTSg74ijSs=
+
+Name: help/JGit/User_Guide/Snippets.html
+SHA1-Digest: 0MKxK6bUCitX9ucWZYF0A/Ww4hM=
+
+Name: help/EGit/User_Guide/images/Egit-0.11-clone-wizard-branch-page.p
+ ng
+SHA1-Digest: Rk5OJSawHI8ODDixi2syqP6M2bs=
+
+Name: help/JGit/New_and_Noteworthy/3.0/Command-Line.html
+SHA1-Digest: Vq983v1GSSvpBrnAbC4+RK+o8UA=
+
+Name: help/EGit/User_Guide/images/Egit-0.8-tag-create.png
+SHA1-Digest: fKS+vp7FRnCUzOSoMHeGggMlne4=
+
+Name: help/EGit/User_Guide/images/Egit-0.9-synchronize-navigation.png
+SHA1-Digest: 1rHK3GhZtRrKSphKre4DeHaXXBg=
+
+Name: help/EGit/User_Guide/images/Egit-0.10-merge-tool.png
+SHA1-Digest: Gnj3K0O3IvAr4iR0OKg/W3Ztq9M=
+
+Name: help/EGit/User_Guide/images/RepoMgrAddRepositoryIcon.png
+SHA1-Digest: 6elSyfdYsBiwOKtoyxnVQrwn4PI=
+
+Name: help/EGit/User_Guide/images/Egit-1.0-blame-ruler.png
+SHA1-Digest: /I9+B7RugOnqmtSGwfqpg48RyZU=
+

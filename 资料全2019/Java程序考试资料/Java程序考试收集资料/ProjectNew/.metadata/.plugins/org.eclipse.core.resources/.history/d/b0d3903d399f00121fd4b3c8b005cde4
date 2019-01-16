@@ -1,0 +1,14 @@
+package Teaching.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student extends User{
+       private String major;
+       private List<TimeCard> timeCards;
+       public Student()
+       {
+    	   super();
+    	   timeCards=new ArrayList<TimeCard>();
+       }
+}

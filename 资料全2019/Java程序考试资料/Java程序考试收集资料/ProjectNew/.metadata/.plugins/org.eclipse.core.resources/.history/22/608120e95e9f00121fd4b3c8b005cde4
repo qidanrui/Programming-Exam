@@ -1,0 +1,14 @@
+package Teaching.Common;
+
+import Teaching.model.User;
+
+public class ContextUtil {
+     public static User currentUser;
+     
+     public ContextUtil()
+     {
+    	 currentUser=new User();
+    	 currentUser.setUserName("陈欣洁");
+    	 currentUser.setPassword("123456");
+     }
+}

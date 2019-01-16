@@ -1,0 +1,10 @@
+
+ArrayList---Resizable-array implementation of the List interface.
+
+它用来替代Vector
+
+
+Vector：用ArrayList代替Vector。
+Hashtable：用HashMap代替Hashtable。
+Satck：用LinkedList代替Stack。
+Properties

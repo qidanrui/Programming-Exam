@@ -1,0 +1,81 @@
+package teaching.common;
+
+import java.util.Date;
+import java.util.List;
+
+import teaching.model.Course;
+import teaching.model.Student;
+import teaching.model.TimeCard;
+
+
+public class ContextUtil {
+     public static Student currentUser;//保存当前使用考勤软件的用户
+     public static Course currentCourse; //当前进行考勤的课程
+     public static Student currentStudent; //当前进行考勤的学生
+     public static int stuIndex=0;//当前考勤第几个学生
+     /**
+      * 获得当前考勤学生的考勤状态
+      * @param stu
+      * @param courseId
+      * @param ifSk   是否为上课考勤
+      * @return
+      */
+     public static String getStudentCourseTimeCardStatus(Student stu,String courseId,boolean ifSk)
+     {
+    	 List<TimeCard> card=stu.getTimeCards();
+    	 String status="";
+    	 for(int i=0;i<card.size();i++)
+    	 {
+    		 if(card.get(i).getSelCourseId().equals(courseId))
+    		 {
+    			 status=ifSk?card.get(i).getSignInType():card.get(i).getSignOutType();
+    			 break;
+    		 }
+    	 }
+    	 return status;
+     }
+     /**
+      * 设置当前考勤学生的考勤状态
+      * @param stu
+      * @param courseId 
+      * @param status  考勤状态
+      * @param ifSk  是否为上课考勤
+      */
+     public static void setStudentCourseTimeCard(Student stu,String courseId,String status,boolean ifSk)
+     {
+    	 List<TimeCard> card=stu.getTimeCards();
+    	 Date date=new Date();
+    	 for(int i=0;i<card.size();i++)
+    	 {
+    		 if(card.get(i).getSelCourseId().equals(courseId))
+    		 {
+    			 if(ifSk)
+    			 {
+    				 card.get(i).setSignInType(status);
+    				 card.get(i).setSignInDate(date);
+    			 }
+    			 else
+    			 {
+     			    card.get(i).setSignOutType(status);
+     			    card.get(i).setSignOutDate(date);
+    			 }
+    			 break;
+    		 }
+    	 }
+    	 stu.setTimeCards(card);
+     }
+     public static TimeCard getStudentCourseTimeCard(Student stu,String courseId)
+     {
+    	 List<TimeCard> card=stu.getTimeCards();
+    	 TimeCard timeCard=new TimeCard();
+    	 for(int i=0;i<card.size();i++)
+    	 {
+    		 if(card.get(i).getSelCourseId().equals(courseId))
+    		 {
+    			 timeCard=card.get(i);
+    			 break;
+    		 }
+    	 }
+    	 return timeCard;
+     }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 17 resources" deleteContents="false" description="Delete 17 resources" element1="/org.eclipse.jdt.annotation" element10="/org.eclipse.jdt.compiler.tool.tests" element11="/org.eclipse.jdt.core" element12="/org.eclipse.jdt.core.tests.builder" element13="/org.eclipse.jdt.core.tests.compiler" element14="/org.eclipse.jdt.core.tests.model" element15="/org.eclipse.jdt.core.tests.performance" element16="/RegexTester" element17="/Tests" element2="/org.eclipse.jdt.apt.core" element3="/org.eclipse.jdt.apt.pluggable.core" element4="/org.eclipse.jdt.apt.pluggable.tests" element5="/org.eclipse.jdt.apt.tests" element6="/org.eclipse.jdt.apt.ui" element7="/org.eclipse.jdt.compiler.apt" element8="/org.eclipse.jdt.compiler.apt.tests" element9="/org.eclipse.jdt.compiler.tool" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="17" stamp="1385775782303"/>
+</session>

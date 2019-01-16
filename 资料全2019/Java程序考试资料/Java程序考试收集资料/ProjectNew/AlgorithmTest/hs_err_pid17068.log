@@ -1,0 +1,129 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 4088 bytes for char in c:\build_area\jdk6_43\hotspot\src\share\vm\utilities/stack.inline.hpp
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:44), pid=17068, tid=4020
+#
+# JRE version: 6.0_43-b01
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.14-b01 mixed mode windows-amd64 compressed oops)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002226000):  VMThread [stack: 0x0000000005f30000,0x0000000006030000] [id=4020]
+
+Stack: [0x0000000005f30000,0x0000000006030000]
+VM_Operation (0x000000000216f500): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x000000000059c800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000006258800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=13056, stack(0x0000000006730000,0x0000000006830000)]
+  0x0000000002256800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=3504, stack(0x0000000006630000,0x0000000006730000)]
+  0x000000000224c000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=3972, stack(0x0000000006530000,0x0000000006630000)]
+  0x000000000224b000 JavaThread "Attach Listener" daemon [_thread_blocked, id=17532, stack(0x0000000006430000,0x0000000006530000)]
+  0x0000000002247800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=13192, stack(0x0000000000430000,0x0000000000530000)]
+  0x0000000002235800 JavaThread "Finalizer" daemon [_thread_blocked, id=18280, stack(0x0000000006130000,0x0000000006230000)]
+  0x000000000222c800 JavaThread "Reference Handler" daemon [_thread_blocked, id=16248, stack(0x0000000006030000,0x0000000006130000)]
+  0x000000000059c800 JavaThread "main" [_thread_blocked, id=8388, stack(0x0000000002070000,0x0000000002170000)]
+
+Other Threads:
+=>0x0000000002226000 VMThread [stack: 0x0000000005f30000,0x0000000006030000] [id=4020]
+  0x0000000006268800 WatcherThread [stack: 0x0000000006830000,0x0000000006930000] [id=972]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000000000599820] Threads_lock - owner thread: 0x0000000002226000
+[0x00000000005998a0] Heap_lock - owner thread: 0x000000000059c800
+
+Heap
+ PSYoungGen      total 128384K, used 68288K [0x00000000eb960000, 0x00000000f8410000, 0x0000000100000000)
+  eden space 68288K, 100% used [0x00000000eb960000,0x00000000efc10000,0x00000000efc10000)
+  from space 60096K, 0% used [0x00000000efc10000,0x00000000efc10000,0x00000000f36c0000)
+  to   space 54848K, 0% used [0x00000000f36c0000,0x00000000f36c0000,0x00000000f6c50000)
+ PSOldGen        total 238656K, used 238464K [0x00000000c2c00000, 0x00000000d1510000, 0x00000000eb960000)
+  object space 238656K, 99% used [0x00000000c2c00000,0x00000000d14e0020,0x00000000d1510000)
+ PSPermGen       total 21248K, used 3062K [0x00000000bda00000, 0x00000000beec0000, 0x00000000c2c00000)
+  object space 21248K, 14% used [0x00000000bda00000,0x00000000bdcfd820,0x00000000beec0000)
+
+Code Cache  [0x0000000002270000, 0x00000000024e0000, 0x0000000005270000)
+ total_blobs=185 nmethods=16 adapters=123 free_code_cache=49919616 largest_free_block=15936
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042f000 	C:\Program Files\Java\jdk1.6.0_43\bin\javaw.exe
+0x00007ffcb6270000 - 0x00007ffcb6419000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffcb5da0000 - 0x00007ffcb5ed9000 	C:\WINDOWS\system32\KERNEL32.DLL
+0x00007ffcb3810000 - 0x00007ffcb391e000 	C:\WINDOWS\system32\KERNELBASE.dll
+0x00007ffcb2220000 - 0x00007ffcb22ab000 	C:\WINDOWS\system32\apphelp.dll
+0x00007ffc987e0000 - 0x00007ffc9882f000 	C:\WINDOWS\AppPatch\AppPatch64\AcGenral.DLL
+0x00007ffcb4530000 - 0x00007ffcb45d7000 	C:\WINDOWS\system32\msvcrt.dll
+0x00007ffcb33d0000 - 0x00007ffcb33fb000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x00007ffcb4620000 - 0x00007ffcb4671000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x00007ffcb60f0000 - 0x00007ffcb6261000 	C:\WINDOWS\system32\USER32.dll
+0x00007ffcb3f10000 - 0x00007ffcb4086000 	C:\WINDOWS\system32\ole32.dll
+0x00007ffcb4990000 - 0x00007ffcb5d9f000 	C:\WINDOWS\system32\SHELL32.dll
+0x00007ffcb2bf0000 - 0x00007ffcb2c0f000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ffcb4090000 - 0x00007ffcb4135000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x00007ffcab350000 - 0x00007ffcab36b000 	C:\WINDOWS\SYSTEM32\MPR.dll
+0x00007ffcb3da0000 - 0x00007ffcb3ed6000 	C:\WINDOWS\system32\RPCRT4.dll
+0x00007ffcb44d0000 - 0x00007ffcb4527000 	C:\WINDOWS\SYSTEM32\sechost.dll
+0x00007ffcb3bc0000 - 0x00007ffcb3d97000 	C:\WINDOWS\SYSTEM32\combase.dll
+0x00007ffcb4140000 - 0x00007ffcb4285000 	C:\WINDOWS\system32\GDI32.dll
+0x00007ffcb35f0000 - 0x00007ffcb3604000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ffcb1aa0000 - 0x00007ffcb1b41000 	C:\WINDOWS\SYSTEM32\SHCORE.dll
+0x00007ffcb45e0000 - 0x00007ffcb4614000 	C:\WINDOWS\system32\IMM32.DLL
+0x00007ffcb4730000 - 0x00007ffcb4868000 	C:\WINDOWS\system32\MSCTF.dll
+0x00007ffc97920000 - 0x00007ffc97a69000 	C:\PROGRA~2\SearchProtect\SearchProtect\bin\SPVC64Loader.dll
+0x00007ffcac810000 - 0x00007ffcac81a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x000000006d8c0000 - 0x000000006e07c000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\server\jvm.dll
+0x00007ffca8bd0000 - 0x00007ffca8bef000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffca8aa0000 - 0x00007ffca8aca000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffcb3710000 - 0x00007ffcb375a000 	C:\WINDOWS\SYSTEM32\cfgmgr32.dll
+0x00007ffcb2480000 - 0x00007ffcb24a6000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x000000006d830000 - 0x000000006d83e000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\verify.dll
+0x000000006d450000 - 0x000000006d477000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\java.dll
+0x000000006d880000 - 0x000000006d892000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\zip.dll
+0x00007ffcb4680000 - 0x00007ffcb4687000 	C:\WINDOWS\system32\PSAPI.DLL
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: Sort
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.6.0_43
+CLASSPATH=.;C:\Program Files\Java\jdk1.6.0_43\lib\dt.jar;C:\Program Files\Java\jdk1.6.0_43\lib\tools.jar;
+PATH=C:/Program Files/Java/jdk1.6.0_43/bin/../jre/bin/server;C:/Program Files/Java/jdk1.6.0_43/bin/../jre/bin;C:/Program Files/Java/jdk1.6.0_43/bin/../jre/lib/amd64;C:\Program Files\Java\jdk1.6.0_43\bin;C:\Program Files\Java\jdk1.6.0_43\jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;d:\Program Files (x86)\MATLAB\R2013a\runtime\win32;d:\Program Files (x86)\MATLAB\R2013a\bin;D:\JAVA\eclipse-jee-kepler-SR1-win32-x86_64\eclipse;
+USERNAME=sinllychen
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt
+
+Memory: 4k page, physical 4011804k(780476k free), swap 16070428k(5096k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (20.14-b01) for windows-amd64 JRE (1.6.0_43-b01), built on Mar  1 2013 01:52:33 by "java_re" with MS VC++ 8.0 (VS2005)
+
+time: Sat Jan 11 22:56:05 2014
+elapsed time: 5 seconds
+

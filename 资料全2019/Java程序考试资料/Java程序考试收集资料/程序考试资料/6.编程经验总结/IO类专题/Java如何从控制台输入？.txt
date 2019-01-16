@@ -1,0 +1,22 @@
+Java中的输出有标准的输出流System.out,那么输入怎么实现呢?
+要想通过控制台进行输入,首先要构造一个Scanner对象,它附属于"标准输入流"System.in
+Scanner input = new Scanner(System.in);
+
+现在我们就可以使用Scanner类的各种方法了,例如:
+System.out.println("What's your name?");
+String name = in.nextLine();
+
+在这里使用nextLine方法的主要原因是输入行中可能包含空格.如果读取的是一个单词,则可调用
+String firstName = in.next();
+
+类似的,输入浮点数可用nextDouble方法
+
+
+
+Q:Java中Scanner的next方法为什么不能得到带空格的字符串?而nextLine就可以?
+比如输入Show me
+用next只能得到Show
+而用nextLine就能得到完整的Show me 
+
+A:你可以理解成next下一个，空格被当做分隔符，所以下标里的值是Show
+而nextLine是读出当前下标的一行，你可以理解为下一行，对他来讲每行就是他的分隔符。

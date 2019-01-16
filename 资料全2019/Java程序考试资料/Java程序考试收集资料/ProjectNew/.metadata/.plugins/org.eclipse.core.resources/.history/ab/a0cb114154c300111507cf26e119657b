@@ -1,0 +1,87 @@
+package com.demo;
+import java.util.List;
+import com.google.gson.reflect.TypeToken;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class WebData extends Activity {
+	/** Called when the activity is first created. */
+	EditText name=(EditText) findViewById(R.id.Name);
+	EditText age=(EditText) findViewById(R.id.Age);
+	EditText birthday=(EditText) findViewById(R.id.Birthday);
+	EditText address=(EditText) findViewById(R.id.Address);
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		Button receive=(Button)findViewById(R.id.receive);
+		Button send=(Button)findViewById(R.id.send);
+
+		receive.setOnClickListener(new OnClickListener()
+		{
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				JsonDataGetApi api = new JsonDataGetApi();
+
+				try {
+					//调用GetAccountData方法
+					String data = api.getArray("GetAccountData");
+				    List<Account> accounts=(List<Account>)JsonUtils.TransJsonToList(data, new TypeToken<List<Account>>() {
+					}.getType());
+					//从返回的Account Array中取出第一个数据
+					Account a=accounts.get(0);
+					System.out.println(a.Name);
+
+					//GsonBuilder gsonb = new GsonBuilder();
+					//Json中的日期表达方式没有办法直接转换成我们的Date类型, 因此需要单独注册一个Date的反序列化类.
+					//DateDeserializer ds = new DateDeserializer();
+					//给GsonBuilder方法单独指定Date类型的反序列化方法
+				 //	gsonb.registerTypeAdapter(Date.class, ds);
+					
+					//Gson gson = gsonb.create();
+
+					Account account = accounts.get(0);
+
+					Log.d("LOG_CAT",data);
+
+					
+					name.setText(account.Name);
+					age.setText(String.valueOf(account.Age));
+
+					birthday.setText(account.Birthday);
+					address.setText(account.Address);
+
+				} catch (Exception e) {
+					Toast.makeText(getApplicationContext(), e.getMessage(),
+							Toast.LENGTH_LONG).show();
+					e.printStackTrace();
+				}
+			}
+			}
+		);
+		
+		send.setOnClickListener(new OnClickListener()
+		{
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Account a=new Account();
+				a.setAddress("xmu");
+				a.setAge(22);
+				a.setBirthday("1991/08/16");
+				a.setName("cxj");
+			}
+			
+		});
+
+	}
+		
+}

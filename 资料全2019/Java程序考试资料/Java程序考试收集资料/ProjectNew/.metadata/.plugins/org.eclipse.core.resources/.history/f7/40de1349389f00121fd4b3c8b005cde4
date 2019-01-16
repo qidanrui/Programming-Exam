@@ -1,0 +1,8 @@
+public enum TimeCardType
+    {
+       NoSign,
+       OneTime,
+       BeLate,
+       EarlyLeave,
+       AbsentCourse
+    }

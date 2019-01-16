@@ -1,0 +1,75 @@
+import java.util.List;
+import java.util.Random;
+
+
+public class Test8_2 {
+    private static int n;//每个集合中元素的个数
+    private static int[] x,y;//集合x,y
+    private static  boolean   equaled=false;//判断集合是否相等
+    private static FileOperate operate;
+    /**
+     * 初始化数据
+     * @param fileName
+     */
+    public static void initialData(String fileName)
+    {
+    	operate=new FileOperate();
+    	List<String>  data=operate.readData(fileName);
+    	n=Integer.valueOf(data.get(0));
+    	String[] tempX=data.get(1).split(" ");
+    	String[] tempY=data.get(2).split(" ");
+    	x=new int[n];
+    	y=new int[n];
+    	for(int i=0;i<n;i++)
+    	{
+    		x[i]=Integer.valueOf(tempX[i]);
+    		y[i]=Integer.valueOf(tempY[i]);
+    	}
+    }
+    /**
+     * 写入数据到文件中
+     * @param fileName
+     */
+    public static void writeData(String fileName)
+    {
+    	if(equaled)
+    		operate.writeValue("Yes", fileName, false);
+    	else 
+    		operate.writeValue("No", fileName, false);   	
+    }
+    /**
+     * 用二分法从x数组中查找是否有元素和k相等
+     * @param k
+     * @return
+     */
+    public static boolean search(int k)
+    {
+    	for(int i=0;i<n;i++)
+    	{
+    		if(x[i]==k)
+    			return true;
+    	}
+    	return false;
+    }
+    /**
+     * 通过蒙特卡洛算法进行查找
+     */
+    public static void verify()
+    {
+    	Random rand=new Random();
+    	for(int i=0;i<50;i++)//进行50次循环增加概率
+    	{
+    		int k=rand.nextInt(n);//随机获得index
+    		if(binarySearch(y[k]))
+    			equaled=true;
+    		else
+    			equaled=false;
+    	}
+    }
+    public static void main(String[] args)
+    {
+    	initialData("input8-2.txt");
+    	verify();
+    	writeData("output8-2.txt");
+    }
+}

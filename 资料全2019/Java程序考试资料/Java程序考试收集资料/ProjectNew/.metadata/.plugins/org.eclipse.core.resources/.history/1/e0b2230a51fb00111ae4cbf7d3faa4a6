@@ -1,0 +1,38 @@
+import static org.junit.Assert.*;
+import junit.framework.TestCase;
+
+import org.junit.Test;
+
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.Selenium;
+
+
+public class SeleniumCase extends TestCase{
+
+	//实例化Selenium 类
+	Selenium selenium;
+	//覆盖setUp方法
+	public void setUp() throws Exception{
+	//实例化DefaultSelenium类,其它命令均是它的方法
+	selenium=new DefaultSelenium("localhost",4444,"*firefox","http://www.baidu.com");
+	//启动selenium 创建一个新的session
+	selenium.start();
+	}
+	//覆盖teardown方法(在这里没有特别的设置)
+	public void tearDown()throws Exception{
+	selenium.stop();
+	}
+	//建立一个测试方法,里面是命令的集合了..
+	public void testBaidu()throws Exception{
+	//DefaultTestCase test=new DefaultTestCase();
+	//注意这里的selenium即是类中的已经启动的selenium,命令都是它的方法
+	selenium.open("http://www.baidu.com");
+	selenium.waitForPageToLoad("6000");
+	selenium.type("kw", "selenium");
+	selenium.click("sb");
+	Thread.sleep(3000);
+	assertTrue(selenium.isTextPresent("selenium"));
+	}
+
+
+}

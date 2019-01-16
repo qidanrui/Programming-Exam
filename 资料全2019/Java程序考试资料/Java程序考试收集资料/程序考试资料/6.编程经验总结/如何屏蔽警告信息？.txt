@@ -1,0 +1,5 @@
+@SuppressWarnings("unchecked")
+
+屏蔽警告信息 （一般都是函数中用到了过期的方法或是所给的参数值类型不对）
+如果函数开头没有@SuppressWarnings("unchecked")，
+函数中可能出错的代码下就会出现一条黄色的波浪线

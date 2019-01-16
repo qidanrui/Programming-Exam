@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<link rel="stylesheet" href="../css/main.css" />
+</h:head>
+<body>
+	<f:view >
+	<ui:include src="/includes/mainHeader.xhtml"></ui:include>
+	<div id="mainContent">
+	    <div  id="navigation">
+	    <ui:include src="/includes/navigation.xhtml"></ui:include>
+	    </div> 
+	    <h:form>
+	    <div  id="rightContent">
+	         <ui:include src="/includes/stuInfoHead.xhtml"></ui:include>
+	         <p:dataTable id="dataTable" var="course" value="#{courseBean.courses}"  
+                 paginator="true" rows="10"  
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                 rowsPerPageTemplate="5,10,15">  
+        <f:facet name="header">  
+                本学期可选课程
+        </f:facet>  
+        <p:column  headerText="操作" style="width:20px;">  
+              <p:commandButton id="selectButton"  value="选课"  oncomplete="dialog.show()"   style="font-size:12px"  >  
+                     <f:setPropertyActionListener value="#{course}" target="#{courseBean.selectedCourse}" />  
+               </p:commandButton> 
+        </p:column>  
+        
+        <p:column  headerText="操作" style="width:80px;">  
+              <p:commandButton id="selectButton"  value="选课"  oncomplete="dialog.show()"   style="font-size:12px"  >  
+                     <f:setPropertyActionListener value="#{course}" target="#{courseBean.selectedCourse}" />  
+               </p:commandButton> 
+        </p:column>  
+  
+        <p:column headerText="课程名称"  style="width:100px">  
+            <h:outputText value="#{course.courseName}" />  
+        </p:column> 
+        
+        <p:column headerText="课程类型"  style="width:100px">  
+            <h:outputText value="#{course.type}" />  
+        </p:column> 
+        
+        <p:column headerText="修读形式"  style="width:100px">  
+            <h:outputText value="#{course.style}" />  
+        </p:column> 
+        
+        <p:column headerText="上课时间"  style="width:100px">  
+            <h:outputText value="#{course.coursedate}" />  
+        </p:column> 
+        
+        <p:column headerText="上课地点"  style="width:100px">  
+            <h:outputText value="#{course.courseAdd}" />  
+        </p:column> 
+        
+        <p:column headerText="起止周"  style="width:100px">  
+            <h:outputText value="#{course.startEndWeek}" />  
+        </p:column> 
+        
+        <p:column headerText="学分/总学时"  style="width:100px">  
+            <h:outputText value="#{course.totalHour}" />  
+        </p:column> 
+        
+        <p:column headerText="教师"  style="width:80px">  
+            <h:outputText value="#{course.teacher}" />  
+        </p:column> 
+        
+        <p:column headerText="教师职称"  style="width:100px">  
+            <h:outputText value="#{course.teacherRank}" />  
+        </p:column> 
+        
+    </p:dataTable>  
+	         
+	    </div>
+	    </h:form>
+	    <!--<div id="seperator">
+	    </div>  -->
+	</div>
+	<ui:include src="/includes/mainFooter.xhtml"></ui:include>
+	</f:view>
+</body>
+</html>

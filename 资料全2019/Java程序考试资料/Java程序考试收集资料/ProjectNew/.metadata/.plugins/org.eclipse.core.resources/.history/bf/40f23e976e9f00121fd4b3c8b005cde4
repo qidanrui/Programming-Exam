@@ -1,0 +1,57 @@
+package Teaching.Core;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import Teaching.Adapter.UserCourseAdapter;
+import Teaching.Common.ContextUtil;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class CourseActivity extends Activity{
+	private   List<Map<String, Object>> listItems;
+	private   ListView courseList;
+	private   TextView date;
+	private   UserCourseAdapter userCourseAdapter;
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.course);
+        courseList=(ListView)findViewById(R.id.lv_courseList);
+        date=(TextView)findViewById(R.id.tv_courseDate);
+        this.init();
+        userCourseAdapter=new UserCourseAdapter(this,listItems);
+        courseList.setAdapter(userCourseAdapter);
+	}
+	public void init()
+	{ 
+		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
+		date.setText(format.format(new Date()).toString());
+		this.listItems = new ArrayList<Map<String, Object>>();
+	    for(int i=0;i<ContextUtil.currentUser.getCourses().size();i++)
+	    {
+			Map<String, Object> map = new HashMap<String, Object>();
+	    	map.put("courseName", ContextUtil.currentUser.getCourses().get(i).getCourseName());
+	    	map.put("courseType", ContextUtil.currentUser.getCourses().get(i).getFlag());
+			this.listItems.add(map);
+	    }
+	}
+	public void logout(View view)
+	{
+		 ContextUtil.currentUser=null;
+		 Intent intent=new Intent();
+		 intent.setClass(this, LoginActivity.class);
+		 startActivity(intent);
+		 this.finish();
+	}
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  <title>清华大学校园网 Tsinghua University Network</title>
+
+  <link rel="stylesheet" type="text/css" href="/css/wired.css" />
+  <link rel="shortcut icon" href="/image/icon16-yellow.ico" type="image/x-icon" />
+  <link rel="icon" href="/image/icon32.png" sizes="32x32" type="image/png" />
+
+  <script src="/script/jquery.js"></script>
+  <script src="/script/util.js"></script>
+  <script src="/script/login.js"></script>
+</head>
+
+<body id="phone">
+  <div id="head">
+    <img src="/image/wired/phone_title.gif" width="264" height="60" alt="清华大学校园网 Tsinghua University Network" />
+  </div>
+  <div class="triangle_head"></div>
+  <div id="login_box">
+    <div id="login">
+      <form name="login_form" id="login_form" action="/cgi-bin/do_login" method="post" onsubmit="do_login();return false;">
+        <input type="hidden" name="is_pad" value="2">
+        <input type="hidden" name="n" value="100">
+        <input type="hidden" name="type" value="1">
+        <input type="hidden" name="drop" value="0">
+        <div class="field">
+          <div class="label_text placeholder" for="uname">用户名<span class="english">User&nbsp;ID</span></div>
+          <input type="text" name="uname" id="uname" value="" autocorrect="off" autocapitalize="off">
+        </div>
+        <div class="field">
+          <div class="label_text placeholder" for="pass">密码<span class="english">Password</span></div>
+          <input type="password" name="pass" id="pass" autocorrect="off" autocapitalize="off">
+        </div>
+        <div class="field" id="remember">
+          <input type="checkbox" name="save_me" id="cookie" value="yes">
+          <div class="checkbox_text">记住密码<span class="english">Remember&nbsp;Password</span></div>
+        </div>
+        <input type="submit" name="connect" id="connect" value="连接&nbsp;Connect">
+      </form>
+      <a id="account" href="#" title="账户设置&#10;Account&nbsp;Settings">账户设置
+        <span class="english">Account&nbsp;Settings</p></a>
+      </div>
+    </div>
+    <div class="triangle_login"></div>
+    <ul id="widget">
+      <li class="bookmark">
+      <a href="#" title="收藏&#10;Bookmark&nbsp;This&nbsp;Page">收藏<span class="english">Bookmark</span></a>
+      </li>
+      <li class="help">
+      <a href="#" title="帮助&#10;Help">帮助<span class="english">Help</span></a>
+      </li>
+      <li class="contact">
+      <div class="title">联系<span class="english">Contact</span></div>
+      </li>
+      <div class="detail english"><a href="tel:+86-10-62784859"  title="固定电话&#10;Telephone&nbsp;Number">+86-10-62784859</a><a href="mailto:support@tsinghua.edu.cn" title="电子邮件&#10;Email">support@tsinghua.edu.cn</a></div>
+    </ul>
+    <div id="foot">清华大学信息网络工程研究中心<p class="english">Network Research Center of Tsinghua University</p></div>
+</body>
+</html>
+<!-- vi: se sw=2: -->

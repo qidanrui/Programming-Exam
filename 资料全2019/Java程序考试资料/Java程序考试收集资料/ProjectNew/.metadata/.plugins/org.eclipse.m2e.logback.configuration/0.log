@@ -1,0 +1,350 @@
+2013-11-19 15:59:16,563 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-8.1.10.v20130312
+2013-11-19 15:59:16,600 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started SelectChannelConnector@127.0.0.1:52416
+2013-11-19 19:23:03,432 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - stopped o.e.j.s.ServletContextHandler{/help,null}
+2014-04-21 20:36:26,095 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:26,375 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:27,184 [New I/O client worker #1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.jar
+2014-04-21 20:36:27,188 [New I/O client worker #2-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.jar
+2014-04-21 20:36:27,190 [New I/O client worker #1-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.jar
+2014-04-21 20:36:27,191 [New I/O client worker #2-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.4.1/maven-clean-plugin-2.4.1.jar
+2014-04-21 20:36:27,614 [Worker-8] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using null lifecycle mapping for MavenProject: com.netease.lady:cosmetic-webapp:1.0 @ C:\Users\sinllychen\Desktop\demo\pom.xml.
+2014-04-21 20:36:27,617 [Worker-4] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using null lifecycle mapping for MavenProject: com.netease.lady:cosmetic-webapp:1.0 @ C:\Users\sinllychen\Desktop\demo\pom.xml.
+2014-04-21 20:36:27,643 [Worker-8] ERROR o.e.m.e.x.i.MarkerLocationService - Marker id 282432 not found.
+org.eclipse.core.internal.resources.ResourceException: Marker id 282432 not found.
+	at org.eclipse.core.internal.resources.Marker.checkInfo(Marker.java:57) ~[org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.resources.Marker.setAttribute(Marker.java:237) ~[org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.resources.Marker.setAttribute(Marker.java:223) ~[org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.m2e.editor.xml.internal.MarkerLocationService.findLocationForMarker(MarkerLocationService.java:106) ~[na:na]
+	at org.eclipse.m2e.core.internal.markers.MarkerUtils.decorateMarker(MarkerUtils.java:45) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.markers.MavenMarkerManager.addErrorMarker(MavenMarkerManager.java:301) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.markers.MavenMarkerManager.addErrorMarkers(MavenMarkerManager.java:289) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.setupLifecycleMapping(ProjectRegistryManager.java:565) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:474) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$3.call(ProjectRegistryManager.java:453) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$3.call(ProjectRegistryManager.java:1) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:161) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:137) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:457) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:334) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:287) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.refresh(MavenProjectManager.java:67) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.getProjectFacade(MavenBuilder.java:216) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.call(MavenBuilder.java:91) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$1.call(MavenBuilder.java:1) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:161) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:137) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:89) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1305) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:89) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:733) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42) [org.eclipse.equinox.common_3.6.200.v20130402-1505.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241) [org.eclipse.core.resources_3.8.101.v20130717-0806.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53) [org.eclipse.core.jobs_3.5.300.v20130429-1813.jar:na]
+2014-04-21 20:36:27,644 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:27,660 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:28,158 [New I/O client worker #3-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+2014-04-21 20:36:28,160 [New I/O client worker #3-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+2014-04-21 20:36:28,197 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for javax.servlet:servlet-api:jar:2.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:28,200 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:28,412 [New I/O client worker #5-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/3.0.6.RELEASE/spring-webmvc-3.0.6.RELEASE.pom
+2014-04-21 20:36:28,414 [New I/O client worker #5-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/3.0.6.RELEASE/spring-webmvc-3.0.6.RELEASE.pom
+2014-04-21 20:36:28,453 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-webmvc:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:28,456 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:28,664 [New I/O client worker #6-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-jdbc/3.0.6.RELEASE/spring-jdbc-3.0.6.RELEASE.pom
+2014-04-21 20:36:28,668 [New I/O client worker #6-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-jdbc/3.0.6.RELEASE/spring-jdbc-3.0.6.RELEASE.pom
+2014-04-21 20:36:28,712 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-jdbc:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:28,716 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:28,928 [New I/O client worker #7-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-jms/3.0.6.RELEASE/spring-jms-3.0.6.RELEASE.pom
+2014-04-21 20:36:28,931 [New I/O client worker #7-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-jms/3.0.6.RELEASE/spring-jms-3.0.6.RELEASE.pom
+2014-04-21 20:36:28,974 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-jms:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:28,976 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:29,179 [New I/O client worker #8-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-orm/3.0.6.RELEASE/spring-orm-3.0.6.RELEASE.pom
+2014-04-21 20:36:29,181 [New I/O client worker #8-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-orm/3.0.6.RELEASE/spring-orm-3.0.6.RELEASE.pom
+2014-04-21 20:36:29,218 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-orm:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:29,219 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:29,433 [New I/O client worker #9-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.pom
+2014-04-21 20:36:29,436 [New I/O client worker #9-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.pom
+2014-04-21 20:36:29,524 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.velocity:velocity:jar:1.7 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:29,527 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:29,750 [New I/O client worker #10-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom
+2014-04-21 20:36:29,753 [New I/O client worker #10-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.pom
+2014-04-21 20:36:29,802 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.velocity:velocity-tools:jar:2.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:29,805 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:30,022 [New I/O client worker #11-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.0.6/mybatis-3.0.6.pom
+2014-04-21 20:36:30,024 [New I/O client worker #11-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.0.6/mybatis-3.0.6.pom
+2014-04-21 20:36:30,075 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.mybatis:mybatis:jar:3.0.6 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,077 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:30,881 [New I/O client worker #4-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+2014-04-21 20:36:30,883 [New I/O client worker #4-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+2014-04-21 20:36:30,958 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for javax.servlet:servlet-api:jar:2.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,962 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-webmvc:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,967 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-jdbc:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,972 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-jms:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,977 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.springframework:spring-orm:jar:3.0.6.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,981 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.velocity:velocity:jar:1.7 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,987 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.velocity:velocity-tools:jar:2.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,991 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.mybatis:mybatis:jar:3.0.6 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:30,994 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:31,212 [New I/O client worker #13-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis-spring/1.0.2/mybatis-spring-1.0.2.pom
+2014-04-21 20:36:31,215 [New I/O client worker #13-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis-spring/1.0.2/mybatis-spring-1.0.2.pom
+2014-04-21 20:36:31,556 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.mybatis:mybatis-spring:jar:1.0.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:31,559 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:32,068 [New I/O client worker #14-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.pom
+2014-04-21 20:36:32,069 [New I/O client worker #14-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.pom
+2014-04-21 20:36:32,107 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for c3p0:c3p0:jar:0.9.1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:32,110 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:32,332 [New I/O client worker #15-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/caucho/hessian/3.1.5/hessian-3.1.5.pom
+2014-04-21 20:36:32,334 [New I/O client worker #15-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/caucho/hessian/3.1.5/hessian-3.1.5.pom
+2014-04-21 20:36:32,365 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.caucho:hessian:jar:3.1.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:32,367 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:32,568 [New I/O client worker #16-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/googlecode/xmemcached/xmemcached/1.3.5/xmemcached-1.3.5.pom
+2014-04-21 20:36:32,570 [New I/O client worker #16-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/googlecode/xmemcached/xmemcached/1.3.5/xmemcached-1.3.5.pom
+2014-04-21 20:36:32,595 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.xmemcached:xmemcached:jar:1.3.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:32,596 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:33,282 [New I/O client worker #12-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis-spring/1.0.2/mybatis-spring-1.0.2.pom
+2014-04-21 20:36:33,283 [New I/O client worker #12-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis-spring/1.0.2/mybatis-spring-1.0.2.pom
+2014-04-21 20:36:33,318 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.mybatis:mybatis-spring:jar:1.0.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:33,320 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for c3p0:c3p0:jar:0.9.1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:33,323 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.caucho:hessian:jar:3.1.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:33,325 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.googlecode.xmemcached:xmemcached:jar:1.3.5 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:33,327 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:33,829 [New I/O client worker #18-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/slf4j/slf4j-log4j12/1.5.6/slf4j-log4j12-1.5.6.pom
+2014-04-21 20:36:33,831 [New I/O client worker #18-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/slf4j/slf4j-log4j12/1.5.6/slf4j-log4j12-1.5.6.pom
+2014-04-21 20:36:33,860 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.slf4j:slf4j-log4j12:jar:1.5.6 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:33,861 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:34,082 [New I/O client worker #19-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.pom
+2014-04-21 20:36:34,084 [New I/O client worker #19-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.pom
+2014-04-21 20:36:34,126 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.codehaus.jackson:jackson-mapper-asl:jar:1.9.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:34,128 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:34,340 [New I/O client worker #20-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/net/sf/json-lib/json-lib/2.4/json-lib-2.4.pom
+2014-04-21 20:36:34,343 [New I/O client worker #20-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/net/sf/json-lib/json-lib/2.4/json-lib-2.4.pom
+2014-04-21 20:36:34,381 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for net.sf.json-lib:json-lib:jar:jdk15:2.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:34,383 [Worker-4] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:35,800 [New I/O client worker #17-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/slf4j/slf4j-log4j12/1.5.6/slf4j-log4j12-1.5.6.pom
+2014-04-21 20:36:35,802 [New I/O client worker #17-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/slf4j/slf4j-log4j12/1.5.6/slf4j-log4j12-1.5.6.pom
+2014-04-21 20:36:35,835 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.slf4j:slf4j-log4j12:jar:1.5.6 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:35,837 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.codehaus.jackson:jackson-mapper-asl:jar:1.9.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:35,840 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for net.sf.json-lib:json-lib:jar:jdk15:2.4 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:35,842 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:36,044 [New I/O client worker #22-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/jsoup/jsoup/1.6.1/jsoup-1.6.1.pom
+2014-04-21 20:36:36,046 [New I/O client worker #22-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/jsoup/jsoup/1.6.1/jsoup-1.6.1.pom
+2014-04-21 20:36:39,379 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.jsoup:jsoup:jar:1.6.1 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:39,380 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:42,606 [New I/O client worker #23-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/lucene/lucene-core/3.4.0/lucene-core-3.4.0.pom
+2014-04-21 20:36:42,608 [New I/O client worker #23-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/lucene/lucene-core/3.4.0/lucene-core-3.4.0.pom
+2014-04-21 20:36:42,647 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.lucene:lucene-core:jar:3.4.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:42,649 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:46,448 [New I/O client worker #24-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/quartz-scheduler/quartz/1.7.3/quartz-1.7.3.pom
+2014-04-21 20:36:46,451 [New I/O client worker #24-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/quartz-scheduler/quartz/1.7.3/quartz-1.7.3.pom
+2014-04-21 20:36:46,481 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.quartz-scheduler:quartz:jar:1.7.3 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:46,483 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:46,698 [New I/O client worker #25-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.1.2/httpclient-4.1.2.pom
+2014-04-21 20:36:46,700 [New I/O client worker #25-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.1.2/httpclient-4.1.2.pom
+2014-04-21 20:36:46,728 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.httpcomponents:httpclient:jar:4.1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:46,729 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:46,929 [New I/O client worker #26-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2.pom
+2014-04-21 20:36:46,931 [New I/O client worker #26-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2.pom
+2014-04-21 20:36:47,633 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.httpcomponents:httpmime:jar:4.1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:47,635 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:47,839 [New I/O client worker #27-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/commons/commons-email/1.2/commons-email-1.2.pom
+2014-04-21 20:36:47,841 [New I/O client worker #27-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/commons/commons-email/1.2/commons-email-1.2.pom
+2014-04-21 20:36:47,869 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.commons:commons-email:jar:1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:47,870 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:48,073 [New I/O client worker #28-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/javax/jms/jms-api/1.1-rev-1/jms-api-1.1-rev-1.pom
+2014-04-21 20:36:48,075 [New I/O client worker #28-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/javax/jms/jms-api/1.1-rev-1/jms-api-1.1-rev-1.pom
+2014-04-21 20:36:48,408 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for javax.jms:jms-api:jar:1.1-rev-1 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:48,411 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:48,625 [New I/O client worker #29-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/sun/messaging/mq/imq/4.6-b01/imq-4.6-b01.pom
+2014-04-21 20:36:48,627 [New I/O client worker #29-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/sun/messaging/mq/imq/4.6-b01/imq-4.6-b01.pom
+2014-04-21 20:36:48,657 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.messaging.mq:imq:jar:4.6-b01 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:48,659 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:48,862 [New I/O client worker #30-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/google/javascript/closure-compiler/r1459/closure-compiler-r1459.pom
+2014-04-21 20:36:48,864 [New I/O client worker #30-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/google/javascript/closure-compiler/r1459/closure-compiler-r1459.pom
+2014-04-21 20:36:48,890 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.google.javascript:closure-compiler:jar:r1459 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:48,892 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:49,094 [New I/O client worker #31-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/log4j/log4j/1.2.16/log4j-1.2.16.pom
+2014-04-21 20:36:49,096 [New I/O client worker #31-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/log4j/log4j/1.2.16/log4j-1.2.16.pom
+2014-04-21 20:36:49,123 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for log4j:log4j:jar:1.2.16 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:49,125 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:49,337 [New I/O client worker #32-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/commons-io/commons-io/2.1/commons-io-2.1.pom
+2014-04-21 20:36:49,338 [New I/O client worker #32-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/commons-io/commons-io/2.1/commons-io-2.1.pom
+2014-04-21 20:36:49,367 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for commons-io:commons-io:jar:2.1 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:49,369 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:49,580 [New I/O client worker #33-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.pom
+2014-04-21 20:36:49,581 [New I/O client worker #33-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.pom
+2014-04-21 20:36:49,610 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for commons-fileupload:commons-fileupload:jar:1.2.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:49,612 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:50,415 [New I/O client worker #34-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.1/commons-exec-1.1.pom
+2014-04-21 20:36:50,416 [New I/O client worker #34-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.1/commons-exec-1.1.pom
+2014-04-21 20:36:50,443 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.commons:commons-exec:jar:1.1 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:50,445 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:50,651 [New I/O client worker #35-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/poi/poi/3.7/poi-3.7.pom
+2014-04-21 20:36:50,652 [New I/O client worker #35-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/poi/poi/3.7/poi-3.7.pom
+2014-04-21 20:36:53,711 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.poi:poi:jar:3.7 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:53,712 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:53,914 [New I/O client worker #36-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/oracle/jdbc/ojdbc6/1.0.0/ojdbc6-1.0.0.pom
+2014-04-21 20:36:53,916 [New I/O client worker #36-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/oracle/jdbc/ojdbc6/1.0.0/ojdbc6-1.0.0.pom
+2014-04-21 20:36:53,942 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for oracle.jdbc:ojdbc6:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:53,944 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:54,166 [New I/O client worker #37-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom
+2014-04-21 20:36:54,169 [New I/O client worker #37-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom
+2014-04-21 20:36:54,204 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for mysql:mysql-connector-java:jar:5.1.18 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:54,207 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:57,414 [New I/O client worker #38-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/net/sf/pinyin4j/pinyin4j/2.5.0/pinyin4j-2.5.0.pom
+2014-04-21 20:36:57,417 [New I/O client worker #38-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/net/sf/pinyin4j/pinyin4j/2.5.0/pinyin4j-2.5.0.pom
+2014-04-21 20:36:57,465 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for net.sf.pinyin4j:pinyin4j:jar:2.5.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:57,467 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:57,871 [New I/O client worker #39-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/urs/netease-urs/1.0.0/netease-urs-1.0.0.pom
+2014-04-21 20:36:57,872 [New I/O client worker #39-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/urs/netease-urs/1.0.0/netease-urs-1.0.0.pom
+2014-04-21 20:36:58,198 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.urs:netease-urs:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:58,200 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:58,411 [New I/O client worker #40-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/bbs/netease-bbs-webservice-api/1.0.0/netease-bbs-webservice-api-1.0.0.pom
+2014-04-21 20:36:58,412 [New I/O client worker #40-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/bbs/netease-bbs-webservice-api/1.0.0/netease-bbs-webservice-api-1.0.0.pom
+2014-04-21 20:36:59,364 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.bbs:netease-bbs-webservice-api:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:36:59,365 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:36:59,632 [New I/O client worker #41-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-webservice/1.0.0/netease-cms-webservice-1.0.0.pom
+2014-04-21 20:36:59,634 [New I/O client worker #41-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-webservice/1.0.0/netease-cms-webservice-1.0.0.pom
+2014-04-21 20:37:02,696 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.cms:netease-cms-webservice:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:02,698 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:37:03,452 [New I/O client worker #42-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-tagslib-webservice/1.0.0/netease-cms-tagslib-webservice-1.0.0.pom
+2014-04-21 20:37:03,453 [New I/O client worker #42-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-tagslib-webservice/1.0.0/netease-cms-tagslib-webservice-1.0.0.pom
+2014-04-21 20:37:03,483 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.cms:netease-cms-tagslib-webservice:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:03,514 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-04-21 20:37:03,703 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+2014-04-21 20:37:03,704 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/3.0.6.RELEASE/spring-webmvc-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,704 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+2014-04-21 20:37:03,705 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-webmvc/3.0.6.RELEASE/spring-webmvc-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,729 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.jar
+2014-04-21 20:37:03,731 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-orm/3.0.6.RELEASE/spring-orm-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,732 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-jms/3.0.6.RELEASE/spring-jms-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,732 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.jar
+2014-04-21 20:37:03,733 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/springframework/spring-jdbc/3.0.6.RELEASE/spring-jdbc-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,733 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-orm/3.0.6.RELEASE/spring-orm-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,735 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-jms/3.0.6.RELEASE/spring-jms-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,737 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/springframework/spring-jdbc/3.0.6.RELEASE/spring-jdbc-3.0.6.RELEASE.jar
+2014-04-21 20:37:03,740 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.0.6/mybatis-3.0.6.jar
+2014-04-21 20:37:03,742 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.0.6/mybatis-3.0.6.jar
+2014-04-21 20:37:03,742 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis-spring/1.0.2/mybatis-spring-1.0.2.jar
+2014-04-21 20:37:03,744 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis-spring/1.0.2/mybatis-spring-1.0.2.jar
+2014-04-21 20:37:03,745 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+2014-04-21 20:37:03,746 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+2014-04-21 20:37:03,747 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/caucho/hessian/3.1.5/hessian-3.1.5.jar
+2014-04-21 20:37:03,747 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar
+2014-04-21 20:37:03,748 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/caucho/hessian/3.1.5/hessian-3.1.5.jar
+2014-04-21 20:37:03,748 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar
+2014-04-21 20:37:03,749 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/lucene/lucene-core/3.4.0/lucene-core-3.4.0.jar
+2014-04-21 20:37:03,750 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/googlecode/xmemcached/xmemcached/1.3.5/xmemcached-1.3.5.jar
+2014-04-21 20:37:03,750 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/lucene/lucene-core/3.4.0/lucene-core-3.4.0.jar
+2014-04-21 20:37:03,750 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/jsoup/jsoup/1.6.1/jsoup-1.6.1.jar
+2014-04-21 20:37:03,752 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/quartz-scheduler/quartz/1.7.3/quartz-1.7.3.jar
+2014-04-21 20:37:03,752 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/googlecode/xmemcached/xmemcached/1.3.5/xmemcached-1.3.5.jar
+2014-04-21 20:37:03,753 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/quartz-scheduler/quartz/1.7.3/quartz-1.7.3.jar
+2014-04-21 20:37:03,753 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/jsoup/jsoup/1.6.1/jsoup-1.6.1.jar
+2014-04-21 20:37:03,754 [New I/O client worker #43-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar
+2014-04-21 20:37:03,755 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.1.2/httpclient-4.1.2.jar
+2014-04-21 20:37:03,755 [New I/O client worker #43-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar
+2014-04-21 20:37:03,756 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.1.2/httpclient-4.1.2.jar
+2014-04-21 20:37:03,762 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2.jar
+2014-04-21 20:37:03,764 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/log4j/log4j/1.2.16/log4j-1.2.16.jar
+2014-04-21 20:37:03,765 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/javax/jms/jms-api/1.1-rev-1/jms-api-1.1-rev-1.jar
+2014-04-21 20:37:03,765 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.1.2/httpmime-4.1.2.jar
+2014-04-21 20:37:03,766 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/commons-io/commons-io/2.1/commons-io-2.1.jar
+2014-04-21 20:37:03,766 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/log4j/log4j/1.2.16/log4j-1.2.16.jar
+2014-04-21 20:37:03,767 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/poi/poi/3.7/poi-3.7.jar
+2014-04-21 20:37:03,767 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/commons-io/commons-io/2.1/commons-io-2.1.jar
+2014-04-21 20:37:03,768 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/javax/jms/jms-api/1.1-rev-1/jms-api-1.1-rev-1.jar
+2014-04-21 20:37:03,768 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar
+2014-04-21 20:37:03,769 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-tagslib-webservice/1.0.0/netease-cms-tagslib-webservice-1.0.0.jar
+2014-04-21 20:37:03,769 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/poi/poi/3.7/poi-3.7.jar
+2014-04-21 20:37:03,770 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/net/sf/pinyin4j/pinyin4j/2.5.0/pinyin4j-2.5.0.jar
+2014-04-21 20:37:03,770 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar
+2014-04-21 20:37:03,771 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/urs/netease-urs/1.0.0/netease-urs-1.0.0.jar
+2014-04-21 20:37:03,771 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/net/sf/pinyin4j/pinyin4j/2.5.0/pinyin4j-2.5.0.jar
+2014-04-21 20:37:03,771 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/bbs/netease-bbs-webservice-api/1.0.0/netease-bbs-webservice-api-1.0.0.jar
+2014-04-21 20:37:03,771 [New I/O client worker #43-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar
+2014-04-21 20:37:03,772 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/urs/netease-urs/1.0.0/netease-urs-1.0.0.jar
+2014-04-21 20:37:03,772 [New I/O client worker #43-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-tagslib-webservice/1.0.0/netease-cms-tagslib-webservice-1.0.0.jar
+2014-04-21 20:37:03,773 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-webservice/1.0.0/netease-cms-webservice-1.0.0.jar
+2014-04-21 20:37:03,773 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/bbs/netease-bbs-webservice-api/1.0.0/netease-bbs-webservice-api-1.0.0.jar
+2014-04-21 20:37:03,775 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/netease/cms/netease-cms-webservice/1.0.0/netease-cms-webservice-1.0.0.jar
+2014-04-21 20:37:03,790 [New I/O client worker #43-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar
+2014-04-21 20:37:04,290 [New I/O client worker #43-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/sun/messaging/mq/imq/4.6-b01/imq-4.6-b01.jar
+2014-04-21 20:37:04,291 [New I/O client worker #43-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/sun/messaging/mq/imq/4.6-b01/imq-4.6-b01.jar
+2014-04-21 20:37:06,735 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar
+2014-04-21 20:37:06,737 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar
+2014-04-21 20:37:06,741 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/commons/commons-email/1.2/commons-email-1.2.jar
+2014-04-21 20:37:06,743 [New I/O client worker #43-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/commons/commons-email/1.2/commons-email-1.2.jar
+2014-04-21 20:37:06,758 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/com/google/javascript/closure-compiler/r1459/closure-compiler-r1459.jar
+2014-04-21 20:37:06,761 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/com/google/javascript/closure-compiler/r1459/closure-compiler-r1459.jar
+2014-04-21 20:37:07,046 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/slf4j/slf4j-log4j12/1.5.6/slf4j-log4j12-1.5.6.jar
+2014-04-21 20:37:07,049 [New I/O client worker #43-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/slf4j/slf4j-log4j12/1.5.6/slf4j-log4j12-1.5.6.jar
+2014-04-21 20:37:09,762 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/oracle/jdbc/ojdbc6/1.0.0/ojdbc6-1.0.0.jar
+2014-04-21 20:37:09,765 [New I/O client worker #43-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/oracle/jdbc/ojdbc6/1.0.0/ojdbc6-1.0.0.jar
+2014-04-21 20:37:12,765 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar
+2014-04-21 20:37:12,768 [New I/O client worker #43-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar
+2014-04-21 20:37:34,613 [AsyncHttpClient-Reaper] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/jsoup/jsoup/1.6.1/jsoup-1.6.1.pom
+2014-04-21 20:37:34,640 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.lucene:lucene-core:jar:3.4.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,657 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.quartz-scheduler:quartz:jar:1.7.3 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,673 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.httpcomponents:httpclient:jar:4.1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,682 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.httpcomponents:httpmime:jar:4.1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,695 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.commons:commons-email:jar:1.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,709 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for javax.jms:jms-api:jar:1.1-rev-1 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,716 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.sun.messaging.mq:imq:jar:4.6-b01 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,727 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.google.javascript:closure-compiler:jar:r1459 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,740 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for log4j:log4j:jar:1.2.16 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,751 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for commons-io:commons-io:jar:2.1 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,762 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for commons-fileupload:commons-fileupload:jar:1.2.2 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,773 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.commons:commons-exec:jar:1.1 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,784 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.apache.poi:poi:jar:3.7 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,792 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for oracle.jdbc:ojdbc6:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,803 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for mysql:mysql-connector-java:jar:5.1.18 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,811 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for net.sf.pinyin4j:pinyin4j:jar:2.5.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,827 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.urs:netease-urs:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,836 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.bbs:netease-bbs-webservice-api:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,845 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.cms:netease-cms-webservice:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,854 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for com.netease.cms:netease-cms-tagslib-webservice:jar:1.0.0 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+2014-04-21 20:37:34,880 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,890 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,899 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,906 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,914 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,921 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,928 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,935 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,943 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,951 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,958 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,965 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,972 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,979 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,986 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,993 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:34,999 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,006 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,013 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,020 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,028 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,037 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,044 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,052 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,059 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,066 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,073 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,079 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,085 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,092 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,098 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,105 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,112 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,120 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,128 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,134 [Worker-4] WARN  o.e.m.c.i.markers.MarkerUtils - Could not find OSGI service for org.eclipse.m2e.core.internal.markers.IMarkerLocationService
+2014-04-21 20:37:35,136 [Worker-4] INFO  o.e.m.c.i.p.r.ProjectRegistryRefreshJob - org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob was canceled

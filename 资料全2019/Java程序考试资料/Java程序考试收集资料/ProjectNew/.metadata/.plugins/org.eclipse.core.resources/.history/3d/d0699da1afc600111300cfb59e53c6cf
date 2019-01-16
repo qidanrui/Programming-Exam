@@ -1,0 +1,82 @@
+package cn.edu.xmu.software.model;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+
+
+import com.j256.ormlite.dao.Dao;
+
+public class GoalOpt implements IGoalOpt{
+	Dao<Goal,Integer>  goalDao;
+	public GoalOpt(Context context) 
+	{
+		try {
+			goalDao=DataUtils.getHelper(context).getGoalDao();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    /**
+     * 创建目标
+     * @param g
+     */
+	public void createGoal(Goal g)  {
+		// TODO Auto-generated method stub
+			try {
+				goalDao.create(g);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	}
+    /**
+     * 更新目标
+     * @param g
+     */
+	public void updateGoal(Goal g) {
+		// TODO Auto-generated method stub
+		try {
+			goalDao.update(g);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   /**
+    * 删除目标
+    * @param g
+    */
+	public void deleteGoal(Goal g) {
+		// TODO Auto-generated method stub
+		try {
+		 goalDao.delete(g);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   
+   /**
+    * 获取表中的所有目标
+    */
+	public  List<Goal>  getAllGoal()  {
+		// TODO Auto-generated method stub
+
+			List<Goal> results = new ArrayList<Goal>();
+			try {
+				results = goalDao.queryForAll();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 return results;
+	}
+}

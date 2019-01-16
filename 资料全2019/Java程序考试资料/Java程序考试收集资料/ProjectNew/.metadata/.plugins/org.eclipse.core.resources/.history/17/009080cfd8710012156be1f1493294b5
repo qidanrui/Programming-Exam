@@ -1,0 +1,19 @@
+import javax.media.opengl.GLCapabilities;
+public class OpenGLTest {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try
+		{
+			System.loadLibrary("jogl");
+			System.out.println("Hello World");
+			@SuppressWarnings("unused")
+			GLCapabilities caps = new GLCapabilities(null);
+			System.out.println("Hello JOGL");
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+}

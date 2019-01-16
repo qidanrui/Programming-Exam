@@ -1,0 +1,16 @@
+import java.awt.Button;
+
+
+public class JavaTest {
+           public static void main(String []args)
+           {
+/*        	   System.out.println("john"=="john");
+        	   System.out.println("john".equals("john"));
+        	   System.out.println("john".equals(new Button("john")));*/
+        	   String s=new String("Bicycle");
+        	   int iBegin=1;
+        	   char eEnd=3;
+        	   System.out.println(s.substring(iBegin, eEnd));
+           }
+           
+}

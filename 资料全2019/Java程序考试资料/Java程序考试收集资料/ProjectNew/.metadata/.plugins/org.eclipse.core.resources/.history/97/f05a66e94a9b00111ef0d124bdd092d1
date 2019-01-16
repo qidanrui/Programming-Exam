@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+#headerView{
+	width:1100px;
+	margin-left: 120px;
+
+}
+.headerSaying{
+	FONT-SIZE: x-large; COLOR: #808080; FONT-STYLE: italic;
+}
+#mainHeader{
+	width:1350px;
+	height:120px;
+
+	margin-left:-12px;
+	background: url('../images/mainHeader.jpg') ;
+}
+
+.header_right
+{
+	position:absolute;
+	top:25px;
+	right:125px;
+}
+.leftHeadInfo
+{
+	position:absolute;
+	left:1170px;
+}
+

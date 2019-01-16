@@ -1,0 +1,6 @@
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));//一定不要忘记写new！！！
+String input = br.readLine();
+...
+br.close();//最后不要忘记关闭输入流
+
+

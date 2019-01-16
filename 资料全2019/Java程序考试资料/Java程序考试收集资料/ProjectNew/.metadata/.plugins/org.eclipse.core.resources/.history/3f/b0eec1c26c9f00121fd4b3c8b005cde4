@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="action_bar_height">47.0dip</dimen>
+    <dimen name="font_size">16.0sp</dimen>
+    <dimen name="row_height">50.0dip</dimen>
+    <dimen name="normal_space">6.0dip</dimen>
+    <dimen name="task_info_icon_width">35.0dip</dimen>
+    <dimen name="item_height">48.0dip</dimen>
+    <dimen name="task_cell_content_left">50.0dip</dimen>
+    <dimen name="menu_item_height">51.0dip</dimen>
+    <dimen name="expanded_height">96.0dip</dimen>
+    <dimen name="popup_pager_width">310.0dip</dimen>
+    <dimen name="popup_pager_height">300.0dip</dimen>
+    <dimen name="popup_pager_margin">70.0dip</dimen>
+    <dimen name="popup_bottom_margin">50.0dip</dimen>
+    <dimen name="contact_thumbnail_size">80.0dip</dimen>
+    <dimen name="contact_thumbnail_border">10.0dip</dimen>
+    <dimen name="contact_thumbnail_margin">3.0dip</dimen>
+    <dimen name="reminder_margin">13.0dip</dimen>
+</resources>

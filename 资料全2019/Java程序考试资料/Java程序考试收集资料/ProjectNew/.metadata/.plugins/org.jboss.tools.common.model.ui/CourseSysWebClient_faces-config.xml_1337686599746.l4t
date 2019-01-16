@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout resource="/CourseSysWebClient/WebContent/WEB-INF/faces-config.xml">
+ <TreeFormPage>
+  <Memento type="FacesConfig20">
+   <Memento type="Factories"/>
+   <Memento type="Lifecycle"/>
+   <Memento type="Advanced"/>
+  </Memento>
+ </TreeFormPage>
+</Layout>

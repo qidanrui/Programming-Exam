@@ -1,0 +1,23 @@
+package cn.edu.xmu.courseSys.view;
+
+import java.io.Serializable;
+
+import javax.faces.context.FacesContext;
+
+public class BaseBean implements Serializable{
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public static Object getManagedBean(FacesContext facesContext,String name)
+	{
+		Object  obj = (Object) facesContext.getApplication().getVariableResolver().resolveVariable(facesContext,    name); 
+		return obj;
+	}
+	
+
+
+}

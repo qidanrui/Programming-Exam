@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="#ff000000" android:layout_width="fill_parent" android:layout_height="40.0dip">
+        <Button android:textColor="#ffffffff" android:layout_gravity="center" android:id="@id/btn_kaoqingyilang_back" android:background="@drawable/back" android:layout_width="fill_parent" android:layout_height="38.0dip" android:text="@string/fanhui" android:layout_weight="4.0" />
+        <TextView android:textSize="26.0dip" android:textColor="#ffffffff" android:gravity="center" android:layout_width="fill_parent" android:layout_height="38.0dip" android:text="@string/kaoqingyilan" android:layout_weight="2.0" />
+        <Button android:textColor="#ffffffff" android:layout_gravity="center" android:id="@id/btn_kaoqingyilang_upload" android:background="@drawable/shape_background" android:layout_width="fill_parent" android:layout_height="38.0dip" android:text="@string/shangchun" android:layout_weight="4.0" />
+    </LinearLayout>
+    <LinearLayout  
+       android:layout_marginTop="20.0dip"
+       >
+        <EditText 
+            android:id="@+id/username" 
+            android:hint="@string/email_or_username" 
+            style="@style/editview" />
+    </LinearLayout>
+    
+    <LinearLayout >
+        <EditText 
+            android:id="@+id/password"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            style="@style/editview"/>
+    </LinearLayout>
+    
+    <Button 
+        android:id="@+id/login_btn" 
+        android:background="@drawable/login_btn" 
+        android:layout_marginLeft="9.0dip" 
+        android:layout_marginRight="9.0dip" 
+        android:text="@string/login" 
+        style="@style/big_bottom_btn" />
+</LinearLayout>

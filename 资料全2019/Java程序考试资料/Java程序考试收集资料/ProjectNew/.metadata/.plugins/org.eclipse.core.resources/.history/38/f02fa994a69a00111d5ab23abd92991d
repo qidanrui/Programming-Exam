@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+.login-heading {
+  font-family: Arial, sans-serif;
+  font-size: 26pt;
+  font-weight: normal;
+  text-align: left;
+}
+
+#registerHead{	
+	margin-top:0px;
+	margin-left:125px;
+	width:1100px;
+	padding:10px;
+	font-size: large;
+	color: #ffffff;
+	background: url('../images/bg_toolBar.png') repeat-x;
+	text-align: center; 
+}

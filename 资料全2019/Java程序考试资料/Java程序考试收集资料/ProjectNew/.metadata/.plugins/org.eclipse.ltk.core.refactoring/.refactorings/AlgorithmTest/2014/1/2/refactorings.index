@@ -1,0 +1,7 @@
+1389429092158	Rename type 'FileReader'
+1389429178236	Encapsulate field 'num'
+1389429181868	Encapsulate field 'name'
+1389429185868	Encapsulate field 'age'
+1389431083426	Encapsulate field 'datas'
+1389435379183	Delete element
+1389443165035	Rename type 'FileOperateTest'

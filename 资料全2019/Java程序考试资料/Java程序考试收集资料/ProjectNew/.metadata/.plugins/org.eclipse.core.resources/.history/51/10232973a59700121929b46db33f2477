@@ -1,0 +1,480 @@
+package cn.edu.xmu.software.eventprocesser;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import javax.media.opengl.awt.GLCanvas;
+import cn.edu.xmu.software.util.Constants;
+import cn.edu.xmu.software.util.ColorControlPoint;
+import cn.edu.xmu.software.util.InputTrace;
+import cn.edu.xmu.software.util.MatOperate;
+import cn.edu.xmu.software.util.Point;
+import cn.edu.xmu.software.util.ShapeControlPoint;
+import cn.edu.xmu.software.util.StaticData;
+
+/**
+ * 处理鼠标事件
+ * @author::jimmy.cai
+ * @date::2013/03/09
+ */
+public class MouseProcesser implements MouseListener, MouseMotionListener,  MouseWheelListener{
+	private GLCanvas glcanvas;
+	private Point lastPoint;
+	private int dis;
+	private boolean isCurveSelected=false;
+	
+	public MouseProcesser(){
+		lastPoint=new Point();
+	}
+	
+	public MouseProcesser(GLCanvas glcanvas){
+		this.glcanvas=glcanvas;
+		lastPoint=new Point();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-StaticData.gDx)/StaticData.gScale);
+		int y=(int)(((float)arg0.getY()-StaticData.gDy)/StaticData.gScale);
+		if(StaticData.isAddLines){
+			StaticData.isDiffusing=false;
+			lastPoint.setX(x);
+			lastPoint.setY(y);
+			StaticData.currentInput.add(lastPoint);
+		}
+		if(StaticData.isHandPan){
+			lastPoint.setX(x);
+			lastPoint.setY(y);
+			isCurveSelected=false;
+			for(int i=0;i<StaticData.allCurves.size();i++){
+				if(StaticData.allCurves.get(i).isSelected()){
+					isCurveSelected=true;
+					break;
+				}
+			}
+		}
+		if(StaticData.isBlurImage)
+		{
+            StaticData.currentPnts.clear();
+			StaticData.currentPnts.add(new Point(arg0.getX(),arg0.getY()));
+		}
+		if(StaticData.isStForAdjusting){
+			//TODO 如果在某个矩形范围内则不进行操作
+			if(!StaticData.isMultipleSelecting)
+				for(int i=0;i<StaticData.allCurves.size();i++){
+					StaticData.allCurves.get(i).setSelected(false);
+				}
+			int selectedIndex=selectCurve(new Point(x,y));
+			if(selectedIndex>=0){
+				StaticData.allCurves.get(selectedIndex).setSelected(true);
+				glcanvas.display();
+			}
+		}
+		if(StaticData.isStForMdColor){
+			if(!StaticData.isMultipleSelecting)
+				for(int i=0;i<StaticData.allCurves.size();i++){
+					for(int j=0;j<StaticData.allCurves.get(i).getColorControlPoints().size();j++){
+						StaticData.allCurves.get(i).getColorControlPoints().get(j).setLeftPointSelected(false);
+						StaticData.allCurves.get(i).getColorControlPoints().get(j).setRightPointSelected(false);
+					}
+				}
+			boolean isSelectCP=selectControlPoints(new Point(x,y));
+			
+			boolean isReset=true;
+			for(int i=0;i<StaticData.allCurves.size();i++){
+				if(StaticData.allCurves.get(i).isSelected()){
+					int minX=StaticData.allCurves.get(i).getMinX();
+					int minY=StaticData.allCurves.get(i).getMinY();
+					int maxX=StaticData.allCurves.get(i).getMaxX();
+					int maxY=StaticData.allCurves.get(i).getMaxY();
+					if(x>=minX && x<=maxX && y>=minY && y<=maxY){
+						isReset=false;
+					}
+				}
+			}
+			if(!StaticData.isMultipleSelecting && isReset && !isSelectCP){
+				for(int i=0;i<StaticData.allCurves.size();i++){
+					StaticData.allCurves.get(i).setSelected(false);
+				}
+			}
+			int selectedIndex=selectCurve(new Point(x,y));
+			if(selectedIndex>=0 && !StaticData.allCurves.get(selectedIndex).isSelected()){
+				StaticData.allCurves.get(selectedIndex).setSelected(true);
+				glcanvas.display();
+				return;
+			}
+			for(int i=0;i<StaticData.allCurves.size();i++){
+				if(StaticData.allCurves.get(i).isSelected()){
+					int minX=StaticData.allCurves.get(i).getMinX();
+					int minY=StaticData.allCurves.get(i).getMinY();
+					int maxX=StaticData.allCurves.get(i).getMaxX();
+					int maxY=StaticData.allCurves.get(i).getMaxY();
+					if(x>=minX && x<=maxX && y>=minY && y<=maxY){
+						if(StaticData.isMultipleSelecting && !isSelectCP)
+							StaticData.allCurves.get(i).setSelected(false);
+					}
+				}
+			}
+			
+			
+			glcanvas.display();
+		}
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-StaticData.gDx)/StaticData.gScale);//转化为标准情况下的坐标即gScale=1.0 gDx=0.0 gDy=0.0
+		int y=(int)(((float)arg0.getY()-StaticData.gDy)/StaticData.gScale);
+		if(StaticData.isAddLines){
+			StaticData.isDiffusing=true;
+			Point currentPoint=new Point(x,y);
+			StaticData.currentInput.add(currentPoint);
+//			addLRCurves();
+			addLine();
+			MethodTool.pushState();
+		}
+		else if(StaticData.isHandPan){
+			int dx=arg0.getX()-(int)((float)lastPoint.getX()*StaticData.gScale+StaticData.gDx);
+			int dy=arg0.getY()-(int)((float)lastPoint.getY()*StaticData.gScale+StaticData.gDy);
+			moveCurve(dx,dy,!isCurveSelected);
+		}
+		else if(StaticData.isBlurImage)
+		{
+		    StaticData.isLoadPng=false;
+			StaticData.isDraw=false;
+		    ControlsListener.getCurrentImageMat(); 
+			StaticData.currentPnts.add(new Point(arg0.getX(),arg0.getY()));
+			  for(int i=0;i<StaticData.currentPnts.size();i++)
+			    {
+				ControlsListener.blur(StaticData.currentPnts.get(i));
+			    }
+			StaticData.imgHeight=(int)Constants.drawWidth;
+			StaticData.imgWidth=(int)Constants.drawWidth;
+			byte[] temp=MatOperate.convertMatToByteAlpha(StaticData.rgbaImage);
+			StaticData.optImgBuf.clear();
+		    StaticData.optImgBuf=ByteBuffer.wrap(temp);
+//			StaticData.undoStack.push(StaticData.optImgBuf);
+
+		}
+		glcanvas.display();
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-StaticData.gDx)/StaticData.gScale);
+		int y=(int)(((float)arg0.getY()-StaticData.gDy)/StaticData.gScale);
+		if (StaticData.isAddLines) {
+			Point currentPoint=new Point(x,y);
+			dis+=MethodTool.getDis(lastPoint,currentPoint);
+			if (dis > 1) {
+				dis = 0;
+				StaticData.currentInput.add(currentPoint);
+				lastPoint = new Point(currentPoint);
+				glcanvas.display();
+			}
+		}
+		else if(StaticData.isHandPan){
+			int dx=arg0.getX()-(int)((float)lastPoint.getX()*StaticData.gScale+StaticData.gDx);
+			int dy=arg0.getY()-(int)((float)lastPoint.getY()*StaticData.gScale+StaticData.gDy);
+			moveCurve(dx,dy,!isCurveSelected);
+			lastPoint.setX(x);
+			lastPoint.setY(y);
+			glcanvas.display();
+		}
+		else if(StaticData.isBlurImage)
+		{
+			    StaticData.currentPnts.add(new Point(arg0.getX(),arg0.getY()));
+		}
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent arg0) {
+		if (StaticData.isZoomIn || StaticData.isZoomOut) {
+			float lastgScale = StaticData.gScale;
+			int num = arg0.getWheelRotation();
+
+			StaticData.gScale += num * 0.1f;
+			if (StaticData.gScale < 0.1)
+				StaticData.gScale = 0.1f;
+			else if (StaticData.gScale > 3)
+				StaticData.gScale = 3;
+			int vpx = -(int) (Constants.drawWidth * (StaticData.gScale - lastgScale)) / 2;
+			int vpy = vpx;
+			StaticData.gDx += vpx;
+			StaticData.gDy += vpy;
+			glcanvas.display();
+		}
+	}
+	
+	/**
+	 * 对currentInput进行贝塞尔曲线拟合，并由拟合后的点得出leftCurve和rightCurve,最后加进allCurves
+	 */
+	public static void addLine(){
+		// TODO 贝塞尔曲线拟合  Condition:得出的点即currentInput的新值必须个数较为密集
+		
+		ColorControlPoint point1=new ColorControlPoint(StaticData.currentInput.get(0));
+		point1.setIndex(0);
+		point1.setLeftColor(StaticData.leftColor);
+		point1.setRightColor(StaticData.rightColor);
+		
+//		ControlPoint point2=new ControlPoint(StaticData.currentInput.get(StaticData.currentInput.size()/2));
+//		point2.setIndex(StaticData.currentInput.size()/2);
+//		point2.setLeftColor(new Color(0.0f,1.0f,0.0f));
+//		point2.setRightColor(new Color(0.0f,0.0f,0.0f));
+		
+		ColorControlPoint point3=new ColorControlPoint(StaticData.currentInput.get(StaticData.currentInput.size()-1));
+		point3.setIndex(StaticData.currentInput.size()-1);
+		point3.setLeftColor(StaticData.leftColor);
+		point3.setRightColor(StaticData.rightColor);
+		
+		ArrayList<ColorControlPoint> colorcontrolPoints=new ArrayList<ColorControlPoint>();
+		colorcontrolPoints.add(point1);
+//		controlPoints.add(point2);
+		colorcontrolPoints.add(point3);
+		
+		ShapeControlPoint spoint1=new ShapeControlPoint(StaticData.currentInput.get(0));
+		spoint1.setIndex(0);
+		ShapeControlPoint spoint2=new ShapeControlPoint(StaticData.currentInput.get(StaticData.currentInput.size()-1));
+		spoint1.setIndex(StaticData.currentInput.size()-1);
+		ArrayList<ShapeControlPoint> shapeControlPoints=new ArrayList<ShapeControlPoint>();
+		shapeControlPoints.add(spoint1);
+		shapeControlPoints.add(spoint2);
+		
+		double[] V=new double[2];
+		double[] N=new double[2];
+		int size=StaticData.currentInput.size();
+		double[] PM;
+		int cIndex=0;
+		
+		if(size<2)
+			return;
+		for(int i=0;i<size;i++){
+			if(i==0){
+				V[0]=StaticData.currentInput.get(i+1).getX()-StaticData.currentInput.get(i).getX();
+				V[1]=StaticData.currentInput.get(i+1).getY()-StaticData.currentInput.get(i).getY();
+				N=MethodTool.getNormal(V);
+
+				PM=MethodTool.getPMValue(V);
+			}
+			else if(i==size-1){
+				V[0]=StaticData.currentInput.get(i).getX()-StaticData.currentInput.get(i-1).getX();
+				V[1]=StaticData.currentInput.get(i).getY()-StaticData.currentInput.get(i-1).getY();
+				N=MethodTool.getNormal(V);
+
+				PM=MethodTool.getPMValue(V);
+			}
+			else{
+				double[] N1=new double[2];
+				double[] N2=new double[2];
+				double vx=0,vy=0;
+				V[0]=StaticData.currentInput.get(i+1).getX()-StaticData.currentInput.get(i).getX();
+				V[1]=StaticData.currentInput.get(i+1).getY()-StaticData.currentInput.get(i).getY();
+				N1=MethodTool.getNormal(V);
+				vx+=V[0];
+				vy+=V[1];
+				V[0]=StaticData.currentInput.get(i).getX()-StaticData.currentInput.get(i-1).getX();
+				V[1]=StaticData.currentInput.get(i).getY()-StaticData.currentInput.get(i-1).getY();
+				N2=MethodTool.getNormal(V);
+				vx+=V[0];
+				vy+=V[1];
+				N[0]=(N1[0]+N2[0])/2.0;
+				N[1]=(N1[1]+N2[1])/2.0;
+
+				double[] vxy=new double[2];
+				vxy[0]=vx;
+				vxy[1]=vy;
+				PM=MethodTool.getPMValue(vxy);
+			}
+			double leftXX=StaticData.currentInput.get(i).getX()-N[0]*PM[0]+0.5;
+			double leftYY=StaticData.currentInput.get(i).getY()-N[1]*PM[1]+0.5;
+			double rightXX=StaticData.currentInput.get(i).getX()+N[0]*PM[0]+0.5;
+			double rightYY=StaticData.currentInput.get(i).getY()+N[1]*PM[1]+0.5;
+			StaticData.leftCurve.add(new Point((int)leftXX,(int)leftYY));
+			StaticData.rightCurve.add(new Point((int)rightXX,(int)rightYY));
+			
+			//设置左右颜色控制点
+			if(colorcontrolPoints.get(cIndex).getIndex()==i){
+				leftXX=StaticData.currentInput.get(i).getX()-N[0]*PM[0]*10+0.5;
+				leftYY=StaticData.currentInput.get(i).getY()-N[1]*PM[1]*10+0.5;
+				rightXX=StaticData.currentInput.get(i).getX()+N[0]*PM[0]*10+0.5;					
+				rightYY=StaticData.currentInput.get(i).getY()+N[1]*PM[1]*10+0.5;
+				colorcontrolPoints.get(cIndex).setLeftColorPoint(new Point((int)leftXX,(int)leftYY));
+				colorcontrolPoints.get(cIndex).setRightColorPoint(new Point((int)rightXX,(int)rightYY));
+				//TODO   此处等到贝赛尔曲线拟合得到左右控制点后去掉
+				shapeControlPoints.get(cIndex).setLeftShapePoint(new Point((int)leftXX,(int)leftYY));
+				shapeControlPoints.get(cIndex).setRightShapePoint(new Point((int)rightXX,(int)rightYY));
+				
+				cIndex++;
+			}
+		}
+		InputTrace input=new InputTrace();
+		input.setInputTrace(new ArrayList<Point>(StaticData.currentInput));
+		input.setLeftCurve(new ArrayList<Point>(StaticData.leftCurve));
+		input.setRightCurve(new ArrayList<Point>(StaticData.rightCurve));
+		// TODO input.setColorControlPoint()  input.setShapeControlPoint()
+		input.setColorControlPoints(colorcontrolPoints);
+		input.setShapeControlPoints(shapeControlPoints);
+		input.setSelected(false);
+		StaticData.allCurves.add(input);
+		StaticData.currentInput.clear();
+		StaticData.leftCurve.clear();
+		StaticData.rightCurve.clear();
+	}
+	
+	/**
+	 * 为当前正在画的曲线添加左右曲线
+	 */
+	private void addLRCurves(){
+		double[] V=new double[2];//V[0]:X方向的偏移量；V[1]Y方向的偏移量
+		double[] N=new double[2];//法向
+
+		int size=StaticData.currentInput.size();
+		V[0]=StaticData.currentInput.get(size-1).getX()-StaticData.currentInput.get(size-2).getX();
+		V[1]=StaticData.currentInput.get(size-1).getY()-StaticData.currentInput.get(size-2).getY();
+		N=MethodTool.getNormal(V);
+
+		double[] PM=MethodTool.getPMValue(V);
+		
+		//第二个点的时候给第一个点加上左右点
+		if(StaticData.currentInput.size()==2){
+			double leftXX=StaticData.currentInput.get(size-2).getX()-N[0]*PM[0]+0.5;
+			double leftYY=StaticData.currentInput.get(size-2).getY()-N[1]*PM[1]+0.5;
+			double rightXX=StaticData.currentInput.get(size-2).getX()+N[0]*PM[0]+0.5;
+			double rightYY=StaticData.currentInput.get(size-2).getY()+N[1]*PM[1]+0.5;
+			
+			StaticData.leftCurve.add(new Point((int)leftXX,(int)leftYY));
+			StaticData.rightCurve.add(new Point((int)rightXX,(int)rightYY));
+		}
+		
+		double leftXX=StaticData.currentInput.get(size-1).getX()-N[0]*PM[0]+0.5;
+		double leftYY=StaticData.currentInput.get(size-1).getY()-N[1]*PM[1]+0.5;
+		double rightXX=StaticData.currentInput.get(size-1).getX()+N[0]*PM[0]+0.5;
+		double rightYY=StaticData.currentInput.get(size-1).getY()+N[1]*PM[1]+0.5;
+		StaticData.leftCurve.add(new Point((int)leftXX,(int)leftYY));
+		StaticData.rightCurve.add(new Point((int)rightXX,(int)rightYY));
+	}
+	
+	/**
+	 * 选择一条曲线
+	 * @param mousePressPoint
+	 * @return
+	 */
+	private int selectCurve(Point mousePressPoint){
+		int selectedIndex=-1;
+		Found:
+		for(int i=0;i<StaticData.allCurves.size();i++){
+			ArrayList<Point> currentCurve=StaticData.allCurves.get(i).getInputTrace();
+			for(int j=0;j<currentCurve.size();j++){
+				if(MethodTool.getDis(currentCurve.get(j),mousePressPoint)<=5){
+					selectedIndex=i;
+					break Found;
+				}
+			}
+		}
+		return selectedIndex;
+	}
+	
+	/**
+	 * 选择颜色控制点
+	 * @param mousePressPoint
+	 */
+	private boolean selectControlPoints(Point mousePressPoint){
+		boolean isSelected=false;
+		for(int i=0;i<StaticData.allCurves.size();i++){
+			if(StaticData.allCurves.get(i).isSelected()){
+				ArrayList<ColorControlPoint> cPoints=StaticData.allCurves.get(i).getColorControlPoints();
+				for(int j=0;j<cPoints.size();j++){
+					if(MethodTool.getDis(cPoints.get(j).getLeftColorPoint(),mousePressPoint)<10){
+						if(StaticData.isMultipleSelecting && cPoints.get(j).isLeftPointSelected())
+							cPoints.get(j).setLeftPointSelected(false);
+						else cPoints.get(j).setLeftPointSelected(true);
+						isSelected=true;
+						return isSelected;
+					}
+					else if(MethodTool.getDis(cPoints.get(j).getRightColorPoint(),mousePressPoint)<10){
+						if(StaticData.isMultipleSelecting && cPoints.get(j).isRightPointSelected())
+							cPoints.get(j).setRightPointSelected(false);
+						else cPoints.get(j).setRightPointSelected(true);
+						isSelected=true;
+						return isSelected;
+					}
+				}
+			}
+		}
+		return isSelected;
+	}
+	
+	/**
+	 * 移动被选中曲线
+	 * @param dx
+	 * @param dy
+	 */
+	private void moveCurve(int dx, int dy, boolean isMoveAllCurves){
+		for(int i=0;i<StaticData.allCurves.size();i++){
+			if(isMoveAllCurves || StaticData.allCurves.get(i).isSelected()){
+				//移动inputTrace
+				ArrayList<Point> input=StaticData.allCurves.get(i).getInputTrace();
+				for(int j=0;j<input.size();j++){
+					input.get(j).setX(dx+input.get(j).getX());
+					input.get(j).setY(dy+input.get(j).getY());
+				}
+				//移动左曲线
+				ArrayList<Point> left=StaticData.allCurves.get(i).getLeftCurve();
+				for(int j=0;j<left.size();j++){
+					left.get(j).setX(dx+left.get(j).getX());
+					left.get(j).setY(dy+left.get(j).getY());
+				}
+				//移动右曲线
+				ArrayList<Point> right=StaticData.allCurves.get(i).getRightCurve();
+				for(int j=0;j<right.size();j++){
+					right.get(j).setX(dx+right.get(j).getX());
+					right.get(j).setY(dy+right.get(j).getY());
+				}
+				//移动颜色控制点
+				ArrayList<ColorControlPoint> colorControl=StaticData.allCurves.get(i).getColorControlPoints();
+				for(int j=0;j<colorControl.size();j++){
+					colorControl.get(j).setX(dx+colorControl.get(j).getX());
+					colorControl.get(j).setY(dy+colorControl.get(j).getY());
+					Point leftColorPoint=new Point(dx+colorControl.get(j).getLeftColorPoint().getX(),dy+colorControl.get(j).getLeftColorPoint().getY());
+					colorControl.get(j).setLeftColorPoint(leftColorPoint);
+					Point rightColorPoint=new Point(dx+colorControl.get(j).getRightColorPoint().getX(),dy+colorControl.get(j).getRightColorPoint().getY());
+					colorControl.get(j).setRightColorPoint(rightColorPoint);
+				}
+				//移动形状控制点
+				ArrayList<ShapeControlPoint> shapeControl=StaticData.allCurves.get(i).getShapeControlPoints();
+				for(int j=0;j<shapeControl.size();j++){
+					Point leftShapePoint=new Point(dx+shapeControl.get(j).getLeftShapePoint().getX(),dy+shapeControl.get(j).getLeftShapePoint().getY());
+					shapeControl.get(j).setLeftShapePoint(leftShapePoint);
+					Point rightShapePoint=new Point(dx+shapeControl.get(j).getRightShapePoint().getX(),dy+shapeControl.get(j).getRightShapePoint().getY());
+					shapeControl.get(j).setRightShapePoint(rightShapePoint);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,187 @@
+/*clear float
+************/
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	line-height:0;	/*opera nedd this*/
+	clear: both;
+	visibility: hidden;
+}
+* html>body .clearfix {
+	display: inline-block;
+	width: 100%;
+}
+* html .clearfix {
+	/* Hides from IE-mac \*/
+height: 1%;/* End hide from IE-mac */
+}
+/* ie7 hack*/
+*+html .clearfix {
+	min-height: 1%;
+}
+
+#tangram_ucard {
+	background:transparent url(http://img.baidu.com/hi/img/ucard/ucardbg.gif) repeat scroll right bottom;
+    border-top:1px solid #989898;
+    border-left:1px solid #989898;
+    color:#000 !important;
+    font-size:12px;
+    z-index:10000;
+}
+.tangram_ucard_l {
+}
+.tangram_ucard_l a:link,
+.tangram_ucard_l a:visited,
+.tangram_ucard_l a:hover {
+color:#0062F7 !important;
+text-decoration:none;
+filter:none;
+}
+.tangram_ucard_r em{
+    font-style:normal;
+}
+.tangram_ucard_rt p{margin:5px 0 4px 0;}
+.tangram_ucard_rb p{margin:5px 0 0 0;}
+.tangram_ucard_img
+{
+    border:0;
+    padding:0;
+    table-layout:fixed;
+}
+.tangram_ucard_img td{
+    width:80px;
+    height:80px;
+    border:1px solid #999;
+    padding:2px;
+	text-align:center;
+	vertical-align:middle;
+	padding:0;	/*	here fix no-reset css	*/
+	font:0/0 Arial;	/*hack for IE-quirks: top 1px ?*/
+}
+.tangram_ucard_img img {
+    max-width:80px;
+    max-height:80px;
+    border:none;
+    filter:none;
+}
+.tangram_ucard_uid {
+	margin:8px 0;
+	TEXT-ALIGN: center
+}
+.tangram_ucard_l {
+	margin: 8px;
+    width:90px;
+    display:inline;
+    float: left; 
+    overflow:hidden;
+    word-wrap:break-word;
+}
+.tangram_ucard_l img{
+	filter:none;
+}
+.tangram_ucard_lb img{
+	width:78px;
+    height:21px;
+	filter:none;
+}
+.tangram_ucard_lb a{
+    outline:none;
+}
+
+.tangram_ucard_r {
+    text-align:left;
+    overflow:hidden;
+    display:inline;
+    WIDTH: 205px;FLOAT: right;margin:8px 4px 0 0; 
+}
+
+.tangram_ucard_r a{
+    white-space:nowrap;
+}
+#tangram_ucard .tangram_ucard_rt{color:#000 !important;filter:none;margin:-2px 0 4px;}
+.tangram_ucard_r a:link,
+.tangram_ucard_r a:visited,
+.tangram_ucard_r a:hover {
+color:#000 !important;
+text-decoration:none;
+text-align:left;
+filter:none;
+}
+
+
+.tangram_ucard_rt img{
+	filter:none;
+}
+.tangram_ucard_rt p strong {
+float:left;
+margin-right:6px;
+}
+.tangram_ucard_rt p .tangram_ucard_addr {
+width:4.5em;white-space:nowrap;overflow:hidden;
+}
+
+.tangram_ucard_rt p.tangram_ucard_attr a{
+    float:right;
+    margin-right: 7px;
+}
+.tangram_ucard_r .tangram_ucard_datanum {
+    white-space:nowrap;
+}
+.tangram_ucard_r .tangram_ucard_datanum a{
+    margin-right:8px;
+}
+
+.tangram_ucard_r .tangram_ucard_datanum a:hover {
+    border:none;   /*ie bug*/
+}
+.tangram_ucard_r .tangram_ucard_datanum a em{
+    color:#0062f7 !important;
+}
+.tangram_ucard_r .tangram_ucard_datanum a:hover em{
+    color:#0062f7 !important;
+    text-decoration:underline;
+}
+
+.tangram_ucard_rb {
+	BORDER-TOP: #cdcdcd 1px solid;
+    padding-top:4px;
+}
+.tangram_ucard_rb img{
+	margin-right:1em;
+	filter:none;
+}
+.tangram_ucard_new {
+    overflow:hidden;
+    color:#000 !important;
+	line-height:20px;
+}
+.tangram_ucard_new a{
+    white-space:nowrap;
+}
+.tangram_ucard_new p{
+	color:#727272 !important;
+}
+.tangram_ucard_new em{
+    color:#6c6c6c;
+    margin-right:8px;
+}
+
+.tangram_ucard_new a:link,
+.tangram_ucard_new a:visited {
+    color:#0062f7 !important;text-decoration:none;
+}
+.tangram_ucard_new a:hover {
+    color:#0062f7 !important;
+    text-decoration:underline;
+}
+.tangram_ucard_new p a:link,
+.tangram_ucard_new p a:visited,
+.tangram_ucard_new p a:hover {
+color:#727272 !important;text-decoration:none;white-space:normal;
+}
+.tangram_ucard_newc{
+
+	padding-top:5px;
+}

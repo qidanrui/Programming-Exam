@@ -1,0 +1,44 @@
+package com.test.dao.imp;
+
+import java.io.IOException;
+import java.io.Reader;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ibatis.common.resources.Resources;
+import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.test.dao.KLJDataDao;
+import com.test.entity.KLJData;
+
+public class  KLJDataDaoImp implements KLJDataDao {
+	private static SqlMapClient sqlMapClient = null; 
+	// 读取配置文件
+	static {
+		try 
+		{ 
+			System.out.println(System.getProperty("user.dir"));
+			String path="com/test/conf/sqlmap-config2.xml";
+			Reader reader = Resources.getResourceAsReader(path); 
+			sqlMapClient = SqlMapClientBuilder.buildSqlMapClient(reader); 
+	       reader.close(); 
+	   } catch (IOException e)
+	   { 
+          e.printStackTrace(); 
+	   } 
+     } 
+	@Override
+	public List<KLJData> getKLJDataByJLH(int id) {
+		// TODO Auto-generated method stub
+		List<KLJData> datas=new ArrayList<KLJData>();
+		try {
+			datas= sqlMapClient.queryForList("selectKLJDataByJLH",id);
+			return datas;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return datas;
+		} 
+	}
+}

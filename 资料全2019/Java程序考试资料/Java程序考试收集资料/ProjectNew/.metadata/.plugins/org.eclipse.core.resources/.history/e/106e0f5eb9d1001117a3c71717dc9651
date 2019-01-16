@@ -1,0 +1,157 @@
+package cn.edu.xmu.software.model;
+
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import android.content.Context;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+
+
+import com.j256.ormlite.dao.Dao;
+
+public class GoalOpt implements IGoalOpt{
+	Dao<Goal,Integer>  goalDao;
+	Date date;
+	public GoalOpt(Context context) 
+	{
+		try {
+			goalDao=DataUtils.getHelper(context).getGoalDao();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    /**
+     * 创建目标
+     * @param g
+     */
+	@Override
+	public void createGoal(Goal g)  {
+		// TODO Auto-generated method stub
+			try {
+				goalDao.create(g);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	}
+    /**
+     * 更新目标
+     * @param g
+     */
+	@Override
+	public void updateGoal(Goal g) {
+		// TODO Auto-generated method stub
+		try {
+			goalDao.update(g);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   /**
+    * 删除目标
+    * @param g
+    */
+	@Override
+	public void deleteGoal(Goal g) {
+		// TODO Auto-generated method stub
+		try {
+		 goalDao.delete(g);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   
+   /**
+    * 获取表中的所有目标
+    */
+	@Override
+	public  List<Goal>  getAllGoal()  {
+		// TODO Auto-generated method stub
+
+			List<Goal> results = new ArrayList<Goal>();
+			try {
+				results = goalDao.queryBuilder().orderBy("createTime", true).query();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 return results;
+	}
+/**
+ * 通过属性获取所有goal
+ */
+ @Override
+ public List<Goal> getGoalsByProperty(String property, String value) {
+	// TODO Auto-generated method stub
+	List<Goal> results=new ArrayList<Goal>();
+	try {
+		results=goalDao.queryBuilder().orderBy("createTime", true).where().eq(property, value).query();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return results;
+ }
+ /**
+  * 通过创建时间查找goal
+  */
+@Override
+public Goal getGoalByCreateTime(String time) {
+	// TODO Auto-generated method stub
+	Goal g=getGoalsByProperty("createTime",time).get(0);
+	return g;
+}
+/**
+ * 获取goal中所拥有的情境
+ */
+@Override
+public List<String> getAllScene(List<Goal> goals) {
+	// TODO Auto-generated method stub
+	List<String> scenes=new ArrayList<String>();
+	for(Goal g:goals)
+	{
+		if(!scenes.contains(g.getScene())&&!g.getScene().equals(""))
+			scenes.add(g.getScene());		
+	}
+	return scenes;
+}
+/**
+ * 获得今日待办事项
+ */
+@Override
+public List<Goal> getTodayGoal(String property,String value)
+{
+	date=new Date();
+	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+    String today=dateFormat.format(date);
+	List<Goal> results=getGoalsByProperty(property,value);
+	List<Goal> lastResults=new ArrayList<Goal>();
+	for(int i=0;i<results.size();i++)
+	{
+		Goal g=results.get(i);
+		if(g.getStartTime()==null||g.getStartTime().equals(""))
+		      continue;
+		else 
+		{
+			if(!dateFormat.format(DataUtils.strToDate2(g.getStartTime())).equals(today))
+				continue;
+		}		
+		lastResults.add(g);
+	}
+
+	return lastResults;
+		
+	
+}
+ 
+
+}

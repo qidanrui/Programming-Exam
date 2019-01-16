@@ -1,0 +1,70 @@
+
+public class BinarySearch {
+	public static void merge(int[] k,int i,int q,int j)
+	{
+		int n1=q-i+1;
+		int n2=j-q;
+		int[] l=new int[n1+1];
+		int[] r=new int[n2+1];
+		int m,n;
+		for(m=0;m<n1;m++)
+		{
+			l[m]=k[i+m];
+		}
+		for(n=0;n<n2;n++)
+		{
+			r[n]=k[q+n+1];
+		}
+		l[n1]=1000000;
+		r[n2]=1000000;
+		m=0;n=0;
+		for(int p=i;p<=j;p++)
+		{
+			if(l[m]<=r[n])
+			{
+				k[p]=l[m];
+				m++;
+			}
+			else 
+				{
+				k[p]=r[n];
+				n++;
+				}
+		}
+		
+	}
+	public static void mergeSort(int[] k,int i,int j)
+	{
+		int q;
+		if(i<j)
+		{
+			q=(int) Math.floor((i+j)/2);
+			System.out.println("q="+q);
+			mergeSort(k,i,q);
+			mergeSort(k,q+1,j);
+			merge(k,i,q,j);
+		}
+	}
+	public static int binarySearch(int[] a,int value)
+	{
+		int i=0;
+		int j=a.length-1;
+		while(i<=j)
+		{  int middle=(i+j)/2;
+			if(a[middle]==value)
+			return middle;
+		else if(a[middle]>value)
+			return binarySearch(a,i,middle,value);
+		else 
+			return binarySearch(a,middle+1,j,value);
+		}
+	}
+   public static void main(String[] args)
+   {
+	   int[] a={5,2,6,7,1,3,9,0,10};
+	   mergeSort(a,0,a.length-1);
+	   
+	   System.out.println(binarySearch(a,0,a.length-1,6));
+   }
+   
+}

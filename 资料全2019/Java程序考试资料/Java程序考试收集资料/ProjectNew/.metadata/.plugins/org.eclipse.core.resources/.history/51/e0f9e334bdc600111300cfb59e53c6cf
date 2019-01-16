@@ -1,0 +1,79 @@
+package cn.edu.xmu.software.model;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.entity.DayGoal;
+import cn.edu.xmu.software.interfaces.IDayGoalOpt;
+
+import com.j256.ormlite.dao.Dao;
+
+public class DayGoalOpt implements IDayGoalOpt {
+	Dao<DayGoal,Integer>  dayGoalDao;
+	public DayGoalOpt(Context context) 
+	{
+		try {
+			dayGoalDao=DataUtils.getHelper(context).getDayGoalDao();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    /**
+     * 创建每日日程
+     * @param g
+     */
+	public void createDayGoal(DayGoal dayGoal)  {
+		// TODO Auto-generated method stub
+			try {
+				dayGoalDao.create(dayGoal);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	}
+    /**
+     * 更新每日日程
+     * @param g
+     */
+	public void updateDayGoal(DayGoal dayGoal) {
+		// TODO Auto-generated method stub
+		try {
+			dayGoalDao.update(dayGoal);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   /**
+    * 删除每日日程
+    * @param g
+    */
+	public void deleteDayGoal(DayGoal dayGoal) {
+		// TODO Auto-generated method stub
+		try {
+		 dayGoalDao.delete(dayGoal);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   
+   
+	public  List<DayGoal>  getAllDayGoal()  {
+		// TODO Auto-generated method stub
+
+			List<DayGoal> results = new ArrayList<DayGoal>();
+			try {
+				results = dayGoalDao.queryForAll();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 return results;
+	}
+}

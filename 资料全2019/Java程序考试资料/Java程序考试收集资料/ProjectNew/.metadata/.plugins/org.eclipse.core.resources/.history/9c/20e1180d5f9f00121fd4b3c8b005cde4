@@ -1,0 +1,19 @@
+package Teaching.Common;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Teaching.model.Course;
+import Teaching.model.User;
+
+public class ContextUtil {
+     public static User currentUser;
+     
+     public ContextUtil()
+     {
+    	 currentUser=new User();
+    	 currentUser.setUserName("陈欣洁");
+    	 currentUser.setPassword("123456");
+    	 List<Course> courses=new ArrayList<Course>();
+     }
+}

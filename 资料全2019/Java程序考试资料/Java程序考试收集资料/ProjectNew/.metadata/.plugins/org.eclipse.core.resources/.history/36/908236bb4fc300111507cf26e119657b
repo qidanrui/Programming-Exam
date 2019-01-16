@@ -1,0 +1,18 @@
+package com.demo;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class JsonDataGetApi extends WebDataGetApi {
+	private static final String BASE_URL = "http://218.66.155.80/AccountService/";
+	private static final String EXTENSION = "Json/";;
+
+	public String getObject(String sbj) throws JSONException, Exception {
+		return new getRequest(BASE_URL + EXTENSION + sbj);
+	}
+
+	public String getArray(String sbj) throws JSONException, Exception {
+		return getRequest(BASE_URL + EXTENSION + sbj);
+	}
+}

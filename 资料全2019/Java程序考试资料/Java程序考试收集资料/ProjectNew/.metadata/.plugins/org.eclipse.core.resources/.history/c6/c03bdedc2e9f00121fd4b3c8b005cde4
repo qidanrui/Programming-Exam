@@ -1,0 +1,45 @@
+package Teaching.model;
+public class Course {
+    private String courseId;//课程Id(不要显示)
+    private String courseName;//课程名称
+    private String TeacherName;//任课教师姓名
+    private String courseTime;//上课时间
+    private Boolean flag;//标记该门课程是否可以进行上/下课点名
+    
+    /**
+     * 判断该门课程是否可以进行点名
+     * @return
+     */
+    public Boolean IsCourseTime()
+    {
+         return flag;
+    }
+
+	/**
+	 * @return the courseId
+	 */
+	public String getCourseId() {
+		return courseId;
+	}
+
+	/**
+	 * @param courseId the courseId to set
+	 */
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+
+	/**
+	 * @return the courseName
+	 */
+	public String getCourseName() {
+		return courseName;
+	}
+
+	/**
+	 * @param courseName the courseName to set
+	 */
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+}

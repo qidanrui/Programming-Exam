@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+<listener>  
+   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+</listener>  
+
+  <!-- Servlets -->
+  <servlet>  
+    <servlet-name>springGwtRemoteServiceServlet</servlet-name>  
+    <servlet-class>org.spring4gwt.server.SpringGwtRemoteServiceServlet</servlet-class>  
+</servlet> 
+<servlet-mapping>  
+    <servlet-name>springGwtRemoteServiceServlet</servlet-name>  
+    <url-pattern>/chatproc/*</url-pattern>  
+</servlet-mapping> 
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>ChatProc.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

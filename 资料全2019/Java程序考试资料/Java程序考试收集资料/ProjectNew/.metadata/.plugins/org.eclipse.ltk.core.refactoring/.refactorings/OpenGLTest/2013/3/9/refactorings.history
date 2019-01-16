@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;cn.edu.xmu.software.curveExctraction.CurveExtractTest&apos; to &apos;CurveExtractOpt&apos;&#x0D;&#x0A;- Original project: &apos;OpenGLTest&apos;&#x0D;&#x0A;- Original element: &apos;cn.edu.xmu.software.curveExctraction.CurveExtractTest&apos;&#x0D;&#x0A;- Renamed element: &apos;cn.edu.xmu.software.curveExctraction.CurveExtractOpt&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CurveExtractTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;cn.edu.xmu.software.curveExctraction{CurveExtractTest.java[CurveExtractTest" matchStrategy="1" name="CurveExtractOpt" qualified="false" references="true" similarDeclarations="false" stamp="1362208848639" textual="false" version="1.0"/>
+</session>

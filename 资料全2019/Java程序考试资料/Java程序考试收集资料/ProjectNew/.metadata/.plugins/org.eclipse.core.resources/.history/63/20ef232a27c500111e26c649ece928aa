@@ -1,0 +1,70 @@
+package cn.edu.xmu.software.entity;
+
+import java.io.Serializable;
+
+import com.j256.ormlite.field.DatabaseField;
+
+public class User  implements Serializable{
+       /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	  @DatabaseField(generatedId = true)
+	private long id;
+	  @DatabaseField (width=50)
+       private String  account;//’À∫≈
+	  @DatabaseField (width=20)
+       private String  password;//√‹¬Î
+	  @DatabaseField (width=10)
+       private String  nickName;//Í«≥∆
+       public User(){};
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
+	/**
+	 * @return the account
+	 */
+	public String getAccount() {
+		return account;
+	}
+	/**
+	 * @param account the account to set
+	 */
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	/**
+	 * @return the nickName
+	 */
+	public String getNickName() {
+		return nickName;
+	}
+	/**
+	 * @param nickName the nickName to set
+	 */
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+       
+}

@@ -1,0 +1,157 @@
+package com.demo;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+
+import android.util.Log;
+
+public class WebDataGetApi {
+
+	private static final String TAG = "WebDataGetAPI";
+	private static final String USER_AGENT = "Mozilla/4.5";
+
+	protected String getRequest(String url) throws Exception {
+		return getRequest(url, new DefaultHttpClient(new BasicHttpParams()));
+	}
+
+	protected String getRequest(String url, DefaultHttpClient client)
+			throws Exception {
+		String result = null;
+		int statusCode = 0;
+		HttpGet getMethod = new HttpGet(url);
+		Log.d(TAG, "do the getRequest,url=" + url + "");
+		try {
+			getMethod.setHeader("User-Agent", USER_AGENT);
+			// HttpParams params = new HttpParams();
+
+			// 添加用户密码验证信息
+			// client.getCredentialsProvider().setCredentials(
+			// new AuthScope(null, -1),
+			// new UsernamePasswordCredentials(mUsername, mPassword));
+
+			HttpResponse httpResponse = client.execute(getMethod);
+			// statusCode == 200 正常
+			statusCode = httpResponse.getStatusLine().getStatusCode();
+			Log.d(TAG, "statuscode = " + statusCode);
+			// 处理返回的httpResponse信息
+			result = retrieveInputStream(httpResponse.getEntity());
+		} catch (Exception e) {
+			Log.e(TAG, e.getMessage());
+			throw new Exception(e);
+		} finally {
+			getMethod.abort();
+		}
+		return result;
+	}
+
+	/**
+	 * 处理httpResponse信息,返回String
+	 * 
+	 * @param httpEntity
+	 * @return String
+	 */
+	protected String retrieveInputStream(HttpEntity httpEntity) {
+		int length = (int) httpEntity.getContentLength();
+		if (length < 0)
+			length = 10000;
+		StringBuffer stringBuffer = new StringBuffer(length);
+		try {
+			InputStreamReader inputStreamReader = new InputStreamReader(
+					httpEntity.getContent(), HTTP.UTF_8);
+			char buffer[] = new char[length];
+			int count;
+			while ((count = inputStreamReader.read(buffer, 0, length - 1)) > 0) {
+				stringBuffer.append(buffer, 0, count);
+			}
+		} catch (UnsupportedEncodingException e) {
+			Log.e(TAG, e.getMessage());
+		} catch (IllegalStateException e) {
+			Log.e(TAG, e.getMessage());
+		} catch (IOException e) {
+			Log.e(TAG, e.getMessage());
+		}
+		return stringBuffer.toString();
+	}
+	public String doPost(String url, Map<String, String> params,DefaultHttpClient client) 
+			throws Exception {
+	        // POST参数组装
+	        List<NameValuePair> data = new ArrayList<NameValuePair>();
+	        if (params != null) {
+				Iterator<Entry<String, String>> iter = params.entrySet().iterator();
+				while(iter.hasNext()) {
+					Entry<String, String> entry = (Entry<String, String>)iter.next();
+					data.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
+				}
+			}
+	        HttpPost post = new HttpPost(url);
+	        try  {
+		        // 添加请求参数到请求对象 
+		        if (params != null)
+		        	post.setEntity(new UrlEncodedFormEntity(data, HTTP.UTF_8));
+		    	// 发起请求
+		        Log.v(TAG, "doPost:" + url);
+		        HttpResponse resp = client.execute(post);
+		        String strResp = "";
+		        if (resp.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_OK)
+		        	strResp = EntityUtils.toString(resp.getEntity());
+		        else
+		        	// 如果返回的StatusCode不是OK则抛异常
+		        	throw new Exception("Error Response:" + resp.getStatusLine().toString());
+		        return strResp;
+	        }
+	        finally {
+	        	post.abort();
+	        }
+	    }
+		
+	    /**
+	     * @param url - 需要访问的address
+	     * @param data - Request的内容字符串
+	     * @param contentType - Request的ContentType
+	     * @return Response的字符串
+	     * @throws Exception
+	     */
+		public String doPost(String url, String data, String contentType,DefaultHttpClient client) 
+			throws Exception {
+	        HttpPost post = new HttpPost(url);
+	        try  {
+	        	// 添加请求参数到请求对象
+	        	StringEntity se = new StringEntity(data, HTTP.UTF_8);
+	        	se.setContentType(contentType);
+	        	post.setEntity(se);
+		    	// 发起请求
+	        	Log.v(TAG, "doPost:" + url);
+		        HttpResponse resp = client.execute(post);
+		        String strResp = "";
+		        if (resp.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_OK)
+		        	strResp = EntityUtils.toString(resp.getEntity());
+		        else
+		        	// 如果返回的StatusCode不是OK则抛异常
+		        	throw new Exception("Error Response:" + resp.getStatusLine().toString());
+		        return strResp;
+	        }
+	        finally {
+	        	post.abort();
+	        }
+		}
+}

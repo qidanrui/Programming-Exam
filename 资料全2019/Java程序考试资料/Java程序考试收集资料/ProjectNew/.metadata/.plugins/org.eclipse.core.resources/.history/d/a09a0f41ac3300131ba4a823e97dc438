@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+
+
+public class CountSort {
+      public  static void  countSort(ArrayList<Integer> datas,ArrayList<Integer>output,int dataRange)
+      {
+    	  int[] array=new int[dataRange+1];
+    	  int i=0;int j=0;
+    	  for(;i<dataRange;i++)
+    		  array[i]=0;
+    	  for(;j<datas.size();j++)
+    		  array[datas.get(j)]=array[datas.get(j)]+1;
+    	  for(i=1;i<dataRange;i++)
+    		  array[i]=array[i]+array[i-1];
+    	  for(j=datas.size()-1;j>=0;j--)
+    	  {
+    		  output.set(array[datas.get(j)], datas.get(j));
+    		  array[datas.get(j)]=array[datas.get(j)]-1;
+    	  }
+      }
+      public static void main(String[] args)
+      {
+    	  ArrayList<Integer> datas=new ArrayList<Integer>();
+       	datas.add(6);
+       	datas.add(5);
+       	datas.add(5);
+       	datas.add(7);
+       	datas.add(2);
+       	datas.add(10);
+       	datas.add(9);
+       	datas.add(1);
+       	ArrayList<Integer> output=new ArrayList<Integer>();
+       	for(int i=0;i<8;i++)
+       		output.add(0);
+       	countSort(datas,output,10);
+       	for(int i=0;i<output.size();i++)
+     		System.out.print(output.get(i)+"   ");
+      }
+      
+}

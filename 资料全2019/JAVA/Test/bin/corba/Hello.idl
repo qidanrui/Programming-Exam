@@ -1,0 +1,7 @@
+module helloworld
+{
+	interface Hello
+	{
+		string sayHello(in string world);
+	};
+};

@@ -1,0 +1,2 @@
+p1.setLayout(new FlowLayout(FlowLayout.CENTER));
+f.add(p1, BorderLayout.NORTH);

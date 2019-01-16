@@ -1,0 +1,39 @@
+package Teaching.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Student extends User{
+       private String major;
+       private List<TimeCard> timeCards;
+       public Student()
+       {
+    	   super();
+    	   setTimeCards(new ArrayList<TimeCard>());
+       }
+	/**
+	 * @return the major
+	 */
+	public String getMajor() {
+		return major;
+	}
+	/**
+	 * @param major the major to set
+	 */
+	public void setMajor(String major) {
+		this.major = major;
+	}
+	/**
+	 * @return the timeCards
+	 */
+	public List<TimeCard> getTimeCards() {
+		return timeCards;
+	}
+	/**
+	 * @param timeCards the timeCards to set
+	 */
+	public void setTimeCards(List<TimeCard> timeCards) {
+		this.timeCards = timeCards;
+	}
+       
+}

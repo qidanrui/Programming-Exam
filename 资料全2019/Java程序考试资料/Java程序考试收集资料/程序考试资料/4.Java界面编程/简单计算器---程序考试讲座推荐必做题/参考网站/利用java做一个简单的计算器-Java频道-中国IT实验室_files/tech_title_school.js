@@ -1,0 +1,1 @@
+document.write("<a class=\"\" href=\"http://www.szaptech.com.cn/benet.asp\"  target=\"_blank\"><font color=\"#ff0000\">Windows高级工程师的培训地<\/font><\/a><br> <a class=\"\" href=\"http://www.farsight.com.cn/intern/index.aspx\" target=\"_blank\">【就业】先实习后上岗，入职年薪5-10万！<\/a>");

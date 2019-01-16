@@ -1,0 +1,87 @@
+package cn.edu.xmu.software.model;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.entity.User;
+import cn.edu.xmu.software.interfaces.IUserOpt;
+
+import com.j256.ormlite.dao.Dao;
+
+
+import android.content.Context;
+
+public class UserOpt  implements IUserOpt
+{
+	Dao<User,Integer>  userDao;
+	public UserOpt(Context context) 
+	{
+		try {
+			userDao=DataUtils.getHelper(context).getUserDao();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    /**
+     * 创建用户
+     * @param u
+     */
+	public void createUser(User u)  {
+		// TODO Auto-generated method stub
+			try {
+				userDao.create(u);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	}
+  /**
+   * 更新用户
+   * @param u
+   */
+	public void updateUser(User u) {
+		// TODO Auto-generated method stub
+		try {
+			userDao.update(u);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+  /**
+   * 删除用户
+   * @param u
+   */
+	public void deleteUser(User u) {
+		// TODO Auto-generated method stub
+		try {
+			userDao.delete(u);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+   
+   /**
+    * 查找某个账号的用户
+    * @param account
+    * @return
+    */
+	public  User  getUserByAccount(String account)  {
+		// TODO Auto-generated method stub
+
+			List<User> results = new ArrayList<User>();
+			try {
+				results = userDao.queryBuilder().where().eq("account", account).query();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 return results.get(0);
+	}
+
+}

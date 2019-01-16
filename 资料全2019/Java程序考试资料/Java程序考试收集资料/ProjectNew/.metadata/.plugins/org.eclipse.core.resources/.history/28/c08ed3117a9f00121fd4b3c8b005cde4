@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/selector_bg_company_item" android:paddingLeft="0.0dip" android:paddingTop="5.0dip" android:paddingRight="10.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="35.0dip">
+        <ImageView android:id="@id/worker_manager_item_roleImage" android:layout_width="20.0dip" android:layout_height="fill_parent" android:src="@drawable/company_creator" android:scaleType="center" />
+        <TextView android:textSize="15.0sp" android:textColor="@dimen/AppTextColor" android:gravity="center_vertical" android:id="@id/worker_manager_item_user" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="(1052) Yorling" android:layout_weight="1.0" />
+        <TextView android:textSize="15.0sp" android:textColor="#ffc3c3c3" android:gravity="center_vertical" android:id="@id/worker_manager_item_phone" android:paddingRight="10.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="1588077777" />
+        <ImageView android:id="@id/worker_manager_item_roleImage" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/btn_list_extra_arrow" android:scaleType="center" />
+    </LinearLayout>
+</LinearLayout>

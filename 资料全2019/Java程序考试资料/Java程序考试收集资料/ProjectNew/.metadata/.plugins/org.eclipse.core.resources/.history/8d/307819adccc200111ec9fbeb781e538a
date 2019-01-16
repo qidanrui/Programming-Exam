@@ -1,0 +1,90 @@
+package com.demo;
+
+import java.util.List;
+import java.util.Map;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
+
+public class JsonUtils {
+    private static JSONArray jsonArray=new JSONArray();
+    private static JSONObject jsonObject=new JSONObject();
+    /**
+     * 将普通对象（类）转换为json类型字符串
+     * @param o
+     * @return
+     */
+    public static String TransObjectToJson(Object o)
+    {
+    	jsonObject=JSONObject.fromObject(o);
+    	return jsonObject.toString();
+    }
+    /**
+     * 将数组对象包括List对象转换为json类型字符串
+     * @param o   要转换的对象
+     * @return
+     */
+    public static String TransArrayToJson(Object o)
+    {
+    	jsonArray=JSONArray.fromObject(o);
+    	return jsonArray.toString();
+    }
+    /**
+     * 将Map对象转换为json类型字符串
+     * @param o   要转换的对象
+     * @return
+     */
+    public static String TransMapToJson(Object o)
+    {
+    	jsonArray=JSONArray.fromObject(o);
+    	return jsonArray.toString();
+    }
+    /**
+     * 将json字符串转换为普通对象
+     * @param jsonString  json格式的字符串
+     * @param c   表示数组对象中元素的数据类型
+     * @return
+     */
+    public static Object TransJsonToObject(String jsonString,Class c)
+    {
+    	jsonObject=(JSONObject) JSONSerializer.toJSON(jsonString);
+    	return JSONObject.toBean(jsonObject, c);
+    }
+    
+    /**
+     * 将json字符串转换为数组对象
+     * @param jsonString     json格式的字符串
+     * @param c  表示数组对象中元素的数据类型
+     * @return
+     */
+    public static Object[]  TransJsonToArray(String jsonString,Class c)
+    {
+    	jsonString = "[" + jsonString + "]";
+        jsonArray = JSONArray.fromObject(jsonString);
+        return  (Object[]) JSONArray.toArray(jsonArray, c);
+    }
+    /**
+     * 将json字符串转换为List对象
+     * @param jsonString   json格式的字符串
+     * @param c   表示List对象中元素的数据类型
+     * @return
+     */
+    public static List TransJsonToList(String jsonString,Class c)
+    {
+    	jsonString = "[" + jsonString + "]";
+        jsonArray = JSONArray.fromObject(jsonString);
+       return  JSONArray.toList(jsonArray, c);
+    }
+    /**
+     * 将json字符串转换为Map类型对象，其中Object对Map类型中key的类型，Class<?>为Map中Value类型
+     * @param jsonString  json字符串类型
+     * @param typeCollection   
+     * @return
+     */
+    public static  Map<Object, ?>  TransJsonToMap(String jsonString,Map<Object, Class<?>> typeCollection )
+    {
+    	jsonObject = JSONObject.fromObject(jsonString);
+    	return  (Map) JSONObject.toBean(jsonObject, Map.class, typeCollection);
+    }
+    
+}

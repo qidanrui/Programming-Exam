@@ -1,0 +1,9 @@
+package cn.edu.xmu.software.ui;
+
+public class FlagState {
+   public  static boolean loadPng;
+   public FlagState()
+   {
+	   loadPng=false;
+   }
+}

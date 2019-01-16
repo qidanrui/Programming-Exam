@@ -1,0 +1,32 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class DivideMultiplyTest {
+	private static DivideMultiply divideMultiply;
+	@Before
+	public void setUp() throws Exception {
+		divideMultiply=new DivideMultiply(20);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+
+	@Test
+	public void testMultiply() {
+		divideMultiply.multiply(2.0);
+		assertEquals("测试DivideMultiply类multiply()函数成功,测试得结果20*2=40.0",40.0,divideMultiply.getCurrentVal());
+		
+	}
+
+	@Test
+	public void testDivide() {
+		fail("Not yet implemented");
+	}
+
+}

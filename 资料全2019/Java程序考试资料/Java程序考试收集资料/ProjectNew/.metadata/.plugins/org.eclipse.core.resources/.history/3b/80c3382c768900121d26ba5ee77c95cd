@@ -1,0 +1,19 @@
+package cn.edu.xmu.software.util;
+
+public class StaticData {
+    public  static boolean isLoadPng;
+	public static boolean isAddLines;
+	public static boolean isZoomIn;
+	public static boolean isZoomOut;
+	public static boolean isHandPan;
+	public static int imgWidth;
+	public static int imgHeight;
+   public StaticData()
+   {
+	   isLoadPng=false;
+	   isAddLines=false;
+	   isZoomIn=false;
+	   isZoomOut=false;
+	   isHandPan=false;
+   }
+}

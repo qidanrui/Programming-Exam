@@ -1,0 +1,266 @@
+package cn.edu.xmu.software;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import cn.edu.xmu.software.callback.SizeCallBackForMenu;
+import cn.edu.xmu.software.common.ContextUtil;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.common.DateTimeUtils;
+
+import cn.edu.xmu.software.adapter.EnergyListAdapter;
+import cn.edu.xmu.software.adapter.MenuListAdapter;
+import cn.edu.xmu.software.adapter.TimeListAdapter;
+
+import cn.edu.xmu.software.ui.MenuHorizontalScrollView;
+
+import cn.edu.xmu.software.R;
+import cn.edu.xmu.software.adapter.PriorityListAdapter;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.entity.Plan;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.interfaces.IPlanOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import cn.edu.xmu.software.model.PlanOpt;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class Raw_Goal_Activity extends Activity {
+	private TextView goal_title;
+	private TextView goal_desc;
+	private IPlanOpt planOpt;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		planOpt=new PlanOpt(this);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		LayoutInflater inflater = LayoutInflater.from(this);
+		setContentView(R.layout.goal_edit);
+		
+		//setContentView(R.layout.goal_edit);
+		goal_title=(TextView)findViewById(R.id.title);
+		goal_desc=(TextView)findViewById(R.id.desc);
+	}
+
+	/*
+	 * 页面底部的取消按钮
+	 */
+	public void onCancelClick(View v) {
+		reToTodayTaskPage();
+	}
+
+	/*
+	 * 页面底部的确定按钮
+	 */
+	public void onSaveClick(View v) {
+		Goal goal=new Goal();
+		goal.setTitle( goal_title.getText().toString());
+		goal.setDesc(goal_desc.getText().toString());
+		goal.setEnergy("");
+		goal.setTimeLength("");
+		goal.setStartTime("收集箱");
+		goal.setFinishTime("");
+		goal.setScene("");
+		goal.setTags("");
+		goal.setUser(ContextUtil.getCurrentUser());
+		ContextUtil.setCurrentGoal(goal);
+		IGoalOpt goalopt=new GoalOpt(this);
+ 		goalopt.createGoal(goal);
+		reToInboxPage();
+	}
+	/**
+	 * 返回今日待办页面
+	 */
+	public void reToInboxPage()
+	{
+		Intent  intent=new Intent();
+		intent.setClass(this, InBoxTaskListActivity.class);
+		 startActivity(intent);
+		// this.finish();
+	}
+	
+
+	/*
+	 * 页面上选定某一个优先级
+	 */
+	public void PriorityChoseClick(View v) {
+		
+		
+	}
+
+	private void initListItems() {
+		for (int i = 0; i < PRI_COUNT; i++) {
+			String temp = this.getString(task_pri_id[i]);
+			this.listItems.add(temp);
+		}
+	}
+	
+
+	/**
+	 * 获取所属计划的id
+	 * @return
+	 */
+	private Long getProjectId(){
+		return this.project_id;
+	}
+	
+	/**
+	 * 获取优先级的值
+	 * @return
+	 */
+	public int getTaskPriority(){
+		return task_pri[this.task_pri_index];
+	}
+	
+	/**
+	 * 获取标签信息
+	 * @return
+	 */
+	private String getTagText(){
+		String str = "";
+		int i;
+		for(i = 0; i < this.tag_texts.size() - 1; i++){
+			str += this.tag_texts.get(i) + ",";
+		}
+		str += this.tag_texts.get(i);
+		return str;
+	}
+
+	/**
+	 * 获取截止日期
+	 * @return
+	 */
+	private String getEndDate(){
+		if(this.endtimevisible == true){
+			return this.endDate;
+		}
+		return "";
+	}
+	
+	/**
+	 * 获取截止时间
+	 * @return
+	 */
+	private String getEndTime(){
+		if(this.endtimevisible == true){
+			return this.endTime;
+		}
+		return "";
+	}
+	
+	/**
+	 * 获取开始日期
+	 * @return
+	 */
+	private String getStartDate(){
+		return this.startDate;
+	}
+	
+	/**
+	 * 获取开始时间
+	 * @return
+	 */
+	private String getStartTime(){
+		return this.start_time;
+	}
+	
+	public void backClick(View view){
+		this.finish();
+	}
+	
+	/************************************/
+	/*-       Getter and Setter		   -*/
+	/************************************/
+	
+	
+
+	public Button getTask_pri_btn() {
+		return task_pri_btn;
+	}
+
+	public Dialog getListViewDlg() {
+		return listViewDlg;
+	}
+
+	public void setListViewDlg(Dialog listViewDlg) {
+		this.listViewDlg = listViewDlg;
+	}
+
+	public void setTask_pri_btn(Button task_pri_btn) {
+		this.task_pri_btn = task_pri_btn;
+	}
+
+	public int getTask_pri_index() {
+		return task_pri_index;
+	}
+
+	public void setTask_pri_index(int task_pri_index) {
+		this.task_pri_index = task_pri_index;
+	}
+	
+	
+
+	public int getTask_energy_index() {
+		return task_energy_index;
+	}
+
+	public void setTask_energy_index(int task_energy_index) {
+		this.task_energy_index = task_energy_index;
+	}
+
+	public Button getTask_energy_btn() {
+		return task_energy_btn;
+	}
+
+	public void setTask_energy_btn(Button task_energy_btn) {
+		this.task_energy_btn = task_energy_btn;
+	}
+
+	public Button getTask_time_btn() {
+		return task_time_btn;
+	}
+
+	public void setTask_time_btn(Button task_time_btn) {
+		this.task_time_btn = task_time_btn;
+	}
+
+	public int getTask_time_index() {
+		return task_time_index;
+	}
+
+	public void setTask_time_index(int task_time_index) {
+		this.task_time_index = task_time_index;
+	}
+	
+	
+	
+}

@@ -1,0 +1,276 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774637408
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774673896
+activated,view,org.eclipse.wst.server.ui,1.1.306.v20110823_1704,"org.eclipse.wst.server.ui.ServersView",1337774716765
+executed,command,org.eclipse.wst.server.ui,1.1.306.v20110823_1704,"org.eclipse.wst.server.debug",1337774717841
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337774722131
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337774723162
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774728325
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.ManageBreakpointRulerAction",1337774732147
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.ManageBreakpointRulerAction",1337774733161
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337774737625
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774767623
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774808546
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337774810699
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337774811666
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774816751
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774835743
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774835774
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774837381
+activated,perspective,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugPerspective",1337774837537
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774843496
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1337774861795
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1337774862684
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.ClassFileEditor",1337774862918
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.ClassFileEditor",1337774863105
+activated,view,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugView",1337774865679
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337774865742
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774867596
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774893053
+activated,perspective,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.JavaPerspective",1337774895736
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.ClassFileEditor",1337774895768
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774897889
+closed,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.ClassFileEditor",1337774897889
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774906797
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774909730
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337774912054
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774931164
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774935438
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337774937872
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774943894
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337774944159
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337774974688
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337774978869
+error,log,,,"Failed to compute completion proposal",1337774993720
+error,log,,,"Failed to compute completion proposal",1337774993985
+error,log,,,"Failed to compute completion proposal",1337774994063
+error,log,,,"Failed to compute completion proposal",1337774995343
+error,log,,,"Failed to compute completion proposal",1337774996294
+error,log,,,"Failed to compute completion proposal",1337775007199
+error,log,,,"Failed to compute completion proposal",1337775009804
+error,log,,,"Failed to compute completion proposal",1337775020911
+error,log,,,"Failed to compute completion proposal",1337775021925
+error,log,,,"Failed to compute completion proposal",1337775031956
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775039927
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775042282
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775047768
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.ManageBreakpointRulerAction",1337775050014
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.ManageBreakpointRulerAction",1337775064975
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775068422
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775071230
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775073446
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775076316
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775083174
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775083210
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775086522
+activated,perspective,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugPerspective",1337775086683
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775101473
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775103922
+activated,view,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugView",1337775105676
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337775105741
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337775106517
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337775107008
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337775107461
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775109242
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775109925
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775112112
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775117938
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775119232
+activated,view,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugView",1337775120184
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337775120231
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775121808
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775128137
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1337775131117
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775133255
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775140026
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775150415
+activated,perspective,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.JavaPerspective",1337775160540
+error,log,,,"Failed to compute completion proposal",1337775172801
+error,log,,,"Failed to compute completion proposal",1337775173846
+error,log,,,"Failed to compute completion proposal",1337775177341
+error,log,,,"Failed to compute completion proposal",1337775184167
+error,log,,,"Failed to compute completion proposal",1337775186382
+error,log,,,"Failed to compute completion proposal",1337775186523
+error,log,,,"Failed to compute completion proposal",1337775186679
+error,log,,,"Failed to compute completion proposal",1337775186804
+error,log,,,"Failed to compute completion proposal",1337775186944
+error,log,,,"Failed to compute completion proposal",1337775187084
+error,log,,,"Failed to compute completion proposal",1337775187225
+error,log,,,"Failed to compute completion proposal",1337775187350
+error,log,,,"Failed to compute completion proposal",1337775187552
+error,log,,,"Failed to compute completion proposal",1337775188114
+error,log,,,"Failed to compute completion proposal",1337775188208
+error,log,,,"Failed to compute completion proposal",1337775188301
+error,log,,,"Failed to compute completion proposal",1337775188535
+error,log,,,"Failed to compute completion proposal",1337775193340
+error,log,,,"Failed to compute completion proposal",1337775199518
+error,log,,,"Failed to compute completion proposal",1337775202310
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775207692
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775208550
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775211389
+error,log,,,"Internal error logged from JDI Debug: ",1337775211452
+no handler,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1337775213370
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337775214712
+activated,view,org.eclipse.wst.server.ui,1.1.306.v20110823_1704,"org.eclipse.wst.server.ui.ServersView",1337775217117
+executed,command,org.eclipse.wst.server.ui,1.1.306.v20110823_1704,"org.eclipse.wst.server.debug",1337775219013
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337775223164
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775307641
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775315586
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775322997
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775332827
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775381852
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775381993
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775388014
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775392477
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775395217
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775404062
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775404125
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775404515
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775405653
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337775411847
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775412720
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775427505
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775427531
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775430344
+activated,perspective,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugPerspective",1337775430634
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775431973
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.StepOver",1337775447407
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.ClassFileEditor",1337775447700
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.ClassFileEditor",1337775447884
+activated,view,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugView",1337775449533
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337775449594
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775451805
+activated,view,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.DebugView",1337775454557
+executed,command,org.eclipse.debug.ui,3.7.101.v20110817_r371,"org.eclipse.debug.ui.commands.Resume",1337775454612
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775456837
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775458241
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775462142
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775465902
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775470270
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775504028
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775509753
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775511423
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775519410
+activated,perspective,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.JavaPerspective",1337775520237
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775522717
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775532795
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775588799
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775595788
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775615272
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775617316
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775624258
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775625443
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775625506
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775626956
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775633025
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775633664
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775634491
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775638516
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775640201
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775641823
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775643243
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.ManageBreakpointRulerAction",1337775646316
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775646956
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775647642
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775651136
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775654927
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775656784
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775656846
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775657221
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775657782
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775659311
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775665005
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775672899
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775674053
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775705040
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775705211
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775707848
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775714384
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775714493
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775714774
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775718066
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775721061
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775722559
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337775738284
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775740547
+error,log,,,"Internal Error",1337775744956
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775745041
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775753649
+error,log,,,"Failed to compute completion proposal",1337775773399
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775795036
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775796845
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775797033
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775798359
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775800792
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775801416
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775801681
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775816759
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775818507
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775820035
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775822126
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775823202
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775831517
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775840674
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775874158
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775885655
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775889976
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775892519
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775895202
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775895483
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775896029
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775896294
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775897090
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775897340
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775898229
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775898463
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775902316
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775902659
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775904056
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337775904306
+error,log,,,"Failed to compute completion proposal",1337775935884
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775943419
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775945291
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775950798
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337775958161
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337775960642
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775971952
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337775972264
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337775979848
+started,bundle,org.eclipse.emf.edit,2.7.1.v20111003-1135,"org.eclipse.emf.edit",1337776005156
+started,bundle,org.eclipse.emf.common.ui,2.7.0.v20111003-1135,"org.eclipse.emf.common.ui",1337776005531
+started,bundle,org.eclipse.emf.edit.ui,2.7.0.v20111003-1135,"org.eclipse.emf.edit.ui",1337776005546
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1337776018031
+activated,view,org.eclipse.wst.server.ui,1.1.306.v20110823_1704,"org.eclipse.wst.server.ui.ServersView",1337776024505
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337776026221
+activated,view,org.eclipse.wst.server.ui,1.1.306.v20110823_1704,"org.eclipse.wst.server.ui.ServersView",1337776030230
+executed,command,org.eclipse.wst.server.ui,1.1.306.v20110823_1704,"org.eclipse.wst.server.debug",1337776030308
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337776034629
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777384663
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777427441
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777432245
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777455594
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337777460102
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337777464158
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337777464954
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777485639
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777486373
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777490351
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777491240
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1337777494378
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337777511340
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337777514850
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337777514975
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337777517300
+activated,editor,org.jboss.tools.jst.jsp,3.3.0.v20111208-2115-H35-M5,"org.jboss.tools.jst.jsp.jspeditor.HTMLTextEditor",1337777519593
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777531766
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777534792
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337777536149
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337777539909
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337777540985
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337777542155
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.ManageBreakpointRulerAction",1337777544979
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1337777548286
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1337777548614
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.ManageBreakpointRulerAction",1337777554900
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777559502
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1337777655908

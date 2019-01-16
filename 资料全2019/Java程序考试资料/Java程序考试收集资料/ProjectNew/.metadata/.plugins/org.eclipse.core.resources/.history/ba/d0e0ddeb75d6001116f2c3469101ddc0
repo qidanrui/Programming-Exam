@@ -1,0 +1,21 @@
+package cn.edu.xmu.software.interfaces;
+
+import java.util.List;
+
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.entity.Plan;
+
+public interface IGoalOpt {
+	public void createGoal(Goal g) ;//创建目标
+	public void updateGoal(Goal g);//更新目标
+	public void deleteGoal(Goal g) ;//删除目标
+	public  List<Goal>  getAllGoal()  ;//获得所有表中的目标
+	public List<Goal> getGoalsByProperty(String property,String value);//通过某个属性查询goal
+	public Goal getGoalByCreateTime(String time); //通过创建时间查询目标
+	public List<String> getAllScene(List<Goal> goals);//获得goals中的所有情境
+	public List<Goal> getTodayGoal(String property,String value);//获得今日待办事项
+	public List<Goal> getOtherDayGoal(String property,String value);//获取择日代办事项
+	public List<Goal>  getScheduleGoal(String property,String value);//获取拥有日程的目标
+	public List<Goal> getNextGoal(String property,String value);//获取下一步目标
+	public List<Goal> getWaitGoal(String property,String value);//获取等待中的目标
+}

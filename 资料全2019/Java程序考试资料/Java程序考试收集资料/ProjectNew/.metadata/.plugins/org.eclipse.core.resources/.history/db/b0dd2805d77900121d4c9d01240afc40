@@ -1,0 +1,23 @@
+import static com.googlecode.javacv.cpp.opencv_core.*;  
+import static com.googlecode.javacv.cpp.opencv_imgproc.*;  
+import static com.googlecode.javacv.cpp.opencv_highgui.*;  
+
+import com.googlecode.javacv.cpp.opencv_core.CvPoint2D32f;
+import com.googlecode.javacv.cpp.opencv_core.CvPoint3D32f;
+  
+public class Smoother {  
+      
+    public static void smooth(String filename){  
+        IplImage image=cvLoadImage(filename);  
+        if(image!=null){  
+            cvSmooth(image,image,CV_GAUSSIAN,3);  
+            cvSaveImage("D:\\new2-1.jpg",image);  
+            cvReleaseImage(image);  
+        }  
+    }  
+    public static void main(String[] args)
+    {
+    	Smoother.smooth("D:\\1.jpg"); 
+    }
+  
+} 

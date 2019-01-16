@@ -1,0 +1,5 @@
+package cn.edu.xmu.courseSys.view;
+
+public class BaseBean {
+
+}

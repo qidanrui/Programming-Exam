@@ -1,0 +1,11 @@
+package cn.edu.xmu.software.interfaces;
+
+import java.util.List;
+
+import cn.edu.xmu.software.entity.DayGoal;
+
+public interface IDayGoalOpt {
+	public  List<DayGoal>  getAllDayGoal() ;//获取所有的每日日程
+	public void deleteDayGoal(DayGoal dayGoal);//删除每日日程
+	public void updateDayGoal(DayGoal dayGoal);//更新每日日程
+}

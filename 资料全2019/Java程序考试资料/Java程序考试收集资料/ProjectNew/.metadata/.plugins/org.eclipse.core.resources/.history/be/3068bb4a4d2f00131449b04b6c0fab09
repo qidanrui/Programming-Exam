@@ -1,0 +1,271 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Stack;
+/**
+ * 界面及事件
+ * @author sinllychen
+ *
+ */
+public class DrawPanelFrame extends JFrame{
+	   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JButton undo;
+	   private JButton clear;
+	   private JPanel component;
+	   private JPanel dataPanel;
+	   private JPanel topPanel;
+	   private JLabel statuslabel;
+       private JButton drawPntBtn;//画点
+       private JButton randomPntBtn;//随机生成点
+       private JButton cptMinDistBtn;//计算最短距离
+       private JButton cptGeneralBtn;//计算最近点对普通算法
+       private JLabel minlbl;//最近点距离标签
+       private JTextArea minValuelbl;//最近点距离
+       private JLabel exeTime;//算法执行时间
+       private JTextArea exeTimeLabel;//算法执行时间值
+	   private DrawPanel shape;
+	   private MPoint pntA=new MPoint();
+	   private MPoint pntB=new MPoint();//保存最近点对
+       boolean ifDraw=false;
+	   boolean mousedraw=false;
+	   private ScrollPane scrollPane;
+	   public DrawPanelFrame()
+	   {
+		   undo=new JButton("撤销");
+		   clear=new JButton("清除屏幕");
+		   drawPntBtn=new JButton("画点");
+		   randomPntBtn=new JButton("随机生成点");
+		   cptMinDistBtn=new JButton("计算最近点对");
+		   cptGeneralBtn=new JButton("普通算法");
+		   component=new JPanel(new FlowLayout(FlowLayout.CENTER));
+		   dataPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+		   topPanel =new JPanel(new GridLayout(2,1));
+		   statuslabel=new JLabel();
+		   minlbl=new JLabel("最近点距为:");
+		   minValuelbl=new JTextArea();
+		   minValuelbl.setRows(2);
+		   minValuelbl.setColumns(7);
+		   exeTime=new JLabel("算法执行时间:");
+		   exeTimeLabel=new JTextArea();
+		   exeTimeLabel.setRows(2);
+		   exeTimeLabel.setColumns(7);
+		   shape=new DrawPanel(statuslabel);
+		   shape.setPreferredSize(new Dimension(10000,10000));
+		   scrollPane=new ScrollPane();
+		   scrollPane.add(shape);
+		   component.add(undo);
+		   component.add(clear);
+		   component.add(drawPntBtn);
+		   component.add(randomPntBtn);
+		   component.add(cptMinDistBtn);
+		   component.add(cptGeneralBtn);
+		   dataPanel.add(minlbl);
+		   dataPanel.add(minValuelbl);
+		   dataPanel.add(exeTime);
+		   dataPanel.add(exeTimeLabel);
+		   topPanel.add(component);
+		   topPanel.add(dataPanel);
+		   add(topPanel,BorderLayout.NORTH);
+		   add(scrollPane,BorderLayout.CENTER);
+		   add(statuslabel,BorderLayout.SOUTH);
+		   undo.addActionListener(
+				   new ActionListener()
+				   {
+					  
+					  public void actionPerformed(ActionEvent e) {
+						shape.undoDrawShape();
+						
+					}
+				   }
+				   );
+		   clear.addActionListener(
+				   new ActionListener()
+				   {
+					   public void actionPerformed(ActionEvent e)
+					   {
+						   shape.clearDrawing();
+						   minValuelbl.setText("");
+						   exeTimeLabel.setText("");
+					   }
+				   }
+				   );
+		   drawPntBtn.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ifDraw=true;
+				shape.setDrawStatus(ifDraw);
+				shape.setIfcmtClosest(false);
+			}
+			   
+		   });
+		   randomPntBtn.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ifDraw=false;
+				shape.setDrawStatus(ifDraw);
+				Random random=new Random();
+				Stack<MyShape> myshape=new Stack<MyShape>();
+				ArrayList<MPoint> myPoints=new ArrayList<MPoint>();
+				long startTime=System.currentTimeMillis(); 
+				for(int i=0;i<1000000;i++)
+				{
+					MPoint point=new MPoint();
+					point.setX(random.nextDouble()*10000);
+					point.setY(random.nextDouble()*10000);
+					point.setRadius(10);
+					myshape.push(point);
+					myPoints.add(point);
+				}
+				long endTime=System.currentTimeMillis(); 
+				System.out.println((endTime-startTime)+"ms");
+				shape.setShapes(myshape);
+				shape.setPoints(myPoints);
+				shape.setIfcmtClosest(false);
+				shape.repaint();
+			}
+		   });
+		   cptMinDistBtn.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					ifDraw=false;
+					shape.setDrawStatus(ifDraw);
+					shape.setIfcmtClosest(true);
+					long startTime=System.currentTimeMillis(); 
+					CommonMethod.quickSortX(DrawPanel.getPoints(), 0, DrawPanel.getPoints().size()-1);
+/*					CommonMethod.mergeSortX(DrawPanel.getPoints(), 0, DrawPanel.getPoints().size()-1);*/
+					double d=CommonMethod.closest(DrawPanel.getPoints(), 0, DrawPanel.getPoints().size()-1, pntA, pntB);
+					long endTime=System.currentTimeMillis(); 
+					System.out.println((endTime-startTime)+"ms");
+					exeTimeLabel.setText((endTime-startTime)+"ms");
+					DecimalFormat df=new DecimalFormat(".######");
+					minValuelbl.setText(String.valueOf(d)+"      "+"最近点对为:"+"A="+"("+df.format(pntA.getX())+","+df.format(pntA.getY())+")"+","+"B="+"("+df.format(pntB.getX())+","+df.format(pntB.getY())+")");
+					shape.setPntA(pntA);
+					System.out.println(String.valueOf(d)+"      "+"最近点对为:"+"A="+"("+pntA.getX()+","+pntA.getY()+")"+","+"B="+"("+pntB.getX()+","+pntB.getY()+")");
+					shape.setPntB(pntB);
+					shape.repaint();
+				}
+				   
+			   });
+		   cptGeneralBtn.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					ifDraw=false;
+					shape.setDrawStatus(ifDraw);
+					shape.setIfcmtClosest(true);
+					long startTime=System.currentTimeMillis(); 
+					double d=CommonMethod.generalClosest(DrawPanel.getPoints(), 0, DrawPanel.getPoints().size()-1, pntA, pntB);
+					long endTime=System.currentTimeMillis(); 
+					System.out.println((endTime-startTime)+"ms");
+					exeTimeLabel.setText((endTime-startTime)+"ms");
+//					DecimalFormat df=new DecimalFormat(".######");
+					minValuelbl.setText(String.valueOf(d)+"      "+"最近点对为:"+"A="+"("+pntA.getX()+","+pntA.getY()+")"+","+"B="+"("+pntB.getX()+","+pntB.getY()+")");
+					shape.setPntA(pntA);
+					System.out.println(String.valueOf(d)+"      "+"最近点对为:"+"A="+"("+pntA.getX()+","+pntA.getY()+")"+","+"B="+"("+pntB.getX()+","+pntB.getY()+")");
+					shape.setPntB(pntB);
+					shape.repaint();
+				}
+				   
+			   });
+		   
+	   }
+	   
+	/**
+	 * @return the drawPntBtn
+	 */
+	public JButton getDrawPntBtn() {
+		return drawPntBtn;
+	}
+	/**
+	 * @param drawPntBtn the drawPntBtn to set
+	 */
+	public void setDrawPntBtn(JButton drawPntBtn) {
+		this.drawPntBtn = drawPntBtn;
+	}
+	/**
+	 * @return the randomPntBtn
+	 */
+	public JButton getRandomPntBtn() {
+		return randomPntBtn;
+	}
+	/**
+	 * @param randomPntBtn the randomPntBtn to set
+	 */
+	public void setRandomPntBtn(JButton randomPntBtn) {
+		this.randomPntBtn = randomPntBtn;
+	}
+	/**
+	 * @return the cptMinDistBtn
+	 */
+	public JButton getCptMinDistBtn() {
+		return cptMinDistBtn;
+	}
+	/**
+	 * @param cptMinDistBtn the cptMinDistBtn to set
+	 */
+	public void setCptMinDistBtn(JButton cptMinDistBtn) {
+		this.cptMinDistBtn = cptMinDistBtn;
+	}
+	/**
+	 * @return the minlbl
+	 */
+	public JLabel getMinlbl() {
+		return minlbl;
+	}
+	/**
+	 * @param minlbl the minlbl to set
+	 */
+	public void setMinlbl(JLabel minlbl) {
+		this.minlbl = minlbl;
+	}
+	/**
+	 * @return the scrollPane
+	 */
+	public ScrollPane getScrollPane() {
+		return scrollPane;
+	}
+	/**
+	 * @param scrollPane the scrollPane to set
+	 */
+	public void setScrollPane(ScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
+	}
+	/**
+	 * @param pntA the pntA to set
+	 */
+	public void setPntA(MPoint pntA) {
+		this.pntA = pntA;
+	}
+	/**
+	 * @return the pntB
+	 */
+	public MPoint getPntB() {
+		return pntB;
+	}
+	/**
+	 * @param pntB the pntB to set
+	 */
+	public void setPntB(MPoint pntB) {
+		this.pntB = pntB;
+	}
+	  /**
+		 * @return the pntA
+		 */
+		public MPoint getPntA() {
+			return pntA;
+		}
+}

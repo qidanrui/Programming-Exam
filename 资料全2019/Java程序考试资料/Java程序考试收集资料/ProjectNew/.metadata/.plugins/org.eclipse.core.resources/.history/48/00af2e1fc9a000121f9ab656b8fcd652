@@ -1,0 +1,200 @@
+package teaching.core;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import teaching.adapter.KQYLSingleAdapter;
+import teaching.adapter.KQYLTotalAdapter;
+import teaching.adapter.UserCourseAdapter;
+import teaching.common.ContextUtil;
+import teaching.common.DateType;
+import teaching.core.R;
+import teaching.model.TimeCard;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+/**
+ * 考勤一览页面
+ * @author sinllychen
+ *
+ */
+public class KqylActivity extends Activity implements  OnItemClickListener {
+	private   List<Map<String, Object>> totalListItems;//整体考勤list
+	private  boolean isTotalList;
+	private   List<Map<String,Object>> xkListItems;//下课list
+	private   boolean isXkList;
+	private   List<Map<String,Object>>  skListItems;//上课list
+	private   boolean isSkList;
+	private   ListView kqylList;
+	private   KQYLSingleAdapter kqylSingleAdapter;
+	private   KQYLTotalAdapter kqylTotalAdapter;
+	private   Button kqSwitch;
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.kaoqingyilan);
+        kqylList=(ListView)findViewById(R.id.kaoqingyilan_list);
+        kqSwitch=(Button)findViewById(R.id.top_button_right);
+        isTotalList=true;
+        isXkList=false;
+        isSkList=false;
+        this.init();
+        kqylList.setOnItemClickListener(this);
+	}
+    /**
+     * 初始化数据
+     */
+	public void init()
+	{ 
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+		if(isTotalList)
+		{
+			this.totalListItems = new ArrayList<Map<String, Object>>();
+			 for(int i=0;i<ContextUtil.currentCourse.getStudents().size();i++)
+			    {
+					Map<String, Object> map = new HashMap<String, Object>();
+			    	map.put("stuName", ContextUtil.currentCourse.getStudents().get(i).getUserName());
+			    	TimeCard card=ContextUtil.getStudentCourseTimeCard(ContextUtil.currentCourse.getStudents().get(i),  ContextUtil.currentCourse.getCourseId());
+			    	if(card.getSignInDate()==null)
+			    		map.put("skDate", "");
+			    	else
+			    	    map.put("skDate", format.format(card.getSignInDate()).toString());
+			    	if(card.getSignOutDate()==null)
+			    		map.put("xkDate", "");
+			    	else
+			    	    map.put("xkDate", format.format(card.getSignOutDate()).toString());
+			    	map.put("skStatus", card.getSignInType());
+			    	map.put("xkStatus", card.getSignOutType());
+					this.totalListItems.add(map);
+			    }
+			 kqylTotalAdapter=new KQYLTotalAdapter(this,totalListItems);
+			 kqylList.setAdapter(kqylTotalAdapter);
+			 this.onRestart();
+		}
+		if(isSkList)
+		{
+			this.skListItems = new ArrayList<Map<String, Object>>();
+			for(int i=0;i<ContextUtil.currentCourse.getStudents().size();i++)
+		    {
+				Map<String, Object> map = new HashMap<String, Object>();
+		    	map.put("stuName", ContextUtil.currentCourse.getStudents().get(i).getUserName());
+		    	map.put("stuNum", ContextUtil.currentCourse.getStudents().get(i).getUserId());
+                String kqStatus=ContextUtil.getStudentCourseTimeCardStatus(ContextUtil.currentCourse.getStudents().get(i),  ContextUtil.currentCourse.getCourseId(),true);
+		    	map.put("kqStatus", kqStatus);
+				this.skListItems.add(map);
+		    }
+			kqylSingleAdapter=new KQYLSingleAdapter(this,skListItems);
+			 kqylList.setAdapter(kqylSingleAdapter);
+			 this.onRestart();
+		}
+		if(isXkList)
+		{
+			this.xkListItems = new ArrayList<Map<String, Object>>();
+			for(int i=0;i<ContextUtil.currentCourse.getStudents().size();i++)
+		    {
+				Map<String, Object> map = new HashMap<String, Object>();
+		    	map.put("stuName", ContextUtil.currentCourse.getStudents().get(i).getUserName());
+		    	map.put("stuNum", ContextUtil.currentCourse.getStudents().get(i).getUserId());
+                String kqStatus=ContextUtil.getStudentCourseTimeCardStatus(ContextUtil.currentCourse.getStudents().get(i),  ContextUtil.currentCourse.getCourseId(),false);
+		    	map.put("kqStatus", kqStatus);
+				this.xkListItems.add(map);
+		    }
+			kqylSingleAdapter=new KQYLSingleAdapter(this,xkListItems);
+			 kqylList.setAdapter(kqylSingleAdapter);
+			 this.onRestart();
+		}  
+	}
+	/**
+	 * 返回上一个考勤一览状态
+	 * @param view
+	 */
+	public void kqReturnSwitch(View view)
+	{
+		if(isTotalList)
+		{
+			 isXkList=false;
+			 isSkList=false;
+			 isTotalList=true;
+			 Intent intent=new Intent();
+			 intent.setClass(this, CourseAdminActivity.class);
+			 startActivity(intent);
+		}
+        if(isSkList)
+        {
+        	isTotalList=true;
+        	isSkList=false;
+        	isXkList=false;
+        	this.init();
+        }
+        if(isXkList)
+		{
+			isTotalList=false;
+			isSkList=true;
+			isXkList=false;
+			this.init();
+		}
+	}
+	/**
+	 * 考勤一览状态切换
+	 * @param view
+	 */
+	public void kqSwitch(View view)
+	{
+		if(kqSwitch.getText().equals("上课考勤"))
+		{
+			isTotalList=false;
+			isSkList=true;
+			isXkList=false;
+			kqSwitch.setText("下课考勤");
+			this.init();
+		}
+		if(kqSwitch.getText().equals("下课考勤"))
+		{
+			isTotalList=false;
+			isSkList=false;
+			isXkList=true;
+			kqSwitch.setText("整体");
+			this.init();
+		}
+		if(kqSwitch.getText().equals("整体"))
+		{
+			isTotalList=true;
+			isSkList=false;
+			isXkList=false;
+			kqSwitch.setText("上课考勤");
+			this.init();
+		}
+	}
+
+	/**
+	 * 点击item响应的事件
+	 */
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		// TODO Auto-generated method stub
+		ContextUtil.currentCourse=ContextUtil.currentUser.getCourses().get((int) id);
+		if(ContextUtil.currentCourse.getFlag())
+		{
+			Intent intent = new Intent(this,CourseAdminActivity.class);
+			startActivity(intent);
+		}
+		else
+		{
+			
+		}
+	}
+}

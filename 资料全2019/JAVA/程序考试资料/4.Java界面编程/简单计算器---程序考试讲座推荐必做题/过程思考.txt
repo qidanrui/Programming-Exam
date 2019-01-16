@@ -1,0 +1,17 @@
+tf.setText(cal.opAdd(tf.getText()));
+假设一开始输入的源操作数是123，则tf.getText()=123
+
+  opAdd()操作首先执行operate(s)
+    operate(s)操作的op初始值为0，直接返回result=s，即123
+  opAdd()操作然后置op=add，然后返回result=s，即123
+
+然后再次点击某个操作button比如"="，开始执行tf.setText(cal.opEquals(tf.getText()));
+假设第二次输入的目的操作数是456，即tf.getText()=456
+
+  opEquals()操作首先执行operate(s)
+    operate(s)操作的op为上次记录的add，返回result=String.valueOf(y + x)，即123+456=579
+    注：x表示本次输入，y记录的是上次操作的结果
+  opEquals()操作然后置op=0，然后返回result=s，即579
+
+
+总结：这里op初始值为0，以后每次记录的是上一次输入的运算操作，以实现源操作数和目的操作数的运算

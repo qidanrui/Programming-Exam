@@ -1,0 +1,101 @@
+package cn.edu.xmu.software.entity;
+
+import java.io.Serializable;
+import java.util.List;
+
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+
+public class User  implements Serializable{
+       /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	  @DatabaseField(generatedId = true)
+	private long id;
+	  @DatabaseField (width=50)
+       private String  account;//账号
+	  @DatabaseField (width=20)
+       private String  password;//密码
+	  @DatabaseField (width=10)
+       private String  nickName;//昵称
+	  @ForeignCollectionField(eager = false)
+	   private  ForeignCollection<Plan> plans; //一个计划中可以拥有多个目标
+	   private  List<Plan> listPlans;//返回计划中含有的数组
+       public User(){};
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
+	/**
+	 * @return the account
+	 */
+	public String getAccount() {
+		return account;
+	}
+	/**
+	 * @param account the account to set
+	 */
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	/**
+	 * @return the nickName
+	 */
+	public String getNickName() {
+		return nickName;
+	}
+	/**
+	 * @param nickName the nickName to set
+	 */
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	
+	/**
+	 * @return the plans
+	 */
+	public ForeignCollection<Plan> getPlans() {
+		return plans;
+	}
+	/**
+	 * @param plans the plans to set
+	 */
+	public void setPlans(ForeignCollection<Plan> plans) {
+		this.plans = plans;
+	}
+	/**
+	 * @return the listPlans
+	 */
+	public List<Plan> getListPlans() {
+		return listPlans;
+	}
+	/**
+	 * @param listPlans the listPlans to set
+	 */
+	public void setListPlans(List<Plan> listPlans) {
+		this.listPlans = listPlans;
+	}
+       
+}

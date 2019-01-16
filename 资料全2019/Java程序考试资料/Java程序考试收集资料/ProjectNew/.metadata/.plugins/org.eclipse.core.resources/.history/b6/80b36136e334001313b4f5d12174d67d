@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+
+public class QuickSort {
+	  /**
+     * 随机获得分割点
+     * @param datas
+     * @param i   
+     * @param j
+     * @return
+     */
+    public static int randomPartition(ArrayList<Integer> datas,int i,int j)
+    {
+    	Random rand=new Random();
+    	int k=i+rand.nextInt(j-i+1);
+    	swap(datas,i,k);
+    	return partition(datas,i,j);
+    }
+    /**
+     * 获得分割点主要函数
+     * @param datas
+     * @param i
+     * @param j
+     * @return
+     */
+    public static int partition(ArrayList<Integer> datas,int i,int j)
+    {
+    	int key=datas.get(i);
+        int m=i+1;
+        int n=j;
+        while(m<=n)
+        {
+        	while(m<=n&&datas.get(m)<=key) m++;
+        	while(m<=n&&datas.get(n)>=key) n--;
+        	if(m>=n)
+        		break;
+        	swap(datas,m,n);
+        }
+        datas.set(i, datas.get(n));
+        datas.set(n, key);
+        return n;
+    }
+    /**
+     * 快速排序
+     * @param datas
+     * @param i
+     * @param j
+     */
+    public static void quickSort(ArrayList<Integer> datas,int i,int j)
+    {
+    	if(i<j)
+    	{
+    		int p=randomPartition(datas,i,j);
+    		quickSort(datas,i,p-1);
+    		quickSort(datas,p+1,j);
+    	}
+    }
+}

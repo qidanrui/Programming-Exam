@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">教师考勤助手</string>
+    <string name="dianjibang">单机版</string>
+      <string name="shuomeng">网络版是配合百度云盘，可以把数据上传到百度云盘的个人帐户中，也可以利用云盘对班干部端与班主任端进行通信。</string>
+      <string name="loginSys">系统登录</string>
+      <string name="account">账号</string>
+      <string name="accountInfo">请输入您的学号</string>
+      <string name="password">密码</string>
+      <string name="passwordInfo">请输入您的密码</string>
+      <string name="login">登录</string>
+      <string name="loginDyn">自动登录</string>
+      <string name="feedBack">[意见问题]反馈</string>
+      <string name="logout">退出</string>
+      <string name="courseList">课程列表</string>
+      <string name="courseName">课程名称</string>
+      <string name="shangkekaoqing">上课考勤</string>
+      <string name="xiakekaoqing">下课考勤</string>
+      <string name="kaoqingyilan">考勤一览</string>
+      <string name="queqingmingdan">缺勤名单</string>
+      <string name="courseInfo">课程信息</string>
+      <string name="memberInfo">学生资料</string>
+      <string name="welcome">,欢迎您</string>
+      <string name="daoxi">到席</string>
+      <string name="quexi">缺席</string>
+      <string name="qingjia">请假</string>
+      <string name="tiaoguo">跳过</string>
+      <string name="fristRecord">首记录</string>
+      <string name="lastOne">上一个</string>
+      <string name="nextOne">下一个</string>
+      <string name="lastRecord">尾记录</string>
+      <string name="stuName"></string>
+      
+</resources>

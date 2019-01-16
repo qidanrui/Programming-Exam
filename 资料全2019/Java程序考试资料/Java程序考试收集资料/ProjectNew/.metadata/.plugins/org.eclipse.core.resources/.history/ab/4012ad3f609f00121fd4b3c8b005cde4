@@ -1,0 +1,70 @@
+package Teaching.Adapter;
+
+import java.util.List;
+import java.util.Map;
+import Teaching.Core.CourseActivity;
+import Teaching.Core.R;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+public class UserCourseAdapter extends BaseAdapter{
+	private CourseActivity context;
+	private LayoutInflater listInflater;
+	private List<Map<String, Object>> listItems;
+	private int itemCount;
+	private String courseName;
+	private String courseType;
+	
+	public final class ListItemView{
+		public TextView courseName;
+		public TextView courseType;
+	}
+	public UserCourseAdapter(CourseActivity context, List<Map<String, Object>> listItems) {
+		// TODO Auto-generated constructor stub
+		this.context = context;
+		//this.listItems = new ArrayList<Map<String, Object>>();
+		this.listItems = listItems;
+		this.init();
+	} 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return this.itemCount;
+	}
+
+	@Override
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		ListItemView listItem = null;
+		listItem = new ListItemView();
+		convertView  = this.listInflater.inflate(R.layout.course_list,null);
+		listItem.courseName=(TextView)convertView.findViewById(R.id.tv_courseName);
+		listItem.courseType=(TextView)convertView.findViewById(R.id.tv_courseType);
+		courseName = (String)this.listItems.get(position).get("courseName");
+		courseType =(String)this.listItems.get(position).get("courseType");
+		
+		listItem.courseName.setText(courseName);
+		listItem.courseType.setText(courseType);
+		return convertView;
+	}
+	public void init()
+	{
+	this.itemCount = this.listItems.size();
+	this.listInflater = LayoutInflater.from(this.context);
+	}
+}

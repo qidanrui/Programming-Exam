@@ -1,0 +1,12 @@
+
+public class BinarySearch {
+	public static int binarySearch(int n)
+	{
+		
+	}
+   public static void main(String[] args)
+   {
+	   
+   }
+   
+}

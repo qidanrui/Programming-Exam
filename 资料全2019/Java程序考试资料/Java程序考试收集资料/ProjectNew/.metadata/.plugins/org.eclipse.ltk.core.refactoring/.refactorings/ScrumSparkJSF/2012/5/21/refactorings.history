@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;BaseBean.java&apos; to &apos;CourseSysWebClient/JavaSource/cn.edu.xmu.courseSys.view&apos;&#x0D;&#x0A;- Original project: &apos;ScrumSparkJSF&apos;&#x0D;&#x0A;- Destination element: &apos;CourseSysWebClient/JavaSource/cn.edu.xmu.courseSys.view&apos;&#x0D;&#x0A;- Original element: &apos;cn.edu.xmu.scrumspark.view.BaseBean.java&apos;" description="Copy compilation unit" destination="=CourseSysWebClient/JavaSource&lt;cn.edu.xmu.courseSys.view" element1="/JavaSource&lt;cn.edu.xmu.scrumspark.view{BaseBean.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1337690471231" units="1" version="1.0"/>
+</session>

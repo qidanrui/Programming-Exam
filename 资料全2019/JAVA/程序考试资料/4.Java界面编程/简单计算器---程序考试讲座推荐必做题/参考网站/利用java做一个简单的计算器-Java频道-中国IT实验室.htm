@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://java.chinaitlab.com/JDK/391629.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<META name="Keywords" content="Java,利用java做一个简单的计算器">
+<META name="description" content="文章标题：利用java做一个简单的计算器。中国IT实验室JAVA频道是一个专业的JAVA技术平台，着眼于业界尖端技术，提供及时全面的JAVA技术和资讯文章，为广大的JAVA爱好者提供一个技术学习共享的资源库。">
+<META name="classification" content="Information Technology and Scientice">
+<META name="robots" content="ALL">
+<META name="distribution" content="Global">
+<META name="rating" content="General">
+<META name="author" content="http://www.chinaitlab.com/">
+<META name="language" content="chinese">
+
+<META name="resource-type" content="document">
+<META http-equiv="pragma" content="no-cache">
+<META http-equiv="expires" content="SUN,09 JAN 1998 00:00:01 GMT">
+<LINK rel="SHORTCUT ICON" href="http://www.chinaitlab.com/favicon.ico">
+<LINK rel="stylesheet" type="text/css" href="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/style_new.css">
+<TITLE>利用java做一个简单的计算器-Java频道-中国IT实验室</TITLE>
+<STYLE type="text/css">
+a.channel_keylink:link,a.channel_keylink:visited{	FONT-SIZE: 14px;COLOR: #0000FF;	line-height: 22px;}
+a.channel_keylink:hover,a.channel_keylink:active{	FONT-SIZE: 14px;COLOR: #FF3333;	TEXT-DECORATION: underline;line-height: 22px;}
+.STYLE1 a:link,.STYLE1 a:visited,.STYLE1 a:active{
+	COLOR: #ff0000; TEXT-DECORATION: none; font-family: "宋体"; font-size: 15px; font-weight:bold; padding-left:12px; padding-top:5px;
+}
+.STYLE1 a:hover{
+	COLOR: #000000; TEXT-DECORATION: underline; font-family: "宋体"; font-size: 15px; font-weight:bold;padding-left:12px; padding-top:5px;
+}
+.STYLE1 {
+	color: #000000;
+	font-weight: bold;padding-left:12px;
+	 padding-top:7px;
+}
+</STYLE>
+<SCRIPT language="JavaScript">
+<!--
+//改变图片大小
+function resizepic(thispic)
+{
+if(thispic.width>700) thispic.width=700;
+}
+//无级缩放图片大小
+function bbimg(o)
+{
+  //var zoom=parseInt(o.style.zoom, 10)||100;
+  //zoom+=event.wheelDelta/12;
+  //if (zoom>0) o.style.zoom=zoom+'%';
+  return true;
+}
+-->
+</SCRIPT>
+</HEAD><BODY>
+<!--顶端导航部分代码-->
+<DIV class="tong" style=" line-height: 23px; border:0px">
+<DIV style="FONT-SIZE: 12px; BACKGROUND: #fafafa; WIDTH: 100%; LINE-HEIGHT: 23px; FONT-FAMILY: 宋体; TEXT-ALIGN: left"><A href="http://www.chinaitlab.com/" target="_blank"><IMG style="FLOAT: left; MARGIN-RIGHT: 5px" height="42" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/logo_top.gif" width="145" border="0"></A> <A href="http://www.chinaitlab.com/" target="_blank">首页</A> | <A href="http://internet.chinaitlab.com/" target="_blank">互联网</A> | <A href="http://news.chinaitlab.com/" target="_blank">IT动态</A> | <A href="http://edu.chinaitlab.com/" target="_blank"><FONT color="#ff0000">IT培训</FONT></A> | <A href="http://cisco.chinaitlab.com/" target="_blank">Cisco</A> | <A href="http://windows.chinaitlab.com/" target="_blank">Windows</A> | <A href="http://linux.chinaitlab.com/" target="_blank">Linux</A> | <A href="http://java.chinaitlab.com/" target="_blank">Java</A> | <A href="http://dotnet.chinaitlab.com/" target="_blank">.Net</A> | <A href="http://oracle.chinaitlab.com/" target="_blank">Oracle</A> | <A href="http://softtest.chinaitlab.com/" target="_blank">软件测试</A> | <A href="http://c.chinaitlab.com/" target="_blank">C/C++</A> | <A href="http://embed.chinaitlab.com/" target="_blank"><FONT color="#ff0000">嵌入式开发</FONT></A> | <A href="http://www.storworld.com/" target="_blank">存储世界</A> | <A href="http://www.idcquan.com/" target="_blank"><FONT color="#ff0000"></FONT></A><A href="http://server.chinaitlab.com/" target="_blank">服务器</A> <A href="http://huawei.chinaitlab.com/" target="_blank"></A><BR><A href="http://network.chinaitlab.com/" target="_blank">网络设备</A> | <A href="http://www.idcquan.com/" target="_blank">IDC</A> | <A href="http://live.chinaitlab.com/" target="_blank"></A><A href="http://security.chinaitlab.com/" target="_blank">安全</A> | <A href="http://www.21itjob.com/" target="_blank"><FONT color="#ff0000">求职招聘</FONT></A> | <A href="http://school.chinaitlab.com/" target="_blank">数字网校</A> | <A href="http://www.chinaitlab.com/nb/" target="_blank"><FONT color="#ff0000">笔记本电脑</FONT></A> | <A href="http://edu.chinaitlab.com/special/bdqn/Index.html" target="_blank">北大青鸟</A> | <A href="http://special.chinaitlab.com/" target="_blank">技术专题</A> | <A href="http://download.chinaitlab.com/" target="_blank">电子书下载</A> | <A href="http://download.chinaitlab.com/video.html" target="_blank">教学视频</A> | <A href="http://down.idcquan.com/" target="_blank"><FONT color="#ff0000">源码下载</FONT></A> | <A href="http://search.chinaitlab.com/" target="_blank">搜索</A><A href="http://blog.chinaitlab.com/" target="_blank"></A> | <A href="http://blog.chinaitlab.com/" target="_blank">博客</A><A href="http://salon.chinaitlab.com/" target="_blank"></A> | <A href="http://bbs.chinaitlab.com/" target="_blank">论坛</A> </DIV>
+</DIV>
+<DIV class="blank"></DIV>
+<DIV class="tong">
+	<SPAN id="udtop"> 
+<SCRIPT language="JavaScript">
+document.write("<script src=\"http://www.chinaitlab.com/ADjs/200604/12.js\"><\/script>");</SCRIPT><SCRIPT src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/12.js"></SCRIPT><SCRIPT type="text/javascript">
+
+<!--
+
+smartad_advid = "0000000000000000";
+
+smartad_adpid = "2009033017595468";
+
+smartad_modeid = "000001";
+
+smartad_width = 960;
+
+smartad_height = 80;
+
+smartad_type = "0";
+
+smartad_encoding = "gb2312";
+
+//-->
+
+</SCRIPT>
+<SCRIPT src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/ShowMe.js" type="text/javascript"></SCRIPT><SCRIPT src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/Show.aspx"></SCRIPT><A href="http://adv.chinaitlab.com/Agent/Jump.aspx?32%7c0000000000000000%7c2009033017595468%7c000001%7c960%7c80%7c0%7cMSIE+6.0%7cWindows+NT+5.1%7chttp%3a%2f%2fjava.chinaitlab.com%2fbase%2f724898.html%7chttp%3a%2f%2fjava.chinaitlab.com%2fadvance%2f798274.html%7czh-cn%7cgb2312%7c116.30.146.61%7c2010042714421411%7c0650DDDA65978F65234129B64ECA23FD" title="ORACLE" target="_blank"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/20100427144237680.jpg" style="border:0px;width:960px;height:80px;"></A><!-- Published By SmartAD Pro , LAMPSOFT.com -->
+
+
+</SPAN>
+</DIV>
+<!--页面顶端通栏广告代码段-->
+<DIV class="blank"></DIV>
+<DIV class="tong"><SPAN id="udtop"></SPAN></DIV>
+<DIV class="blank"></DIV>
+<!--频道导航代码段-->
+<DIV class="tong">
+	<TABLE cellspacing="0" cellpadding="0" width="960" align="center" border="0">
+    <TBODY><TR>
+      <TD width="223"><A title="欢迎光临中国IT实验室Java频道" href="http://java.chinaitlab.com/" target="_blank"><IMG height="49" alt="中国IT实验室Linux频道" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/00.gif" width="224" border="0"></A></TD>
+      <TD valign="bottom" width="724" background="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/02.gif">
+        <TABLE height="38" cellspacing="0" cellpadding="0" width="712" align="center" border="0">
+          <TBODY><TR>
+            <TD class="zhi12" width="461" height="29"><A href="http://train.1010school.com/LR/chatwin.aspx?id=LZC69557093&k=6332831307852825003000&lng=cn&nk=6333045631866887503073&ip1=%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B7%B1%E5%9C%B3%E5%B8%82%E5%8D%97%E5%B1%B1%E5%8C%BA&ip2=%E7%94%B5%E4%BF%A1ADSL&p=http%3A//school.chinaitlab.com/&r=" target="_blank"><IMG height="26" alt="中国IT教育" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/Java.gif" width="389" border="0"></A></TD>
+            <TD width="251">
+              <TABLE cellspacing="0" cellpadding="0" width="220" align="center" border="0">
+<FORM action="http://www.google.com/custom" method="get" target="google_window"></FORM>
+                <TBODY><TR>
+                  <TD valign="top" nowrap="" align="left" height="20"><A href="http://www.google.com/"><IMG height="26" alt="Google" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/Logo_25wht.gif" width="62" align="middle" border="0"></A> </TD>
+                  <TD nowrap="" height="20">
+  <INPUT type="hidden" value="www.chinaitlab.com" name="domains"> <LABEL style="DISPLAY: none" for="sbi">输入您的搜索字词</LABEL> 
+  <INPUT id="sbi" maxlength="255" size="15" name="q"> <LABEL style="DISPLAY: none" for="sbb">提交搜索表单</LABEL> 
+                    <INPUT id="sbb" type="submit" value="搜索" name="sa"> </TD>
+                  <TD style="DISPLAY: none; VISIBILITY: hidden" nowrap="" height="20">
+  <INPUT id="ss0" type="radio" value="" name="sitesearch"> 
+  <INPUT id="ss1" type="radio" checked="" value="www.chinaitlab.com" name="sitesearch"> 
+  <INPUT type="hidden" value="pub-4504000360271476" name="client"> 
+  <INPUT type="hidden" value="1" name="forid"> 
+  <INPUT type="hidden" value="GB2312" name="ie"> 
+  <INPUT type="hidden" value="GB2312" name="oe"> 
+  <INPUT type="hidden" value="active" name="safe"> 
+  <INPUT type="hidden" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1" name="cof"> 
+                    <INPUT type="hidden" value="zh-CN" name="hl"> </TD>
+                </TR>
+              </TBODY></TABLE>
+            </TD>
+          </TR>
+        </TBODY></TABLE>
+      </TD>
+      <TD width="13"><IMG height="49" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/01.gif" width="13"></TD>
+    </TR>
+  </TBODY></TABLE>
+  <TABLE cellspacing="0" cellpadding="0" width="960" align="center" border="0">
+    <TBODY><TR>
+      <TD width="11"><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/03.gif" width="12"></TD>
+      <TD width="935" background="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/04.gif">
+        <TABLE height="24" cellspacing="0" cellpadding="0" width="100%" border="0">
+          <TBODY><TR align="middle">
+            <TD height="24"><A class="DHbnr" title="中国IT实验室Linux频道首页" href="http://java.chinaitlab.com/" target="_blank">首页</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="资讯动态" href="http://java.chinaitlab.com/List_171.html" target="_blank">资讯动态</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="认证考试" href="http://java.chinaitlab.com/List_172.html" target="_blank">认证考试</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="新手入门" href="http://java.chinaitlab.com/List_173.html" target="_blank">新手入门</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="核心技术" href="http://java.chinaitlab.com/List_174.html" target="_blank">核心技术</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="高级技术" href="http://java.chinaitlab.com/List_175.html" target="_blank">高级技术</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="J2EE" href="http://java.chinaitlab.com/List_176.html" target="_blank">J2EE</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="J2ME" href="http://java.chinaitlab.com/List_177.html" target="_blank">J2ME</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="Java&amp;XML" href="http://java.chinaitlab.com/List_178.html" target="_blank">Java&amp;XML</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="开源技术" href="http://java.chinaitlab.com/List_179.html" target="_blank">开源技术</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="其他技术" href="http://java.chinaitlab.com/List_180.html" target="_blank">其他技术</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="欢迎订阅Java频道文章" href="http://java.chinaitlab.com/rss.xml" target="_blank">RSS订阅</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="Java论坛" href="http://bbs.chinaitlab.com/forum-201-1.html" target="_blank">论坛</A></TD>
+            <TD><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/07.gif" width="3"></TD>
+            <TD><A class="DHbnr" title="Java专题" href="http://special.chinaitlab.com/List_1934.html" target="_blank">专题</A></TD>
+          </TR>
+        </TBODY></TABLE>
+      </TD>
+      <TD width="13"><IMG height="38" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/05.gif" width="13"></TD>
+    </TR>
+  </TBODY></TABLE>
+</DIV>
+<DIV class="blank"></DIV>
+<DIV class="tong">
+	<DIV class="Prt_left border_kuang">
+		<DIV class="WeiZhi">
+			<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f02.gif" width="9" height="30" border="0">您现在的位置：&nbsp;<A class="LinkPath" href="http://www.chinaitlab.com/">中国IT实验室</A>&nbsp;&gt;&gt;&nbsp;<A class="LinkPath" href="http://java.chinaitlab.com/Index.html">Java</A>&nbsp;&gt;&gt;&nbsp;<A class="LinkPath" href="http://java.chinaitlab.com/List_173.html">新手入门</A>&nbsp;&gt;&gt;&nbsp;<A class="LinkPath" href="http://java.chinaitlab.com/List_188.html">JDK</A>&nbsp;&gt;&gt;&nbsp;正文
+		</DIV>
+		<H1 class="Article_tle">利用java做一个简单的计算器 </H1>
+		<DIV class="Ud_tle">
+			<SPAN style="float:left; border-right:1px dashed #cccccc; width:50%">
+				<SCRIPT language="javascript" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/und_title_left.js"></SCRIPT><A href="http://www.yangbang.cn/" target="_blank" style="padding-left:4px"><FONT color="#ff0000">央邦0首付，低押金先就业后付款</FONT></A><BR>
+				<SCRIPT language="javascript" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/tech_title_rencai.js"></SCRIPT><A href="http://www.sz-aptech.com/accp/default.aspx" target="_blank" style="padding-left:4px">JAVAV工程师权威认证</A><BR><A href="http://www.gzccie.com/" target="_blank" style="padding-left:4px">广州中星报MCSE送CCNA3600元</A>
+			</SPAN>
+			<SPAN style="float:right; width:48%">
+				<SCRIPT language="javascript" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/und_title_right.js"></SCRIPT><A href="http://edu.liming.com/news_more.php?dh_id=15&lm_id=114&lm2_id=166&news_id=426" target="_blank" style="padding-left:4px"><FONT color="#ff0000">黎明让你迅速通过认证MCITP</FONT></A><BR>
+				<SCRIPT language="javascript" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/tech_title_school.js"></SCRIPT><A class="" href="http://www.szaptech.com.cn/benet.asp" target="_blank"><FONT color="#ff0000">Windows高级工程师的培训地</FONT></A><BR> <A class="" href="http://www.farsight.com.cn/intern/index.aspx" target="_blank">【就业】先实习后上岗，入职年薪5-10万！</A>
+			</SPAN>
+		</DIV>
+		<DIV class="infor">
+			<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/source.gif" width="15" height="16" alt="文章来源"><A href="http://www.chinaitlab.com/ShowCopyFrom.asp?ChannelID=1004&SourceName=ChinaItLab">ChinaItLab</A>
+			<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/author.gif" width="14" height="15" alt="作者">佚名
+			<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/time.gif" width="14" height="16" alt="更新时间">2006-5-27
+			<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/save.gif" width="16" height="16" alt="保存本文"><A href="javascript:window.external.AddFavorite('http://cisco.chinaitlab.com/JDK/391629.html','利用java做一个简单的计算器|中国IT实验室')" target="_top">保存本文</A>
+			<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/tuijian.gif" width="20" height="16" alt="推荐给好友"><A onclick="javascript:window.open(&#39;http://www.chinaitlab.com/www/news/sendfriend.asp?id1=32580&amp;location1=&#39;+document.all.location1.value)" href="http://cisco.chinaitlab.com/JDK/391629.html">推荐给好友</A>
+			<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/faver.gif" width="14" height="15" alt="收藏本页"><A href="javascript:window.external.AddFavorite('http://www.chinaitlab.com','中国IT实验室')" target="_top">收藏本页</A>
+		</DIV>
+		<DIV class="Article_content">
+		<DIV class="STYLE1"><A href="http://bbs.chinaitlab.com/" target="_blank" class="STYLE1">欢迎进入Java社区论坛，与200万技术人员互动交流  &gt;&gt;进入</A></DIV>
+		<P>&nbsp;&nbsp;&nbsp; 共两个类。还只是完成＋、－、×、÷运算而已。</P>
+<P>&nbsp;&nbsp;&nbsp; GUI只是用了AWT，很简单，相信一看就能懂了。<BR>Calculator.java<BR><BR>public&nbsp;class&nbsp;Calculator{<BR>private&nbsp;String&nbsp;result&nbsp;=&nbsp;"0";<BR>private&nbsp;int&nbsp;op&nbsp;=&nbsp;0,add&nbsp;=&nbsp;1,sub&nbsp;=&nbsp;2,mul&nbsp;=&nbsp;3,div&nbsp;=&nbsp;4;<BR><BR>private&nbsp;double&nbsp;stringToDouble(String&nbsp;x){<BR>double&nbsp;y&nbsp;=&nbsp;Double.parseDouble(x);<BR>return&nbsp;y;<BR>}<BR>private&nbsp;void&nbsp;operate(String&nbsp;x){<BR>double&nbsp;x1&nbsp;=&nbsp;stringToDouble(x);<BR>double&nbsp;y&nbsp;=&nbsp;stringToDouble(result);<BR>switch&nbsp;(op){<BR>case&nbsp;0:<BR>result&nbsp;=&nbsp;x;<BR>break;<BR>case&nbsp;1:<BR>result&nbsp;=&nbsp;String.valueOf(y+x1);<BR>break;<BR>case&nbsp;2:<BR>result&nbsp;=&nbsp;String.valueOf(y-x1);<BR>break;<BR>case&nbsp;3:<BR>result&nbsp;=&nbsp;String.valueOf(y*x1);<BR>break;<BR>case&nbsp;4:<BR>if(x1!=0){<BR>result&nbsp;=&nbsp;String.valueOf(y/x1);<BR>}else{<BR>result&nbsp;=&nbsp;"The&nbsp;divisor&nbsp;can't&nbsp;be&nbsp;zero!";<BR>}<BR>break;<BR>}<BR>}<BR><BR>public&nbsp;String&nbsp;opAdd(String&nbsp;x){<BR>operate(x);<BR>op&nbsp;=&nbsp;add;<BR>return&nbsp;result;<BR>}<BR>public&nbsp;String&nbsp;opSubtract(String&nbsp;x){<BR>operate(x);<BR>op&nbsp;=&nbsp;sub;<BR>return&nbsp;result;<BR>}<BR>public&nbsp;String&nbsp;opMultiply(String&nbsp;x){<BR>operate(x);<BR>op&nbsp;=&nbsp;mul;<BR>return&nbsp;result;<BR>}<BR>public&nbsp;String&nbsp;opDivide(String&nbsp;x){<BR>operate(x);<BR>op&nbsp;=&nbsp;div;<BR>return&nbsp;result;<BR>}<BR>public&nbsp;String&nbsp;opEquals(String&nbsp;x){<BR>operate(x);<BR>op&nbsp;=&nbsp;0;<BR>return&nbsp;result;<BR>}<BR>public&nbsp;void&nbsp;opClean(){<BR>op&nbsp;=&nbsp;0;<BR>result&nbsp;=&nbsp;"0";<BR>}<BR>}<BR><BR>-------------------------------------------------------------------<BR><BR>第二个<BR>CalculatorGUI.java<BR><BR>import&nbsp;java.awt.*;<BR>import&nbsp;java.awt.event.*;<BR>import&nbsp;java.util.EventObject;<BR><BR>public&nbsp;class&nbsp;CalculatorGUI{<BR>private&nbsp;Frame&nbsp;f;<BR>private&nbsp;Panel&nbsp;p1,p2;<BR>private&nbsp;Button&nbsp;b0,b1,b2,b3,b4,b5,b6,b7,b8,b9;<BR>private&nbsp;Button&nbsp;bPoint,bAdd,bDec,bMul,bDiv,bCal;<BR>private&nbsp;TextField&nbsp;tf;<BR>private&nbsp;String&nbsp;s,op;<BR>private&nbsp;Calculator&nbsp;cal&nbsp;=&nbsp;new&nbsp;Calculator();<BR>private&nbsp;boolean&nbsp;ifOp;<BR><BR>public&nbsp;CalculatorGUI(){<BR>f&nbsp;=&nbsp;new&nbsp;Frame("Calculator");<BR>p1&nbsp;=&nbsp;new&nbsp;Panel();<BR>p2&nbsp;=&nbsp;new&nbsp;Panel();<BR><BR>b0&nbsp;=&nbsp;new&nbsp;Button("0");<BR>b1&nbsp;=&nbsp;new&nbsp;Button("1");<BR>b2&nbsp;=&nbsp;new&nbsp;Button("2");<BR>b3&nbsp;=&nbsp;new&nbsp;Button("3");<BR>b4&nbsp;=&nbsp;new&nbsp;Button("4");<BR>b5&nbsp;=&nbsp;new&nbsp;Button("5");<BR>b6&nbsp;=&nbsp;new&nbsp;Button("6");<BR>b7&nbsp;=&nbsp;new&nbsp;Button("7");<BR>b8&nbsp;=&nbsp;new&nbsp;Button("8");<BR>b9&nbsp;=&nbsp;new&nbsp;Button("9");<BR>bPoint&nbsp;=&nbsp;new&nbsp;Button(".");<BR>bAdd&nbsp;=&nbsp;new&nbsp;Button("+");<BR>bDec&nbsp;=&nbsp;new&nbsp;Button("-");<BR>bMul&nbsp;=&nbsp;new&nbsp;Button("*");<BR>bDiv&nbsp;=&nbsp;new&nbsp;Button("/");<BR>bCal&nbsp;=&nbsp;new&nbsp;Button("=");<BR><BR>tf&nbsp;=&nbsp;new&nbsp;TextField(25);<BR>tf.setEditable(false);<BR><BR><BR>}<BR><BR>public&nbsp;void&nbsp;launchFrame(){<BR>f.setSize(220,160);<BR>f.setResizable(false);<BR>f.addWindowListener(new&nbsp;myWindowListener());<BR>p1.setLayout(new&nbsp;FlowLayout(FlowLayout.CENTER));<BR>p1.add(tf);<BR>f.add(p1,BorderLayout.NORTH);<BR>p2.setLayout(new&nbsp;GridLayout(4,4));<BR><BR>b0.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b1.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b2.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b3.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b4.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b5.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b6.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b7.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b8.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>b9.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>bPoint.addActionListener(new&nbsp;setLabelText_ActionListener());<BR>bAdd.addActionListener(new&nbsp;setOperator_ActionListener());<BR>bDec.addActionListener(new&nbsp;setOperator_ActionListener());<BR>bMul.addActionListener(new&nbsp;setOperator_ActionListener());<BR>bDiv.addActionListener(new&nbsp;setOperator_ActionListener());<BR>bCal.addActionListener(new&nbsp;setOperator_ActionListener());<BR><BR>p2.add(b7);<BR>p2.add(b8);<BR>p2.add(b9);<BR>p2.add(bAdd);<BR>p2.add(b4);<BR>p2.add(b5);<BR>p2.add(b6);<BR>p2.add(bDec);<BR>p2.add(b1);<BR>p2.add(b2);<BR>p2.add(b3);<BR>p2.add(bMul);<BR>p2.add(b0);<BR>p2.add(bPoint);<BR>p2.add(bCal);<BR>p2.add(bDiv);<BR>f.add(p2,BorderLayout.SOUTH);<BR>f.setVisible(true);<BR>}<BR><BR>public&nbsp;void&nbsp;setTextFieldText_Temp(){<BR>if&nbsp;(tf.getText().length()&lt;15&nbsp;&amp;&amp;&nbsp;(tf.getText().indexOf(".")==-1&nbsp;||&nbsp;!s.equals("."))){<BR>tf.setText(tf.getText()+s);<BR>}else{<BR>tf.setText((tf.getText()+s).substring(0,15));<BR>}<BR>}<BR>public&nbsp;void&nbsp;setTextFieldText(){<BR>if(ifOp){<BR>ifOp&nbsp;=&nbsp;false;<BR>tf.setText("");<BR>setTextFieldText_Temp();<BR>}else{<BR>setTextFieldText_Temp();<BR>}<BR>}<BR><BR>public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args){<BR>CalculatorGUI&nbsp;calculator&nbsp;=&nbsp;new&nbsp;CalculatorGUI();<BR>calculator.launchFrame();<BR>}<BR><BR>class&nbsp;myWindowListener&nbsp;extends&nbsp;WindowAdapter{<BR>public&nbsp;void&nbsp;windowClosing(WindowEvent&nbsp;e){<BR>System.exit(0);<BR>}<BR>}<BR><BR>class&nbsp;setLabelText_ActionListener&nbsp;implements&nbsp;ActionListener{<BR>public&nbsp;void&nbsp;actionPerformed(ActionEvent&nbsp;e){<BR>Button&nbsp;tempB&nbsp;=&nbsp;(Button)e.getSource();<BR>s&nbsp;=&nbsp;tempB.getLabel();<BR>setTextFieldText();<BR>}<BR>}<BR><BR>class&nbsp;setOperator_ActionListener&nbsp;implements&nbsp;ActionListener{<BR>public&nbsp;void&nbsp;actionPerformed(ActionEvent&nbsp;e){<BR>Button&nbsp;tempB&nbsp;=&nbsp;(Button)e.getSource();<BR>op&nbsp;=&nbsp;tempB.getLabel();<BR>if(op.equals("+")){<BR>tf.setText(cal.opAdd(tf.getText()));<BR>ifOp&nbsp;=&nbsp;true;<BR>}else&nbsp;if(op.equals("-")){<BR>tf.setText(cal.opSubtract(tf.getText()));<BR>ifOp&nbsp;=&nbsp;true;<BR>}else&nbsp;if(op.equals("*")){<BR>tf.setText(cal.opMultiply(tf.getText()));<BR>ifOp&nbsp;=&nbsp;true;<BR>}else&nbsp;if(op.equals("/")){<BR>tf.setText(cal.opDivide(tf.getText()));<BR>ifOp&nbsp;=&nbsp;true;<BR>}else&nbsp;if(op.equals("=")){<BR>tf.setText(cal.opEquals(tf.getText()));<BR>ifOp&nbsp;=&nbsp;true;<BR>}<BR>}<BR>}<BR>} <BR></P> <DIV align="right" style="margin:3px 0;">
+<SPAN style="border:1px dashed #cccccc; margin:3px;">
+<SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-5106237878387415";
+/* 468x60, 创建于 08-7-11 */
+google_ad_slot = "6763217451";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/show_ads.js">
+</SCRIPT><SCRIPT src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/expansion_embed.js"></SCRIPT><SCRIPT src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/test_domain.js"></SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><INS style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><INS style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><IFRAME allowtransparency="true" frameborder="0" height="60" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" scrolling="no" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/ads(1).htm" style="left:0;position:absolute;top:0" vspace="0" width="468"></IFRAME></INS></INS>
+</SPAN>
+<A title="Java频道
+中国IT实验室" href="http://java.chinaitlab.com/" target="_blank"><IMG height="14" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/logo14.gif" width="14" border="0"></A>【责编:Chuan】</DIV>
+		</DIV>
+		<BR>
+		<P><A href="http://train.1010school.com/LR/chatwin.aspx?id=LZC69557093&k=6332831307852825003000&lng=cn&nk=6333045631866887503073&ip1=%E5%B9%BF%E4%B8%9C%E7%9C%81%E6%B7%B1%E5%9C%B3%E5%B8%82%E5%8D%97%E5%B1%B1%E5%8C%BA&ip2=%E7%94%B5%E4%BF%A1ADSL&p=http%3A//school.chinaitlab.com/&r=" target="_blank"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/Javanews.gif" border="0" alt="中国IT教育"></A></P>
+		<DIV class="Fushu" style="border:0;">
+			<DIV class="F_lst" style="float:left">
+				<DIV class="F_tle"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">相关文章</DIV>
+				<DIV style="margin: 5px 10px; width:90%;"><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/base/798327.html" title="文章标题：Java问题解析：到底创建了几个String对象？
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-30" target="_self">Java问题解析：到底创建了几个String对象？</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/advance/798305.html" title="文章标题：用java生成缩略图和给图上打上公司logo
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-29" target="_self">用java生成缩略图和给图上打上公司logo</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/base/798287.html" title="文章标题：JAVA的18条BASE
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-28" target="_self">JAVA的18条BASE</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/advance/798273.html" title="文章标题：java获得当前系统内存及硬盘使用情况
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-27" target="_self">java获得当前系统内存及硬盘使用情况</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/advance/798271.html" title="文章标题：Java计时器Timer&nbsp;使用
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-27" target="_self">Java计时器Timer&nbsp;使用</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/advance/798270.html" title="文章标题：java关闭窗体的六种方法
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-27" target="_self">java关闭窗体的六种方法</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/net/798269.html" title="文章标题：java资源获取分析
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-27" target="_self">java资源获取分析</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/advance/798237.html" title="文章标题：使用JAVA访问ACCESS数据库的方法
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-27" target="_self">使用JAVA访问ACCESS数据库的方法</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/advance/798236.html" title="文章标题：Java创建文件夹的方法
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-27" target="_self">Java创建文件夹的方法</A><BR><A class="LinkArticleCorrelative" href="http://java.chinaitlab.com/base/798232.html" title="文章标题：java句柄以及对象的比较
+作&nbsp;&nbsp;&nbsp;&nbsp;者：佚名
+更新时间：2009-11-27" target="_self">java句柄以及对象的比较</A><BR></DIV>
+			</DIV>
+			<DIV class="F_lst" style="float:right">
+				<DIV class="F_tle"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">编辑推荐</DIV>
+				·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_186.html">基础入门</A>]<A class="" href="http://java.chinaitlab.com/base/794591.html" title="Java源代码的折行规则" target="_blank">Java源代码的折行规则</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_186.html">基础入门</A>]<A class="" href="http://java.chinaitlab.com/base/793065.html" title="Java面试题：第三锦" target="_blank">Java面试题：第三锦</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_186.html">基础入门</A>]<A class="" href="http://java.chinaitlab.com/base/793062.html" title="Java面试题：第二锦" target="_blank">Java面试题：第二锦</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_186.html">基础入门</A>]<A class="" href="http://java.chinaitlab.com/base/793046.html" title="走进Java&nbsp;7模块系统" target="_blank">走进Java&nbsp;7模块系统</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_186.html">基础入门</A>]<A class="" href="http://java.chinaitlab.com/base/792340.html" title="网友经验分享：学好Java开发的关键7步" target="_blank">网友经验分享：学好Java开发的关键7步</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_187.html">开发工具</A>]<A class="" href="http://java.chinaitlab.com/tools/792195.html" title="Java开发工具全面比较" target="_blank">Java开发工具全面比较</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_171.html">资讯动态</A>]<A class="" href="http://java.chinaitlab.com/dynamic/792106.html" title="Java与Flash谁才是网页游戏领导者?" target="_blank">Java与Flash谁才是网页游戏领导者?</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_171.html">资讯动态</A>]<A class="" href="http://java.chinaitlab.com/dynamic/792104.html" title="专家解答：创建表格与数据库进行交互" target="_blank">专家解答：创建表格与数据库进行交互</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_186.html">基础入门</A>]<A class="" href="http://java.chinaitlab.com/base/792095.html" title="热点讨论：Java编程风格的改变" target="_blank">热点讨论：Java编程风格的改变</A><BR>·&nbsp;[<A class="" href="http://java.chinaitlab.com/List_186.html">基础入门</A>]<A class="" href="http://java.chinaitlab.com/base/792007.html" title="选择学习&ldquo;下一个&rdquo;程序语言" target="_blank">选择学习“下一个”程序语言</A><BR>
+			</DIV>
+		</DIV>
+		<DIV class="blank"></DIV>
+		<DIV class="Fushu" style="border:0;">
+			<IFRAME src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/cio_new.htm" width="660" height="213" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></IFRAME>
+		</DIV>
+		<DIV class="blank"></DIV>
+		<DIV class="Fushu">
+			<DIV class="title_line2 font14">
+				<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f04.gif" width="7" height="29">相关产品和培训
+			</DIV>
+			<IFRAME src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/peixun_new.htm" width="660" height="159" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></IFRAME>
+		</DIV>
+		<DIV class="blank"></DIV>
+		<DIV class="Fushu">
+			<DIV class="title_line2 font14">
+				<IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f04(1).gif" width="7" height="29">文章评论
+			</DIV>
+			<IFRAME src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/ArticleComment.htm" width="100%" height="330" frameborder="0" scrolling="yes"></IFRAME>
+		</DIV>
+		<DIV class="blank"></DIV>
+<DIV class="tjtitle">　友情推荐链接</DIV>
+<DIV class="yqtj">
+<DIV class="yqtj_lf">·<A title="Asp源码" href="http://down.idcquan.com/download/asp/asp-1-1.html" target="_blank">Asp源码</A> <A title="PHP源码" href="http://down.idcquan.com/download/php/php-2-1.html" target="_blank">PHP源码</A><BR>·<A title="CGI源码" href="http://down.idcquan.com/download/cgi/cgi-5-1.html" target="_blank">CGI源码</A> <A title="JSP源码" href="http://down.idcquan.com/download/jsp/jsp-3-1.html" target="_blank">JSP源码</A><BR>·<A title="书籍教程" href="http://down.idcquan.com/download/book/book-6-1.html" target="_blank">建站书籍教程</A><BR>·<A title="服务器软件" href="http://down.idcquan.com/download/soft/soft-8-1.html" target="_blank">服务器软件</A> <A title=".net源码" href="http://down.idcquan.com/download/dotnet/dotnet-4-1.html" target="_blank">.net源码</A><BR>·<A title="工具软件" href="http://down.idcquan.com/download/tool/tool-9-1.html" target="_blank">建站工具软件</A><BR></DIV>
+<DIV class="yqtj_rt">·<A href="http://www.idcquan.com/2007idcpages" target="_blank">IDC资讯大全</A><BR>·<A href="http://www.idcquan.com/2007idcsurvey/" target="_blank">机房品质万里行</A><BR>·<A href="http://www.idcquan.com/" target="_blank">IDC托管必备知识</A><BR>·<A href="http://www.idcquan.com/" target="_blank">网站推广优化</A><BR>·<A href="http://www.idcquan.com/" target="_blank">全国IDC报价</A><BR></DIV></DIV>
+		<DIV class="blank"></DIV>
+	</DIV>
+	<DIV class="Prt_right" style="height:220px;">
+		<SPAN id="hua1"> 
+<SCRIPT language="JavaScript">
+document.write("<script src=\"http://www.chinaitlab.com/ADjs/200604/11.js\"><\/script>");</SCRIPT><SCRIPT src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/11.js"></SCRIPT><LAYER id="BannerZoneAD_Div11" width="267px" height="218px"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" name="AD_11" id="AD_11" width="267" height="218"><PARAM name="movie" value="http://www.chinaitlab.com/linux/js/itjiaoyu267218.swf"><PARAM name="quality" value="autohigh"><EMBED name="AD_11" id="AD_11" width="267" height="218" src="http://www.chinaitlab.com/linux/js/itjiaoyu267218.swf" quality="autohigh" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash"></OBJECT></LAYER>
+</SPAN>
+	</DIV>
+	<DIV class="Prt_right border_kuang">
+		<DIV class="title_line"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">　认证培训</DIV>
+		<DIV class="right_lst"><SCRIPT language="javascript" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/java_peixun.js"></SCRIPT>·&nbsp;<A class="listA" href="http://www.tarena.com.cn/guangzhou/blue/chinaitlab_wzwzl2.asp" target="_blank"><FONT color="#ff0000">“暖冬工程”IT就业培训-先就业后付款！</FONT></A><BR>·&nbsp;<A class="listA" href="http://www.fsailing.com/" target="_blank">蓝点世纪Java EE工程师培训</A><BR>·&nbsp;<A class="listA" href="http://www.yangbang.cn/" target="_blank">No.1高薪热门职业【网络系统集成】</A><BR>·&nbsp;<A class="listA" href="http://www.5itjob.com/" target="_blank">Java/C++培训100％名企就业</A><BR>·&nbsp;<A class="listA" href="http://chinaitlab.com/www/news/article_show.asp?id=34718" target="_blank">“紧缺人才培养计划”上海地区启动</A><BR>·&nbsp;<A class="listA" href="http://jobs.chinaitlab.com/train/teach2/training_course_show.asp?id=1445" target="_blank">[上海]交大慧谷CCNP培训特价3990元</A><BR></DIV>
+	</DIV>
+	<DIV class="Prt_right border_kuang">
+		<DIV class="title_line"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">　专题推荐</DIV>
+		<A href="http://java.chinaitlab.com/Special/javajm/Index.html" title="开发必备&nbsp;漫谈Java加密保护" target="_blank"><IMG class="pic1" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/javajm.jpg" width="120" height="90" border="0"></A><A href="http://c.chinaitlab.com/special/pointer/Index.html" title="C/C++指针，认真了解，灵活运用" target="_blank"><IMG class="pic1" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/08.jpg" width="120" height="90" border="0"></A><BR>
+		　·<A href="http://c.chinaitlab.com/special/algorithm/Index.html" target="_blank" title="算法分析与设计之五大常用算法">算法分析与设计之五大常用算法</A><BR>　·<A href="http://java.chinaitlab.com/Special/javajm/Index.html" target="_blank" title="开发必备&nbsp;漫谈Java加密保护">开发必备&nbsp;漫谈Java加密保护</A><BR>　·<A href="http://embed.chinaitlab.com/special/arm/Index.html" target="_blank" title="嵌入式开发--ARM技术专题">嵌入式开发--ARM技术专题</A><BR>　·<A href="http://c.chinaitlab.com/special/pointer/Index.html" target="_blank" title="C/C++指针，认真了解，灵活运用">C/C++指针，认真了解，灵活运用</A><BR>　·<A href="http://dotnet.chinaitlab.com/special/c/Index.html" target="_blank" title=".NET开发：C#实用基础教程">.NET开发：C#实用基础教程</A><BR>　·<A href="http://softtest.chinaitlab.com/special/qtp/Index.html" target="_blank" title="软件测试工具QTP学习专题">软件测试工具QTP学习专题</A><BR>　·<A href="http://embed.chinaitlab.com/special/fan/Index.html" target="_blank" title="嵌入式开发单片机解决方案专题">嵌入式开发单片机解决方案专题</A><BR>　·<A href="http://java.chinaitlab.com/Special/greenfootsc/Index.html" target="_blank" title="Java开发环境&nbsp;Greenfoot&nbsp;程序员手册">Java开发环境&nbsp;Greenfoot&nbsp;程序员手册</A><BR>　·<A href="http://c.chinaitlab.com/special/dxdtbj/Index.html" target="_blank" title="C++对象布局及多态实现的探索">C++对象布局及多态实现的探索</A><BR>　·<A href="http://c.chinaitlab.com/special/cpxsf/index.html" target="_blank" title="常见排序算法的实现">常见排序算法的实现</A><BR>
+	</DIV>
+<DIV class="Prt_right" style="HEIGHT: 250px"><SCRIPT type="text/javascript"><!--
+google_ad_client = "pub-5106237878387415";
+/* 250x250, 创建于 08-7-11 */
+google_ad_slot = "0324408513";
+google_ad_width = 264;
+google_ad_height = 250;
+//-->
+</SCRIPT>
+<SCRIPT type="text/javascript" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/show_ads.js">
+</SCRIPT><SCRIPT>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</SCRIPT><INS style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:264px"><INS style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:264px"><IFRAME allowtransparency="true" frameborder="0" height="250" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" scrolling="no" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/ads.htm" style="left:0;position:absolute;top:0" vspace="0" width="264"></IFRAME></INS></INS>
+</DIV>
+	<DIV class="Prt_right border_kuang">
+		<DIV class="title_line"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">　今日更新</DIV>
+		<DIV class="right_lst">·&nbsp;<A class="" href="http://java.chinaitlab.com/base/798327.html" title="Java问题解析：到底创建了几个String对象？" target="_blank">Java问题解析：到底创建了几个String对象？</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/advance/798305.html" title="用java生成缩略图和给图上打上公司logo" target="_blank">用java生成缩略图和给图上打上公司logo</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/base/798287.html" title="JAVA的18条BASE" target="_blank">JAVA的18条BASE</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/advance/798274.html" title="关于解决MyEclipse&nbsp;的耗内存的办法" target="_blank">关于解决MyEclipse&nbsp;的耗内存的办法</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/advance/798273.html" title="java获得当前系统内存及硬盘使用情况" target="_blank">java获得当前系统内存及硬盘使用情况</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/ServletJsp/798272.html" title="jsp页面滚动速度！" target="_blank">jsp页面滚动速度！</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/advance/798271.html" title="Java计时器Timer&nbsp;使用" target="_blank">Java计时器Timer&nbsp;使用</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/advance/798270.html" title="java关闭窗体的六种方法" target="_blank">java关闭窗体的六种方法</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/net/798269.html" title="java资源获取分析" target="_blank">java资源获取分析</A><BR>·&nbsp;<A class="" href="http://java.chinaitlab.com/advance/798237.html" title="使用JAVA访问ACCESS数据库的方法" target="_blank">使用JAVA访问ACCESS数据库的方法</A><BR></DIV>
+	</DIV>
+	<DIV class="Prt_right border_kuang">
+		<DIV class="title_line"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">　社区讨论</DIV>
+		<DIV class="right_lst"><IFRAME src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/bbs.htm" width="265" height="188" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></IFRAME></DIV>
+	</DIV>
+	<DIV class="Prt_right border_kuang">
+		<DIV class="title_line"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">　博客论点</DIV>
+		<DIV class="right_lst"><IFRAME src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/blog.htm" width="265" height="188" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></IFRAME></DIV>
+	</DIV>
+	<DIV class="Prt_right border_kuang">
+		<DIV class="title_line"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">　频道精选</DIV>
+		<DIV class="right_lst">· <A href="http://cisco.chinaitlab.com/CCNACCDA/725394.html" target="_blank" title="新版CCNA考试大纲 07年8月1日生效">新版CCNA考试大纲 07年8月1日生效</A><BR \="">
+· <A href="http://linux.chinaitlab.com/special/linuxcom/Index.html" target="_blank" title="新手学习宝典：Linux常用命令全集">新手学习宝典：Linux常用命令全集</A><BR \="">
+· <A href="http://windows.chinaitlab.com/Special/systemsafety/Index.html" target="_blank" title="知已知彼，深入了解系统安全知识">知已知彼，深入了解系统安全知识</A><BR \="">
+· <A href="http://java.chinaitlab.com/Special/shijian/Index.html" target="_blank" title="从入门到精通 java初学者实践系列教程">从入门到精通 java初学者实践系列教程</A><BR \="">
+· <A href="http://www.chinaitlab.com/www/techspecial/OracleBasic/" target="_blank" title="共同学习&mdash;&mdash;Oracle入门基础专题">共同学习——Oracle入门基础专题</A><BR \="">
+· <A href="http://dotnet.chinaitlab.com/ADONET/727687.html" target="_blank" title="ADO.net与PowerBuilder的综合比">ADO.net与PowerBuilder的综合比较</A><BR \="">
+· <A href="http://internet.chinaitlab.com/observe/729460.html" target="_blank" title="评论：中国互联网&ldquo;钱&rdquo;途何在？">评论：中国互联网“钱”途何在？</A><BR \="">
+· <A href="http://news.chinaitlab.com/ityw/729103.html" target="_blank" title="中科院：龙芯要成&ldquo;中国奔腾&rdquo; 能卖1亿颗">中科院：龙芯要成"中国奔腾" 能卖1亿颗</A><BR \=""></DIV>
+	</DIV>
+	<DIV class="Prt_right border_kuang">
+		<DIV class="title_line"><IMG src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/f06.gif" width="9" height="7" border="0">　Java	频道导航</DIV>
+		<DIV class="right_lst"><STRONG><A href="http://java.chinaitlab.com/List_173.html" target="_blank">新手入门</A>：</STRONG> <BR><A href="http://java.chinaitlab.com/List_185.html" target="_blank">安装配置</A> | <A href="http://java.chinaitlab.com/List_187.html" target="_blank">开发工具</A> | <A href="http://java.chinaitlab.com/List_188.html" target="_blank">JDK</A> | <A href="http://java.chinaitlab.com/List_189.html" target="_blank">oop面向对象</A><BR><STRONG><A href="http://java.chinaitlab.com/List_174.html" target="_blank">核心技术</A>：</STRONG> <BR><A href="http://java.chinaitlab.com/List_190.html" target="_parent">SwingAwtApplet</A> | <A href="http://java.chinaitlab.com/List_191.html" target="_blank">高级编程</A> | <A href="http://java.chinaitlab.com/List_192.html" target="_blank">网络编程</A><A href="http://java.chinaitlab.com/List_193.html" target="_blank">Jvm技术</A> | <A href="http://java.chinaitlab.com/List_194.html" target="_blank">JavaMedia</A><BR><STRONG><A href="http://java.chinaitlab.com/List_175.html" target="_blank">高级技术</A>：</STRONG> <BR><A href="http://java.chinaitlab.com/List_195.html" target="_blank">设计模式</A> | <A href="http://java.chinaitlab.com/List_196.html" target="_blank">UML／OO</A> | <A href="http://java.chinaitlab.com/List_197.html" target="_blank">p2p／Jxta</A> | <A href="http://java.chinaitlab.com/List_198.html" target="_blank">多线程</A> | <A href="http://java.chinaitlab.com/List_199.html">JavaSecurity</A><BR><STRONG><A href="http://java.chinaitlab.com/List_176.html" target="_blank">J2EE</A>：</STRONG> <BR><A href="http://java.chinaitlab.com/List_200.html" target="_blank">J2ee核心</A> | <A href="http://java.chinaitlab.com/List_201.html" target="_blank">Servlet／Jsp</A> | <A href="http://java.chinaitlab.com/List_202.html" target="_blank">EJB</A><BR>| <A href="http://java.chinaitlab.com/List_203.html" target="_blank">JDBC／JDO</A> | <A href="http://java.chinaitlab.com/List_204.html" target="_blank">Rmi／Corba／Jini</A> | <A href="http://java.chinaitlab.com/List_206.html" target="_blank">Mvcwea</A> | <A href="http://java.chinaitlab.com/List_205.html" target="_blank">应用服务器</A><BR><STRONG><A href="http://java.chinaitlab.com/List_177.html" target="_blank">J2ME</A>：</STRONG> <BR><A href="http://java.chinaitlab.com/List_207.html" target="_blank">核心技术</A> | <A href="http://java.chinaitlab.com/List_208.html" target="_blank">嵌入式</A> | <A href="http://java.chinaitlab.com/List_209.html" target="_blank">无线开发</A><BR><STRONG><A href="http://java.chinaitlab.com/List_178.html" target="_blank">Java&amp;XML</A>：</STRONG> <BR><A href="http://java.chinaitlab.com/List_210.html" target="_blank">XMLBeans</A> | <A href="http://java.chinaitlab.com/List_211.html" target="_blank">WebServices</A><BR><STRONG><A href="http://java.chinaitlab.com/List_179.html" target="_blank">开源技术</A>：</STRONG> <BR><A href="http://java.chinaitlab.com/List_212.html" target="_blank">ANT</A> | <A href="http://java.chinaitlab.com/List_213.html" target="_blank">Struts</A> | <A href="http://java.chinaitlab.com/List_214.html" target="_blank">Hibernate</A> | <A href="http://java.chinaitlab.com/List_215.html" target="_blank">Spring</A><BR><A href="http://java.chinaitlab.com/List_216.html" target="_blank">Eclipse</A> | <A href="http://java.chinaitlab.com/List_218.html" target="_blank">JBoss</A> | <A href="http://java.chinaitlab.com/List_219.html" target="_blank">Tomcat</A> | <A href="http://java.chinaitlab.com/List_220.html" target="_blank">JUnit</A><BR><STRONG><A href="http://java.chinaitlab.com/List_180.html" target="_blank">其他技术</A></STRONG><BR></DIV>
+	</DIV>
+	
+</DIV>
+<DIV class="blank"></DIV>
+<DIV class="tong"><IFRAME src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/down.htm" width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></IFRAME></DIV>
+
+<!--广告滞后显示实现代码段-->
+
+<!--top.htm下面的广告-->
+<SPAN id="span_udtop"></SPAN>
+<SCRIPT>
+document.getElementById("udtop").innerHTML=document.getElementById("span_udtop").innerHTML;
+document.getElementById("span_udtop").innerHTML="";
+</SCRIPT>
+
+<!--画中画广告-->
+<SPAN id="span_hua1"></SPAN>
+<SCRIPT>
+document.getElementById("hua1").innerHTML=document.getElementById("span_hua1").innerHTML;
+document.getElementById("span_hua1").innerHTML="";
+</SCRIPT>
+
+
+<SCRIPT src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/tan.js"></SCRIPT><DIV id="xp" style="position: absolute; z-index: 9000; overflow-x: hidden; overflow-y: hidden; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0); border-left-color: rgb(255, 0, 0); left: 1083px; top: 599px; width: 265px; height: 0px; "><DIV id="xp_content" style="position: absolute; z-index: 1; overflow-x: hidden; overflow-y: hidden; border-left-width: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; width: 265px; height: 190px; left: 0px; top: 0px; "><A id="closeButton" href="http://java.chinaitlab.com/JDK/391629.html#" style="position: absolute; z-index: 2; font-size: 0px; line-height: 0px; left: 240px; top: 6px; width: 15px; height: 15px; background-image: url(http://www.chinaitlab.com/gmail/hot/images/U814P346T1D1076F354DT20070725152720.gif); "></A><A id="switchButton" href="http://java.chinaitlab.com/JDK/391629.html#" style="position: absolute; z-index: 2; font-size: 0px; line-height: 0px; left: 220px; top: 6px; width: 15px; height: 15px; background-image: url(http://www.chinaitlab.com/gmail/hot/images/U814P346T1D1076F6DT20070725145920.gif); "></A><IFRAME id="xp_content_iframe" src="./利用java做一个简单的计算器-Java频道-中国IT实验室_files/hot.htm" frameborder="0" scrolling="no" width="100%" height="100%"></IFRAME></DIV></DIV></BODY></HTML>

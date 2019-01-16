@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<EditText  android:id="@+id/Name" 
+	    android:layout_width="fill_parent"
+	    android:hint="Name"
+		android:layout_height="wrap_content" />
+	<EditText android:id="@+id/Age" 
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	<EditText android:id="@+id/Birthday" 
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	<EditText  android:id="@+id/Address" 
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+	<Button 
+	    android:id="@+id/receive"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="接收"/>
+	    
+	<Button  
+	    android:id="@+id/send"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="发送"/>
+	    
+</LinearLayout>

@@ -1,0 +1,113 @@
+package xmu.software.cxj.mychat.shared.pojo;
+
+import java.util.Calendar;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity  
+@Table(name = "INFORMATION")
+public class Information {
+	@Id  
+    @Column(name="id")   
+	private long infoId;
+	
+    @Column(name="from", nullable = false, length=30)   
+    private String  from; //消息发送者
+    
+    @Column(name="to", nullable = false, length=30)   
+    private String  to;//消息接收者
+     
+    private Calendar date;//消息发送时间
+    
+    @Column(name="dateString", nullable = false, length=30)   
+    private String dateString;//消息发送时间字符串格式
+    
+    @Column(name="content", nullable = false, length=100)   
+    private String content;//消息内容
+    public Information(){};
+    public Information(String from,String to ,Calendar date,String content)
+    {
+    	this.from=from;
+    	this.to=to;
+    	setDate(date);
+    	this.content=content;
+    	
+    }
+	/**
+	 * @return the infoId
+	 */
+	public long getInfoId() {
+		return infoId;
+	}
+	/**
+	 * @param infoId the infoId to set
+	 */
+	public void setInfoId(long infoId) {
+		this.infoId = infoId;
+	}
+	/**
+	 * @return the from
+	 */
+	public String getFrom() {
+		return from;
+	}
+	/**
+	 * @param from the from to set
+	 */
+	public void setFrom(String from) {
+		this.from = from;
+	}
+	/**
+	 * @return the date
+	 */
+	public Calendar getDate() {
+		return date;
+	}
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Calendar date) {
+		String temp=date.get(Calendar.YEAR)+"/"+date.get(Calendar.MONTH)+"/"+date.get(Calendar.DAY_OF_MONTH)+"  "+date.getTime();
+		setDateString(temp);
+		this.date = date;
+	}
+	/**
+	 * @return the dateString
+	 */
+	public String getDateString() {
+		return dateString;
+	}
+	/**
+	 * @param dateString the dateString to set
+	 */
+	public void setDateString(String dateString) {
+		this.dateString = dateString;
+	}
+	/**
+	 * @return the content
+	 */
+	public String getContent() {
+		return content;
+	}
+	/**
+	 * @param content the content to set
+	 */
+	public void setContent(String content) {
+		this.content = content;
+	}
+	/**
+	 * @return the to
+	 */
+	public String getTo() {
+		return to;
+	}
+	/**
+	 * @param to the to to set
+	 */
+	public void setTo(String to) {
+		this.to = to;
+	}
+}

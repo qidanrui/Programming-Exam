@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.jboss.ide.eclipse.as.core.server.startupConfiguration">
+<booleanAttribute key="DEFAULTS_SET" value="true"/>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="Path" value="native"/>
+</mapAttribute>
+<listAttribute key="org.eclipse.jdt.launching.CLASSPATH">
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry containerPath=&quot;org.jboss.ide.eclipse.as.core.server.launch.runJarContainer/JBoss 4.2 Runtime Server&quot; path=&quot;3&quot; type=&quot;4&quot;/&gt;&#13;&#10;"/>
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry containerPath=&quot;org.jboss.ide.eclipse.as.core.server.launch.runJarContainer/JBoss 4.2 Runtime Server&quot; path=&quot;3&quot; type=&quot;4&quot;/&gt;&#13;&#10;"/>
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry containerPath=&quot;org.jboss.ide.eclipse.as.core.server.launch.runJarContainer/JBoss 4.2 Runtime Server&quot; path=&quot;3&quot; type=&quot;4&quot;/&gt;&#13;&#10;"/>
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry containerPath=&quot;org.jboss.ide.eclipse.as.core.server.launch.runJarContainer/JBoss 4.2 Runtime Server&quot; path=&quot;3&quot; type=&quot;4&quot;/&gt;&#13;&#10;"/>
+<listEntry value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;runtimeClasspathEntry containerPath=&quot;org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0&quot; path=&quot;2&quot; type=&quot;4&quot;/&gt;&#13;&#10;"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.jboss.ide.eclipse.as.core.server.internal.launch.serverClasspathProvider"/>
+<booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.jboss.Main"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--configuration=default  -b localhost  -Djboss.server.base.url=file:/D:/JBossServer/jboss-4.2.0.GA/server/      "/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="&quot;-Dprogram.name=JBossTools: JBoss 4.2 Runtime&quot; -Xms256m -Xmx512m -XX:MaxPermSize=256m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 &quot;-Djava.endorsed.dirs=D:\JBossServer\jboss-4.2.0.GA\lib\endorsed&quot;     "/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="D:\JBossServer\jboss-4.2.0.GA/bin"/>
+<stringAttribute key="org.jboss.ide.eclipse.as.rse.core.RSEJBossStartLaunchDelegate.DEFAULT_SHUTDOWN_COMMAND" value="D:/JBossServer/jboss-4.2.0.GA/bin/shutdown.sh -S -s localhost:1099 -u admin -p admin "/>
+<stringAttribute key="org.jboss.ide.eclipse.as.rse.core.RSEJBossStartLaunchDelegate.DEFAULT_STARTUP_COMMAND" value="java &quot;-Dprogram.name=JBossTools: JBoss 4.2 Runtime&quot; -Xms256m -Xmx512m -XX:MaxPermSize=256m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 &quot;-Djava.endorsed.dirs=lib\endorsed&quot;       -Djava.library.path=&quot;bin\native&quot; -classpath bin/run.jar org.jboss.Main --configuration=default  -b localhost  -Djboss.server.base.url=file:server       &amp;"/>
+<stringAttribute key="org.jboss.ide.eclipse.as.rse.core.RSEJBossStartLaunchDelegate.SHUTDOWN_COMMAND" value="D:/JBossServer/jboss-4.2.0.GA/bin/shutdown.sh -S -s localhost:1099 -u admin -p admin "/>
+<stringAttribute key="org.jboss.ide.eclipse.as.rse.core.RSEJBossStartLaunchDelegate.STARTUP_COMMAND" value="java &quot;-Dprogram.name=JBossTools: JBoss 4.2 Runtime&quot; -Xms256m -Xmx512m -XX:MaxPermSize=256m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 &quot;-Djava.endorsed.dirs=lib\endorsed&quot;       -Djava.library.path=&quot;bin\native&quot; -classpath bin/run.jar org.jboss.Main --configuration=default  -b localhost  -Djboss.server.base.url=file:server       &amp;"/>
+<stringAttribute key="server-id" value="JBoss 4.2 Runtime Server1344477065666"/>
+</launchConfiguration>

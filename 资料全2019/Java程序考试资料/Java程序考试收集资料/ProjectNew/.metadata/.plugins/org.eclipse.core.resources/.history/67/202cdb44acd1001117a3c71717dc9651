@@ -1,0 +1,7 @@
+package cn.edu.xmu.software.adapter;
+
+import android.widget.BaseAdapter;
+
+public class OtherDayTaskListAdapter extends BaseAdapter{
+
+}

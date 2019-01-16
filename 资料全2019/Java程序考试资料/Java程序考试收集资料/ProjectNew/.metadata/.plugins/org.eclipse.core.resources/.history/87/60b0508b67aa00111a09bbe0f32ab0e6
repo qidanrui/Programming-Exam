@@ -1,0 +1,134 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+/**
+ * N后问题
+    实验要求：结合拉斯维加斯算法和回溯法，求出在不同stepVegas设置下搜索到一个可行解所需搜索的节点数，将可行解和相关搜索的节点数输出。
+
+ * @author sinllychen
+ *
+ */
+public class Test8_1 {
+      private static  int n;//n个皇后
+      private static  int[]  column,colTemp;//将第i个皇后放置到x[i]列
+      private static FileOperate operate;
+      private static Random rand;
+      private static boolean finished;//判断是否有结果
+      /**
+       * 初始化数据
+       * @param fileName
+       */
+      public static void initialData(String fileName)
+      {
+    	  operate=new FileOperate();
+    	   List<String> data=operate.readData(fileName);
+    	   rand=new Random();
+    	   n=Integer.valueOf(data.get(0));
+    	   column=new int[n];
+    	   colTemp=new int[n];
+    	   for(int i=0;i<n;i++)
+    	   {
+    		   column[i]=colTemp[i]=-1;
+    	   }
+    	   finished=false;
+      }
+      /**
+       * 写入数据到文件中
+       * @param fileName
+       */
+      public static void writeData(String fileName)
+      {
+    	  List<String> data=new ArrayList<String>();
+    	  if(finished)
+    	  {
+    	  for(int i=0;i<n;i++)
+    	  {
+    		  String temp="("+i+","+column[i]+")";
+    		  data.add(temp);
+    	   }
+    	  }
+    	  else 
+    		  data.add("no result");
+    	  operate.writeData(data, fileName, false);
+      }
+      /**
+       *判断位置是否合理，column[k]相当于将皇后放在k行column[k]列
+       * @param k
+       * @return
+       */
+      public static boolean place(int k)
+      {
+    	  for(int i=0;i<k;i++)
+    		  if((Math.abs(k-i)==Math.abs(colTemp[k]-colTemp[i]))||(colTemp[i]==colTemp[k]))
+    			  return false;
+    	  return true;
+      }
+      /**
+       * 进行回溯
+       * @param k
+       * @return
+       */
+      public static void  backTrack(int k)
+      {
+    	  if(k>=n)
+    	  {
+    		  for(int i=0;i<n;i++)
+    			  column[i]=colTemp[i];
+    		 finished=true;
+    	  }
+    	  else
+    	  {
+    		  for(int i=0;i<n;i++)
+    		  {
+    			  colTemp[k]=i;
+    			   if(finished)
+    				return;
+    			  if(place(k)) 
+    			  {
+    				  backTrack(k+1);
+    			  }
+    			  colTemp[k]=-1;
+    		  }
+    	  }
+      }
+      /**
+       * 前stopVegas皇后进行随机放置
+       * @param stopVegas
+       * @return
+       */
+      public static boolean  QueensLV(int stopVegas)
+      {
+    	  for(int i=0;i<=stopVegas;i++)
+    	  {
+    		  int k=rand.nextInt(n);//随机选取位置
+    		  colTemp[i]=k;
+    		  while(!place(i))//若随机的位置不行，则一直随机
+    		  {
+    			  colTemp[i]=rand.nextInt(n);
+    		  }
+    	  }
+    	  return true;
+      }
+      /**
+       * 前n个皇后进行随机放置，放置成功后后n个皇后进行回溯
+       */
+      public static boolean arrange()
+      {
+    	  while(!QueensLV(2));
+    	  backTrack(2);
+    	  if(finished)
+    		  return true;
+    	  else
+    		  return false;
+      }
+      public static void main(String[] args)
+      {
+    	  initialData("input8-1.txt");
+    	  while(!arrange())
+    	  {
+                initialData("input8-1.txt");
+    	  }
+    	  writeData("output8-1.txt");
+      }
+ }

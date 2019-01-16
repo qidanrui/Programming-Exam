@@ -1,0 +1,57 @@
+import static com.googlecode.javacv.cpp.opencv_core.*;  
+import static com.googlecode.javacv.cpp.opencv_imgproc.*;  
+import static com.googlecode.javacv.cpp.opencv_highgui.*;  
+
+import com.googlecode.javacpp.FloatPointer;
+import com.googlecode.javacv.cpp.opencv_core.CvMat;
+  
+public class Smoother {  
+      
+    public static void smooth(String filename){  
+        IplImage image=cvLoadImage(filename);  
+        if(image!=null){  
+            cvSmooth(image,image,CV_GAUSSIAN,3);  
+            cvSaveImage("D:\\new2-1.jpg",image);  
+            cvReleaseImage(image);  
+        }  
+    }  
+    public static void CmCurveEx(CvMat srcImg1f, float maxOrntDif)
+    {
+    	 CvMat a= cvLoadImageM("data/boldt.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    }
+    public static void  MatCalSecDer(int kSize, float linkEndBound, float linkStartBound)
+    {
+    	CvMat dxx, dxy, dyy,m_pOrnt1f,m_pDer1f;
+    	IplImage m_img1f;
+    	cvSobel(m_img1f, dxx, 2, 0,kSize);
+
+    	cvSobel( m_img1f, dxx, 0, 1, 3);
+    	double eigval[2], eigvec[2][2];
+    	for (int y = 0; y < m_h; y++)
+    	{
+    		FloatPointer xx = dxx.data_fl().position(y);
+    		FloatPointer xy = dxy.data_fl().position(y);
+    		FloatPointer yy = dyy.data_fl().position(y);
+    		FloatPointer pOrnt = m_pOrnt1f.data_fl().position(y);
+    		FloatPointer pDer = m_pDer1f.data_fl().position(y);
+    		for (int x = 0; x < m_w; x++)
+    		{
+    			compute_eigenvals(yy[x], xy[x], xx[x], eigval, eigvec);
+    			pOrnt[x] = (float)atan2(-eigvec[0][1], eigvec[0][0]); //计算法线方向
+    			if (pOrnt[x] < 0.0f)
+    				pOrnt[x] += PI2;
+    			pDer[x] = float(eigval[0] > 0.0f ? eigval[0] : 0.0f);//计算二阶导数
+    		}
+    	}
+
+    	GaussianBlur(m_pDer1f, m_pDer1f, cvSize(3, 3), 0,0.0,4);
+    	cvNormalize(m_pDer1f, m_pDer1f, 0, 1, NORM_MINMAX,null);
+    	//NoneMaximalSuppress(linkEndBound, linkStartBound);
+    	return m_pDer1f;
+    }
+    public static void main(String[] args)
+    {
+    	Smoother.smooth("D:\\1.jpg"); 
+    }
+  
+} 

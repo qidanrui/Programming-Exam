@@ -1,0 +1,122 @@
+package Teaching.Adapter;
+
+import java.util.List;
+import java.util.Map;
+import Teaching.Core.CourseActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+
+public class UserCourseAdapter extends BaseAdapter{
+	private CourseActivity context;
+	private LayoutInflater listInflater;
+	private List<Map<String, Object>> listItems;
+	private int itemCount;
+	
+	public final class ListItemView{
+		public TextView courName;
+	}
+	public UserCourseAdapter(CourseActivity context, List<Map<String, Object>> listItems) {
+		// TODO Auto-generated constructor stub
+		this.context = context;
+		//this.listItems = new ArrayList<Map<String, Object>>();
+		this.listItems = listItems;
+		this.init();
+	} 
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return this.itemCount;
+	}
+
+	@Override
+	public Object getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		ListItemView listItem = null;
+		final int po = position;
+		listItem = new ListItemView();
+		convertView  = this.listInflater.inflate(R.layout);
+			listItem.task_pri = (ImageView)convertView.findViewById(R.id.task_item_pri);
+			listItem.doit_now = (CheckBox)convertView.findViewById(R.id.complete_btn);
+			listItem.task_title = (TextView)convertView.findViewById(R.id.task_title);
+			listItem.task_project=(TextView)convertView.findViewById(R.id.task_project);
+			listItem.task_owner=(TextView)convertView.findViewById(R.id.task_owner);
+
+			listItem.task_startat=(TextView)convertView.findViewById(R.id.task_startat);
+			listItem.task_context=(TextView)convertView.findViewById(R.id.task_context);
+			listItem.task_length=(TextView)convertView.findViewById(R.id.task_length);
+			listItem.task_energy=(TextView)convertView.findViewById(R.id.task_energy);
+		//	listItem.task_endat=(TextView)convertView.findViewById(R.id.task);
+			
+			int color_id = (Integer)this.listItems.get(position).get("pri");
+			title = (String)this.listItems.get(position).get("title");
+			belongToPlan=(String)this.listItems.get(position).get("pro_title");
+			owner=(String)this.listItems.get(position).get("owner");
+			startTime=(String)this.listItems.get(position).get("startTime");
+			scene=(String)this.listItems.get(position).get("context");
+			length=(String)this.listItems.get(position).get("length");
+			energy=(String)this.listItems.get(position).get("energy");
+			
+			
+			listItem.task_pri.setBackgroundResource(this.colorId[color_id % 6]);
+			listItem.task_title.setText(title);
+			listItem.task_project.setText(belongToPlan);
+			listItem.task_owner.setText(owner);
+			
+			listItem.task_startat.setText(startTime);
+			listItem.task_context.setText(scene);
+			listItem.task_length.setText(length);
+			listItem.task_energy.setText(energy);
+			
+			listItem.doit_now.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+				@Override
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					// TODO Auto-generated method stub
+					
+					if(isChecked){
+						List<Goal>goals =goalOpt.getGoalsByProperty("title",String.valueOf(listItems.get(po).get("title")));
+				    	Goal g=new Goal();
+				    	// Toast.makeText(context, "选中" +goals.size(), Toast.LENGTH_SHORT).show();
+				    	if(goals.size()!=0)
+				    	{
+				    		g=goals.get(0);
+				    		listItems.remove(goals.get(0));
+				    		g.setStartTime("已完成");
+							 goalOpt.updateGoal(g);
+				    	}
+				    	context.refresh();
+					}
+				}
+				
+			});
+		
+			
+		}
+		return convertView;
+	}
+	public void init()
+	{
+	this.itemCount = this.listItems.size();
+	this.listInflater = LayoutInflater.from(this.context);
+	}
+}

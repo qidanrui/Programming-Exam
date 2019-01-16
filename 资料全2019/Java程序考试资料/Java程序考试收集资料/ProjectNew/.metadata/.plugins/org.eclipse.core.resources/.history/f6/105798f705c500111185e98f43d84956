@@ -1,0 +1,49 @@
+package cn.edu.xmu.cxj;
+
+import com.j256.ormlite.field.DatabaseField;
+
+public class Person {
+	@DatabaseField(generatedId = true)//声明ID为数据库字段,ID自增长
+     private Long id;
+	@DatabaseField 
+     private String name;
+	@DatabaseField(foreign = true, foreignAutoRefresh = true)
+	private Hello o;
+	public Person(){}
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the o
+	 */
+	public Hello getO() {
+		return o;
+	}
+	/**
+	 * @param o the o to set
+	 */
+	public void setO(Hello o) {
+		this.o = o;
+	};
+}

@@ -1,0 +1,83 @@
+package cn.edu.xmu.software.util;
+
+import java.awt.Color;
+import static com.googlecode.javacv.cpp.opencv_core.*; 
+
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+import cn.edu.xmu.software.curveextraction.Edge;
+
+import com.googlecode.javacv.cpp.opencv_core.CvMat;
+import com.googlecode.javacv.cpp.opencv_core.IplImage;
+
+/**
+ * 保存可以修改的静态数据
+ * @author sinlly.chen
+ *
+ */
+public  class StaticData {
+    public static boolean isLoadPng=false;
+	public static boolean isAddLines=false;
+	public static boolean isZoomIn=false;
+	public static boolean isZoomOut=false;
+	public static boolean isHandPan=false;
+	public static int imgWidth;
+	public static int imgHeight;
+	public static ByteBuffer imgBuf;
+	public static float gScale=1.0f;
+	public static int gDx;
+	public static int gDy;
+	public static double curveOffset=2.0;
+	public static ArrayList<Point> currentInput=new ArrayList<Point>();//当前输入
+	public static ArrayList<Point> leftCurve=new ArrayList<Point>();//当前输入的左曲线
+	public static ArrayList<Point> rightCurve=new ArrayList<Point>();//当前输入的右曲线
+	public static ArrayList<InputTrace> allCurves=new ArrayList<InputTrace>();//保存所有的曲线
+	public static ArrayList<InputTrace> repairCurves=new ArrayList<InputTrace>();//保存修复图片颜色的线条
+	public static Color leftColor=new Color(1.0f,0.0f,1.0f, 0.0f);
+	public static Color rightColor=new Color(1.0f,1.0f,1.0f, 0.0f);
+
+	public static ByteBuffer screenBuf=ByteBuffer.allocate((int)Constants.drawWidth*(int)Constants.drawWidth*4);
+    public static CvMat rgbaImage=cvCreateMat((int)Constants.drawWidth,(int)Constants.drawWidth,CV_8UC4);
+    
+    public static boolean isCartoon=false;
+    public static List<Edge> edges=new ArrayList<Edge>();
+    public static boolean isCurveExtract=false;
+    public static boolean isDraw=false;
+    public static Color currentSelColor;
+    public static boolean isSelRColor=false;
+    public static boolean isSelLColor=false;
+    public static boolean isCleanAll=false;
+    public static boolean isDiffusing=false;//是否需要diffuse(正在添加曲线时不需要)
+
+    public static List<Point> currentPnts=new ArrayList<Point>();
+
+
+    public static boolean isShowSplines=true;
+    public static boolean isActiveBlur=false;
+
+    public static Stack<ArrayList<InputTrace>> undoStack=new Stack<ArrayList<InputTrace>>();
+    public static Stack<ArrayList<InputTrace>>  redoStack=new Stack<ArrayList<InputTrace>>();
+    public static Stack<ArrayList<InputTrace>>  undoRepairStack=new Stack<ArrayList<InputTrace>>();
+    public static Stack<ArrayList<InputTrace>>  redoRepairStack=new Stack<ArrayList<InputTrace>>();
+    
+    public static boolean isStForAdjusting=false;//is Selecting For Adjusting
+    public static boolean isStForMdColor=false;//is Selecting For Modify Color
+    public static boolean isMultipleSelecting=false;
+    public static int blurDiameter=7;
+    public static  List<Point> neighbour=MatOperate.getNeighborPoints();
+
+    public static boolean isCurveLineOnly=false;
+    public static boolean isColorCurveLine=false;
+    public static boolean isDiffuseLine=false;
+    public static boolean isSample=false;
+    public static boolean isPictureSample=false;
+    public static boolean isOpenPicturePanel=false;
+    public static boolean isPictureRepair=false;
+    public static boolean isLoadXml=false;
+    public static ShapeControlPoint curAddShapePnt=new ShapeControlPoint();
+    public static ColorControlPoint  curAddColorPnt=new ColorControlPoint();
+    public static int  curSelectedIndex=0;
+}

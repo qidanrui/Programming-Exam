@@ -1,0 +1,8 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		String.valueOf(df.format(d)).substring(0,1)
+	}
+}
+

@@ -1,0 +1,93 @@
+package cn.edu.xmu.software.curveExctraction;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 边缘数据结构
+ * @author sinlly.chen
+ *
+ */
+public class Edge {
+     private int index;//边缘序号，开始于零
+     private int pointNum;//边缘上点的个数
+     private Point start;//起始点
+     private Point end;//终止点
+     private List<Point> pnts;//组成该边缘的所有点
+     Edge(int index)
+     {
+    	 this.setIndex(index);
+    	 init();
+     }
+     Edge(){
+    	 init();
+     }
+     
+    private void init()
+    {
+    	start=new Point();
+    	end=new Point();
+    	pnts=new ArrayList<Point>();
+    }
+    
+	/**
+	 * @return the index
+	 */
+	public int getIndex() {
+		return index;
+	}
+	/**
+	 * @param index the index to set
+	 */
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	/**
+	 * @return the pointNum
+	 */
+	public int getPointNum() {
+		return pointNum;
+	}
+	/**
+	 * @param pointNum the pointNum to set
+	 */
+	public void setPointNum(int pointNum) {
+		this.pointNum = pointNum;
+	}
+	/**
+	 * @return the start
+	 */
+	public Point getStart() {
+		return start;
+	}
+	/**
+	 * @param start the start to set
+	 */
+	public void setStart(Point start) {
+		this.start = start;
+	}
+	/**
+	 * @return the pnts
+	 */
+	public List<Point> getPnts() {
+		return pnts;
+	}
+	/**
+	 * @param pnts the pnts to set
+	 */
+	public void setPnts(List<Point> pnts) {
+		this.pnts = pnts;
+	}
+	/**
+	 * @return the end
+	 */
+	public Point getEnd() {
+		return end;
+	}
+	/**
+	 * @param end the end to set
+	 */
+	public void setEnd(Point end) {
+		this.end = end;
+	};
+}

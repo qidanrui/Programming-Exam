@@ -1,0 +1,37 @@
+	HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+		for (int i = 0; i < words.length; i++)
+		{
+			if (hashMap.get(words[i]) != null)
+			{
+				int value = hashMap.get(words[i]).intValue();
+				value++;
+				hashMap.put(words[i], value);
+			}
+			else
+				hashMap.put(words[i], 1);
+
+		}
+
+注：要将Integer类型转成对应的int值，只需Integer.intValue()方法即可
+
+hashMap.get()和hashMap.put()方法要掌握！
+
+-------------------------------------------------------------------------------------------------------
+
+/* 第4步：排序 */
+		ArrayList arrayList = new ArrayList(hashMap.entrySet());// 定义一个ArrayList对象来存放entrySet()返回的Set(键值对)
+		/*
+		 * 注：entrySet()返回的是Set，Set当然属于Collection，new ArrayList(Collection
+		 * c)就说得通了
+		 */
+
+		Collections.sort(arrayList, new Comparator()// 这里new了一个比较器对象，该对象属于匿名类
+				{
+					public int compare(Object o1, Object o2)// Comparator接口只有一个compare()方法
+					{
+						Map.Entry obj1 = (Map.Entry) o1;
+						Map.Entry obj2 = (Map.Entry) o2;
+						return ((Integer) obj2.getValue()).compareTo((Integer) obj1.getValue());
+						// String，Integer类型都实现了Comparable接口，所以有一个compareTo方法可以直接使用
+					}
+				});

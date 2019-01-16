@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XStudio NAME="XStudio" SCOPE="project" model-entity="SharableXStudio">
+ <Options NAME="Options" SCOPE="project" model-entity="SharableOptions">
+  <StrutsStudio NAME="Struts Studio" SCOPE="project" model-entity="SharableStrutsStudio">
+   <CodeGeneration NAME="Code Generation" SCOPE="project" model-entity="SharableCodeGeneration">
+    <CodeGenerationException NAME="Exception" SCOPE="project" model-entity="SharableCodeGenerationException"/>
+    <CodeGenerationAction NAME="Action" SCOPE="project" model-entity="SharableCodeGenerationAction"/>
+    <CodeGenerationCommon NAME="Common" SCOPE="project" model-entity="SharableCodeGenerationCommon"/>
+    <CodeGenerationGlobalForward NAME="Global Forward" SCOPE="project" model-entity="SharableCodeGenerationGlobalForward"/>
+    <CodeGenerationGlobalException NAME="Global Exception"
+     SCOPE="project" model-entity="SharableCodeGenerationGlobalException"/>
+    <CodeGenerationForward NAME="Forward" SCOPE="project" model-entity="SharableCodeGenerationForward"/>
+   </CodeGeneration>
+   <Running NAME="Running" SCOPE="project"
+    browser_path="C:\Program Files\Internet Explorer\IEXPLORE.EXE"
+    default_server="Tomcat" default_wtp_server="" jvm=""
+    jvm_default="yes" model-entity="SharableRunning" show_warning="yes"/>
+   <LinkRecognizer NAME="Link Recognizer" SCOPE="project" model-entity="SharableLinkRecognizer"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<link-recognizer model-entity="JSPLinkRecognizer">
+ <link model-entity="JSPLink" attribute="action" tag="html:link"/>
+ <link model-entity="JSPLink" attribute="page" refer-to="page" tag="html:link"/>
+ <link model-entity="JSPLink" attribute="forward" refer-to="forward" tag="html:link"/>
+ <link model-entity="JSPLink" attribute="action" tag="html:frame"/>
+ <link model-entity="JSPLink" attribute="page" refer-to="page" tag="html:frame"/>
+ <link model-entity="JSPLink" attribute="forward" refer-to="forward" tag="html:frame"/>
+ <link model-entity="JSPLink" attribute="action" tag="html:form"/>
+ <link model-entity="JSPLink" attribute="name" refer-to="forward" tag="logic:forward"/>
+ <link model-entity="JSPLink" attribute="forward" refer-to="forward" tag="logic:redirect"/>
+</link-recognizer>]]></LinkRecognizer>
+   <Automation NAME="Automation" SCOPE="project" model-entity="SharableAutomation">
+    <ResourcesInsets NAME="Resources Insets" SCOPE="project" model-entity="SharableResourcesInsets">
+     <InsetsErrorMessages NAME="Default Error Messages" SCOPE="project"
+      model-entity="SharableInsetsErrorMessages" text="errors.required={0} is required.\nerrors.minlength={0} can not be less than {1} characters.\nerrors.maxlength={0} can not be greater than {1} characters.\nerrors.invalid={0} is invalid.\n \nerrors.byte={0} must be a byte.\nerrors.short={0} must be a short.\nerrors.integer={0} must be an integer.\nerrors.long={0} must be a long.\nerrors.float={0} must be a float.\nerrors.double={0} must be a double.\n \nerrors.date={0} is not a date.\nerrors.range={0} is not in the range {1} through {2}.\nerrors.creditcard={0} is an invalid credit card number.\nerrors.email={0} is an invalid e-mail address.\n"/>
+    </ResourcesInsets>
+    <PluginsInsets NAME="Plug-ins Insets" SCOPE="project" model-entity="SharablePluginsInsets">
+     <InsetsTiles NAME="Tiles" SCOPE="project"
+      model-entity="SharableInsetsTiles" text="&lt;plug-in className=&quot;org.apache.struts.tiles.TilesPlugin&quot;>\n  &lt;set-property property=&quot;definitions-config&quot; value=&quot;/WEB-INF/tiles-defs.xml&quot;/>\n &lt;set-property property=&quot;moduleAware&quot; value=&quot;true&quot;/>\n&lt;/plug-in>"/>
+     <InsetsValidators NAME="Validators" SCOPE="project"
+      model-entity="SharableInsetsValidators" text="&lt;plug-in className=&quot;org.apache.struts.validator.ValidatorPlugIn&quot;>\n  &lt;set-property property=&quot;pathnames&quot; value=&quot;/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml&quot;/>\n &lt;/plug-in>"/>
+    </PluginsInsets>
+   </Automation>
+   <Project NAME="Project" SCOPE="project" model-entity="SharableProject">
+    <ImportProject NAME="Import Project" SCOPE="project"
+     model-entity="SharableImportProject" register_web_context="yes" servlet_version="2.4"/>
+    <NewProject NAME="New Project" SCOPE="project"
+     directory="D:\JAVA\MyProject" model-entity="SharableNewProject"
+     page_template="Blank" register_web_context="yes"
+     servlet_version="2.4" template="Blank" use_default="yes" version="Struts 1.2"/>
+    <StrutsSupport NAME="Struts Support" SCOPE="project" model-entity="SharableStrutsSupport">
+     <Struts11Support NAME="Struts Support 1.1" SCOPE="project"
+      model-entity="SharableStruts11Support"
+      servlet_class="org.apache.struts.action.ActionServlet"
+      tld_files="struts-bean.tld;struts-logic.tld;struts-html.tld" url_pattern="*.do"/>
+     <Struts12Support NAME="Struts Support 1.2" SCOPE="project"
+      model-entity="SharableStruts12Support"
+      servlet_class="org.apache.struts.action.ActionServlet"
+      tld_files="struts-bean.tld;struts-logic.tld;struts-html.tld" url_pattern="*.do"/>
+     <Struts10Support NAME="Struts Support 1.0" SCOPE="project"
+      model-entity="SharableStruts10Support"
+      servlet_class="org.apache.struts.action.ActionServlet"
+      tld_files="struts-bean.tld;struts-logic.tld;struts-html.tld" url_pattern="*.do"/>
+    </StrutsSupport>
+   </Project>
+   <ReportProblem NAME="Report Problem" SCOPE="project"
+    attachEclipseLog="no" attachRedHatLog="yes" eMail=""
+    model-entity="SharableReportProblem" other="" showErrorDialog="yes" submitProblemAutomatically="no"/>
+  </StrutsStudio>
+  <JSFStudio NAME="JSF Studio" SCOPE="project" model-entity="SharableJSFStudio">
+   <JSFProject NAME="Project" SCOPE="project" model-entity="SharableJSFProject">
+    <ImportJSFProject NAME="Import Project" SCOPE="project"
+     model-entity="SharableImportJSFProject" register_web_context="yes" servlet_version="2.4"/>
+    <NewJSFProject NAME="New Project" SCOPE="project"
+     directory="D:\JAVA\MyProject" model-entity="SharableNewJSFProject"
+     page_template="Blank" register_web_context="yes"
+     servlet_version="2.4" template="JSFBlank" use_default="yes" version="JSF 1.2"/>
+   </JSFProject>
+  </JSFStudio>
+  <Editors NAME="Editors" SCOPE="project" model-entity="SharableEditors"
+   natureWarning="no" selectSourceTab="no" useRedHatEditors="yes">
+   <StrutsEditor NAME="Web Flow Diagram" SCOPE="project"
+    action_font="default,size=8,style=1"
+    comment_font="default,size=10,style=0" doNotShowDiagram="no"
+    enableControlModeOnTransitionCompleted="yes"
+    forward_font="default,size=7,style=1" grid_step="16"
+    model-entity="SharableStrutsEditor"
+    path_font="default,size=8,style=1" removePageWithFile="yes"
+    showShortcutIcon="yes" showShortcutPath="yes" show_grid="yes">
+    <StrutsAddPage NAME="Add Page" SCOPE="project" extension="jsp"
+     model-entity="SharableStrutsAddPage" page-template="StrutsForm"/>
+   </StrutsEditor>
+   <TilesEditor NAME="Tiles Diagram" SCOPE="project" alignment="Top"
+    animation="yes" definitionNameFont="default,size=7,style=1"
+    horizontalSpacing="default(185)" model-entity="SharableTilesEditor" verticalSpacing="default(20)"/>
+   <VPEEditor NAME="Visual Page Editor" SCOPE="project"
+    always_hide_selection_bar_without_prompt="no"
+    always_request_for_attribute_during_tag_insert="yes"
+    model-entity="SharableVPEEditor" option_list="Visual/Source"
+    show_border_for_unknown_tags="yes" show_invisible_tags="no"
+    show_resource_bundles_usage_as_el_expressions="no"
+    show_selection_tag_bar="yes" source_visual_editors_weights="500" visual_source_editors_splitting="Vertical Source on top"/>
+   <SeamPagesEditor NAME="Seam Pages Diagram" SCOPE="project"
+    enableControlModeOnTransitionCompleted="yes" grid_step="16"
+    link_path_font="default,size=8,style=1"
+    model-entity="SharableSeamPagesEditor" removePageWithFile="yes"
+    showShortcutIcon="yes" showShortcutPath="yes" show_grid="yes" view_path_font="default,size=8,style=1"/>
+   <JSFEditor NAME="JSF Flow Diagram" SCOPE="project"
+    doNotCreateEmptyRule="yes"
+    enableControlModeOnTransitionCompleted="yes" grid_step="16"
+    link_path_font="default,size=8,style=1"
+    model-entity="SharableJSFEditor" removePageWithFile="yes"
+    showShortcutIcon="yes" showShortcutPath="yes" show_grid="yes" view_path_font="default,size=8,style=1">
+    <JSFAddView NAME="Add View" SCOPE="project" extension="jsp"
+     model-entity="SharableJSFAddView" page-template="New JavaServer Faces (JSF) Page (html)"/>
+   </JSFEditor>
+  </Editors>
+ </Options>
+</XStudio>

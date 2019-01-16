@@ -1,0 +1,503 @@
+import java.awt.*;
+
+import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.text.html.ImageView;
+import javax.media.opengl.*;
+import javax.media.opengl.awt.GLCanvas;
+public class UIDemo extends JFrame{
+	JMenuBar topMenuBar;
+	JMenu fileMenu,editMenu;
+	JMenuItem item1,item2,item3,item4,item5,item6,item7,item8,item9,item10;
+	public UIDemo()
+	{
+		topMenuBar = new JMenuBar();
+		this.setJMenuBar(topMenuBar);
+		
+		fileMenu = new JMenu("File");
+		topMenuBar.add(fileMenu);
+		
+		editMenu = new JMenu("Edit");
+		topMenuBar.add(editMenu);
+		
+		item1 = new JMenuItem("Load XML");
+		item2 = new JMenuItem("Save as Png");
+		item3 = new JMenuItem("Save as XML");
+		item4 = new JMenuItem("Keyframing");
+		item5 = new JMenuItem("Load Bitmap");
+		fileMenu.add(item1);
+		fileMenu.addSeparator();
+		fileMenu.add(item2);
+		fileMenu.addSeparator();
+		fileMenu.add(item3);
+		fileMenu.addSeparator();
+		fileMenu.add(item4);
+		fileMenu.addSeparator();
+		fileMenu.add(item5);
+		
+		item6 = new JMenuItem("Copy(Ctrl+C)");
+		item7 = new JMenuItem("Paste(Ctrl+V)");
+		item8 = new JMenuItem("Cut(Ctrl+X)");
+		item9 = new JMenuItem("Copy Blur(Ctrl+D)");
+		item10 = new JMenuItem("Paste Blur(Ctrl+F)");
+		editMenu.add(item6);
+		editMenu.addSeparator();
+		editMenu.add(item7);
+		editMenu.addSeparator();
+		editMenu.add(item8);
+		editMenu.addSeparator();
+		editMenu.add(item9);
+		editMenu.addSeparator();
+		editMenu.add(item10);
+		
+		//最外层面板
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout());
+		
+		//draw 面板
+		JPanel panel_draw = new JPanel();
+		panel_draw.setLayout(new GridBagLayout());
+		panel_draw.setBorder(new EtchedBorder(EtchedBorder.RAISED));
+		
+		//手绘贝塞尔曲线   按钮
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JButton button_draw = new JButton(new ImageIcon("icons\\drawCatmull.png"));
+		panel_draw.add(button_draw,c);
+		
+		//leftcolor_panel 用来存放 left_color button 和 left_color checkbox
+		JPanel panel_leftcolor = new JPanel();
+		panel_leftcolor.setLayout(new FlowLayout());
+		
+		//贝赛尔曲线左侧的颜色   按钮
+		c.fill = GridBagConstraints.VERTICAL;		
+		JButton button_lcolor = new JButton("Left Color");
+		panel_leftcolor.add(button_lcolor);
+		
+		//左侧颜色复选框
+		c.fill = GridBagConstraints.VERTICAL;	
+		JCheckBox checkbox_left = new JCheckBox();
+		panel_leftcolor.add(checkbox_left);
+		
+	    //把panel_leftcolor添加至panel_draw
+		c.gridx = 1;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		panel_draw.add(panel_leftcolor,c);
+		
+		//panel_rightcolor
+		JPanel panel_rightcolor = new JPanel();
+		panel_rightcolor.setLayout(new FlowLayout());
+		
+		//贝赛尔曲线右侧的颜色   按钮	
+		JButton button_rcolor = new JButton("Right Color");
+		panel_rightcolor.add(button_rcolor);
+		
+		//右侧颜色复选框			
+		JCheckBox checkbox_right = new JCheckBox();
+		panel_rightcolor.add(checkbox_right);
+		
+		//把panel_rightcolor添加至panel_rightcolor
+		c.gridx = 2;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		panel_draw.add(panel_rightcolor,c);
+		
+		//模糊   label
+		c.gridx = 0;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JLabel label_blur = new JLabel("Blur : ");
+		panel_draw.add(label_blur,c);
+		
+		//控制模糊值    滑块
+		c.fill = GridBagConstraints.VERTICAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		c.gridwidth = 3;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JSlider slider_blur = new JSlider(0,5,0);
+		panel_draw.add(slider_blur,c);
+		
+		//底部的Draw label
+		JLabel label_draw = new JLabel("Draw");
+		c.gridx = 1;
+		c.gridy = 3;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		panel_draw.add(label_draw,c);
+		
+		//将panel_draw添加至容器
+		Container pane = this.getContentPane();
+		pane.setLayout(new BorderLayout());
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 4;
+		c.gridheight = 4;
+		panel.add(panel_draw,c);
+		
+		//edit 面板
+		JPanel panel_edit = new JPanel();
+		panel_edit.setLayout(new GridBagLayout());
+		panel_edit.setBorder(new EtchedBorder(EtchedBorder.RAISED));
+		
+		//调整贝赛尔曲线的形状   按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_adjust = new ImageIcon("icons\\movePoint.png");
+		JButton button_adjust = new JButton(icon_adjust);
+		button_adjust.setSize(icon_adjust.getIconWidth(), icon_adjust.getIconHeight());
+		panel_edit.add(button_adjust,c);
+		
+		//更换贝赛尔曲线两侧的颜色   按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_color = new ImageIcon("icons\\modifAttrib.png");
+		JButton button_color = new JButton(icon_color);
+		button_color.setSize(icon_color.getIconWidth(), icon_color.getIconHeight());
+		panel_edit.add(button_color,c);
+		
+		//对换贝赛尔曲线两侧的颜色   按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_exchange = new ImageIcon("icons\\switch_clr.png");
+		JButton button_exchange = new JButton(icon_exchange);
+		button_exchange.setSize(icon_exchange.getIconWidth(), icon_exchange.getIconHeight());
+		panel_edit.add(button_exchange,c);
+		
+		//提取颜色
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_extractcolor = new ImageIcon("icons\\picker.png");
+		JButton button_extractcolor = new JButton(icon_extractcolor);
+		button_extractcolor.setSize(icon_extractcolor.getIconWidth(), icon_extractcolor.getIconHeight());
+		panel_edit.add(button_extractcolor,c);
+		
+		//颜色桶
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 2;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_colorbucket = new ImageIcon("icons\\bucket.png");
+		JButton button_colorbucket = new JButton(icon_colorbucket);
+		button_colorbucket.setSize(icon_colorbucket.getIconWidth(), icon_colorbucket.getIconHeight());
+		panel_edit.add(button_colorbucket,c);
+		
+		//底部的edit label
+		JLabel label_edit = new JLabel("Edit");
+		c.gridx = 1;
+		c.gridy = 3;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		panel_edit.add(label_edit,c);
+		
+		//将panel_edit添加至容器
+		c.gridx = 4;
+		c.gridy = 0;
+		c.gridwidth = 2;
+		c.gridheight = 4;
+		panel.add(panel_edit,c);
+		
+		//全局控制面板
+		JPanel panel_global = new JPanel();
+		panel_global.setLayout(new GridBagLayout());
+		panel_global.setBorder(new EtchedBorder(EtchedBorder.RAISED));
+		
+		//选中多条曲线  按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_selectmulti = new ImageIcon("icons\\selectMulti.png");
+		JButton button_selectmulti = new JButton(icon_selectmulti);
+		button_selectmulti.setSize(icon_selectmulti.getIconWidth(), icon_selectmulti.getIconHeight());
+		panel_global.add(button_selectmulti,c);
+		
+		//增强曲线两侧颜色的对比度  按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);			
+		ImageIcon icon_contrastincr = new ImageIcon("icons\\contrast_incr.png");
+		JButton button_contrastincr = new JButton(icon_contrastincr);
+		button_contrastincr.setSize(icon_contrastincr.getIconWidth(), icon_contrastincr.getIconHeight());
+		panel_global.add(button_contrastincr,c);
+		
+		//降低曲线两侧颜色的对比度  按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);						
+		ImageIcon icon_contrastdecr = new ImageIcon("icons\\contrast_decr.png");
+		JButton button_contrastdecr = new JButton(icon_contrastdecr);
+		button_contrastdecr.setSize(icon_contrastdecr.getIconWidth(), icon_contrastdecr.getIconHeight());
+		panel_global.add(button_contrastdecr,c);
+		
+		//hand pan
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_handpan = new ImageIcon("icons\\handPan.png");
+		JButton button_handpan = new JButton(icon_handpan);
+		button_handpan.setSize(icon_handpan.getIconWidth(), icon_handpan.getIconHeight());
+		panel_global.add(button_handpan,c);
+		
+		//zoom in
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);				
+		ImageIcon icon_zoomin = new ImageIcon("icons\\zoomIn.png");
+		JButton button_zoomin = new JButton(icon_zoomin);
+		button_zoomin.setSize(icon_zoomin.getIconWidth(), icon_zoomin.getIconHeight());
+		panel_global.add(button_zoomin,c);
+		
+		//zoom out
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);						
+		ImageIcon icon_zoomout = new ImageIcon("icons\\zoomOut.png");
+		JButton button_zoomout = new JButton(icon_zoomout);
+		button_zoomout.setSize(icon_zoomout.getIconWidth(), icon_zoomout.getIconHeight());
+		panel_global.add(button_zoomout,c);
+		
+		//格式化
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 2;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);						
+		ImageIcon icon_stylize = new ImageIcon("icons\\stylize.png");
+		JButton button_stylize = new JButton(icon_stylize);
+		button_stylize.setSize(icon_stylize.getIconWidth(), icon_stylize.getIconHeight());
+		panel_global.add(button_stylize,c);
+		
+		//smoothen
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 2;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);						
+		ImageIcon icon_smooth = new ImageIcon("icons\\droplet.png");
+		JButton button_smooth = new JButton(icon_smooth);
+		button_smooth.setSize(icon_smooth.getIconWidth(), icon_smooth.getIconHeight());
+		panel_global.add(button_smooth,c);
+		
+		//底部的Global Control label
+		JLabel label_globalcontrol = new JLabel("Global Control");
+		c.gridx = 1;
+		c.gridy = 3;
+		c.gridwidth = 2;
+		c.gridheight = 1;
+		panel_global.add(label_globalcontrol,c);
+		
+		//将panel_global添加至容器
+		c.gridx = 6;
+		c.gridy = 0;
+		c.gridwidth = 3;
+		c.gridheight = 4;
+		panel.add(panel_global,c);
+		
+		//与位图有关的操作    面板
+		JPanel panel_bitmap = new JPanel();
+		panel_bitmap.setLayout(new GridBagLayout());
+		panel_bitmap.setBorder(new EtchedBorder(EtchedBorder.RAISED));
+		
+		//是否显示位图   复选框
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 2;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JCheckBox checkbox_bitmap = new JCheckBox("Show Bitmap");
+		panel_bitmap.add(checkbox_bitmap,c);
+		
+		//magnet  按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_magnet = new ImageIcon("icons\\magnet.png");
+		JButton button_magnet = new JButton(icon_magnet);
+		button_magnet.setSize(icon_magnet.getIconWidth(), icon_magnet.getIconHeight());
+		panel_bitmap.add(button_magnet,c);
+		
+		//sample  按钮
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		ImageIcon icon_sample = new ImageIcon("icons\\sample.png");
+		JButton button_sample = new JButton(icon_sample);
+		button_sample.setSize(icon_sample.getIconWidth(), icon_sample.getIconHeight());
+		panel_bitmap.add(button_sample,c);
+		
+		//底部的Bitmap label
+		JLabel label_bitmap = new JLabel("Bitmap");
+		c.gridx = 0;
+		c.gridy = 3;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		panel_bitmap.add(label_bitmap,c);
+		
+		//将panel_bitmap添加至容器
+		c.gridx = 9;
+		c.gridy = 0;
+		c.gridwidth = 2;
+		c.gridheight = 4;
+		panel.add(panel_bitmap,c);
+		
+		
+		//其它功能    面板
+		JPanel panel_others = new JPanel();
+		panel_others.setLayout(new GridBagLayout());
+		panel_others.setBorder(new EtchedBorder(EtchedBorder.RAISED));
+		
+		//show splines 复选框
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 2;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JCheckBox checkbox_spline = new JCheckBox("Show Splines");
+		panel_others.add(checkbox_spline,c);
+		
+		//Active Blur  复选框
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 0;
+		c.gridwidth = 2;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JCheckBox checkbox_activeblur = new JCheckBox("Active Blur");
+		panel_others.add(checkbox_activeblur,c);
+		
+		//Iteration  label
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 1;
+		c.gridwidth = 2;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JLabel label_iteration = new JLabel("Iteration :");
+		panel_others.add(label_iteration,c);
+		
+		//Iteration 滑块
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 1;
+		c.gridwidth = 3;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JSlider slider_iteration = new JSlider(0,5,0);
+		panel_others.add(slider_iteration,c);
+		
+		//Lifetime  label
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 2;
+		c.gridwidth = 2;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JLabel label_lifetime = new JLabel("Lifetime :");
+		panel_others.add(label_lifetime,c);
+		
+		//Lifetime  滑块
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 2;
+		c.gridwidth = 3;
+		c.gridheight = 1;
+		c.insets = new Insets(5,5,5,5);		
+		JSlider slider_lifetime = new JSlider(0,5,0);
+		panel_others.add(slider_lifetime,c);
+		
+		//Others label
+		JLabel label_others = new JLabel("Others");
+		c.gridx = 2;
+		c.gridy = 3;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		panel_others.add(label_others,c);
+		
+		//将others面板添加至容器
+		c.gridx = 11;
+		c.gridy = 0;
+		c.gridwidth = 5;
+		c.gridheight = 4;
+		panel.add(panel_others,c);
+		
+		//将最外层的 panel添加至容器pane里
+		pane.add(panel,BorderLayout.NORTH);
+		
+		//GLCanvas
+        GLProfile profile = GLProfile.get(GLProfile.GL2);
+        GLCapabilities capabilities = new GLCapabilities(profile);
+        GLCanvas glcanvas = new GLCanvas(capabilities);
+        //glcanvas.addGLEventListener(new Render());
+        glcanvas.setSize( 1000, 600 );
+        
+        pane.add(glcanvas,BorderLayout.CENTER);
+
+		
+		this.setTitle("UIDemo");
+		this.setSize(1200, 800);
+		this.setLocation(100, 50);
+		this.setVisible(true);
+	}
+	public static void main(String args[])
+	{
+		 UIDemo demo = new UIDemo();
+	}
+}

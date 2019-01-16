@@ -1,0 +1,31 @@
+package Teaching.Common;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Teaching.model.Course;
+import Teaching.model.Student;
+import Teaching.model.User;
+
+public class ContextUtil {
+     public static User currentUser;
+     
+     public ContextUtil()
+     {
+    	 currentUser=new User();
+    	 currentUser.setUserName("陈欣洁");
+    	 currentUser.setPassword("123456");
+    	 List<Course> courses=new ArrayList<Course>();
+    	 for(int i=0;i<15;i++)
+    	 {
+    		Course c=new Course();
+    		c.setCourseName("课程"+(i+1));
+    		if(i%2==0)
+    		    c.setFlag(true);
+    		else
+    			c.setFlag(false);
+    		 c.setTeacherName("教师"+(i+1));
+    		 List<Student> stu=new ArrayList<Student>();
+    	 }
+     }
+}

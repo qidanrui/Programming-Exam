@@ -1,0 +1,1 @@
+HashSet是按照HashCode排序的，想不打乱顺序就用LinkerHashSet吧

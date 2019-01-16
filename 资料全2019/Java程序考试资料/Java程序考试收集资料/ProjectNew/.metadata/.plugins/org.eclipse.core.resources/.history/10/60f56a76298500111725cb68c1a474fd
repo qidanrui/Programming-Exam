@@ -1,0 +1,16 @@
+package xmu.software.cxj.chatproc.shared.service;
+
+import java.util.Calendar;
+
+import xmu.software.cxj.mychat.shared.pojo.Information;
+
+import com.google.gwt.user.client.rpc.AsyncCallback;
+
+public interface InfoServiceAsync {
+
+	void saveOrUpdateInfo(String from, String to, Calendar date,
+			String content, AsyncCallback<Void> callback);
+
+	void findInfo(String to, AsyncCallback<Information> callback);
+
+}

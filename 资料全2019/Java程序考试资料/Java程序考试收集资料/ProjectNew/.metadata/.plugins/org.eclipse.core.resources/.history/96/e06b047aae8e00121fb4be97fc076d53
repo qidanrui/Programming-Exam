@@ -1,0 +1,348 @@
+package cn.edu.xmu.software.eventprocesser;
+
+import static com.googlecode.javacv.cpp.opencv_highgui.*;  
+
+
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.util.ArrayList;
+import javax.media.opengl.awt.GLCanvas;
+import cn.edu.xmu.software.util.Constants;
+import cn.edu.xmu.software.util.ControlPoint;
+import cn.edu.xmu.software.util.InputTrace;
+import cn.edu.xmu.software.util.MatOperate;
+import cn.edu.xmu.software.util.Point;
+import cn.edu.xmu.software.util.StaticData;
+
+/**
+ * 处理鼠标事件
+ * @author::jimmy.cai
+ * @date::2013/03/09
+ */
+public class MouseProcesser implements MouseListener, MouseMotionListener,  MouseWheelListener{
+	private GLCanvas glcanvas;
+	private Point lastPoint;
+	private int dis;
+	
+	public MouseProcesser(){
+		lastPoint=new Point();
+	}
+	
+	public MouseProcesser(GLCanvas glcanvas){
+		this.glcanvas=glcanvas;
+		lastPoint=new Point();
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-StaticData.gDx)/StaticData.gScale);
+		int y=(int)(((float)arg0.getY()-StaticData.gDy)/StaticData.gScale);
+		if(StaticData.isAddLines){
+			StaticData.isDiffusing=false;
+			lastPoint.setX(x);
+			lastPoint.setY(y);
+			StaticData.currentInput.add(lastPoint);
+		}
+		if(StaticData.isHandPan){
+			lastPoint.setX(x);
+			lastPoint.setY(y);
+		}
+		if(StaticData.isBlurImage)
+		{
+//			ControlsListener.blur(new Point(x,y));
+//			StaticData.imgHeight=(int)Constants.drawWidth;
+//			StaticData.imgWidth=(int)Constants.drawWidth;
+			ControlsListener.getCurrentImageMat();
+//			StaticData.isLoadPng=true;
+		}
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-StaticData.gDx)/StaticData.gScale);//转化为标准情况下的坐标即gScale=1.0 gDx=0.0 gDy=0.0
+		int y=(int)(((float)arg0.getY()-StaticData.gDy)/StaticData.gScale);
+		if(StaticData.isAddLines){
+			StaticData.isDiffusing=true;
+			Point currentPoint=new Point(x,y);
+			StaticData.currentInput.add(currentPoint);
+//			addLRCurves();
+			addLine();
+		}
+		if(StaticData.isHandPan){
+			int dx=arg0.getX()-(int)((float)lastPoint.getX()*StaticData.gScale+StaticData.gDx);
+			int dy=arg0.getY()-(int)((float)lastPoint.getY()*StaticData.gScale+StaticData.gDy);
+			StaticData.gDx+=dx;
+			StaticData.gDy+=dy;
+		}
+	  if(StaticData.isBlurImage)
+		{
+//			StaticData.currentPnts.add(new Point(x,y));
+//			for(int i=0;i<StaticData.currentPnts.size();i++)
+//			     ControlsListener.blur(StaticData.currentPnts.get(i));
+		    ControlsListener.getCurrentImageMat(); 
+			ControlsListener.blur(new Point(x,y));
+			StaticData.imgHeight=(int)Constants.drawWidth;
+			StaticData.imgWidth=(int)Constants.drawWidth;
+			byte[] temp=MatOperate.convertMatToByteAlpha(StaticData.rgbaImage);
+		    StaticData.optImgBuf.wrap(temp, 0, temp.length);
+			cvShowImage("s",StaticData.rgbaImage);
+			cvWaitKey(0);
+			//StaticData.isLoadPng=false;
+			StaticData.blurCount();
+			if(StaticData.blurCount>0)
+			   StaticData.isLoadPng=false;
+		}
+		glcanvas.display();
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		int x=(int)(((float)arg0.getX()-StaticData.gDx)/StaticData.gScale);
+		int y=(int)(((float)arg0.getY()-StaticData.gDy)/StaticData.gScale);
+		if (StaticData.isAddLines) {
+			Point currentPoint=new Point(x,y);
+			dis+=getDis(lastPoint,currentPoint);
+			if (dis > 1) {
+				dis = 0;
+				StaticData.currentInput.add(currentPoint);
+				lastPoint = new Point(currentPoint);
+				
+//				addLRCurves();
+				
+				glcanvas.display();
+			}
+		}
+		else if(StaticData.isBlurImage)
+		{
+//			Point currentPoint=new Point(x,y);
+//			StaticData.currentPnts.add(currentPoint);
+//			for(int i=0;i<StaticData.currentPnts.size();i++)
+//			     ControlsListener.blur(StaticData.currentPnts.get(i));
+//			ControlsListener.getCurrentImageMat();
+//			ControlsListener.blur(new Point(x,y));
+//			StaticData.imgHeight=(int)Constants.drawWidth;
+//			StaticData.imgWidth=(int)Constants.drawWidth;
+//			byte[] temp=MatOperate.convertMatToByteAlpha(StaticData.rgbaImage);
+//			StaticData.optImgBuf.wrap(temp, 0, temp.length);
+//			glcanvas.display();
+		}
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		
+	}
+
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent arg0) {
+		if (StaticData.isZoomIn || StaticData.isZoomOut) {
+			float lastgScale = StaticData.gScale;
+			int num = arg0.getWheelRotation();
+
+			StaticData.gScale += num * 0.1f;
+			if (StaticData.gScale < 0.1)
+				StaticData.gScale = 0.1f;
+			else if (StaticData.gScale > 3)
+				StaticData.gScale = 3;
+			int vpx = -(int) (Constants.drawWidth * (StaticData.gScale - lastgScale)) / 2;
+			int vpy = vpx;
+			StaticData.gDx += vpx;
+			StaticData.gDy += vpy;
+			glcanvas.display();
+		}
+	}
+	
+	/**
+	 * 对currentInput进行贝塞尔曲线拟合，并由拟合后的点得出leftCurve和rightCurve,最后加进allCurves
+	 */
+	private void addLine(){
+		// TODO 贝塞尔曲线拟合  Condition:得出的点即currentInput的新值必须个数较为密集
+		
+		ControlPoint point1=new ControlPoint(StaticData.currentInput.get(0));
+		point1.setIndex(0);
+		point1.setLeftColor(new Color(1.0f,0.0f,1.0f));
+		point1.setRightColor(new Color(1.0f,1.0f,1.0f));
+		
+//		ControlPoint point2=new ControlPoint(StaticData.currentInput.get(StaticData.currentInput.size()/2));
+//		point2.setIndex(StaticData.currentInput.size()/2);
+//		point2.setLeftColor(new Color(0.0f,1.0f,0.0f));
+//		point2.setRightColor(new Color(0.0f,0.0f,0.0f));
+		
+		ControlPoint point3=new ControlPoint(StaticData.currentInput.get(StaticData.currentInput.size()-1));
+		point3.setIndex(StaticData.currentInput.size()-1);
+		point3.setLeftColor(new Color(1.0f,0.0f,1.0f));
+		point3.setRightColor(new Color(1.0f,1.0f,1.0f));
+		
+		ArrayList<ControlPoint> controlPoints=new ArrayList<ControlPoint>();
+		controlPoints.add(point1);
+//		controlPoints.add(point2);
+		controlPoints.add(point3);
+		
+		double[] V=new double[2];
+		double[] N=new double[2];
+		int size=StaticData.currentInput.size();
+		double[] PM;
+		
+		if(size<2)
+			return;
+		for(int i=0;i<size;i++){
+			if(i==0){
+				V[0]=StaticData.currentInput.get(i+1).getX()-StaticData.currentInput.get(i).getX();
+				V[1]=StaticData.currentInput.get(i+1).getY()-StaticData.currentInput.get(i).getY();
+				N=getNormal(V);
+
+				PM=getPMValue(V);
+			}
+			else if(i==size-1){
+				V[0]=StaticData.currentInput.get(i).getX()-StaticData.currentInput.get(i-1).getX();
+				V[1]=StaticData.currentInput.get(i).getY()-StaticData.currentInput.get(i-1).getY();
+				N=getNormal(V);
+
+				PM=getPMValue(V);
+			}
+			else{
+				double[] N1=new double[2];
+				double[] N2=new double[2];
+				double vx=0,vy=0;
+				V[0]=StaticData.currentInput.get(i+1).getX()-StaticData.currentInput.get(i).getX();
+				V[1]=StaticData.currentInput.get(i+1).getY()-StaticData.currentInput.get(i).getY();
+				N1=getNormal(V);
+				vx+=V[0];
+				vy+=V[1];
+				V[0]=StaticData.currentInput.get(i).getX()-StaticData.currentInput.get(i-1).getX();
+				V[1]=StaticData.currentInput.get(i).getY()-StaticData.currentInput.get(i-1).getY();
+				N2=getNormal(V);
+				vx+=V[0];
+				vy+=V[1];
+				N[0]=(N1[0]+N2[0])/2.0;
+				N[1]=(N1[1]+N2[1])/2.0;
+
+				double[] vxy=new double[2];
+				vxy[0]=vx;
+				vxy[1]=vy;
+				PM=getPMValue(vxy);
+			}
+			double leftXX=StaticData.currentInput.get(i).getX()-N[0]*PM[0]+0.5;
+			double leftYY=StaticData.currentInput.get(i).getY()-N[1]*PM[1]+0.5;
+			double rightXX=StaticData.currentInput.get(i).getX()+N[0]*PM[0]+0.5;
+			double rightYY=StaticData.currentInput.get(i).getY()+N[1]*PM[1]+0.5;
+			StaticData.leftCurve.add(new Point((int)leftXX,(int)leftYY));
+			StaticData.rightCurve.add(new Point((int)rightXX,(int)rightYY));
+		}
+		InputTrace input=new InputTrace();
+		input.setInputTrace(new ArrayList<Point>(StaticData.currentInput));
+		input.setLeftCurve(new ArrayList<Point>(StaticData.leftCurve));
+		input.setRightCurve(new ArrayList<Point>(StaticData.rightCurve));
+		// TODO input.setControlPoint()
+		input.setControlPoints(controlPoints);
+		input.setSelected(true);
+		StaticData.allCurves.add(input);
+		StaticData.currentInput.clear();
+		StaticData.leftCurve.clear();
+		StaticData.rightCurve.clear();
+	}
+	
+	/**
+	 * 为当前正在画的曲线添加左右曲线
+	 */
+	private void addLRCurves(){
+		double[] V=new double[2];//V[0]:X方向的偏移量；V[1]Y方向的偏移量
+		double[] N=new double[2];//法向
+
+		int size=StaticData.currentInput.size();
+		V[0]=StaticData.currentInput.get(size-1).getX()-StaticData.currentInput.get(size-2).getX();
+		V[1]=StaticData.currentInput.get(size-1).getY()-StaticData.currentInput.get(size-2).getY();
+		N=getNormal(V);
+
+		double[] PM=getPMValue(V);
+		
+		//第二个点的时候给第一个点加上左右点
+		if(StaticData.currentInput.size()==2){
+			double leftXX=StaticData.currentInput.get(size-2).getX()-N[0]*PM[0]+0.5;
+			double leftYY=StaticData.currentInput.get(size-2).getY()-N[1]*PM[1]+0.5;
+			double rightXX=StaticData.currentInput.get(size-2).getX()+N[0]*PM[0]+0.5;
+			double rightYY=StaticData.currentInput.get(size-2).getY()+N[1]*PM[1]+0.5;
+			
+			StaticData.leftCurve.add(new Point((int)leftXX,(int)leftYY));
+			StaticData.rightCurve.add(new Point((int)rightXX,(int)rightYY));
+		}
+		
+		double leftXX=StaticData.currentInput.get(size-1).getX()-N[0]*PM[0]+0.5;
+		double leftYY=StaticData.currentInput.get(size-1).getY()-N[1]*PM[1]+0.5;
+		double rightXX=StaticData.currentInput.get(size-1).getX()+N[0]*PM[0]+0.5;
+		double rightYY=StaticData.currentInput.get(size-1).getY()+N[1]*PM[1]+0.5;
+		StaticData.leftCurve.add(new Point((int)leftXX,(int)leftYY));
+		StaticData.rightCurve.add(new Point((int)rightXX,(int)rightYY));
+	}
+	
+	/**
+	 * 计算法线
+	 * @param v
+	 * @return
+	 */
+	private double[] getNormal(double[] v){
+		double[] N=new double[2];
+		N[0]=10*v[1];
+		N[1]=10*v[0];
+		double distance=Math.sqrt((double)(N[0]*N[0]+N[1]*N[1]));
+		if(distance>0.0000001){
+			N[0]=N[0]/distance*StaticData.curveOffset;
+			N[1]=N[1]/distance*StaticData.curveOffset;
+		}
+		return N;
+	}
+	
+	/**
+	 * 得到左右曲线的正负偏移,分为8种情况，分别对8种情况进行分析得出结果
+	 * @param V
+	 * @return
+	 */
+	private double[] getPMValue(double[] V){
+		double[] PM=new double[2];
+		if(V[1]==0){
+			PM[1]=1;
+		}
+		else if(V[0]==0){
+			PM[0]=-1;
+		}
+		else{
+			PM[0]=-1;
+			PM[1]=1;
+		}
+		return PM;
+	}
+	
+	/**
+	 * 计算两点之间距离
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	private int getDis(Point a,Point b){
+		int x1=a.getX()-b.getX();
+		int x2=a.getY()-b.getY();
+		int dis=(int) Math.sqrt(x1*x1+x2*x2);
+		return dis;
+	}
+}

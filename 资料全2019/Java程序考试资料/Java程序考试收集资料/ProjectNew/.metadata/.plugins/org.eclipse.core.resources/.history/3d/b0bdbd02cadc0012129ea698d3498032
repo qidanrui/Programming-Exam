@@ -1,0 +1,1152 @@
+package cn.edu.xmu.software.ui;
+
+
+import javax.media.opengl.*;
+import javax.media.opengl.awt.GLCanvas;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.pushingpixels.substance.api.SubstanceLookAndFeel;
+import org.pushingpixels.substance.api.skin.CremeCoffeeSkin;
+
+import cn.edu.xmu.software.eventprocesser.ControlMouseProcesser;
+import cn.edu.xmu.software.eventprocesser.ControlsListener;
+import cn.edu.xmu.software.eventprocesser.GLEventProcesser;
+import cn.edu.xmu.software.eventprocesser.GLEventProcesserImg;
+import cn.edu.xmu.software.util.Constants;
+import cn.edu.xmu.software.util.StaticData;
+/**
+ * 界面实现
+ * @author sinlly.chen ,gaoguo.sun
+ *
+ */
+public class DiffusionCurvesUI extends JFrame{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JMenuBar    topMenuBar;
+	private JMenu         fileMenu,editMenu;
+	private JPopupMenu colorPopupMenu,shapePopupMenu;
+	private JMenuItem  loadXmlItem,  saveAsPngItem,  saveAsXmlItem, 
+	                               loadBitmapItem,  copyItem,  pasteItem,  cutItem,addColorPntItem,addShapePntItem,removeShapePntItem,removeColorPntItem;
+	private JButton       drawBtn,   lColorBtn,   rColorBtn,   adjustBtn,   modifyColorBtn,deleteCurveBtn,
+	                               exchangeBtn,   selectMultiBtn,  contrastIncrBtn,   contrastDecrBtn,
+	                               handPanBtn,  zoomInBtn,  zoomOutBtn,  sharpenBtn,lColorShowBtn,  rColorShowBtn,
+	                               smoothBtn,  magnetBtn,  sampleBtn ,repairColorBtn,undoBtn,redoBtn,diffuseBtn,cleanAllBtn,switchImagePanelBtn;
+	private JCheckBox   bitmapChk,  splineChk,  activeBlurChk ,cartoonChk;
+	private JLabel          blurLbl,  drawLbl,  editLbl,  globalControlLbl,  bitmapLbl,
+	                                othersLbl ;
+	private JSlider         blurSlider ;
+	private JSeparator   js1,  js2,  js3,  js4, js5;
+	
+	private JPanel       colorPanel;
+	private JButton     rgbColorBtn; 
+	private JLabel       rLabel;
+	private JLabel       gLabel;
+	private JLabel       bLabel;
+	private JTextField  rTxt;
+	private JTextField  gTxt;	
+	private JTextField  bTxt;
+	private JSlider       rSlider;
+	private JSlider       gSlider;
+	private JSlider       bSlider;
+	private List<JButton>  colorBtns;
+	private List<JButton>  customColorBtns;
+	private GLProfile profile;
+	private GLCapabilities capabilities;
+	private GLCanvas glCanvas,imgGlCanvas;
+	private Image  srcImage;
+	private ControlsListener controlListener;
+	private ControlMouseProcesser controlMouseListener;
+	private JButton  customBtn,addBtn;
+	private JPanel topPanel=new JPanel();
+	private JPanel blurPanel=new JPanel();
+	private JPanel centerPanel=new JPanel();
+	private JPanel  colorRightPanel=new JPanel();
+	
+	public DiffusionCurvesUI()
+	{
+		controlListener =new ControlsListener(this);//事件监听器（包括所有的事件)
+		controlMouseListener=new ControlMouseProcesser(this);//鼠标监听事件
+		topMenuBar = new JMenuBar();
+		this.setJMenuBar(topMenuBar);
+		
+		fileMenu = new JMenu("File");
+		topMenuBar.add(fileMenu);
+		
+		editMenu = new JMenu("Edit");
+		topMenuBar.add(editMenu);
+		
+		loadBitmapItem = new JMenuItem("Load Image");//载入bitmap文件
+		loadXmlItem = new JMenuItem("Load XML"); //载入xml文件
+		saveAsPngItem = new JMenuItem("Save As Image");//保存文件格式为png
+		saveAsXmlItem = new JMenuItem("Save As XML");//保存文件格式为xml
+		
+		fileMenu.add(loadBitmapItem);
+		fileMenu.addSeparator();
+		fileMenu.add(loadXmlItem);
+		fileMenu.addSeparator();
+		fileMenu.add(saveAsPngItem);
+		fileMenu.addSeparator();
+		fileMenu.addSeparator();
+		fileMenu.add(saveAsXmlItem);
+        loadXmlItem.addActionListener(controlListener);
+		saveAsPngItem.addActionListener(controlListener);
+		saveAsXmlItem.addActionListener(controlListener);
+		loadBitmapItem.addActionListener(controlListener);
+		
+		copyItem = new JMenuItem("Copy(Ctrl+C)");//复制
+		pasteItem = new JMenuItem("Paste(Ctrl+V)");//粘贴
+		cutItem= new JMenuItem("Cut(Ctrl+X)");//剪切
+		editMenu.add(copyItem);
+		editMenu.addSeparator();
+		editMenu.add(pasteItem);
+		editMenu.addSeparator();
+		editMenu.add(cutItem);
+		editMenu.addSeparator();
+		editMenu.addSeparator();
+		copyItem.addActionListener(controlListener);
+		pasteItem.addActionListener(controlListener);
+		cutItem.addActionListener(controlListener);
+		
+        JPanel panel=new JPanel();
+        panel.setLayout(null);
+		
+		drawBtn = new JButton(new ImageIcon("icons\\drawCatmull.png")); //画曲线
+		drawBtn.setToolTipText("Draw Curves");
+		drawBtn.setBounds(10, 10, 20, 20);
+		drawBtn.addMouseListener(controlMouseListener);
+		panel.add(drawBtn);
+		drawBtn.addActionListener(controlListener);
+		
+		lColorBtn = new JButton("Left Color");
+		lColorBtn.setBounds(35, 10, 80, 20);
+		lColorBtn.setMargin(new Insets(0,0,0,0));
+		lColorBtn.setToolTipText("Set Initial Left Color Of Curve");
+		lColorBtn.addActionListener(controlListener);
+		lColorBtn.addMouseListener(controlMouseListener);
+		panel.add(lColorBtn);
+		
+		lColorShowBtn = new JButton(); //是否显示左边颜色控制点
+		lColorShowBtn.setBounds(118, 12, 16, 16);
+		lColorShowBtn.setBackground(StaticData.leftColor);
+		panel.add(lColorShowBtn);
+		
+		rColorBtn = new JButton("Right Color");
+		rColorBtn.setBounds(140, 10, 85, 20);
+		rColorBtn.setMargin(new Insets(0,0,0,0));
+		rColorBtn.setToolTipText("Set Initial Right Color Of Curve");
+		rColorBtn.addActionListener(controlListener);
+		rColorBtn.addMouseListener(controlMouseListener);
+		panel.add(rColorBtn);
+		
+		rColorShowBtn = new JButton();//是否显示右边颜色控制点
+		rColorShowBtn.setBounds(228, 12, 16, 16);
+		rColorShowBtn.setBackground(StaticData.rightColor);
+		panel.add(rColorShowBtn);
+		
+		blurPanel.setLayout(null);
+        blurPanel.setBounds(10, 35, 230, 20);
+		blurLbl = new JLabel("Blur : ");
+		blurLbl.setBounds(0, 0, 45, 20);
+		blurPanel.add(blurLbl);
+		
+		blurSlider = new JSlider(0,10,0); //调整画面模糊值
+		blurSlider.setBounds(48, 0, 180, 20);
+		blurSlider.setToolTipText("Set The Blur Diameter");
+		blurSlider.addChangeListener(controlListener);
+		blurPanel.add(blurSlider);
+		panel.add(blurPanel);
+		
+		drawLbl = new JLabel("Draw");
+		drawLbl.setBounds(100,60,40,20);
+		panel.add(drawLbl);
+		
+        js1 = new JSeparator();
+        js1.setBounds(248, 5, 1, 75);
+        js1.setOrientation(JSeparator.VERTICAL);
+        panel.add(js1);
+        
+		adjustBtn = new JButton(new ImageIcon("icons\\movePoint.png")); //编辑曲线（显示控制点)
+		adjustBtn.setBounds(260, 10, 20, 20);
+		adjustBtn.setToolTipText("Edit The Curves");
+		panel.add(adjustBtn);
+		adjustBtn.addMouseListener(controlMouseListener);
+		adjustBtn.addActionListener(controlListener);
+		
+		modifyColorBtn = new JButton(new ImageIcon("icons\\modifAttrib.png")); //编辑曲线两端颜色（显示颜色点及模糊值)
+		modifyColorBtn.setBounds(289, 10, 20, 20);
+		modifyColorBtn.setToolTipText("Show And Modify The Color Of The Curve");
+		modifyColorBtn.addMouseListener(controlMouseListener);
+		panel.add(modifyColorBtn);
+		modifyColorBtn.addActionListener(controlListener);
+		
+		exchangeBtn = new JButton(new ImageIcon("icons\\switch_clr.png"));//交换曲线两侧颜色
+		exchangeBtn.setBounds(260, 35, 20, 20);
+		exchangeBtn.setToolTipText("Switch Colors Of The Selected Curve");
+		panel.add(exchangeBtn);
+		exchangeBtn.addMouseListener(controlMouseListener);
+		exchangeBtn.addActionListener(controlListener);
+		
+		deleteCurveBtn=new JButton(new ImageIcon("icons\\dustbin.png"));
+		deleteCurveBtn.setBounds(289, 35, 20, 20);
+		deleteCurveBtn.setToolTipText("Delete The Selected Curve(Press Key Delete)");
+		deleteCurveBtn.addMouseListener(controlMouseListener);
+		panel.add(deleteCurveBtn);
+		deleteCurveBtn.addActionListener(controlListener);
+		
+		editLbl = new JLabel("Edit");
+		editLbl.setBounds(270, 60, 40, 20);
+		panel.add(editLbl);
+		
+        js2 = new JSeparator();
+        js2.setBounds(320, 5, 1, 75);
+        js2.setOrientation(JSeparator.VERTICAL);
+        panel.add(js2);
+        
+		selectMultiBtn = new JButton(new ImageIcon("icons\\selectMulti.png"));//选择多条曲线
+		selectMultiBtn.setBounds(334, 10, 20, 20);
+		selectMultiBtn.addMouseListener(controlMouseListener);
+		selectMultiBtn.setToolTipText("Shift Click Left To Select Multiple Curves");
+		panel.add(selectMultiBtn);
+		
+		contrastIncrBtn = new JButton(new ImageIcon("icons\\contrast_incr.png"));//增加图像亮度
+		contrastIncrBtn.setBounds(363, 10, 20, 20);
+		contrastIncrBtn.setToolTipText("Increase Contrast");
+		contrastIncrBtn.addActionListener(controlListener);
+		contrastIncrBtn.addMouseListener(controlMouseListener);
+		panel.add(contrastIncrBtn);
+		
+		contrastDecrBtn = new JButton(new ImageIcon("icons\\contrast_decr.png"));//减少图像亮度
+		contrastDecrBtn.setBounds(390, 10, 20, 20);
+		contrastDecrBtn.setToolTipText("Decrease Contrast");
+		contrastDecrBtn.addMouseListener(controlMouseListener);
+		contrastDecrBtn.addActionListener(controlListener);
+		panel.add(contrastDecrBtn);
+		
+		handPanBtn = new JButton(new ImageIcon("icons\\handPan.png"));//鼠标形状为手势，可以拖动图片
+		handPanBtn.setBounds(419, 10, 20, 20);
+		handPanBtn.setToolTipText("Move The Curves");
+		handPanBtn.addMouseListener(controlMouseListener);
+		panel.add(handPanBtn);
+		handPanBtn.addActionListener(controlListener);
+		
+		zoomInBtn = new JButton(new ImageIcon("icons\\zoomIn.png"));//图像放大
+		zoomInBtn.setBounds(334, 35, 20, 20);
+		zoomInBtn.setToolTipText("Zoom Forward");
+		zoomInBtn.addMouseListener(controlMouseListener);
+		panel.add(zoomInBtn);
+		zoomInBtn.addActionListener(controlListener);
+		
+		zoomOutBtn = new JButton(new ImageIcon("icons\\zoomOut.png"));//图像缩小
+		zoomOutBtn.setBounds(363, 35, 20, 20);
+		zoomOutBtn.setToolTipText("Zoom Backward");
+		panel.add(zoomOutBtn);
+		zoomOutBtn.addMouseListener(controlMouseListener);
+		zoomOutBtn.addActionListener(controlListener);
+		
+		sharpenBtn = new JButton(new ImageIcon("icons\\stylize.png"));//图像锐化
+		sharpenBtn.setBounds(390, 35, 20, 20);
+		sharpenBtn.setToolTipText("Sharpening");
+		sharpenBtn.addMouseListener(controlMouseListener);
+		panel.add(sharpenBtn);
+		
+		smoothBtn = new JButton(new ImageIcon("icons\\droplet.png"));//图像模糊
+		smoothBtn.setBounds(419, 35, 20, 20);
+		smoothBtn.setToolTipText("Smoothing");
+		smoothBtn.addMouseListener(controlMouseListener);
+		smoothBtn.addActionListener(controlListener);
+		panel.add(smoothBtn);
+		
+		globalControlLbl = new JLabel("Global Control");
+		globalControlLbl.setBounds(340, 60, 100, 20);
+		panel.add(globalControlLbl);
+		
+        js3 = new JSeparator();
+        js3.setBounds(449, 5, 1, 75);
+        js3.setOrientation(JSeparator.VERTICAL);
+        panel.add(js3);
+        
+        //从这儿开始
+		bitmapChk = new JCheckBox("Show Bitmap");//是否显示位图
+		bitmapChk.setBounds(455, 35, 110, 20);
+		panel.add(bitmapChk);
+		
+		magnetBtn = new JButton(new ImageIcon("icons\\magnet.png"));//抽取边缘工具
+		magnetBtn.setBounds(460, 10, 20, 20);
+		magnetBtn.setToolTipText("Extract The Curves From The Image");
+		magnetBtn.addMouseListener(controlMouseListener);
+		magnetBtn.addActionListener(controlListener);
+		StaticData.isCartoon=true; 
+		panel.add(magnetBtn);
+		
+		sampleBtn = new JButton(new ImageIcon("icons\\sample.png"));//抽取颜色工具，用于图像矢量化（点击之后显示矢量化图像)
+		sampleBtn.setBounds(485, 10, 20, 20);
+		sampleBtn.setToolTipText("Sample The Curve's Color From The Image");
+		sampleBtn.addMouseListener(controlMouseListener);
+		sampleBtn.addActionListener(controlListener);
+		panel.add(sampleBtn);
+		
+		diffuseBtn = new JButton(new ImageIcon("icons\\diffuse.png"));//扩散工具
+		diffuseBtn.setBounds(510,10,20,20);
+		diffuseBtn.setToolTipText("Diffuse The Curves");
+		diffuseBtn.addMouseListener(controlMouseListener);
+		diffuseBtn.addActionListener(controlListener);
+		panel.add(diffuseBtn);
+		
+		repairColorBtn = new JButton(new ImageIcon("icons\\repairColor.png"));//修补图片颜色
+		repairColorBtn.setBounds(535,10,20,20);
+		repairColorBtn.setToolTipText("Repair The Picture Color");
+		repairColorBtn.addMouseListener(controlMouseListener);
+		repairColorBtn.addActionListener(controlListener);
+		panel.add(repairColorBtn);
+		
+		bitmapLbl = new JLabel("Bitmap");
+		bitmapLbl.setBounds(485, 60, 80, 20);
+		panel.add(bitmapLbl);
+		
+        js4 = new JSeparator();
+        js4.setBounds(570, 5, 1, 75);
+        js4.setOrientation(JSeparator.VERTICAL);
+        panel.add(js4);
+        
+		splineChk = new JCheckBox("Show Splines");//是否显示曲线
+		splineChk.setBounds(575, 35, 120, 20);
+		panel.add(splineChk);
+		splineChk.setSelected(true);
+		splineChk.addItemListener(controlListener);
+		
+		activeBlurChk = new JCheckBox("Active Blur");//是否需要模糊
+		activeBlurChk.setBounds(700, 35, 95, 20);
+		panel.add(activeBlurChk);
+		activeBlurChk.setSelected(false);
+		activeBlurChk.addItemListener(controlListener);
+		
+		cartoonChk=new JCheckBox("Cartoon");
+		cartoonChk.setBounds(700,10,95,20);
+		cartoonChk.setSelected(true);
+		panel.add(cartoonChk);
+		cartoonChk.addActionListener(controlListener);
+		
+		
+		undoBtn=new JButton(new ImageIcon("icons\\undo.png"));//向后撤销操作
+		undoBtn.setBounds(600,10,20,20);
+		undoBtn.setToolTipText("Undo(Ctrl+Z)");
+		undoBtn.addMouseListener(controlMouseListener);
+		undoBtn.addActionListener(controlListener);
+		panel.add(undoBtn);
+		
+		redoBtn=new JButton(new ImageIcon("icons\\redo.png"));//向前撤销
+		redoBtn.setBounds(640,10,20,20);
+		redoBtn.setToolTipText("Redo(Ctrl+Y)");
+		redoBtn.addMouseListener(controlMouseListener);
+		redoBtn.addActionListener(controlListener);
+		panel.add(redoBtn);
+			
+		othersLbl = new JLabel("Others");
+		othersLbl.setBounds(658, 60, 40, 20);
+		panel.add(othersLbl);
+		
+		 js5 = new JSeparator();
+	     js5.setBounds(800, 5, 1, 75);
+	     js5.setOrientation(JSeparator.VERTICAL);
+	     panel.add(js5);
+	     
+	     cleanAllBtn =new JButton("Clean All");//清除画布中的所有内容
+	     cleanAllBtn.setBounds(818,10,90,25);
+	     cleanAllBtn.addActionListener(controlListener);
+	     cleanAllBtn.setToolTipText("Clean All Content From The Canvas");
+	     cleanAllBtn.addMouseListener(controlMouseListener);
+	     panel.add(cleanAllBtn);
+	     
+	     
+	     switchImagePanelBtn =new JButton("Switch Panel");//切换保存原图的画布
+	     switchImagePanelBtn.setBounds(818,40,90,25);
+	     switchImagePanelBtn.addActionListener(controlListener);
+	     switchImagePanelBtn.setToolTipText("Switch Panel Between Color Platte And Picture Panel");
+	     switchImagePanelBtn.addMouseListener(controlMouseListener);
+	     panel.add(switchImagePanelBtn);
+	     
+	     colorPopupMenu=new JPopupMenu();
+	     addColorPntItem=new JMenuItem("Add Color Point");
+	     addColorPntItem.addActionListener(controlListener);
+	     removeColorPntItem=new JMenuItem("Remove Color Point");
+	     removeColorPntItem.addActionListener(controlListener);
+	     colorPopupMenu.add(addColorPntItem);
+	     colorPopupMenu.addSeparator();
+	     colorPopupMenu.add(removeColorPntItem);
+	     
+	     shapePopupMenu=new JPopupMenu();
+	     addShapePntItem=new JMenuItem("Add Control Pnint");
+	     addShapePntItem.addActionListener(controlListener);
+	     removeShapePntItem=new JMenuItem("Remove Control Point");
+	     removeShapePntItem.addActionListener(controlListener);
+	     shapePopupMenu.add(addShapePntItem);
+	     shapePopupMenu.addSeparator();
+	     shapePopupMenu.add(removeShapePntItem);
+	     
+	    JTabbedPane colorTab=new JTabbedPane();
+		colorPanel =new JPanel();
+		colorPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		rgbColorBtn=new JButton();  //显示自定义颜色
+		rgbColorBtn.setBackground(new Color(0,0,0));
+		rgbColorBtn.setPreferredSize(new Dimension(45,80));
+		colorPanel.add(rgbColorBtn);
+		JPanel rPanel=new JPanel(new FlowLayout());
+		rLabel=new JLabel("R");
+		rSlider=new JSlider(0,255,0);     //调整RGB颜色中R的值
+		rSlider.addChangeListener(controlListener);
+		rSlider.setPreferredSize(new Dimension(160,20));
+		rTxt=new JTextField("0");        //显示调整后的RGB颜色中R的值
+		rTxt.addActionListener(controlListener);
+		rTxt.setPreferredSize(new Dimension(45,25));
+		rTxt.setSize(10, 4);
+		rPanel.add(rLabel);
+		rPanel.add(rSlider);
+		rPanel.add(rTxt);
+		JPanel gPanel=new JPanel(new FlowLayout());
+		gLabel=new JLabel("G");
+		gSlider=new JSlider(0,255,0);   //调整RGB颜色中G的值
+		gSlider.setPreferredSize(new Dimension(160,20));
+		gSlider.addChangeListener(controlListener);
+		gTxt=new JTextField("0");     //显示调整后的RGB颜色中的G的值
+		gTxt.addActionListener(controlListener);
+		gTxt.setPreferredSize(new Dimension(45,25));
+		gPanel.add(gLabel);
+		gPanel.add(gSlider);
+		gPanel.add(gTxt);
+		JPanel bPanel=new JPanel(new FlowLayout());
+		bLabel=new JLabel("B");
+		bSlider=new JSlider(0,255,0);   //调整RGB颜色中B的值
+		bSlider.addChangeListener(controlListener);
+		bSlider.setPreferredSize(new Dimension(160,20));
+		bTxt=new JTextField("0");    //显示调整后的RGB颜色中的G的值
+		bTxt.addActionListener(controlListener);
+		bTxt.setPreferredSize(new Dimension(45,25));
+		bPanel.add(bLabel);
+		bPanel.add(bSlider);
+		bPanel.add(bTxt);
+		JPanel rightPanel=new JPanel(new GridLayout(3,1,0,0));
+		rightPanel.add(rPanel);
+		rightPanel.add(gPanel);
+		rightPanel.add(bPanel);
+		colorPanel.add(rgbColorBtn);
+		colorPanel.add(rightPanel);
+		addBtn=new JButton("Add");     //添加自定义颜色
+		addBtn.addActionListener(controlListener);
+		colorPanel.add(addBtn);
+		colorTab.add(colorPanel);
+	    colorTab.setTitleAt(0, "Custom Color");
+		colorTab.setPreferredSize(new Dimension(310,200));
+		
+		
+        colorRightPanel.setBounds(585,0,320 ,700);
+		JTabbedPane paletteTab=new JTabbedPane();
+		JPanel palettePanel=new JPanel();
+		topPanel.setPreferredSize(new Dimension(310,135));
+		topPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		colorBtns=new ArrayList<JButton>();    //显示常见颜色
+		for(int i=0;i<Constants.COLORS.length;i++)
+		{
+			JButton btn=new JButton();
+			btn.setPreferredSize(new Dimension(20,20));
+			btn.setBackground(Constants.COLORS[i]);
+			btn.addActionListener(controlListener);
+			colorBtns.add(btn);
+			topPanel.add(btn);
+		}
+		customBtn=new JButton("Custom");   //调用调色板自定义颜色
+		customBtn.setPreferredSize(new Dimension(80,30));
+		topPanel.add(customBtn);
+		JPanel bottomPanel=new JPanel();
+		bottomPanel.setPreferredSize(new Dimension(310,80));
+		customColorBtns=new ArrayList<JButton>();  //用户自定义颜色保存
+		for(int i=0;i<36;i++)
+		{
+			JButton btn=new JButton();
+			btn.setPreferredSize(new Dimension(20,20));
+			btn.addActionListener(controlListener);
+			btn.setBackground(Color.WHITE);
+			customColorBtns.add(btn);
+			bottomPanel.add(btn);
+		}
+		palettePanel.add(topPanel);
+		palettePanel.add(bottomPanel);
+		paletteTab.add(palettePanel);
+		paletteTab.setTitleAt(0, "Color Palette");
+		paletteTab.setPreferredSize(new Dimension(310,370));
+		colorRightPanel.add(colorTab);
+		colorRightPanel.add(paletteTab);
+		
+        profile = GLProfile.get(GLProfile.GL2);
+        capabilities = new GLCapabilities(profile);
+        glCanvas = new GLCanvas(capabilities);
+        GLEventProcesser glEventProcesser=new GLEventProcesser(this);
+        glCanvas.addGLEventListener(glEventProcesser);
+        glCanvas.setBounds(0, 0, 580, 580);
+        
+        centerPanel.setLayout(null);
+		centerPanel.add(glCanvas,FlowLayout.LEFT);
+		centerPanel.add(colorRightPanel);
+		centerPanel.setBounds(10, 85, 930, 725);
+        this.getContentPane().add(centerPanel,BorderLayout.CENTER);
+        
+		
+        this.add(panel);
+        this.setVisible(true);
+        this.setTitle("Vector Graphics");
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setBounds(160, 50, 930, 725);
+	}
+	
+    /**
+	 * @return the removeShapePntItem
+	 */
+	public JMenuItem getRemoveShapePntItem() {
+		return removeShapePntItem;
+	}
+
+	/**
+	 * @return the removeColorPntItem
+	 */
+	public JMenuItem getRemoveColorPntItem() {
+		return removeColorPntItem;
+	}
+
+	/**
+	 * @return the addColorPntItem
+	 */
+	public JMenuItem getAddColorPntItem() {
+		return addColorPntItem;
+	}
+
+	/**
+	 * @param addColorPntItem the addColorPntItem to set
+	 */
+	public void setAddColorPntItem(JMenuItem addColorPntItem) {
+		this.addColorPntItem = addColorPntItem;
+	}
+
+	/**
+	 * @return the addShapePntItem
+	 */
+	public JMenuItem getAddShapePntItem() {
+		return addShapePntItem;
+	}
+
+	/**
+	 * @param addShapePntItem the addShapePntItem to set
+	 */
+	public void setAddShapePntItem(JMenuItem addShapePntItem) {
+		this.addShapePntItem = addShapePntItem;
+	}
+
+	/**
+	 * @return the colorPopupMenu
+	 */
+	public JPopupMenu getColorPopupMenu() {
+		return colorPopupMenu;
+	}
+
+	/**
+	 * @return the shapePopupMenu
+	 */
+	public JPopupMenu getShapePopupMenu() {
+		return shapePopupMenu;
+	}
+
+	/**
+	 * @return the colorRightPanel
+	 */
+	public JPanel getColorRightPanel() {
+		return colorRightPanel;
+	}
+
+	/**
+	 * @return the centerPanel
+	 */
+	public JPanel getCenterPanel() {
+		return centerPanel;
+	}
+
+	public void setRepairColorBtn(JButton repairColorBtn) {
+		this.repairColorBtn = repairColorBtn;
+	}
+
+	public void setSwitchImagePanelBtn(JButton switchImagePanelBtn) {
+		this.switchImagePanelBtn = switchImagePanelBtn;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public JButton getRepairColorBtn() {
+		return repairColorBtn;
+	}
+
+	public JButton getSwitchImagePanelBtn() {
+		return switchImagePanelBtn;
+	}
+
+	public JLabel getBlurLbl() {
+		return blurLbl;
+	}
+
+	public JLabel getBitmapLbl() {
+		return bitmapLbl;
+	}
+
+	public JLabel getbLabel() {
+		return bLabel;
+	}
+
+	public GLCapabilities getCapabilities() {
+		return capabilities;
+	}
+
+	public GLCanvas getImgGlCanvas() {
+		return imgGlCanvas;
+	}
+
+	public ControlMouseProcesser getControlMouseListener() {
+		return controlMouseListener;
+	}
+
+	public JButton getDiffuseBtn() {
+		return diffuseBtn;
+	}
+
+	public void setDiffuseBtn(JButton diffuseBtn) {
+		this.diffuseBtn = diffuseBtn;
+	}
+
+	/**
+	 * @return the deleteCurveBtn
+	 */
+	public JButton getDeleteCurveBtn() {
+		return deleteCurveBtn;
+	}
+
+	/**
+	 * @param deleteCurveBtn the deleteCurveBtn to set
+	 */
+	public void setDeleteCurveBtn(JButton deleteCurveBtn) {
+		this.deleteCurveBtn = deleteCurveBtn;
+	}
+
+	/**
+	 * @return the rColorShowBtn
+	 */
+	public JButton getrColorShowBtn() {
+		return rColorShowBtn;
+	}
+
+	/**
+	 * @return the lColorShowBtn
+	 */
+	public JButton getlColorShowBtn() {
+		return lColorShowBtn;
+	}
+
+	/**
+	 * @return the cleanAllBtn
+	 */
+	public JButton getCleanAllBtn() {
+		return cleanAllBtn;
+	}
+
+	/**
+	 * @return the topMenuBar
+	 */
+	public JMenuBar getTopMenuBar() {
+		return topMenuBar;
+	}
+
+	/**
+	 * @return the fileMenu
+	 */
+	public JMenu getFileMenu() {
+		return fileMenu;
+	}
+
+	/**
+	 * @return the editMenu
+	 */
+	public JMenu getEditMenu() {
+		return editMenu;
+	}
+
+	/**
+	 * @return the cartoonChk
+	 */
+	public JCheckBox getCartoonChk() {
+		return cartoonChk;
+	}
+
+	/**
+	 * @return the drawLbl
+	 */
+	public JLabel getDrawLbl() {
+		return drawLbl;
+	}
+
+	/**
+	 * @return the editLbl
+	 */
+	public JLabel getEditLbl() {
+		return editLbl;
+	}
+
+	/**
+	 * @return the globalControlLbl
+	 */
+	public JLabel getGlobalControlLbl() {
+		return globalControlLbl;
+	}
+
+	/**
+	 * @return the othersLbl
+	 */
+	public JLabel getOthersLbl() {
+		return othersLbl;
+	}
+
+	/**
+	 * @return the js1
+	 */
+	public JSeparator getJs1() {
+		return js1;
+	}
+
+	/**
+	 * @return the js2
+	 */
+	public JSeparator getJs2() {
+		return js2;
+	}
+
+	/**
+	 * @return the js3
+	 */
+	public JSeparator getJs3() {
+		return js3;
+	}
+
+	/**
+	 * @return the js4
+	 */
+	public JSeparator getJs4() {
+		return js4;
+	}
+
+	/**
+	 * @return the js5
+	 */
+	public JSeparator getJs5() {
+		return js5;
+	}
+
+	/**
+	 * @return the colorPanel
+	 */
+	public JPanel getColorPanel() {
+		return colorPanel;
+	}
+
+	/**
+	 * @return the rLabel
+	 */
+	public JLabel getrLabel() {
+		return rLabel;
+	}
+
+	/**
+	 * @return the gLabel
+	 */
+	public JLabel getgLabel() {
+		return gLabel;
+	}
+
+	/**
+	 * @return the profile
+	 */
+	public GLProfile getProfile() {
+		return profile;
+	}
+
+	/**
+	 * @return the srcImage
+	 */
+	public Image getSrcImage() {
+		return srcImage;
+	}
+
+	/**
+	 * @return the controlListener
+	 */
+	public ControlsListener getControlListener() {
+		return controlListener;
+	}
+
+	/**
+	 * @return the loadXmlItem
+	 */
+	public JMenuItem getLoadXmlItem() {
+		return loadXmlItem;
+	}
+
+	/**
+	 * @return the saveAsPngItem
+	 */
+	public JMenuItem getSaveAsPngItem() {
+		return saveAsPngItem;
+	}
+
+	/**
+	 * @return the saveAsXmlItem
+	 */
+	public JMenuItem getSaveAsXmlItem() {
+		return saveAsXmlItem;
+	}
+
+	/**
+	 * @return the loadBitmapItem
+	 */
+	public JMenuItem getLoadBitmapItem() {
+		return loadBitmapItem;
+	}
+
+	/**
+	 * @return the copyItem
+	 */
+	public JMenuItem getCopyItem() {
+		return copyItem;
+	}
+
+	/**
+	 * @return the pasteItem
+	 */
+	public JMenuItem getPasteItem() {
+		return pasteItem;
+	}
+
+	/**
+	 * @return the cutItem
+	 */
+	public JMenuItem getCutItem() {
+		return cutItem;
+	}
+
+	/**
+	 * @return the drawBtn
+	 */
+	public JButton getDrawBtn() {
+		return drawBtn;
+	}
+
+	/**
+	 * @return the lColorBtn
+	 */
+	public JButton getlColorBtn() {
+		return lColorBtn;
+	}
+
+	/**
+	 * @return the rColorBtn
+	 */
+	public JButton getrColorBtn() {
+		return rColorBtn;
+	}
+
+	/**
+	 * @return the adjustBtn
+	 */
+	public JButton getAdjustBtn() {
+		return adjustBtn;
+	}
+
+	/**
+	 * @return the modifyColorBtn
+	 */
+	public JButton getModifyColorBtn() {
+		return modifyColorBtn;
+	}
+
+	/**
+	 * @return the exchangeBtn
+	 */
+	public JButton getExchangeBtn() {
+		return exchangeBtn;
+	}
+
+	/**
+	 * @return the selectMultiBtn
+	 */
+	public JButton getSelectMultiBtn() {
+		return selectMultiBtn;
+	}
+
+	/**
+	 * @return the contrastIncrBtn
+	 */
+	public JButton getContrastIncrBtn() {
+		return contrastIncrBtn;
+	}
+
+	/**
+	 * @return the contrastDecrBtn
+	 */
+	public JButton getContrastDecrBtn() {
+		return contrastDecrBtn;
+	}
+
+	/**
+	 * @return the handPanBtn
+	 */
+	public JButton getHandPanBtn() {
+		return handPanBtn;
+	}
+
+	/**
+	 * @return the zoomInBtn
+	 */
+	public JButton getZoomInBtn() {
+		return zoomInBtn;
+	}
+
+	/**
+	 * @return the zoomOutBtn
+	 */
+	public JButton getZoomOutBtn() {
+		return zoomOutBtn;
+	}
+
+	/**
+	 * @return the stylizeBtn
+	 */
+	public JButton getSharpenBtn() {
+		return sharpenBtn;
+	}
+
+	/**
+	 * @return the smoothBtn
+	 */
+	public JButton getSmoothBtn() {
+		return smoothBtn;
+	}
+
+	/**
+	 * @return the magnetBtn
+	 */
+	public JButton getMagnetBtn() {
+		return magnetBtn;
+	}
+
+	/**
+	 * @return the sampleBtn
+	 */
+	public JButton getSampleBtn() {
+		return sampleBtn;
+	}
+
+	/**
+	 * @return the undoBtn
+	 */
+	public JButton getUndoBtn() {
+		return undoBtn;
+	}
+
+	/**
+	 * @return the redoBtn
+	 */
+	public JButton getRedoBtn() {
+		return redoBtn;
+	}
+
+	/**
+	 * @return the bitmapChk
+	 */
+	public JCheckBox getBitmapChk() {
+		return bitmapChk;
+	}
+
+	/**
+	 * @return the splineChk
+	 */
+	public JCheckBox getSplineChk() {
+		return splineChk;
+	}
+
+	/**
+	 * @return the activeBlurChk
+	 */
+	public JCheckBox getActiveBlurChk() {
+		return activeBlurChk;
+	}
+
+	/**
+	 * @return the blurSlider
+	 */
+	public JSlider getBlurSlider() {
+		return blurSlider;
+	}
+	
+	/**
+	 * 
+	 */
+	public void setBlurSlider(int value) {
+		blurSlider.setValue(value);
+	}
+
+	/**
+	 * @return the rgbColorBtn
+	 */
+	public JButton getRgbColorBtn() {
+		return rgbColorBtn;
+	}
+
+	/**
+	 * @return the rTxt
+	 */
+	public JTextField getrTxt() {
+		return rTxt;
+	}
+
+	/**
+	 * @return the gTxt
+	 */
+	public JTextField getgTxt() {
+		return gTxt;
+	}
+
+	/**
+	 * @return the bTxt
+	 */
+	public JTextField getbTxt() {
+		return bTxt;
+	}
+
+	/**
+	 * @return the rSlider
+	 */
+	public JSlider getrSlider() {
+		return rSlider;
+	}
+
+	/**
+	 * @return the gSlider
+	 */
+	public JSlider getgSlider() {
+		return gSlider;
+	}
+
+	/**
+	 * @return the bSlider
+	 */
+	public JSlider getbSlider() {
+		return bSlider;
+	}
+
+	/**
+	 * @return the colorBtns
+	 */
+	public List<JButton> getColorBtns() {
+		return colorBtns;
+	}
+
+	/**
+	 * @return the customColorBtns
+	 */
+	public List<JButton> getCustomColorBtns() {
+		return customColorBtns;
+	}
+
+	/**
+	 * @return the customBtn
+	 */
+	public JButton getCustomBtn() {
+		return customBtn;
+	}
+
+	/**
+	 * @return the addBtn
+	 */
+	public JButton getAddBtn() {
+		return addBtn;
+	}
+	
+	/**
+	 * @return the glcanvas
+	 */
+	public GLCanvas getGLCanvas() {
+		return glCanvas;
+	}
+
+	public static void main(String[] args)
+    {
+//    	 JFrame.setDefaultLookAndFeelDecorated(true);   
+//         JDialog.setDefaultLookAndFeelDecorated(true);   
+//   
+//         SwingUtilities.invokeLater(new Runnable() {
+//
+//			@Override
+//			public void run() {
+//				// TODO Auto-generated method stub 
+//	                 SubstanceLookAndFeel.setSkin(new CremeCoffeeSkin());
+	                 new DiffusionCurvesUI();
+//			}
+//         });
+            
+    }
+
+	public JPanel getTopPanel() {
+		return topPanel;
+	}
+
+	public void setTopPanel(JPanel topPanel) {
+		this.topPanel = topPanel;
+	}
+	
+	public void initRightColorPanel()
+	{
+		
+	}
+	
+	/**
+	 * @param imgGlCanvas the imgGlCanvas to set
+	 */
+	public void setImgGlCanvas(GLCanvas imgGlCanvas) {
+		this.imgGlCanvas = imgGlCanvas;
+	}
+	public JPanel getBlurPanel() {
+		return blurPanel;
+	}
+}

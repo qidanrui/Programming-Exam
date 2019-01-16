@@ -1,0 +1,127 @@
+package xmu.software.cxj.mychat.client;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ * 文件的操作，包括读取数组数据，存放到List中，写入数组到文件中及写入单个数据到文件中
+ * @author Administrator
+ *
+ */
+
+public class FileOperate {
+	private BufferedReader  read;
+	private BufferedWriter   write;
+    private List<String> data;
+	public FileOperate()
+	{
+		
+	}
+	/**
+	 * 从文件中读取数组数据
+	 * @param fileName
+	 * @return
+	 */
+	public List<String> readData(String fileName)
+	{
+		  data=new ArrayList<String>();
+		try {
+			String line=new String();
+			read=new BufferedReader(new FileReader(fileName));
+			while((line=read.readLine())!=null)
+			{
+				data.add(line.trim());
+			}
+			read.close();
+			return data;
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return data;
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return data;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return data;
+		}
+	}
+	/**
+	 * 写入数组数据到文件中
+	 * @param data
+	 * @param fileName
+	 */
+	public void writeData(List<String> data,String fileName,boolean append)
+	{
+		try {
+			write=new BufferedWriter(new FileWriter(fileName,append));
+		    for(int i=0;i<data.size();i++)
+		    	write.write(data.get(i)+"\r\n");
+		    write.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 写入单个数据到文件中
+	 * @param msg
+	 * @param fileName
+	 */
+	public void writeValue(String msg,String fileName,boolean append)
+	{
+		try {
+			write=new BufferedWriter(new FileWriter(fileName,append));
+		    write.write(msg+"\r\n");
+		    write.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @return the write
+	 */
+	public BufferedWriter getWrite() {
+		return write;
+	}
+	/**
+	 * @param write the write to set
+	 */
+	public void setWrite(BufferedWriter write) {
+		this.write = write;
+	}
+	/**
+	 * @return the read
+	 */
+	public BufferedReader getRead() {
+		return read;
+	}
+	/**
+	 * @param read the read to set
+	 */
+	public void setRead(BufferedReader read) {
+		this.read = read;
+	}
+	/**
+	 * @return the data
+	 */
+	public List<String> getData() {
+		return data;
+	}
+	/**
+	 * @param data the data to set
+	 */
+	public void setData(List<String> data) {
+		this.data = data;
+	}
+
+}

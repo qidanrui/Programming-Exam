@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/project_topbar"
+    style="@style/topbar_bg"
+     >
+    <Button android:id="@+id/projectmenuBtn" android:background="@drawable/menu_unfold" style="@style/topbar_left_btn"/>
+    <TextView android:id="@+id/projecttopbar_title" android:text="@string/project" style="@style/topbar_text" />
+     <!-- <Button 
+         android:id="@+id/todayNewGoal" 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:background="@drawable/new_context_btn" 
+         style="@style/topbar_right_btn"
+         android:onClick="AddContextClick"/> -->
+    
+
+</LinearLayout>

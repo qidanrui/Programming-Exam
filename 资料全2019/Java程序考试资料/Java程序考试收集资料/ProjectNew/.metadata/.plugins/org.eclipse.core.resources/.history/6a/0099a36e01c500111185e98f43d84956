@@ -1,0 +1,175 @@
+package cn.edu.xmu.software.entity;
+
+import java.io.Serializable;
+import java.util.List;
+
+import cn.edu.xmu.software.common.DataUtils;
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+
+public class Plan implements Serializable {
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+  @DatabaseField(generatedId = true)
+   private long id;
+  @DatabaseField (width=30)
+   private  String startTime;//开始时间
+  @DatabaseField (width=30)
+   private  int   timeLength;//时间长度
+  @DatabaseField (width=30)
+   private  String finishTime;//截止时间
+  @DatabaseField (width=5)
+   private   int  priority;//优先级
+  @DatabaseField (width=100)
+   private  String   tag;//标签，多个标签通过分隔符连接成字符串
+  @DatabaseField (width=10)
+   private  String   scene;//情镜
+  @DatabaseField (width=10)
+   private  String   state;//状态
+  @DatabaseField (width=30)
+   private  String  createTime;//创建该计划的时间
+  @ForeignCollectionField(eager = false)
+   private  ForeignCollection<Goal> goals;
+   private  List<Goal> listGoals;
+   
+   public  Plan(){};
+/**
+ * @return the id
+ */
+public long getId() {
+	return id;
+}
+/**
+ * @param id the id to set
+ */
+public void setId(long id) {
+	this.id = id;
+}
+/**
+ * @return the startTime
+ */
+public String getStartTime() {
+	return startTime;
+}
+/**
+ * @param startTime the startTime to set
+ */
+public void setStartTime(String startTime) {
+	this.startTime = startTime;
+}
+/**
+ * @return the timeLength
+ */
+public int getTimeLength() {
+	return timeLength;
+}
+/**
+ * @param timeLength the timeLength to set
+ */
+public void setTimeLength(int timeLength) {
+	this.timeLength = timeLength;
+}
+/**
+ * @return the finishTime
+ */
+public String getFinishTime() {
+	return finishTime;
+}
+/**
+ * @param finishTime the finishTime to set
+ */
+public void setFinishTime(String finishTime) {
+	this.finishTime = finishTime;
+}
+/**
+ * @return the priority
+ */
+public int getPriority() {
+	return priority;
+}
+/**
+ * @param priority the priority to set
+ */
+public void setPriority(int priority) {
+	this.priority = priority;
+}
+/**
+ * @return the tag
+ */
+public String getTag() {
+	return tag;
+}
+/**
+ * @param tag the tag to set
+ */
+public void setTag(String tag) {
+	this.tag = tag;
+}
+/**
+ * @return the scene
+ */
+public String getScene() {
+	return scene;
+}
+/**
+ * @param scene the scene to set
+ */
+public void setScene(String scene) {
+	this.scene = scene;
+}
+/**
+ * @return the state
+ */
+public String getState() {
+	return state;
+}
+/**
+ * @param state the state to set
+ */
+public void setState(String state) {
+	this.state = state;
+}
+/**
+ * @return the createTime
+ */
+public String getCreateTime() {
+	return createTime;
+}
+/**
+ * @param createTime the createTime to set
+ */
+public void setCreateTime(String createTime) {
+	this.createTime = createTime;
+}
+/**
+ * @return the goals
+ */
+public ForeignCollection<Goal> getGoals() {
+	return goals;
+}
+/**
+ * @param goals the goals to set
+ */
+public void setGoals(ForeignCollection<Goal> goals) {
+	this.goals = goals;
+}
+/**
+ * @return the listGoals
+ */
+public List<Goal> getListGoals() {
+	listGoals=(List<Goal>)DataUtils.arrayToList(getGoals().toArray());
+	return listGoals;
+}
+/**
+ * @param listGoals the listGoals to set
+ */
+public void setListGoals(List<Goal> listGoals) {
+	this.listGoals = listGoals;
+	ForeignCollection<Goal> temp=new ForeignCollection<Goal>();
+	temp.addAll(listGoals);
+	setGoals(temp);
+ }
+}

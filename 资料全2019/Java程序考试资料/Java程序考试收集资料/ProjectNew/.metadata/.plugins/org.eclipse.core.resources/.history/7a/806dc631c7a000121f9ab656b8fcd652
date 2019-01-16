@@ -1,0 +1,294 @@
+package teaching.core;
+import teaching.common.ContextUtil;
+import teaching.model.TimeCardType;
+import teaching.core.R;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+
+/**
+ * 下课考勤界面,若用户在中途考勤退出，则提示用户是否要上传数据，上传与否都跳转到课程管理页面。若在最后一条记录中点击上传，此时上传数据成功后跳转回课程管理页面，否则提示保存失败
+ * 若在最后一条记录中按Next，则提示用户为最后一条记录，是否上传数据，若是，则成功后跳转回课程管理页面，不做操作。
+ * @author sinllychen
+ *
+ */
+public class XKKaoQingActivity extends Activity {
+	private EditText stuNum;
+	private EditText stuName;
+	private EditText stuSex;
+	private EditText stuXkKaoQing;
+	private Button tuichuBtn;
+	private Builder dialog;
+	private Context context;
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.xiakekaoqing);       
+        stuNum=(EditText)findViewById(R.id.stu_num);
+        stuName=(EditText)findViewById(R.id.stu_name);
+        stuSex=(EditText)findViewById(R.id.stu_sex);
+        stuXkKaoQing=(EditText)findViewById(R.id.stu_xkkaoqing);
+        tuichuBtn=(Button)findViewById(R.id.top_button_right);
+        dialog=new AlertDialog.Builder(this);
+        context=this.getApplicationContext();
+        this.init();
+	}
+	/**
+	 * 初始化数据
+	 */
+	public void init()
+	{
+		ContextUtil.currentStudent=ContextUtil.currentCourse.getStudents().get(ContextUtil.stuIndex);
+		if(ContextUtil.stuIndex==ContextUtil.currentCourse.getStudents().size()-1)
+			tuichuBtn.setText("上传");
+		else
+			tuichuBtn.setText("退出");
+		System.out.println(ContextUtil.currentStudent.getUserId());
+        stuNum.setText(ContextUtil.currentStudent.getUserId());
+        stuName.setText(ContextUtil.currentStudent.getUserName());
+        if(ContextUtil.currentStudent.isSex())
+           stuSex.setText("男");
+        else
+           stuSex.setText("女");
+        String kqStatus=ContextUtil.getStudentCourseTimeCardStatus(ContextUtil.currentStudent, ContextUtil.currentCourse.getCourseId(),false);
+        stuXkKaoQing.setText(kqStatus);
+	}
+	/**
+	 * 返回到上一个页面
+	 * @param view
+	 */
+    public void returnToLastPage(View view)
+    {
+    	if(ContextUtil.stuIndex==0)
+    	{
+    		Intent intent=new Intent();
+	    	ContextUtil.stuIndex=0;
+	    	intent.setClass(context, CourseAdminActivity.class);
+	    	startActivity(intent);
+    	}
+    	else
+    	{
+    		ContextUtil.stuIndex--;
+    		this.init();
+    	}		
+    }
+    /**
+     * 设置用户考勤为到席
+     * @param view
+     */
+    public void daoxi(View view)
+    {
+    	ContextUtil.setStudentCourseTimeCard(ContextUtil.currentStudent, ContextUtil.currentCourse.getCourseId(), TimeCardType.OneTime.getName(), false);
+    	refreshKQStatus();
+    }
+    /**
+     * 设置用户考勤为迟到
+     * @param view
+     */
+    public void chidao(View view)
+    {
+    	ContextUtil.setStudentCourseTimeCard(ContextUtil.currentStudent, ContextUtil.currentCourse.getCourseId(), TimeCardType.EarlyLeave.getName(), false);
+    	refreshKQStatus();
+    }
+    /**
+     * 设置用户考勤为请假
+     * @param view
+     */
+    public void qingjia(View view)
+    {
+    	ContextUtil.setStudentCourseTimeCard(ContextUtil.currentStudent, ContextUtil.currentCourse.getCourseId(), TimeCardType.AskForLeave.getName(), false);
+    	refreshKQStatus();
+    }
+    /**
+     * 跳过当前考勤学生
+     * @param view
+     */
+    public void tiaoguo(View view)
+    {
+    	ContextUtil.stuIndex++;
+    	this.init();
+    }
+    /**
+     * 跳到第一个学生
+     * @param view
+     */
+    public void goToFirstRecord(View view)
+    {
+    	ContextUtil.stuIndex=0;
+    	this.init();
+    }
+    /**
+     * 跳到上一个学生
+     * @param view
+     */
+    public void goToLastOne(View view)
+    {
+      	returnToLastPage(view);
+    }
+    /**
+     * 跳到下一个学生
+     * @param view
+     */
+    public void goToNextOne(View view)
+    {
+    	ContextUtil.stuIndex++;
+    	if(ContextUtil.stuIndex==ContextUtil.currentCourse.getStudents().size())
+    	       lastRecordDialog(); 
+    	else
+        	this.init();
+    	
+    }
+    /**
+     * 跳到最后一个学生
+     * @param view
+     */
+    public void goToLastRecord(View view)
+    {
+    	ContextUtil.stuIndex=ContextUtil.currentCourse.getStudents().size()-1;
+    	this.init();
+    }
+    /**
+     * 更新当前学生的考勤状态
+     */
+    public void refreshKQStatus()
+    {
+    	String kqStatus=ContextUtil.getStudentCourseTimeCardStatus(ContextUtil.currentStudent, ContextUtil.currentCourse.getCourseId(),false);
+    	stuXkKaoQing.setText(kqStatus);
+    }
+    /**
+     * 返回到课程管理主页面
+     * @param view
+     */
+    public void returnToCourseAdminPage(View view)
+    {
+    	if(tuichuBtn.getText().equals("退出"))
+    	{
+    		ifUploadDialog();
+    	}
+    	else
+    	{
+    		if(uploadData())
+    			upLoadSuccessDialog();
+    		else
+    			uploadFailureDialog();
+    	}
+
+    }
+    /**
+     * 当用户在考勤过程中想临时退出时候，提示用户是否上传当前数据
+     */
+    public void ifUploadDialog()
+    {
+    	dialog.setTitle("提示");
+    	dialog.setMessage("是否上传当前考勤数据?");
+    	dialog.setPositiveButton("确认", new OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				if(uploadData())
+				{
+					Intent intent=new Intent();
+			    	ContextUtil.stuIndex=0;
+			    	intent.setClass(context, CourseAdminActivity.class);
+			    	startActivity(intent);
+			    	dialog.dismiss();
+				}
+				else
+					uploadFailureDialog();
+					
+			}
+    	});
+       dialog.setNegativeButton("取消", new OnClickListener() {
+
+		public void onClick(DialogInterface dialog, int which) {
+			// TODO Auto-generated method stub
+			Intent intent=new Intent();
+	    	ContextUtil.stuIndex=0;
+	    	intent.setClass(context, CourseAdminActivity.class);
+	    	startActivity(intent);
+	    	dialog.dismiss();
+		 }
+       });
+       dialog.create().show();
+     }
+    
+    /**
+     * 最后一条记录提示对话框
+     */
+    public void lastRecordDialog()
+    {
+    	dialog.setTitle("提示");
+    	dialog.setMessage("已是最后一条记录，下课考勤完毕,是否上传数据？");
+    	dialog.setPositiveButton("确认", new OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				if(uploadData())
+				{
+				Intent intent=new Intent();
+		    	ContextUtil.stuIndex=0;
+		    	intent.setClass(context, CourseAdminActivity.class);
+		    	startActivity(intent);
+				}
+				else
+					uploadFailureDialog();
+			}
+    	});
+       dialog.setNegativeButton("取消", new OnClickListener() {
+
+		public void onClick(DialogInterface dialog, int which) {
+			// TODO Auto-generated method stub
+			dialog.dismiss();
+		 }
+       });
+       dialog.create().show();
+     }
+    /**
+     * 提示数据成功上传
+     */
+    public void upLoadSuccessDialog()
+    {
+    	dialog.setTitle("提示");
+    	dialog.setMessage("数据已经成功上传!");
+    	dialog.setPositiveButton("确认", new OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				Intent intent=new Intent();
+		    	ContextUtil.stuIndex=0;
+		    	intent.setClass(context, CourseAdminActivity.class);
+		    	startActivity(intent);
+			}
+    	});
+    	dialog.show();
+    }
+    /**
+     * 数据上传失败
+     */
+    public void uploadFailureDialog()
+    {
+    	dialog.setTitle("提示");
+    	dialog.setMessage("数据已经上传失败!");
+    	dialog.setPositiveButton("确定", null);
+    	dialog.show();
+    }
+    /**
+     * 上传数据到服务端
+     * @return
+     */
+    public  boolean uploadData()
+    {
+    	return true;
+    }
+    
+}

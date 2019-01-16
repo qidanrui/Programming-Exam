@@ -1,0 +1,41 @@
+/**
+ * 
+ */
+package cn.edu.xmu.courseSys.view;
+
+
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+
+import cn.edu.xmu.courseSys.model.entity.Person;
+/**
+ * Provides access to the current user, project, and locale
+ * 
+ * @author 008
+ * @version 1.0 2011-12
+ */
+@ManagedBean
+@SessionScoped
+public class VisitInfo {
+
+	private Person loginedUser;
+
+	/**
+	 * @return the loginedUser
+	 */
+	public Person getLoginedUser() {
+		return loginedUser;
+	}
+
+	/**
+	 * @param loginedUser the loginedUser to set
+	 */
+	public void setLoginedUser(Person loginedUser) {
+		this.loginedUser = loginedUser;
+	}
+	
+}

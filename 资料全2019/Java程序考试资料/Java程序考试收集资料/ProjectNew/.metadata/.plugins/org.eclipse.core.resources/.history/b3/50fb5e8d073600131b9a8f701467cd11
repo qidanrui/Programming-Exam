@@ -1,0 +1,92 @@
+import java.util.ArrayList;
+import java.util.Random;
+/**
+ * 快速排序
+ * @author sinllychen
+ */
+public class QuickSort {
+	/*  *//**
+     * 随机获得分割点
+     * @param datas
+     * @param i   
+     * @param j
+     * @return
+     *//*
+    public static int randomPartition(ArrayList<Long> datas,int i,int j)
+    {
+    	Random rand=new Random();
+    	int k=i+rand.nextInt(j-i+1);
+    	Common.swap(datas,i,k);
+    	return partition(datas,i,j);
+    }
+    *//**
+     * 获得分割点主要函数
+     * @param datas
+     * @param i
+     * @param j
+     * @return
+     *//*
+    public static int partition(ArrayList<Long> datas,int i,int j)
+    {
+    	long key=datas.get(i);
+        int m=i+1;
+        int n=j;
+        while(m<=n)
+        {
+        	while(m<=n&&datas.get(m)<=key) m++;
+        	while(m<=n&&datas.get(n)>=key) n--;
+        	if(m>=n)
+        		break;
+        	Common.swap(datas,m,n);
+        }
+        datas.set(i, datas.get(n));
+        datas.set(n, key);
+        return n;
+    }
+    *//**
+     * 快速排序
+     * @param datas
+     * @param i
+     * @param j
+     *//*
+    public static void quickSort(ArrayList<Long> datas,int i,int j)
+    {
+    	if(i<j)
+    	{
+    		int p=randomPartition(datas,i,j);
+    		quickSort(datas,i,p-1);
+    		quickSort(datas,p+1,j);
+    	}
+    }*/
+	  public static int randomPartition(ArrayList<Integer> datas,int i,int j)
+	    {
+	    	Random rand=new Random();
+	    	int k = i+rand.nextInt(j-i+1);
+	    	swap(datas,k,j);
+	    	return partition(datas,i,j);
+	    }
+	     public static int partition(ArrayList<Integer> datas, int i,int j)
+	     {
+	    	 int k=datas.get(j);
+	    	 int m=i-1;
+	    	 for(int n=i;n<j;n++)
+	    	 {
+	    		 if(datas.get(n)<=k)
+	    		 {
+	    			 m=m+1;
+	    			 swap(datas,m,n);
+	    		 }
+	    	 }
+	    	 swap(datas,m+1,j);
+	    	 return m+1;
+	     }
+	     public static void quickSort(ArrayList<Integer> datas,int i,int j)
+	     {
+	    	 if(i<j)
+	    	 {
+	    		 int k=randomPartition(datas,i,j);
+	    		 quickSort(datas,i,k-1);
+	    		 quickSort(datas,k+1,j);
+	    	 }
+	     }
+}

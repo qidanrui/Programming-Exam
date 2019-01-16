@@ -1,0 +1,32 @@
+package cn.edu.xmu.software.curveExctraction;
+
+public class PointImp {
+      private float value;
+      private Point point;
+      PointImp(){}
+	/**
+	 * @return the value
+	 */
+	public float getValue() {
+		return value;
+	}
+	/**
+	 * @param value the value to set
+	 */
+	public void setValue(float value) {
+		this.value = value;
+	}
+	/**
+	 * @return the point
+	 */
+	public Point getPoint() {
+		return point;
+	}
+	/**
+	 * @param point the point to set
+	 */
+	public void setPoint(Point point) {
+		this.point = point;
+	};
+      
+}

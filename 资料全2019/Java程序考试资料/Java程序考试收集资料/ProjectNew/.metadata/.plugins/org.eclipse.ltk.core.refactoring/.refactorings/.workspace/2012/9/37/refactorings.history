@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/ScrumSparkEar" element2="/ScrumSparkEJB" element3="/ScrumSparkEJBClient" element4="/ScrumSparkJPA" element5="/ScrumSparkJSF" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1347282464433"/>
+</session>

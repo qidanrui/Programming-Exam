@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/course_topbar"
+    style="@style/topbar_bg"
+     >
+    <Button 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_back_btn" 
+        android:text="@string/tuichu"
+        style="@style/topbar_left_btn"
+        android:textColor="#ffffffff"
+        android:background="@drawable/back_btn"
+        android:onClick="logout" />
+    
+    <TextView  
+        android:text="@string/login" 
+        style="@style/topbar_text" />
+</RelativeLayout>

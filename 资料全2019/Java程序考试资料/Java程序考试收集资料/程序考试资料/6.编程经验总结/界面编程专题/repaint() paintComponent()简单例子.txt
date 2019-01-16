@@ -1,0 +1,40 @@
+repaint paintComponent 简单例子
+
+
+repaint()会自动调用paintComponent(Graphics g)方法
+
+//源代码
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Test extends JPanel {
+public void display() {
+   System.out.println("display");
+   repaint();        // 会再次调用paintComponent(g)方法
+}
+
+@Override
+protected void paintComponent(Graphics g) {
+   System.out.println("paintcomponent");
+}
+
+public static void main(String[] args) {
+   JFrame frame = new JFrame();
+   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   Test test = new Test();
+   test.setSize(20, 20);
+   frame.setSize(250, 250);
+   frame.setLocation(100, 100);
+   frame.add(test);
+   frame.setVisible(true);           // 会调用paintComponent(g)方法
+   try {
+    Thread.sleep(1000);
+   } catch (Exception e) {
+    System.out.println("Exception");
+   }
+   test.display();
+} 
+}
+
+// 每一次改变JFrame的大小都会调用paintComponent(g)方法

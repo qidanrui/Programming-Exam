@@ -1,0 +1,193 @@
+1.	给一个奇数阶N幻方，填入数字1，2，3...N*N,使得横竖斜方向上的和都相同。（30分）
+a)	控制台输入阶数n；
+b)	将记过保存在文件matrix.txt中。示例如下：
+8 1 6
+3 5 7
+4 9 2
+
+public static void getMatrix(int flag[],int result[][],int tem,int n) throws IOException{
+if(tem==n){
+boolean res = true;
+
+for(int i=0;i<len;++i){
+int hsum =0;
+for(int j=0;j<len;++j){
+hsum+=result[i][j];
+}
+if(hsum!=sum)res=false;
+}
+for(int i=0;i<len;++i){
+int lsum =0;
+for(int j=0;j<len;++j){
+lsum+=result[j][i];
+}
+if(lsum!=sum)res=false;
+}
+int temsum=0;
+for(int i=0;i<len;++i){
+temsum+=result[i][i];	
+}
+if(temsum!=sum)res=false;
+
+temsum=0;
+for(int i=0;i<len;++i){
+temsum+=result[i][len-i-1];
+}
+if(temsum!=sum)res=false;
+
+if(res){
+BufferedWriter writer = new BufferedWriter(new FileWriter("matrix.txt",true));
+for(int i=0;i<len;++i){
+for(int j=0;j<len;++j){
+writer.write(result[i][j]+" ");
+}
+writer.write("\n");
+}
+writer.write("\n");
+writer.close();
+}
+}
+else{
+for(int i=1;i<=n;++i){
+if(flag[i]==0){
+tem++;
+flag[i]=1;
+result[(tem+len-1)/len-1][(tem+len-1)%len]=i;
+getMatrix(flag,result,tem,n);
+flag[i]=0;
+tem--;
+}
+}
+}
+}
+2.	如果一个人可以一次上一个台阶或者一次上两个台阶，求出如果有n个台阶，
+则这个人一共有多少种走法？
+
+public static void checkFloor(int index,int result[],int tem,int n){
+if(tem==n){
+for(int i=0;i<index;++i){
+System.out.print(result[i]+" ");
+}
+System.out.println();
+}
+else if(tem<n){
+
+
+result[index]=1;
+index++;
+tem++;
+checkFloor(index,result,tem,n);
+index--;
+tem--;
+
+result[index]=2;
+index++;
+tem+=2;
+checkFloor(index,result,tem,n);
+tem-=2;
+index--;
+
+}
+
+3. 求给定字符集中所有字符的全部组合。首先从文件“data.txt”中读取字符集，
+并识别出字符集中的每一个字符。假设字符集的总字符数为n，利用这个n个字符组成长
+为n的字符串。其中每个字符均可重复使用，每个字符串中也不必包含全部字符。
+试求出所有长为n的字符串集合。最后将所求的的集合写入文件“result.txt”中。
+
+4.首先从文件“data.txt”中读取数据。data文件中的数据由字母、数字等元素组成
+（以空格分隔）。请从这些数据中识别出所有的数字，并将其组成一个集合。如果这些数
+字的和为偶数，就将这个集合中的数字划分为两个子集合，使得每部分的和相等，
+试求出所有的划分。如果这些数字的和为奇数，则将这个集合中的数字划分为两个子集合，
+
+使得每部分的和相差1，试求出所有的划分。最后的结果输出到“result.txt”中。
+如果无法找到合适的划分请输出提示。
+首先题目中是以空格区分的，  然后利用Integer.parseInt(String)这个函数
+这个函数如果处理的是 “123”这样的就能转为int
+如果是“adsf”这样的非法的就会 抛出异常，然后利用java的  try   catch 把异常捕捉到，
+如果捕捉到了说明不是合法的如果没有捕捉到异常就说明是合法的 123这样的字符串，可以转换
+也就是  split之后，把所有的遍历一遍，然后parseInt一遍，如果出异常了，就跳过去
+如果没有异常就转为int之后存起来
+
+5.就是给定一个n，比如9，求1到n的全排列.答案是n！种，要求输出这n！种
+
+然后思路是这样的，我们每选择一个1到9之间的数，就标记一下我们选择过了，
+然后把已选择的数目+1，并且这个过程中把已经选择的元素全部放到一个数组里面
+当已经选择的个数等于n的时候，就把这个数组输出这样就得到了一个任意排列
+如果目的达到了，也就是  tem==n  或者 其他什么的，就把结果输出如果还没有达到目的，
+就继续搜索，搜索的过程是  把所有可能的选择 遍历一遍，如果本次可以选择，就选择，
+并且把条件和结果都推进一步，然后递归调用，递归之后再把刚才的选择还原
+
+public static void allSort(int flag[],int result[],int tem,int n){
+
+if(tem==n){
+num++;
+for(int i=0;i<n;++i){
+System.out.print(result[i]+" ");
+}
+System.out.println();
+return ;
+}
+
+for(int i=1;i<=n;++i){
+if(flag[i]==0){
+result[tem]=i;
+flag[i]=1;
+tem++;
+allSort(flag,result,tem,n);
+
+flag[i]=0;
+tem--;
+}
+}
+}
+
+6.篮球错排
+public static void basketResult(int flag[],int result[],int start,int n){
+if(start==n){
+for(int i=1;i<n+1;++i){
+System.out.print(result[i]+" ");
+}
+System.out.println();
+}
+
+for(int i=1;i<=n;++i){
+if(flag[i]==0){
+if(i!=start+1){
+if((start>0&&(int)Math.abs(i-result[start])!=1)||start==0){
+flag[i]=1;
+result[start+1]=i;
+start++;
+basketResult(flag,result,start,n);
+start--;
+flag[i]=0;
+}
+}
+}
+}
+}
+
+7. 生成  不重复的随机数的方法
+public class Rand {
+public static void main(String args[]){
+
+int i=0;
+int flag[]= new int[16];
+int result[]= new int[16];
+for(int j=0;j<16;++j)flag[j]=0;
+while(true){
+if(i==16)break;
+int n= new Random().nextInt(16);
+if(flag[n]==0){
+result[i]=n;
+flag[n]=1;
+i++;
+}
+}
+
+for(i=0;i<16;++i){
+System.out.print(result[i]+" ");
+}
+System.out.println();
+}
+
+}

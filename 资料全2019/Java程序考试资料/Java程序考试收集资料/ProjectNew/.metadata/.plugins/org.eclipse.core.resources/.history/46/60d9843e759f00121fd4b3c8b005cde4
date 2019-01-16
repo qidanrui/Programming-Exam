@@ -1,0 +1,134 @@
+package teaching.core;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Intent;
+import android.os.Bundle;
+import Teaching.Common.ContextUtil;
+import Teaching.Common.DataVerify;
+import Teaching.Core.R;
+import Teaching.model.Course;
+import Teaching.model.Student;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+
+public class LoginActivity extends Activity {
+	private EditText userAccount;
+	private EditText userPassword;
+	private Builder dialog;
+	private ProgressDialog progressDialog = null;
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.loginsys);       
+        userAccount=(EditText)findViewById(R.id.username);
+        userPassword=(EditText)findViewById(R.id.password);
+        dialog=new AlertDialog.Builder(this);
+	    progressDialog = new ProgressDialog(this);
+	}
+    public void toHomePage(View view){
+		
+		Intent intent = new Intent();
+		intent.setClass(this, HomePageActivity.class);
+		this.startActivity(intent);
+	}
+    public void loginSys(View view){
+    	 progressDialog = ProgressDialog.show(this, "登录", "正在登录,请稍候...");
+		 new Thread(){
+			public void run(){
+				try{
+					sleep(3000);
+				}
+				catch(Exception ex){
+					ex.printStackTrace();
+				}
+				finally{
+					if(LoginActivity.this != null && !LoginActivity.this.isFinishing())
+					progressDialog.dismiss();
+				}
+			}
+		 }.start();	
+		 //这一部分用来获取服务端数据
+		 Student currentUser=new Student();
+    	 currentUser.setUserName("陈欣洁");
+    	 currentUser.setUserId("123");
+    	 currentUser.setPassword("123456");
+    	 List<Course> courses=new ArrayList<Course>();
+    	 for(int i=0;i<30;i++)
+    	 {
+    		Course c=new Course();
+    		c.setCourseName("课程"+(i+1));
+    		if(i%2==0)
+    		    c.setFlag(true);
+    		else
+    			c.setFlag(false);
+    		 c.setTeacherName("教师"+(i+1));
+    		 List<Student> stu=new ArrayList<Student>();
+    		 for(int j=0;j<10;j++)
+    		 {
+    			 Student s=new Student();
+    			 s.setMajor("软件工程");
+    			 s.setSex(true);
+    			 s.setTel("18959219902");
+    			 stu.add(s);
+    		 }
+    		 c.setStudents(stu);
+    		 courses.add(c);
+    	 }
+    	 currentUser.setCourses(courses);
+ 
+		 if(currentUser!=null)
+		 {
+				 if(currentUser.getUserId().equals(userAccount.getText().toString().trim())&&DataVerify.verifyPassword(currentUser.getPassword(), userPassword.getText().toString()))
+				 {
+			    	 ContextUtil.currentUser=currentUser;
+					 goToCoursePage();
+				 }
+				 else
+				 {
+					 pswdError();
+				 }
+		}
+		 else
+			 userNotFind();
+
+	 }
+	 /**
+	  *提示用户不存在
+	  */
+	 public void userNotFind()
+	 {
+		 progressDialog.dismiss();
+		 dialog.setTitle("消息提示");
+		 dialog.setMessage("您的用户不存在");
+		 dialog.setPositiveButton("确定", null);
+         dialog.show();
+	 }
+	 /**
+	  * 提示密码错误
+	  */
+	 public void pswdError()
+	 {
+		 progressDialog.dismiss();
+		 dialog.setTitle("消息提示");
+		 dialog.setMessage("您输入的密码有误");
+		 dialog.setPositiveButton("确定", null);
+         dialog.show();
+	 }
+	 /**
+	  * 用户登入成功，跳转到课程页面
+	  */
+	 public void goToCoursePage()
+	 {
+		 Intent intent=new Intent();
+		 intent.setClass(this, CourseActivity.class);
+		 startActivity(intent);
+		 this.finish();
+	 }
+}

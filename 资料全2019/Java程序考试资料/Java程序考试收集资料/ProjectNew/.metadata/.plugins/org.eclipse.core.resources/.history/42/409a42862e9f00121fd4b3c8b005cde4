@@ -1,0 +1,5 @@
+package Teaching.model;
+public class User {
+     private String UserId;//学号
+     private String UserName;//姓名
+}

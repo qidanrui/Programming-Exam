@@ -1,0 +1,4 @@
+大整数的构造：
+BigInteger bi = new BigInteger("8888888888888888888888888888888888888");//用String构造，可以很长
+或
+BigInteger bi = BigInteger.valueOf(888);//用long构造，不能超过long的范围

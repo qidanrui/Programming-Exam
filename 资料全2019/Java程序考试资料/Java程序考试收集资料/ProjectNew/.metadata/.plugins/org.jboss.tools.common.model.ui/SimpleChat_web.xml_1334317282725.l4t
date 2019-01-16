@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout resource="/SimpleChat/war/WEB-INF/web.xml">
+ <TreeFormPage>
+  <Memento type="FileWebApp25">
+   <Memento type="Web Descriptor 2.5"/>
+   <Memento type="Context Params"/>
+   <Memento type="Advanced"/>
+  </Memento>
+ </TreeFormPage>
+</Layout>

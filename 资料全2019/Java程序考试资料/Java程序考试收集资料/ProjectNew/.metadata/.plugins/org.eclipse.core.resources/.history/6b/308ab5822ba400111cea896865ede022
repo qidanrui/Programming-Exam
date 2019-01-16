@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<link rel="stylesheet" href="../css/main.css" />
+</h:head>
+<body>
+	<f:view >
+	<ui:include src="/includes/mainHeader.xhtml"></ui:include>
+	<div id="mainContent">
+	    <div  id="navigation">
+	    <ui:include src="/includes/navigation.xhtml"></ui:include>
+	    </div> 
+	    <h:form>
+	    <div  id="rightContent">
+	             <h:panelGrid columns="8">
+	                  <h:outputText  value="学号 *"   styleClass="label"  />
+	                  <p:inputText  styleClass="text" value="#{personInfoBean.number}"/>
+	                  <h:outputText value="姓名 *"  styleClass="label"/>
+	                  <p:inputText   styleClass="text"  value="#{personInfoBean.name}"/>
+	                   <h:outputText value="学院 *"   styleClass="label"/>
+                      <p:inputText   styleClass="text"  value="#{personInfoBean.institude}"/>
+                        <h:outputText value="系(专业)*"   styleClass="label"/>
+                      <p:inputText    styleClass="text"  value="#{personInfoBean.major}"/>
+	             </h:panelGrid>
+	             <h:panelGrid columns="8">
+	                  <h:outputText  value="性别 *"   styleClass="label"/>
+	                  <p:inputText  styleClass="text"  value="#{personInfoBean.sex}"/>
+	                  <h:outputText value="民族 *"  styleClass="label"/>
+	                  <p:inputText   styleClass="text" value="#{personInfoBean.nation}"/>
+	                   <h:outputText value="籍贯 *"   styleClass="label"/>
+                      <p:inputText   styleClass="text"  value="#{personInfoBean.nativePlace}"/>
+                        <h:outputText value="身份证*"   styleClass="label"/>
+                      <p:inputText    styleClass="text"  value="#{personInfoBean.identityCard}"/>
+	             </h:panelGrid>
+	              <h:panelGrid columns="8">
+	                  <h:outputText  value="出生日期*"   styleClass="label"/>
+	                  <p:inputText  styleClass="text"  value="#{personInfoBean.birthDate}"/>
+	                   <h:outputText value="政治面貌"   styleClass="label"/>
+                      <p:inputText   styleClass="text"  value="#{personInfoBean.political}"/>
+                        <h:outputText value="联系方式"   styleClass="label"/>
+                      <p:inputText    styleClass="text" value="#{personInfoBean.telephone}"/>
+	             </h:panelGrid>
+	             <h:panelGrid columns="4">
+	                  <h:outputText  value="家庭住址"   styleClass="label"/>
+	                  <p:inputText  style="font-size:14px;width:400px;"  value="#{personInfoBean.address}"/>
+	                   <h:outputText value="毕业院校"   styleClass="label"/>
+                      <p:inputText  style="font-size:14px;width:200px;" value="#{personInfoBean.school}"/>
+	             </h:panelGrid>
+	                   <h:panelGrid columns="4">
+	                  <h:outputText  value="家庭电话"   styleClass="label"  />
+	                  <p:inputText  style="font-size:14px;width:400px;"  value="#{personInfoBean.homeTel}"/>
+	                   <h:outputText value="邮政编码"   styleClass="label"/>
+                      <p:inputText  style="font-size:14px;width:200px;" value="#{personInfoBean.postalcode}"/>
+	             </h:panelGrid>
+	              <h:panelGrid columns="2">
+	                  <h:outputText  value="备注"   styleClass="label"/>
+	                  <p:inputTextarea   style="font-size:14px;width:500px;height:200px;" value="#{personInfoBean.comment}"></p:inputTextarea>
+	             </h:panelGrid>
+	             <h:panelGrid columns="5">
+	                   <h:outputText  value="年级"   styleClass="label"/>
+	                   <p:inputText  style="font-size:14px;width:100px;" value="#{personInfoBean.grade}"/>
+	                  <h:outputText  value="所在校区"   styleClass="label"/>
+	                   <p:inputText  style="font-size:14px;width:400px;" value="#{personInfoBean.schoolRegion}"/>
+	          
+	                    <p:commandButton  style="font-size:14px;position:relative;left:350px;"    value="更新信息"   onclick="confirmation.show()" />
+	             </h:panelGrid>
+	             <div id="imagePane">
+	                     
+	                        <h:graphicImage value="/images/me.jpg"  style="border: 1px solid;position:relative; left:70px;" />
+	                  <h:panelGrid  columns="1">
+	                     <h:panelGrid columns="3"  style="position:relative; left:0px;">
+	                     <p:inputText  style="font-size:14px;"/>
+	                     <p:commandButton    style="font-size:13px;"  value="浏览" />
+	                     <p:commandButton  style="font-size:13px;"    value="上传" />
+	                     </h:panelGrid>
+	                     <h:outputText styleClass="label"  value="（照片的格式大小为1寸)" />
+	                        </h:panelGrid>
+	             </div>
+	     
+	    </div>
+	    <p:confirmDialog id="confirmDialog" message="您确定要更新信息么？"  
+                header="消息提醒" severity="alert" widgetVar="confirmation"  width="300"     showEffect="fade" hideEffect="explode" >  
+                   
+        <p:commandButton style="font-size:14px;position:relative;left:30px;"  id="ok" value="确定" update="messages" oncomplete="confirmation.hide(),basicDialog.show()"  
+                    action="#{personInfoBean.updateInfo()}" />  
+        <p:commandButton style="font-size:14px;position:relative;left:100px;"  id="cancel" value="取消" onclick="confirmation.hide()" type="button" />    
+                   
+        </p:confirmDialog>  
+           
+	    </h:form>
+	    <!--<div id="seperator">
+	    </div>  -->
+	</div>
+	<ui:include src="/includes/mainFooter.xhtml"></ui:include>
+	</f:view>
+</body>
+</html>

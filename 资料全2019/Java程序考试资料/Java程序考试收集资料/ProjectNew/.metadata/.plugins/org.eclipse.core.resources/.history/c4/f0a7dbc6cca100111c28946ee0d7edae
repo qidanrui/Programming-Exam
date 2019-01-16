@@ -1,0 +1,23 @@
+package cn.edu.xmu.courseSys.view;
+
+import java.util.List;
+
+import javax.el.ValueExpression;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;   
+import javax.naming.NamingException;
+
+import org.primefaces.event.CloseEvent;
+import cn.edu.xmu.courseSys.model.entity.*;
+@ManagedBean
+@RequestScoped
+public class PersonInfoBean  extends BaseBean{   
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+       
+   
+}        

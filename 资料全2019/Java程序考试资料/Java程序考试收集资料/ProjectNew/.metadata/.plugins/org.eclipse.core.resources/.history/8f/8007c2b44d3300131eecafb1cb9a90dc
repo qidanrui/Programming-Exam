@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+
+public class QuickSort {
+	 /**
+     * 交换两个数
+     * @param datas
+     * @param i
+     * @param j
+     */
+    public static void swap(ArrayList<Integer> datas,int i,int j)
+    {
+        int k=datas.get(i);
+        datas.set(i, datas.get(j));
+        datas.set(j, k);
+    }
+     public static int partition(ArrayList<Integer> datas, int i,int j)
+     {
+    	 int k=datas.get(j);
+    	 int m=i-1;
+    	 for(int n=i;n<j;n++)
+    	 {
+    		 if(datas.get(n)<=k)
+    		 {
+    			 m=m+1;
+    			 swap(datas,m,n);
+    		 }
+    	 }
+    	 swap(datas,m+1,j);
+    	 return m+1;
+     }
+}

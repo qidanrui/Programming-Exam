@@ -1,0 +1,16 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+public class Test1 {
+	public static void main(String[] args)
+	{
+		InputStreamReader reader =new InputStreamReader(System.in);
+		BufferedReader input=new BufferedReader(reader);
+		while(!input.readLine().equals("end"))
+		{
+	    	System.out.print("请输入一个数字(请以输入任意一个字符串结束)");
+	    	int n=Integer.parseInt(input.read)
+	}
+
+}

@@ -1,0 +1,57 @@
+/**
+ * 归并排序，时间复杂度为nlgn
+ * @author sinllychen
+ *
+ */
+public class MergeSort {
+	public static void merge(int[] k,int i,int q,int j)
+	{
+		int n1=q-i+1;
+		int[] l=new int[n1+1];
+		int[] r=new int[k.length-n1+1];
+		int m,n;
+		for(m=i;m<=q;m++)
+		{
+			l[m]=k[m];
+		}
+		for(n=q+1;n<=j;n++)
+		{
+			r[n]=k[n];
+		}
+		l[m]=1000000;
+		l[n]=1000000;
+		m=0;n=0;
+		for(int p=i;p<=j;p++)
+		{
+			if(l[m]<=r[n])
+			{
+				k[p]=l[m];
+				m++;
+			}
+			else 
+				{
+				k[p]=r[n];
+				n++;
+				}
+		}
+		
+	}
+	public static void mergeSort(int[] k,int i,int j)
+	{
+		int q;
+		if(i<j)
+		{
+			q=(int) Math.floor((i+j)/2);
+			mergeSort(k,i,q);
+			mergeSort(k,q+1,j);
+			merge(k,i,q,j);
+		}
+	}
+    public static void main(String[] args)
+    {
+    	int a[]={5,2,6,7,1,3,9,0,10};
+    	mergeSort(a,0,a.length-1);
+    	for(int i=0;i<a.length;i++)
+    		System.out.print(a[i]+" ");
+    }
+}

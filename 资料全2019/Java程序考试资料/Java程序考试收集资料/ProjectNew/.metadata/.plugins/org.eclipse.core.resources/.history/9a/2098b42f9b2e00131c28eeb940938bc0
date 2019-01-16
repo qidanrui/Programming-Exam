@@ -1,0 +1,196 @@
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.*;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.Stack;
+/**
+ * 画图事件
+ * @author sinllychen
+ *
+ */
+public class DrawPanel extends JPanel  {
+   /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1247937026439191218L;
+   private static Stack<MyShape>  shapes =new Stack<MyShape>();//保存所有点的图形
+   private static ArrayList<MPoint> points=new ArrayList<MPoint>();//保存所有点
+   private MPoint pntA=new MPoint();
+   private MPoint pntB=new MPoint();//保存最近点对
+   private JLabel statusLabel;//状态标签
+   private MPoint myPoint=new MPoint();//画的点
+   private boolean mouseClick=false;//是否点击鼠标
+   private boolean ifDraw=false;//是否画点
+   public DrawPanel(JLabel label)
+   {
+	   setStatusLabel(label);
+	   this.setBackground(Color.WHITE);
+	   this.addMouseListener(new MouseHandler()); 
+   }
+   public void setDrawStatus(boolean ifDraw)
+   {
+	   this.ifDraw=ifDraw;
+   }
+   public void undoDrawShape()
+   {
+	   shapes.pop();
+	   points.remove(shapes.size()-1);
+	   this.ifDraw=false;
+	   this.mouseClick=false;
+	   repaint();
+   }
+   public void clearDrawing()
+   {
+	   shapes=new Stack<MyShape>();
+	   points=new ArrayList<MPoint>();
+	   this.ifDraw=false;
+	   this.mouseClick=false;
+	   repaint();
+   }
+   public void  paintComponent(Graphics g)
+   {
+	   
+	   super.paintComponent(g);
+	   Graphics2D g2d=(Graphics2D)g;
+	   for(int i=0;i<shapes.size();i++)
+	   {
+/*		   System.out.println(shapes.size());*/
+		   shapes.get(i).Draw(g2d);
+	   }
+   }
+
+/**
+ * @return the mouseClick
+ */
+public boolean isMouseClick() {
+	return mouseClick;
+}
+/**
+ * @param mouseClick the mouseClick to set
+ */
+public void setMouseClick(boolean mouseClick) {
+	this.mouseClick = mouseClick;
+}
+
+/**
+ * @return the ifDraw
+ */
+public boolean isIfDraw() {
+	return ifDraw;
+}
+/**
+ * @param ifDraw the ifDraw to set
+ */
+public void setIfDraw(boolean ifDraw) {
+	this.ifDraw = ifDraw;
+}
+
+/**
+ * @return the statusLabel
+ */
+public JLabel getStatusLabel() {
+	return statusLabel;
+}
+/**
+ * @param statusLabel the statusLabel to set
+ */
+public void setStatusLabel(JLabel statusLabel) {
+	this.statusLabel = statusLabel;
+}
+
+/**
+ * @return the shapes
+ */
+public static Stack<MyShape> getShapes() {
+	return shapes;
+}
+/**
+ * @param shapes the shapes to set
+ */
+public void setShapes(Stack<MyShape> shapes) {
+	this.shapes = shapes;
+}
+
+/**
+ * @return the points
+ */
+public  ArrayList<MPoint> getPoints() {
+	return points;
+}
+/**
+ * @param points the points to set
+ */
+public  void setPoints(ArrayList<MPoint> points) {
+	DrawPanel.points = points;
+}
+
+/**
+ * @return the pntA
+ */
+public MPoint getPntA() {
+	return pntA;
+}
+/**
+ * @param pntA the pntA to set
+ */
+public void setPntA(MPoint pntA) {
+	this.pntA = pntA;
+}
+
+/**
+ * @return the pntB
+ */
+public MPoint getPntB() {
+	return pntB;
+}
+/**
+ * @param pntB the pntB to set
+ */
+public void setPntB(MPoint pntB) {
+	this.pntB = pntB;
+}
+
+private class MouseHandler   implements  MouseListener
+   {
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		statusLabel.setText(String.format("(%d,%d)",e.getX(),e.getY()));
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		myPoint=new MPoint(e.getX(),e.getY(),10);
+		statusLabel.setText(String.format("(%d,%d)",e.getX(),e.getY()));
+	    mouseClick=true;
+	    if(mouseClick&&ifDraw&&CommonMethod.searchIfNotSame(points, myPoint))
+	    { shapes.push(myPoint);
+	      points.add(myPoint);
+	       repaint();}
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		statusLabel.setText(String.format("(%d,%d)",e.getX(),e.getY()));	
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		statusLabel.setText(String.format("(%d,%d)",e.getX(),e.getY()));
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		statusLabel.setText(String.format("(%d,%d)",e.getX(),e.getY()));
+	}
+
+}
+}
+

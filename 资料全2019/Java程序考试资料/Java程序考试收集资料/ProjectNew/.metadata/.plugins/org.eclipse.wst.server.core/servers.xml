@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-time="1" hostname="localhost" id="JBoss 4.2 Runtime Server1344477065666" name="JBoss 4.2 Runtime Server" org.jboss.ide.eclipse.as.core.server.deployDirectoryType="metadata" org.jboss.ide.eclipse.as.core.server.password="admin" org.jboss.ide.eclipse.as.core.server.userName="admin" runtime-id="JBoss 4.2 Runtime" server-type="org.jboss.ide.eclipse.as.42" server-type-id="org.jboss.ide.eclipse.as.42" start-timeout="450" stop-timeout="450" timestamp="0"/>
+</servers>

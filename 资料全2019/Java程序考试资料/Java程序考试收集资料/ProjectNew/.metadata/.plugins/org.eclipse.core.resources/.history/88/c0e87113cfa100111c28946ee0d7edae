@@ -1,0 +1,280 @@
+package cn.edu.xmu.courseSys.view;
+
+import java.util.List;
+
+import javax.el.ValueExpression;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;   
+import javax.naming.NamingException;
+
+import org.primefaces.event.CloseEvent;
+import cn.edu.xmu.courseSys.model.entity.*;
+@ManagedBean
+@RequestScoped
+public class PersonInfoBean  extends BaseBean{   
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String password;//密码
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	/**
+	 * @return the number
+	 */
+	public String getNumber() {
+		return number;
+	}
+	/**
+	 * @param number the number to set
+	 */
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the institude
+	 */
+	public String getInstitude() {
+		return institude;
+	}
+	/**
+	 * @param institude the institude to set
+	 */
+	public void setInstitude(String institude) {
+		this.institude = institude;
+	}
+	/**
+	 * @return the major
+	 */
+	public String getMajor() {
+		return major;
+	}
+	/**
+	 * @param major the major to set
+	 */
+	public void setMajor(String major) {
+		this.major = major;
+	}
+	/**
+	 * @return the sex
+	 */
+	public String getSex() {
+		return sex;
+	}
+	/**
+	 * @param sex the sex to set
+	 */
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	/**
+	 * @return the nation
+	 */
+	public String getNation() {
+		return nation;
+	}
+	/**
+	 * @param nation the nation to set
+	 */
+	public void setNation(String nation) {
+		this.nation = nation;
+	}
+	/**
+	 * @return the nativePlace
+	 */
+	public String getNativePlace() {
+		return nativePlace;
+	}
+	/**
+	 * @param nativePlace the nativePlace to set
+	 */
+	public void setNativePlace(String nativePlace) {
+		this.nativePlace = nativePlace;
+	}
+	/**
+	 * @return the identityCard
+	 */
+	public String getIdentityCard() {
+		return identityCard;
+	}
+	/**
+	 * @param identityCard the identityCard to set
+	 */
+	public void setIdentityCard(String identityCard) {
+		this.identityCard = identityCard;
+	}
+	/**
+	 * @return the birthDate
+	 */
+	public String getBirthDate() {
+		return birthDate;
+	}
+	/**
+	 * @param birthDate the birthDate to set
+	 */
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+	private String number;//学号
+	private String name;//姓名
+	private String institude;//学院
+	private String major;//专业
+	private String sex;//性别
+	private String nation;//民族
+	private String nativePlace;//籍贯
+	private String identityCard;//身份证
+	private String birthDate;//出生日期
+
+	private String political;//政治面貌
+	private String  telephone;//联系方式
+	private String address;//家庭住址
+	/**
+	 * @return the political
+	 */
+	public String getPolitical() {
+		return political;
+	}
+	/**
+	 * @param political the political to set
+	 */
+	public void setPolitical(String political) {
+		this.political = political;
+	}
+	/**
+	 * @return the telephone
+	 */
+	public String getTelephone() {
+		return telephone;
+	}
+	/**
+	 * @param telephone the telephone to set
+	 */
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	/**
+	 * @return the school
+	 */
+	public String getSchool() {
+		return school;
+	}
+	/**
+	 * @param school the school to set
+	 */
+	public void setSchool(String school) {
+		this.school = school;
+	}
+	/**
+	 * @return the homeTel
+	 */
+	public String getHomeTel() {
+		return homeTel;
+	}
+	/**
+	 * @param homeTel the homeTel to set
+	 */
+	public void setHomeTel(String homeTel) {
+		this.homeTel = homeTel;
+	}
+	/**
+	 * @return the postalcode
+	 */
+	public String getPostalcode() {
+		return postalcode;
+	}
+	/**
+	 * @param postalcode the postalcode to set
+	 */
+	public void setPostalcode(String postalcode) {
+		this.postalcode = postalcode;
+	}
+	/**
+	 * @return the comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+	/**
+	 * @param comment the comment to set
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	/**
+	 * @return the schoolRegion
+	 */
+	public String getSchoolRegion() {
+		return schoolRegion;
+	}
+	/**
+	 * @param schoolRegion the schoolRegion to set
+	 */
+	public void setSchoolRegion(String schoolRegion) {
+		this.schoolRegion = schoolRegion;
+	}
+	private String school;//毕业院校
+	private String homeTel;//家庭电话
+	private String postalcode;//邮政编码
+	private String comment;//备注
+    private String schoolRegion;//所在校区
+	
+	public PersonInfoBean()
+	{
+		VisitInfo info=(VisitInfo)getManagedBean(getContext(),"visitInfo");
+		Person cur=info.getLoginedUser();
+		setNumber(cur.getNumber());
+		setName(cur.getName());
+		setInstitude(cur.getInstitude());
+		setMajor(cur.getMajor());
+		setSex(cur.getSex());
+		setNativePlace(cur.getNativePlace());
+		setNation(cur.getNation());
+		setIdentityCard(cur.getIdentityCard());
+		setBirthDate(cur.getBirthDate());
+		setPolitical(cur.getPolitical());
+		setTelephone(cur.getTelephone());
+		setAddress(cur.getAddress());
+		setSchool(cur.getSchool());
+		setHomeTel(cur.getHomeTel());
+		setPostalcode(cur.getPostalcode());
+		setComment(cur.getComment());
+		setSchoolRegion(cur.getSchoolRegion());
+	}
+   
+}        

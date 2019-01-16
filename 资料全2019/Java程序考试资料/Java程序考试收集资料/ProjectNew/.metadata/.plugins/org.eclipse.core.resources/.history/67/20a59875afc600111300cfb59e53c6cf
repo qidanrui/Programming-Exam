@@ -1,0 +1,9 @@
+package cn.edu.xmu.software.interfaces;
+
+import cn.edu.xmu.software.entity.Goal;
+
+public interface IGoalOpt {
+	public void createGoal(Goal g) ;//创建目标
+	public void updateGoal(Goal g);//更新目标
+	public void deleteGoal(Goal g) ;//删除目标
+}

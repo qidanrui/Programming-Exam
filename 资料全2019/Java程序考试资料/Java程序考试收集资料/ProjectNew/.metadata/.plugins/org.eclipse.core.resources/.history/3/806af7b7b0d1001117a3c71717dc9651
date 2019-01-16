@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffffff" >
+    
+    <include
+        android:id="@+id/top"
+        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent"
+        android:layout_height="46.0dip" 
+        layout="@layout/otherday_topbar"
+        />
+    <cn.edu.xmu.software.ui.SlidingLinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/top"
+	     >
+		<ListView 
+	        android:id="@+id/today_taskList"
+	   	    android:visibility="visible"
+	   	    android:layout_width="fill_parent"
+	   	    android:layout_height="match_parent"
+	   	    android:scrollingCache="false"
+	   	    android:scrollbars="none"
+	   	    android:fadingEdge="none"
+	   	    android:cacheColorHint="#000000"
+	   	    android:divider="#00000000"
+	    	/>
+	    
+	</cn.edu.xmu.software.ui.SlidingLinearLayout>
+   	<include 
+   	    android:layout_width="fill_parent" 
+   	    android:layout_height="46.0dip"
+   	    android:layout_alignParentBottom="true"
+       	layout="@layout/task_list_bottom_bar"/>
+    
+
+</RelativeLayout>

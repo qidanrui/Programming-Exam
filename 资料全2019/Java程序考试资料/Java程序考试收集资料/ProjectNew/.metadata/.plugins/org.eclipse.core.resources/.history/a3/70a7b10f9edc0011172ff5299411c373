@@ -1,0 +1,89 @@
+package cn.edu.xmu.software;
+
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.interfaces.IPlanOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import cn.edu.xmu.software.model.PlanOpt;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.format.Time;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+public class Raw_Goal_Activity extends Activity {
+	private TextView goal_title;
+	private TextView goal_desc;
+	private IPlanOpt planOpt;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		planOpt=new PlanOpt(this);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		LayoutInflater inflater = LayoutInflater.from(this);
+		setContentView(R.layout.goal_edit);
+		
+		//setContentView(R.layout.goal_edit);
+		goal_title=(TextView)findViewById(R.id.title);
+		goal_desc=(TextView)findViewById(R.id.desc);
+	}
+
+	/*
+	 * 页面底部的取消按钮
+	 */
+	public void onCancelClick(View v) {
+		reToInboxPage();
+	}
+
+	/*
+	 * 页面底部的确定按钮
+	 */
+	public void onSaveClick(View v) {
+		Goal goal=new Goal();
+		goal.setTitle( goal_title.getText().toString());
+		goal.setDesc(goal_desc.getText().toString());
+		goal.setEnergy("");
+		goal.setTimeLength("");
+		goal.setStartTime("收集箱");
+		goal.setFinishTime("");
+		goal.setScene("");
+		goal.setTags("");
+		goal.setUser(ContextUtil.getCurrentUser());
+		ContextUtil.setCurrentGoal(goal);
+		IGoalOpt goalopt=new GoalOpt(this);
+ 		goalopt.createGoal(goal);
+		reToInboxPage();
+	}
+	/**
+	 * 返回今日待办页面
+	 */
+	public void reToInboxPage()
+	{
+		Intent  intent=new Intent();
+		intent.setClass(this, InBoxTaskListActivity.class);
+		 startActivity(intent);
+		// this.finish();
+	}
+}

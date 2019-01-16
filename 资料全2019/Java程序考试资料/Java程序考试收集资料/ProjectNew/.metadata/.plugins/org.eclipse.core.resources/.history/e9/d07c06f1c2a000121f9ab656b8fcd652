@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="100.0dip"  android:paddingLeft="0.0dip" android:paddingTop="5.0dip" android:paddingRight="10.0dip" android:paddingBottom="5.0dip" 
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="#ffffffff" android:layout_width="1.0px" android:layout_height="fill_parent" />
+    <TextView android:id="@+id/kqyl_stuName"  android:textColor="@color/panchLog_item_text_title1" android:gravity="center" android:background="@color/panchLog_item_bg_title1" android:layout_width="50.0dip" android:layout_height="fill_parent"  android:text="陈欣洁"/>
+    <View android:background="#ffffffff" android:layout_width="1.0px" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="50.0dip" android:layout_height="fill_parent">
+        <TextView android:textColor="@color/panchLog_item_text_title2" android:gravity="center" android:background="@color/panchLog_item_bg_title2" android:layout_width="50.0dip" android:layout_height="50.0dip" android:text="@string/shangke" />
+        <View android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <TextView android:textColor="@color/panchLog_item_text_title2" android:gravity="center" android:background="@color/panchLog_item_bg_title2" android:layout_width="50.0dip" android:layout_height="50.0dip" android:text="@string/xiake" />
+    </LinearLayout>
+    <View android:background="#ffffffff" android:layout_width="1.0px" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textColor="@color/panchLog_item_text_title2" android:gravity="center" android:id="@+id/sk_date" android:background="@drawable/selector_bg_panch_log_item" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="7:00" />
+        <View android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <TextView android:textColor="@color/panchLog_item_text_title2" android:gravity="center" android:id="@+id/xk_date" android:background="@drawable/selector_bg_panch_log_item" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="12:00" />
+    </LinearLayout>
+    <View android:background="#ffffffff" android:layout_width="1.0px" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textColor="@color/panchLog_item_text_title2" android:gravity="center" android:id="@+id/sk_status" android:background="@drawable/selector_bg_panch_log_item" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="迟到 " />
+        <View android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <TextView android:textColor="@color/panchLog_item_text_title2" android:gravity="center" android:id="@+id/xk_status" android:background="@drawable/selector_bg_panch_log_item" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="早退" />
+    </LinearLayout>
+    <View android:background="#ffffffff" android:layout_width="1.0px" android:layout_height="fill_parent" />
+</LinearLayout>

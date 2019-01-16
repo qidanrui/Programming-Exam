@@ -1,0 +1,1898 @@
+
+<!-- saved from url=(0071)http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK"><title>计算阶乘n!末尾所含0的个数_Knowledger_百度空间      </title>
+
+<style type="text/css">
+
+.error{color:#FF0000;font-size:12px}
+.shareUser,.shareLastEditor{line-height:20px;color:#666666;text-align:left}
+.shareLastEditor{margin:5px 0 8px;}
+
+
+
+
+
+	
+
+
+
+
+
+</style>
+
+<script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/global.js"></script>
+<script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/tangram-1.1.0.js"></script>
+
+
+<script type="text/javascript">
+var Session = {
+    isLogin: ! true,
+    isHost: "",
+    userName: "liyuan90315",   
+    userPortrait:'58426c697975616e3930333135c700',
+    spaceURL: "/liyuan90315",
+    spBasicURL:"liyuan90315",
+    spBasicURLEnc:"liyuan90315",
+    visitorName:    "",
+    visitorPortrait:'00000000',
+    isActive: '',   
+    visitorURL: "/index.html",        // 
+    pageURL: "http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf%2Ehtml",    
+    refer: "",
+    spToken: '59444466ac37cfb63325395df15f2f63', 
+    spFriendDomain: 'http://frd.baidu.com',
+    spSpaceDomain: 'http://hi.baidu.com',
+    spPortraitDomain: '',
+    spSpaceStaticDomain: 'http://hi.baidu.com' 
+
+    ,isDrag:  false  
+    ,isProfile:  false   
+    };
+</script>
+
+<script language="javascript" src="./计算阶乘n!末尾所含0的个数_files/dialog.js"></script>
+
+<script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/BdEditor-mined.js"></script>
+
+<script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/antiSpam.js"></script>
+
+<script language="JavaScript" src="./计算阶乘n!末尾所含0的个数_files/g_spjs.js"></script>
+
+<script language="javascript">
+
+<!--
+
+
+(function(){var A=109;function C(D){var F="nslog__"+(new Date()).getTime();var E=window[F]=new Image();E.onload=(E.onerror=function(){window[F]=null});E.src="http://nsclick.baidu.com/v.gif?pid="+A+"&url="+encodeURIComponent(D)+"&type=0&_t="+Math.random();E=null}function B(F){F=F||event;var E=F.srcElement||F.target;if(E.nodeType!=1){E=E.parentNode}while(E&&E.tagName&&E.tagName.toUpperCase()!="A"){E=E.parentNode}if(E&&E.tagName&&E.tagName.toUpperCase()=="A"){if(E.protocol.indexOf("http")==0&&!/^([\w-]+\.)*?baidu\.com/i.test(E.host)){var D=E.href;setTimeout(function(){C(D)},1)}}E=null}if(document.attachEvent){document.attachEvent("onmousedown",B);window.attachEvent("onunload",function(){document.detachEvent("onmousedown",B)})}else{document.addEventListener("mousedown",B,false);window.addEventListener("unload",function(){document.removeEventListener("mousedown",B,false)},false)}})();
+
+var allkey="";
+
+var i=0;
+
+var flag=0;
+
+function setpv(allnum)
+
+{
+
+	var num = allnum.split('_');
+
+	document.getElementById("result").innerHTML=num[0];
+
+}
+
+
+
+function checkMail(s)
+
+{
+
+  	var pattern=/\w+@\w+\.[a-z]+/;
+
+  	if(pattern.test(s))
+
+    {
+
+       return true;
+
+    }
+
+  	else
+
+   {
+
+      return false;
+
+   }
+
+}
+
+
+
+
+
+function checkeandu(eanduid)
+
+{
+
+	var eanduvalue=G(eanduid).value;
+
+	var len=bytes(eanduvalue);
+
+	if(len>128)
+
+	{
+
+		showErr(2,"您输入的网址或邮箱太长，请保持在128字节以内。");
+
+		return false;
+
+	}
+
+	else
+
+	{
+
+		 return true;
+
+	}
+
+
+
+}
+
+
+
+function cmtdel(str)
+
+{
+
+	var pop=new Popup({ contentType:3,isReloadOnClose:false,width:340,height:80});
+
+	pop.setContent("title","删除评论");
+
+	pop.setContent("confirmCon","您确定要彻底删除这条评论吗？");
+
+	pop.setContent("callBack",delCallback2);
+
+	pop.setContent("parameter",{fid:str,popup:pop});
+
+	pop.build();
+
+	pop.show();
+
+	return false;
+
+}
+
+function delCallback2(para)
+
+{
+
+	var o_pop=para["popup"];
+
+	o_pop.config.contentType=1;
+
+	o_pop.setContent("contentUrl","");
+
+	o_pop.reBuild();
+
+	G(para["fid"]).target=o_pop.iframeIdName;
+
+	eval("document."+para["fid"]).submit();
+
+}
+
+
+
+String.prototype.byteLength = function() {
+
+    return this.replace(/[^\u0000-\u007f]/g,"\u0061\u0061").length;
+
+}
+
+
+
+function checkname(strid)
+
+{
+
+	var ele=document.getElementById(strid);
+
+	var len=bytes(ele.value);
+
+	if(len>49)
+
+	{
+
+		showErr(1,"您输入的姓名太长，请保持在49字节以内。");
+
+		return false;
+
+	}
+
+	else
+
+	{
+
+		if(len==0)
+
+		{
+
+			document.getElementById(strid).value="匿名网友";
+
+		}
+
+		 return true;
+
+	}
+
+
+
+}
+
+
+
+function checktext(textid)
+
+{
+
+        var tempStr='';
+
+        var isLightFont=false;
+
+		if(editor&&textid=="spBlogCmtText"){
+
+			//document.getElementById("spBlogCmtText").value=editor.getHtml();
+
+			tempStr=editor.getHtml();
+
+			tempStr=tempStr.replace(/<span style="filter:glow\(color=#([0-9a-z]{3,6}),strength=2\);height:0px;color:#([0-9a-z]{3,6})">/ig,'');
+
+			tempStr=tempStr.replace(/<\/span>/ig,'');
+
+			document.getElementById("spBlogCmtText").value=tempStr;
+
+            isLightFont=!(tempStr==editor.getHtml());
+
+        }
+
+		document.getElementById(textid).value=trimlr(textid);
+
+		var str=trimrn(textid);
+
+		len=str.length;
+
+		if(len==0 || ((/^[\s,　]+$/gi).test(str)) )
+
+		{
+
+			showErr(3,"您必须输入评论内容，请检查。");
+
+			return false;
+
+		}
+
+		else
+
+        {
+
+                len=str.byteLength();
+
+                var maxLength=isLightFont?916:1000;
+
+				if(len > maxLength)
+
+				{
+
+					showErr(3,"您输入的评论内容太长，请保持在500字以内。");
+
+					return false;
+
+				}
+
+				if(editor&&textid=="spBlogCmtText"){
+
+					document.getElementById("spBlogCmtText").value=editor.getHtml();
+
+					document.getElementById(textid).value=trimlr(textid);
+
+				}
+
+
+
+			return true;
+
+		}
+
+}
+
+
+
+function showErr(index,str)
+
+{
+
+	G(index+"_err").style.display="";
+
+	G(index+"_err_con").innerHTML=str;
+
+}
+
+function hidErr(index)
+
+{
+
+	G(index+"_err").style.display="none";
+
+	G(index+"_err_con").innerHTML="";
+
+}
+
+
+
+function alertPop(tit,con)
+
+{
+
+	var pop=new Popup({ contentType:4,isReloadOnClose:false,width:340,height:80});
+
+	pop.setContent("title",tit);
+
+	pop.setContent("alertCon",con);
+
+	pop.build();
+
+	pop.show();
+
+}
+
+
+
+function cmtfull()
+
+{
+
+	var cnum=1;
+
+	if(cnum>=50000)
+
+	{
+
+		alertPop("发表评论","单篇日志评论数最多为50000条.");
+
+		return false;
+
+	}
+
+	else
+
+	{
+
+		return true;
+
+	}
+
+}
+
+
+
+function checkcmtform()
+
+{
+
+	if(checkname("spBlogCmtor")&&checkeandu("spBlogCmtURL")&&checktext("spBlogCmtText")&&cmtfull())
+
+	{
+
+		submitForm();
+
+		return true;
+
+	}
+
+	else
+
+	{
+
+		return false;
+
+	}
+
+}
+
+
+
+var g_pop=null;
+
+function submitForm()
+
+{
+
+	g_pop=new Popup({ contentType:1,isReloadOnClose:false,width:340,height:80});
+
+	g_pop.setContent("title","添加评论");
+
+	g_pop.setContent("contentUrl","");
+
+	g_pop.setContent("someDisabledBtn","btn_ok");
+
+	g_pop.build();
+
+	G("popFormSubmit").target=g_pop.iframeIdName;
+
+	g_pop.show();
+
+}
+
+
+
+function g_close_pop()
+
+{
+
+	g_pop.close();
+
+}
+
+
+
+function formatonlinpic()
+
+{
+
+var picobj=document.getElementsByName("onlinepic");
+
+var picnum=picobj.length;
+
+
+
+	for(var i=0;i<picnum;i++)
+
+	{
+
+		if(picobj[i].width>200)
+
+		{
+
+			picobj[i].width=200;
+
+		}
+
+		if(picobj[i].height>200)
+
+		{
+
+			picobj[i].height=200;
+
+		}
+
+	}
+
+    try{document.getElementById("btn_ok").disabled = "";}catch(e){}
+
+}
+
+
+
+function addToFavor(){
+
+var blogTitle='计算阶乘n!末尾所含0的个数'.replace(/&#39;/g,'\'');
+
+window.open('http://cang.baidu.com/do/add?it='+encodeURIComponent(blogTitle+'_百度空间')+'&iu='+encodeURIComponent(location.href)+'&fr=sp#nw=1','_s','scrollbars=no,width=600,height=450,right=75,top=20,status=no,resizable=yes');
+
+return false;
+
+}
+
+function addToiTieba(){
+    var blogTitle='计算阶乘n!末尾所含0的个数'.replace(/&#39;/g,'\'');
+    window.open('http://tieba.baidu.com/i/sys/share?link='+encodeURIComponent('http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html')+'&type=text&title='+encodeURIComponent(blogTitle)+'&content=');
+}
+
+function addToShare(){
+    window.open('http://apps.hi.baidu.com/share/?url='+encodeURIComponent('http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html'));
+}
+
+
+var isIE = /*@cc_on!@*/false;
+
+function tracker(did,a){
+
+	return function(){
+
+		var t=new Date().getTime();
+
+		var href=a.href;
+
+        if(isIE){
+
+            var r = /href\s*=\s*("|')?([^\s]*)\1/gi;
+
+            if(r.test(a.outerHTML))
+
+                href = RegExp.$2;
+
+        }
+
+        new Image().src = "http://hi.baidu.com/sys/statlog/1.gif?m=" + did + "&v=" + encodeURIComponent(href) + "&c=" + encodeURIComponent(location.href) + "&t="+t;
+
+	}
+
+}
+
+
+
+function tracker_init(did){
+
+	var _s=document.getElementById(did);
+
+	var as = _s.getElementsByTagName('A');
+
+	for(var i = 0, j = as.length; i < j; i ++){
+
+		var a = as[i];
+
+		if(isIE){
+
+			a.attachEvent("onclick", tracker(did,a));
+
+		}else{
+
+			a.addEventListener("click", tracker(did,a), false);
+
+		}
+
+	}
+
+}
+
+
+
+
+
+/* some functions for cmt-reply */
+        var g_cmtorInfo = [];
+        function goCmtReply(cmtPorID){
+            cmtreply(g_cmtorInfo[cmtPorID],cmtPorID);
+        }
+		function cmtreply(cmtName,cmtPorID)
+
+		{
+
+			cmtName=cmtName.replace(/<|>/g,"");
+
+			window.location.hash="#send";
+
+			var cmtForm=document.form1;
+
+			cmtForm.cm.value="3";
+
+			if(!cmtForm.spReferTarget)
+
+			{
+
+				var ipt=document.createElement("input");
+
+				ipt.type="hidden";
+
+				ipt.name="spReferTarget";
+
+				ipt.value=cmtPorID;
+
+				cmtForm.appendChild(ipt);
+
+			}else cmtForm.spReferTarget.value=cmtPorID;
+
+
+
+
+
+			 //G("reTitle").innerHTML="回复"+cmtName+"：";
+
+			 G("cancleReLink").style.display="";
+
+			 cmtForm.btn_ok.value="回复评论";
+
+
+
+
+
+			 try{
+
+				editor.window.focus();
+
+                editor.window.document.body.innerHTML="回复"+cmtName+"：";
+
+
+
+                var w = editor.window;
+
+				if(w.getSelection){
+
+					var d = w.document;
+
+					var s = w.getSelection();
+
+					var r = d.createRange();
+
+					r.setStartAfter(d.body.firstChild);
+
+					r.setEndAfter(d.body.lastChild);
+
+					s.removeAllRanges();
+
+					s.addRange(r);
+
+				}
+
+			}catch(e){
+
+			 		try{
+
+				 		cmtForm.getElementsByTagName("textarea")[0].focus();
+
+				 		cmtForm.getElementsByTagName("textarea")[0].value="回复"+cmtName+"：";
+
+				 	}catch(e){}
+
+			}
+
+		}
+
+
+
+		function canclereply()
+
+		{
+
+			var cmtForm=document.form1;
+
+			cmtForm.cm.value="1";
+
+			try{cmtForm.removeChild(cmtForm.spReferTarget);}catch(e){}
+
+			/*
+
+			try{
+
+					var cmt=cmtForm.getElementsByTagName("textarea")[0]
+
+					cmt.value="";
+
+					cmt.focus();
+
+			}catch(e){}
+
+			*/
+
+
+
+			try{
+
+					var ed=editor.window.document.body;
+
+					ed.innerHTML="";
+
+					editor.window.focus();
+
+				}catch(e){
+
+					var cmt=cmtForm.getElementsByTagName("textarea")[0];
+
+					cmt.value="";
+
+					cmt.focus();
+
+			}
+
+
+
+			G("cancleReLink").style.display="none";
+
+			cmtForm.btn_ok.value="发表评论";
+
+		}
+
+
+
+		function gotoreply()
+
+		{//to checking whether reply cmt
+
+			if( window.location.hash.indexOf("&re=1")<0) return;
+
+			var cmtID=window.location.hash.split("&")[0].replace("#","");
+
+			var cmtlinks=document.getElementsByTagName("a");
+
+			for(var i=0,n=cmtlinks.length;i<n;i++)
+
+			{
+
+				if(cmtlinks[i].name==cmtID){ var rename=cmtlinks[i].getAttribute("rename");  repid=cmtlinks[i].getAttribute("repid"); break;}
+
+			}
+
+			if(typeof(rename)!="undefined"){
+
+				cmtreply(rename, repid);
+
+			}
+
+		}
+
+
+
+//-->
+
+</script>
+
+
+<script type="text/javascript">
+
+    /*<![CDATA[*/
+
+
+
+window.onerror=function(){return true;}
+
+
+
+var RelatedDocData = null, GetAndEval = false;
+
+(function(){
+
+	var xhr = BdAjax.getXHR();
+
+	if(xhr == null){
+
+		RelatedDocData = -1;
+
+		return;
+
+	}
+
+
+
+	xhr.open("GET", "/sys/search?type=8&word=%BC%C6%CB%E3%BD%D7%B3%CBn%21%C4%A9%CE%B2%CB%F9%BA%AC0%B5%C4%B8%F6%CA%FD&item=4e1720ee44404f2e2df534cf&t=" + new Date().getTime(), true);
+
+	xhr.onreadystatechange = function(){
+
+		if(xhr.readyState == 4){
+
+			if(xhr.status == 0 || xhr.status == 200){
+
+				if(GetAndEval){
+
+					eval(xhr.responseText);
+
+				}else{
+
+					RelatedDocData = xhr.responseText;
+
+				}
+
+			}
+
+		}
+
+	}
+
+	xhr.send(null);
+
+})();
+
+/*]]>*/
+
+</script>
+
+
+
+<link type="text/css" rel="stylesheet" href="./计算阶乘n!末尾所含0的个数_files/ucard.css"><script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/ucard.js"></script><script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/check_baiduhi.js"></script></head><body onload="formatonlinpic();">
+
+<center>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+if(top.location != self.location){
+	top.location = self.location;
+}
+var myref = encodeURIComponent("http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf%2Ehtml");
+/*]]>*/
+</script>
+<link rel="stylesheet" type="text/css" href="./计算阶乘n!末尾所含0的个数_files/mods.css">
+
+<link rel="stylesheet" type="text/css" href="./计算阶乘n!末尾所含0的个数_files/b44aff36e48eecdda3cc2b02.css">
+
+<link rel="stylesheet" type="text/css" href="./计算阶乘n!末尾所含0的个数_files/space.css">
+<style type="text/css">
+/*<![CDATA[*/
+
+#usrbar{padding:4px 10px 3px 0;font-size:12px;height:19px;line-height:19px;color:#000000;font-family:Arial;text-align:right;background:#ffffff;filter:alpha(opacity=65);-moz-opacity:0.5;width:auto !important;width:100%;letter-spacing:normal}
+#usrbar a,#usrbar a:link,#usrbar a:visited{color:#0000CC;text-decoration:underline}
+#ft{clear:both;height:20px;line-height:20px;color:#666666;font-size:12px;font-family:Arial;text-align:center}
+#ft a,#ft a:link,#ft a:visited{color:#7777CC;text-decoration:underline}
+#usrbar,#usrbar a,#usrbar a:link,#usrbar a:visited,#ft,#ft a,#ft a:link,#ft a:visited{letter-spacing:normal}
+/*]]>*/
+</style>
+
+
+
+<div id="usrbar"><nobr>
+
+			<a id="hi_index" href="http://hi.baidu.com/" target="_blank">百度空间</a>&nbsp;|&nbsp;<a href="http://www.baidu.com/" target="_blank">百度首页</a>&nbsp;<script type="text/javascript">
+		document.write('| <a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u=http://hi.baidu.com' + encodeURIComponent('/liyuan90315/blog/item/4e1720ee44404f2e2df534cf%2Ehtml') + '"  onclick="BdUtil.relogin(); return false;">登录</a>');
+		</script>| <a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u=http://hi.baidu.com%2Fliyuan90315%2Fblog%2Fitem%2F4e1720ee44404f2e2df534cf%252Ehtml" onclick="BdUtil.relogin(); return false;">登录</a>
+		
+</nobr></div>
+
+
+    
+    <script type="text/javascript">
+            BdUtil.ns_tracker("usrbar","nm_20091208_topNavClick");
+    </script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+function set_cookie_4_bdtip(index/* start from one */, value){
+	var bdtip = document.cookie.match(/(^| )BDTIP=([^;]*)(;|$)/);
+	if(!bdtip){
+		bdtip=new Array(index);
+		for(var i=0,n=bdtip.length;i<n;i++)
+		{
+			if(bdtip[i]=="" || bdtip[i]==null)  bdtip[i]=0;
+			if(i == index - 1){
+				bdtip[i] = value;
+			}
+		}
+	}else{
+	bdtip = bdtip[2].split('-');
+	if(index > bdtip.length)  bdtip.length= index;
+	for(var i = 0, j = bdtip.length; i < j; i ++){
+		if(bdtip[i]=="" || bdtip[i]==null) bdtip[i]=0;
+		if(i == index - 1){
+			bdtip[i] = value;
+		}
+	}
+	}
+	bdtip = bdtip.join('-');
+	document.cookie = "BDTIP=" + bdtip+ ";expires=Wed, 28-Nov-37 01:45:46 GMT;path=/;";
+}
+</script>
+
+<div id="main" align="left">
+
+<!--[if IE]>
+<script>
+var objmain = document.getElementById("main");
+function updatesize(){ var bodyw = window.document.body.offsetWidth; if(bodyw <= 790) objmain.style.width="772px"; else if(bodyw >= 1016) objmain.style.width="996px"; else objmain.style.width="100%"; }
+updatesize(); window.onresize = updatesize;
+</script>
+<![endif]-->
+
+	<div id="header">
+
+	<div class="lc"><div class="rc"></div></div>
+<div class="tit"><a href="http://hi.baidu.com/liyuan90315" class="titlink" title="liyuan90315的空间 http://hi.baidu.com/liyuan90315">Knowledger</a></div>
+<div class="desc"></div>
+<div id="tabline">&nbsp;</div>
+
+	<div id="tab"><a href="http://hi.baidu.com/liyuan90315">主页</a><a href="http://hi.baidu.com/liyuan90315/blog" class="on">博客</a><a href="http://hi.baidu.com/liyuan90315/album">相册</a><span>|</span><a href="http://hi.baidu.com/liyuan90315/profile">个人档案</a>
+
+	<span>|</span><a href="http://hi.baidu.com/liyuan90315/friends">好友</a>
+
+
+
+
+
+
+
+	</div>
+
+</div>
+
+
+
+<div class="stage">
+
+<div class="stagepad">
+
+<div style="width:100%">
+
+
+
+
+
+	
+
+
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="modth">
+
+	<tbody><tr><td class="modtl" width="7">&nbsp;</td>
+
+	<td class="modtc" nowrap=""><div class="modhead"><span class="modtit">查看文章</span></div></td>
+
+	<td class="modtc" nowrap="" align="right">
+
+	<td class="modtr" width="7">&nbsp;</td>
+
+	</tr></tbody></table>
+
+
+
+<div id="m_blog" class="modbox" style="overflow-x:hidden;">
+
+<div class="tit">
+
+计算阶乘n!末尾所含0的个数</div>
+
+<div class="date">2008-12-23  12:39</div>
+
+
+
+
+<table style="table-layout:fixed;width:100%"><tbody><tr><td><div id="blog_text" class="cnt"><p><font color="#ffa500">问题描述<br>
+</font>给定参数n（n为正整数），请计算n的阶乘n！末尾所含有“0”的个数。<br>
+例如，5！=120，其末尾所含有的“0”的个数为1；10！= 3628800，其末尾所含有的“0”的个数为2；20！= 2432902008176640000，其末尾所含有的“0”的个数为4。<br>
+<br>
+<font color="#ffa500">计算公式</font><br>
+这里先给出其计算公式，后面给出推导过程。<br>
+令f(x)表示正整数x末尾所含有的“0”的个数，则有：<br>
+&nbsp;&nbsp;  当0 &lt; n &lt; 5时，f(n!) = 0;<br>
+&nbsp;&nbsp;  当n &gt;= 5时，f(n!) = k + f(k!), 其中 k = n / 5（取整）。<br>
+<br>
+<font color="#ffa500">问题分析</font><br>
+显然，对于阶乘这个大数，我们不可能将其结果计算出来，再统计其末尾所含有的“0”的个数。所以必须从其数字特征进行分析。下面我们从因式分解的角度切入分析。<br>
+<br>
+我们先考虑一般的情形。对于任意一个正整数，若对其进行因式分解，那么其末尾的“0”必可以分解为2*5。在这里，每一个“0”必然和一个因子“5”相对应。但请注意，一个数的因式分解中因子“5”不一定对应着一个“0”，因为还需要一个因子“2”，才能实现其一一对应。<br>
+<br>
+我们再回到原先的问题。这里先给出一个结论：<br>
+结论1： 对于n的阶乘n！，其因式分解中，如果存在一个因子“5”，那么它必然对应着n！末尾的一个“0”。<br>
+下面对这个结论进行证明：<br>
+(1)当n &lt; 5时, 结论显然成立。<br>
+(2)当n &gt;= 5时，令n！= [5k * 5(k-1) * ... * 10 * 5] * a，其中 n = 5k + r (0 &lt;= r &lt;= 4)，a是一个不含因子“5”的整数。<br>
+对于序列5k, 5(k-1), ..., 10, 5中每一个数5i(1 &lt;= i &lt;= k)，都含有因子“5”，并且在区间(5(i-1),5i)(1 &lt;= i &lt;= k)内存在偶数，也就是说，a中存在一个因子“2”与5i相对应。即，这里的k个因子“5”与n！末尾的k个“0”一一对应。<br>
+我们进一步把n！表示为：n！= 5^k * k! * a（公式1），其中5^k表示5的k次方。很容易利用(1)和迭代法，得出结论1。<br>
+<br>
+上面证明了n的阶乘n！末尾的“0”与n！的因式分解中的因子“5”是一一对应的。也就是说，计算n的阶乘n！末尾的“0”的个数，可以转换为计算其因式分解中“5”的个数。<br>
+<br>
+令f(x)表示正整数x末尾所含有的“0”的个数, g(x)表示正整数x的因式分解中因子“5”的个数，则利用上面的的结论1和公式1有：<br>
+&nbsp;&nbsp;  f(n!) = g(n!) = g(5^k * k! * a) = k + g(k!) = k + f(k!)<br>
+所以，最终的计算公式为：<br>
+当0 &lt; n &lt; 5时，f(n!) = 0;<br>
+当n &gt;= 5时，f(n!) = k + f(k!), 其中 k = n / 5（取整）。<br>
+<br>
+<font color="#ffa500">计算举例</font><br>
+f(5!) = 1 + f(1!) = 1<br>
+f(10!) = 2 + f(2!) = 2<br>
+f(20!) = 4 + f(4!) = 4<br>
+f(100!) = 20 + f(20!) = 20 + 4 + f(4!) = 24<br>
+f(1000!) = 200 + f(200!) = 200 + 40 + f(40!) = 240 + 8 + f(8!) = 248 + 1 + f(1) =249<br>
+...</p>
+<p> </p>
+<p> </p>
+<p>2008! = 864364185767107020525555785744913866947705402855234129109030596928161811 <br>
+30349289654529502697509195384231172407798480676210473050254653691699885279619245 <br>
+95282259401273439081245874835327256481869830604046872668665535525324052381293501 <br>
+57966948127554609294966898648555268016524062496297607783419200275359981112108455 <br>
+85964312245693430012395000661489449928161006308033871728370145842246861435772708 <br>
+33503862200508826573800166011068653824559144279224109587122851968383695522166659 <br>
+10823010007114025783166152459125033034810634843601942911554750952514795325689852 <br>
+01843715592475296563523965687904014012277135693563336958691836319444117997054946 <br>
+85023371202943497849573399009022642650218658920509219870642049135908426617170399 <br>
+68938029081887572750037054519668987544266265405040228775913400135373608163926252 <br>
+85550205556674469154535014420626307845473997558226565852647783174137467009137094 <br>
+59339385751374862604274354598201169640634514444139944655102100737742939802758802 <br>
+50784149026189258771741091787136165858838131274412158177445379848553987227287318 <br>
+35030978830425196401370289991477269886035396799071879482695065001236211551469108 <br>
+13025614597551287814406443483433437308671059084571075135822060243761817058914294 <br>
+76882833817846566398722449352555668276644605084799757015795294347576420656789473 <br>
+95386984845744346685582774364492480219196423141762909953312579045507499275924487 <br>
+17204785068889390480549695110671357342620580497478727596286312261464984651347795 <br>
+65827669569067730492908605207384595171362920907706805939480105059960681023739479 <br>
+36258241209566250186095013872603462999109326053258345530862617052441013778446303 <br>
+28793699179176374298473936138092462327728033178830353836075930434485894125748801 <br>
+90306053365897329505756043428179920712197945273706408611232383017307444018485459 <br>
+40145960901606555558946416648902885833103387278242425171929954205560372493987394 <br>
+26364459429823504618527663055342825321495727192596238131050111409064252459339972 <br>
+04272802648402546000121760863277457591641301166924298806452499256745265725345061 <br>
+35896743526501234409624632090110527982616742323819443555752358238517825021925542 <br>
+07329013332066802048771787062030658895164543415003624617078166405481328213194716 <br>
+83115509678587192166651607674890749711987448761069193366805844736137727178559919 <br>
+69058562481629694565905839682691742925454042012086650317697125503855691538838461 <br>
+03576448134780323963509879547317751290661148443126308299449519549837786372160989 <br>
+04441275035722077001533915518501363056080352226142913805840505370561197494768160 <br>
+87800085245882225242031698925903699326408071302699879908568007093205806603442944 <br>
+96186197305445225936764110875312864755366210177725244840127559088424076199528718 <br>
+19633398499561006182240185690626746755297099234319071949906381168017171986012853 <br>
+38686641138617095674661597070763512310914724726885367302158783017861151308558718 <br>
+64204762656720287905955132053380798470390079176098911594105563661565798237382533 <br>
+52146953445138767397782041126496738798636606634442630262261696513417946933965164 <br>
+54208886956564801050963513875083227186461611789287959865051487896052042016184267 <br>
+43416179555547857326232973016802540848310081831069927926917863779098655803317629 <br>
+31015270317184605723983309184499442459302097239277586929716173938946244591373719 <br>
+62064966418709908292002436251528962853185187569850000279031611239980870151403162 <br>
+68999938323527012195240924499877946136983459145255013025426891680326054850873327 <br>
+80350825308762888796876458287695397527715477006159223525722034913417217412563626 <br>
+07822359501863305940628945023919326327437252032293952678761393051391203518166386 <br>
+00619944426312868930887466078693260266706883214852619802473893839624677974984490 <br>
+48536486309775220630138651944174680437865013560342519229140167073572046207641535 <br>
+68601821272169208957251576372861357091345967702160527466166478955380088730675601 <br>
+45920520663426978607723535061523576062603932595002590772916409505831439681485614 <br>
+82349363604163330329889444061601312369122943826939962160393707535607018615956978 <br>
+79975938657188335301827507508063645396334348681402713815806614829629274666329563 <br>
+01306147995413505497351542603693650167796159236715536802438145089125132541047720 <br>
+53963270177752564919466470757207792563425677319285091229123330445251057126988801 <br>
+92889400166721123125103407568627276005753706590784666942672410697818381317060772 <br>
+52316452257163591310887953106600354473516249471302120440926066073985272690907695 <br>
+89105280047448566016254494912513629027564171920301337782184708332062997016401761 <br>
+32133643851413170004909388617805775572654075230351717777713864837969537814491762 <br>
+74130751100889633055140316767928472059082681796963653691037727121914182766830576 <br>
+31715015548207215809341517152427724526962705788814625638884232527066664257545092 <br>
+63011477580486648310418050276983946893813040436904052974195883249053853674931443 <br>
+28955568614817793362584467811936189210507222432246380775128285421761016768314613 <br>
+66851696059162047807583199523000843218715449137876797926691962136892186412560621 <br>
+63432971676954007227178698431081344335589082515718828012892951669544226914300286 <br>
+83831764580081721367238692903135428898911229632240920378516525484256691646951322 <br>
+31381343781375187744079090238006092312682758648276401242138945390549531008004699 <br>
+52255731863332460263060949662017734372213076687369778402830809043730023746066167 <br>
+83652310114970707230303313280053798864118475140009150456037527582146560000000000 <br>
+00000000000000000000000000000000000000000000000000000000000000000000000000000000 <br>
+00000000000000000000000000000000000000000000000000000000000000000000000000000000 <br>
+00000000000000000000000000000000000000000000000000000000000000000000000000000000 <br>
+00000000000000000000000000000000000000000000000000000000000000000000000000000000 <br>
+00000000000000000000000000000000000000000000000000000000000000000000000000000000 <br>
+00000000000000000000000000000000000000000000000000000000000000000000000000000000 <br>
+0000000000</p>
+<p> </p>
+<p>C++：</p>
+<p>#include &lt;iostream&gt;<br>
+using namespace std;<br>
+int countzero(int st,int dt)<br>
+{<br>
+int count=0;<br>
+int i;<br>
+for (i=st;i&lt;=dt;++i)<br>
+{<br>
+int temp=i;<br>
+while (temp%5==0)<br>
+{<br>
+++count;<br>
+temp/=5;<br>
+}<br>
+}<br>
+return count;<br>
+}<br>
+int main()<br>
+{<br>
+int n;<br>
+cout&lt;&lt;"请输入n"&lt;&lt;endl; <br>
+cin&gt;&gt;n;<br>
+cout&lt;&lt;countzero(1,n)&lt;&lt;endl;<br>
+system("PAUSE");<br>
+return 0;<br>
+}</p></div></td></tr></tbody></table>
+
+<br>
+
+<div class="opt">
+
+<a href="http://hi.baidu.com/liyuan90315/blog/category/Math" title="查看该分类中所有文章">类别：Math</a>
+
+| <a href="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html#" onclick="addToShare(); return false;" target="_blank"><img src="./计算阶乘n!末尾所含0的个数_files/share.gif" border="0" align="absbottom"></a>
+
+
+
+
+	
+
+	| <a title="将此文章添加到百度搜藏" href="http://cang.baidu.com/do/add" onclick="return addToFavor();" target="_blank">添加到搜藏</a>
+
+	
+    | <a title="将此文章分享到i贴吧" href="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html#" onclick="addToiTieba(); return false;" target="_blank">分享到i贴吧</a>
+
+
+    | 浏览(<span id="result">239</span>)
+
+	| <a href="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html#send">评论</a>&nbsp;(1)
+
+
+
+<script language="javascript">
+
+/*<![CDATA[*/
+
+var pre = [true,'解决a4切换到系统输入法时会自动重启的最新解决办法，不用重启', '解决a4切换到系统输入法时会自动...','/liyuan90315/blog/item/39ae1f641c8712f7f6365477.html'];
+
+var post = [true,'N82格机后java文件删除失败的解决方法','N82格机后java文件删除失败的解...', '/liyuan90315/blog/item/e76e602a393be29c033bf63f.html'];
+
+if(pre[0] || post[0]){
+
+	document.write('<div style="height:5px;line-height:5px;">&nbsp;</div><div id="in_nav">');
+
+	if(pre[0]){
+
+		document.write('上一篇：<a href="' + pre[3] + '" title="' + pre[1] + '">' +  pre[2] + '</a>&nbsp;&nbsp;&nbsp;&nbsp;');
+
+	}
+
+	if(post[0]){
+
+		document.write('下一篇：<a href="' + post[3] + '" title="' + post[1] + '">' +  post[2] + '</a>');
+
+	}
+
+	document.write('</div>');
+
+}
+
+/*]]>*/
+
+</script><div style="height:5px;line-height:5px;">&nbsp;</div><div id="in_nav">上一篇：<a href="http://hi.baidu.com/liyuan90315/blog/item/39ae1f641c8712f7f6365477.html" title="解决a4切换到系统输入法时会自动重启的最新解决办法，不用重启">解决a4切换到系统输入法时会自动...</a>&nbsp;&nbsp;&nbsp;&nbsp;下一篇：<a href="http://hi.baidu.com/liyuan90315/blog/item/e76e602a393be29c033bf63f.html" title="N82格机后java文件删除失败的解决方法">N82格机后java文件删除失败的解...</a></div>
+
+
+
+</div>
+
+
+
+<div class="line">&nbsp;</div>
+
+
+
+
+
+
+
+    
+<style type="text/css">
+
+/*<![CDATA[*/
+
+#in_related_doc a { text-decoration:none; }
+
+/*]]>*/
+
+</style>
+
+<div id="in_related_doc"><div class="tit">相关文章：</div><table cellpadding="0" cellspacing="3" border="0"><tbody><tr><td width="15px"><a style="font-size:25px">&#8226;</a></td><td><a href="http://hi.baidu.com/chenghui2050/blog/item/d29ec70f112a4cebaa64576d.html" target="_blank" title="n阶乘的末尾的零的个数">n阶乘的末尾的零的个数</a>　　　　　　　　　</td><td width="15px"><a style="font-size:25px">&#8226;</a></td><td><a href="http://hi.baidu.com/sifx_xu/blog/item/54a7d54cb63d3bffd72afcfe.html" target="_blank" title="阶乘末尾非零数求和">阶乘末尾非零数求和</a></td></tr><tr><td width="15px"><a style="font-size:25px">&#8226;</a></td><td><a href="http://hi.baidu.com/chenghui2050/blog/item/faba2410917c77fac3ce79c2.html" target="_blank" title="计算阶乘末尾第一个非0数字">计算阶乘末尾第一个非0数字</a>　　　　　　　　　</td><td width="15px"><a style="font-size:25px">&#8226;</a></td><td><a href="http://hi.baidu.com/%CA%C0%BD%E7__%CE%D2%B5%C4/blog/item/833ec4ebd98f87d5d539c9b1.html" target="_blank" title="【阶乘末尾非零数求和】">【阶乘末尾非零数求和】</a></td></tr></tbody></table></div><div class="line">&nbsp;</div>
+
+<script language="javascript" type="text/javascript">
+
+/*<![CDATA[*/
+
+function HI_MOD_IN_RELATED_DOC_CALLBACK(arg){
+
+    if(arg.length <= 1) return false;
+
+    var hasMore = arg[0];
+
+    var D=function(A,B){A[A.length]=B;}
+
+    if(arg.length % 2 == 0) D(arg, ["","","",""]);
+
+
+
+    var html = ['<div id="in_related_doc"><div class="tit">相关文章：</div>'];
+
+    D(html, '<table cellpadding="0" cellspacing="3" border="0">');
+
+    for(var i = 1, j = arg.length; i < j; i += 2){
+
+        D(html, '<tr>');
+
+        D(html, '<td width="15px"><a style="font-size:25px" >&#8226;</a></td><td><a href="http://hi.baidu.com/' + arg[i][3] + '/blog/item/' + arg[i][2] + '.html" target="_blank" title="' + arg[i][0] + '">' + arg[i][1] + '</a>');
+
+        D(html, new Array(10).join('\u3000'));
+
+        D(html, '</td>');
+
+        if(arg[i + 1][0] != "")
+
+            D(html, '<td width="15px"><a style="font-size:25px" >&#8226;</a></td><td><a href="http://hi.baidu.com/' + arg[i + 1][3] + '/blog/item/' + arg[i + 1][2] + '.html" target="_blank" title="' + arg[i + 1][0] + '">' + arg[i + 1][1] + '</a></td>');
+
+        else
+
+            D(html, '<td>&nbsp;</td><td>&nbsp;</td>');
+
+        D(html, '</tr>');
+
+    }
+
+    if(hasMore) D(html, '<tr><td colspan="4"><a target="_blank" href="/sys/search?pageno=1&type=7&sort=1&word=%BC%C6%CB%E3%BD%D7%B3%CBn%21%C4%A9%CE%B2%CB%F9%BA%AC0%B5%C4%B8%F6%CA%FD&item=4e1720ee44404f2e2df534cf">更多&gt;&gt;</a></td></tr>');
+
+    D(html, '</table></div><div class="line">&nbsp;</div>');
+
+
+
+    var div = document.getElementById('in_related_tmp');
+
+    if(div){
+
+        div.innerHTML = html.join('');
+
+        while(div.firstChild){
+
+            div.parentNode.insertBefore(div.firstChild, div);
+
+        }
+
+        div.parentNode.removeChild(div);
+
+    }
+
+	window.setTimeout("tracker_init('in_related_doc')",100);
+
+}
+
+
+
+if(RelatedDocData == -1){	// not supported xhr
+
+    var script = document.createElement('script');
+
+    script.type = 'text/javascript';
+
+    script.src = '/sys/search?type=8&word=%BC%C6%CB%E3%BD%D7%B3%CBn%21%C4%A9%CE%B2%CB%F9%BA%AC0%B5%C4%B8%F6%CA%FD&item=4e1720ee44404f2e2df534cf&t=' + new Date().getTime();
+
+    document.getElementsByTagName('HEAD')[0].appendChild(script);
+
+}else if(RelatedDocData == null){
+
+	GetAndEval = true;
+
+}else{
+
+	eval(RelatedDocData);
+
+}
+
+
+
+/*]]>*/
+
+</script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="in_reader">
+
+<div class="tit">最近读者：</div>
+
+
+
+<script>
+
+
+
+	var g_spAnnony=true;
+
+
+
+
+
+var g_read=[
+
+
+
+["monkeyking","5f187469616e7175616e7765695400","tianquanwei"],
+
+
+
+["ajarne","0eea616a61726e652d04","ajarne"],
+
+
+
+["sedreaming","4def5365647265616d696e67ff07","Sedreaming"],
+
+
+
+["%D7%CF%CD%AE%CF%F4%D3%C6","85edd7cfcdaecff4d3c65004","紫彤萧悠"],
+
+
+
+["reverseman","a083526576657273654d616ec806","ReverseMan"],
+
+
+
+["%B1%C8%C2%D7%D4%C6","5de2b1c8c2d7d4c61f00","比伦云"],
+
+
+
+["dongyuxi","a195cea2d0a6c9b1cad6d5dfce05","微笑杀手者"],
+
+
+
+["%BF%D5%CB%BC%B0%AE","b45fbfd5cbbcb0aea607","空思爱"],
+
+
+
+{}
+
+];
+
+g_read.length=g_read.length-1;
+
+
+
+var _rh1="";
+
+var _rh2="";
+
+
+
+function wrreader(){
+
+	_rh1 += '<table width="100%" ><tr>';
+
+	_rh2+='<tr>';
+
+	if(g_spAnnony){
+
+		_rh1+='<td align="center" width="10%" ><img border="0" width="55" height="55" src="http://img.baidu.com/hi/img/portraitn.jpg"></td>';
+
+		_rh2+='<td>&nbsp;</td>';
+
+		if(g_read.length>0){
+
+			_rh1+='<td align="left" width="12%">';
+
+		}else{
+
+			_rh1+='<td align="left" width="100%">';
+
+		}
+
+		_rh1+='<a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u='+myref+'" target="_self" onclick="BdUtil.relogin(); return false;">登录</a>后，您就出现在这里。</td>';
+
+		_rh2+='<td>&nbsp;</td>'
+
+	}
+
+	if(g_read.length==0){
+
+		if(!g_spAnnony){
+
+			_rh1+='<td align=left width="100%">最近还没有登录用户看过这篇文章……</td>';
+
+			_rh2+='<td>&nbsp;</td>';
+
+		}
+
+	}else{
+
+		for(i=0,len=g_read.length;i<len;i++){
+
+			_rh1+='<td align="center" valign="bottom" width="10%" class="user"><a href="/'+g_read[i][0]+'" target="_blank" class="ucard" pid='+g_read[i][1]+'><img border="0" src="http://himg.baidu.com/sys/portraitn/item/'+g_read[i][1]+'.jpg"></a></td>';
+
+			_rh2+='<td align="center" valign="top" class="user"><a href="/'+g_read[i][0]+'" target="_blank" class="ucard" pid="'+g_read[i][1]+'">'+g_read[i][2]+'</a></td>';
+
+		}
+
+	}
+
+	_rh1+='<td width="100%"></td></tr>';
+
+	_rh2+='<td></td></tr></table>';
+
+	document.write(_rh1+_rh2);
+
+}
+
+
+
+wrreader();
+
+</script><table width="100%"><tbody><tr><td align="center" width="10%"><img border="0" width="55" height="55" src="./计算阶乘n!末尾所含0的个数_files/portraitn.jpg"></td><td align="left" width="12%"><a href="https://passport.baidu.com/?login&tpl=sp&tpl_reg=sp&u=http%3A%2F%2Fhi.baidu.com%2Fliyuan90315%2Fblog%2Fitem%2F4e1720ee44404f2e2df534cf%252Ehtml" target="_self" onclick="BdUtil.relogin(); return false;">登录</a>后，您就出现在这里。</td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/monkeyking" target="_blank" class="ucard" pid="5f187469616e7175616e7765695400"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/5f187469616e7175616e7765695400.jpg"></a></td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/ajarne" target="_blank" class="ucard" pid="0eea616a61726e652d04"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/0eea616a61726e652d04.jpg"></a></td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/sedreaming" target="_blank" class="ucard" pid="4def5365647265616d696e67ff07"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/4def5365647265616d696e67ff07.jpg"></a></td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/%D7%CF%CD%AE%CF%F4%D3%C6" target="_blank" class="ucard" pid="85edd7cfcdaecff4d3c65004"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/85edd7cfcdaecff4d3c65004.jpg"></a></td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/reverseman" target="_blank" class="ucard" pid="a083526576657273654d616ec806"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/a083526576657273654d616ec806.jpg"></a></td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/%B1%C8%C2%D7%D4%C6" target="_blank" class="ucard" pid="5de2b1c8c2d7d4c61f00"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/5de2b1c8c2d7d4c61f00.jpg"></a></td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/dongyuxi" target="_blank" class="ucard" pid="a195cea2d0a6c9b1cad6d5dfce05"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/a195cea2d0a6c9b1cad6d5dfce05.jpg"></a></td><td align="center" valign="bottom" width="10%" class="user"><a href="http://hi.baidu.com/%BF%D5%CB%BC%B0%AE" target="_blank" class="ucard" pid="b45fbfd5cbbcb0aea607"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/b45fbfd5cbbcb0aea607.jpg"></a></td><td width="100%"></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/monkeyking" target="_blank" class="ucard" pid="5f187469616e7175616e7765695400">tianquanwei</a></td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/ajarne" target="_blank" class="ucard" pid="0eea616a61726e652d04">ajarne</a></td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/sedreaming" target="_blank" class="ucard" pid="4def5365647265616d696e67ff07">Sedreaming</a></td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/%D7%CF%CD%AE%CF%F4%D3%C6" target="_blank" class="ucard" pid="85edd7cfcdaecff4d3c65004">紫彤萧悠</a></td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/reverseman" target="_blank" class="ucard" pid="a083526576657273654d616ec806">ReverseMan</a></td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/%B1%C8%C2%D7%D4%C6" target="_blank" class="ucard" pid="5de2b1c8c2d7d4c61f00">比伦云</a></td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/dongyuxi" target="_blank" class="ucard" pid="a195cea2d0a6c9b1cad6d5dfce05">微笑杀手者</a></td><td align="center" valign="top" class="user"><a href="http://hi.baidu.com/%BF%D5%CB%BC%B0%AE" target="_blank" class="ucard" pid="b45fbfd5cbbcb0aea607">空思爱</a></td><td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+<div class="line">&nbsp;</div>
+
+
+
+
+
+
+
+<script language="JavaScript">
+
+allkey=allkey+"55686007f7b952cd7b8947ec_4e1720ee44404f2e2df534cf_";
+
+</script>
+
+
+
+<div id="in_comment">
+
+<a name="comment"></a>
+
+<div class="tit">网友评论：</div>
+
+<script>
+
+function writecmt(type,id,cmtname,cmturl,portraitId){
+
+	var html1="";
+
+	cmturl=cmturl.replace("https://","http://");
+
+	if(type==1){
+
+			html1="<a href='"+cmturl+"' target='_blank' class='ucard' pid="+portraitId+"><img  border='0' src='http://himg.baidu.com/sys/portraitn/item/"+portraitId+".jpg'><br>"+cmtname+"</a>";
+
+	}else{
+
+		if(cmtname=="" || cmtname=="匿名网友"){
+
+			if(cmturl==""){
+
+				html1="<a>匿名网友</a>";
+
+			}else{
+
+				html1="<a href='"+cmturl+"' target='_blank' title='"+cmturl+"'>"+cmtname+"</a>";
+
+			}
+
+		}else{
+
+			if(cmturl==""){
+
+				html1="<div class='f14' style='display:inline'>网友:<a>"+cmtname+"</a></div>";
+
+			}else{
+
+				html1="<div class='f14' style='display:inline'>网友:<a href='"+cmturl+"' target='_blank' title='"+cmturl+"'>"+cmtname+"</a></div>";
+
+			}
+
+		}
+
+	}
+
+	document.write(html1);
+
+}
+
+function filterCmtContent(n){
+
+	if(!BdBrowser.isIE){
+
+		var defaultfilter1='<span style="filter:glow(color=#000000,strength=2);height:0px;color:#000000">';
+
+		var defaultfilter2='<span style="height: 0px; color: rgb(0, 0, 0);">';
+
+		var commentDiv=document.getElementById(n);
+
+		var divs=commentDiv.getElementsByTagName('div');
+
+		var d,tmp;
+
+		for( var i=0,len=divs.length;i<len;i++){
+
+			d=divs[i];
+
+			if(d.getAttribute('name')=='cmtcontent'){
+
+				tmp=d.innerHTML;
+
+				tmp=tmp.replace(/<span style="filter:glow\(color=#([0-9a-z]{3,6}),strength=2\);height:0px;color:#([0-9a-z]{3,6})">/ig,defaultfilter1);
+
+				tmp=tmp.replace('<span style="height: 0px; color: rgb(255, 255, 255);">',defaultfilter2);
+
+				d.innerHTML=tmp;
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+</script>
+
+
+
+<script type="text/javascript">
+g_cmtorInfo["dd356368656e67736579671905"] = "chengseyg";
+</script>
+<a name="2b13812a3bbbe7305243c151" rename="chengseyg" repid="dd356368656e67736579671905"></a>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="item" style="table-layout:fixed;word-wrap:break-word;overflow:hidden;" ;="">
+<tbody><tr>
+<td valign="top" class="index" width="5%">1</td>
+<td align="center" valign="top" width="10%">
+<div class="user" style="overflow:hidden;">
+
+<script>
+writecmt(1,"2b13812a3bbbe7305243c151","chengseyg","http://hi.baidu.com/chengseyg","dd356368656e67736579671905");
+</script><a href="http://hi.baidu.com/chengseyg" target="_blank" class="ucard" pid="dd356368656e67736579671905"><img border="0" src="./计算阶乘n!末尾所含0的个数_files/dd356368656e67736579671905.jpg"><br>chengseyg</a>
+
+</div>
+</td>
+<td class="cnt" style="padding-left:20px;"><span class="date">2008-12-23  23:42
+| <a href="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html#" onclick="BdUtil.relogin();return false;">回复</a>
+
+
+</span><div class="desc" style="overflow:hidden;word-break:normal;" name="cmtcontent">
+	那个……我被“计算举例”震撼到了！！
+</div></td></tr>
+
+</tbody></table>
+<div class="line">&nbsp;</div>
+
+
+<div id="page"></div>
+
+
+
+</div>
+
+<script>filterCmtContent('in_comment');</script>
+
+
+
+
+
+
+<div id="in_send">
+
+<a name="send"></a>
+
+<form name="form1" id="popFormSubmit" action="http://hi.baidu.com/liyuan90315/commit" method="post" onsubmit="return checkcmtform()">
+
+<input type="hidden" name="bdstoken" value="59444466ac37cfb63325395df15f2f63">
+
+<input type="hidden" name="ct" value="8">
+
+<input type="hidden" name="cm" value="1">
+
+<input type="hidden" name="spBlogID" value="4e1720ee44404f2e2df534cf">
+
+<input type="hidden" name="spRefURL" id="spRefURL" value="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html">
+
+<script>
+
+    document.getElementById("spRefURL").value = window.location.href;
+
+</script>
+
+<div class="tit">发表评论：</div>
+
+<table width="620" border="0" cellspacing="5" cellpadding="0">
+
+
+
+
+<tbody><tr id="2_err" style="display:none">
+
+<td>&nbsp;</td>
+
+<td><div class="error" id="2_err_con"></div></td>
+
+</tr>
+
+
+
+<tr>
+
+<td valign="top" class="f14" id="reTitle">内　容：</td>
+
+<td>
+	<textarea name="spBlogCmtText" id="spBlogCmtText" style="width:520px;height:155px" tabindex="3" onfocus="hidErr(3);" onclick="BdUtil.relogin(); return false;"></textarea>
+</td>
+
+</tr>
+
+<tr id="3_err" style="display:none">
+
+<td>&nbsp;</td>
+
+<td><div class="error" id="3_err_con"></div></td>
+
+</tr>
+ 
+
+
+
+<tr>
+
+<td valign="top" class="f14">&nbsp;</td>
+
+<td valign="top" class="f14"><input id="btn_ok" name="btn_ok" type="submit" onclick="BdUtil.relogin(); return false;" value="发表评论" tabindex="5">&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html#" id="cancleReLink" onclick="canclereply(); return false;" style="display:none; font-size:12px;color:#666;">取消回复</a></td>
+
+</tr>
+
+</tbody></table>
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+<br>
+
+</div>
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="8">
+
+<tbody><tr><td class="modbl" width="7">&nbsp;</td>
+
+<td class="modbc">&nbsp;</td>
+
+<td class="modbr" width="7">&nbsp;</td>
+
+</tr></tbody></table>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+<script src="./计算阶乘n!末尾所含0的个数_files/swf.js"></script>
+<script src="./计算阶乘n!末尾所含0的个数_files/fck_music_auto.js"></script>
+
+<script src="./计算阶乘n!末尾所含0的个数_files/bgmusic.js" language="javascript"></script>
+<script language="javascript">
+function initBlogTextForFCK(){
+	//fck init music
+	if(window.Node){Node.prototype.replaceNode=function(Node){this.parentNode.replaceChild(Node,this);}}
+	var imgBox=document.getElementsByName('musicName');
+	var isAutoPlay=true;
+	for(var i=0,n=imgBox.length;i<n;i++){
+		var img=imgBox[i];
+		if(img.getAttribute('rel')){
+			var musicSrc=img.getAttribute('rel');
+			var musicDiv = document.createElement("SPAN");
+			var tmp=musicSrc.substr (musicSrc.indexOf('#')+1, 1);
+			var tmpAutoPlay=(tmp=='1');
+			if(isAutoPlay&&tmpAutoPlay){
+				isAutoPlay=false;
+				tmpAutoPlay=true;
+			}else{
+				tmpAutoPlay=false;
+			}
+			var shtml=creatbgmusic(musicSrc.substr(0,musicSrc.indexOf('#')).replace(/[\s><()'"]+/g,''),1,true,false,tmpAutoPlay,tmpAutoPlay,'FckMusicHelper');
+			shtml=shtml.replace('width=100%','width=200').replace('width="100%"','width=200 height=45');			img.replaceNode(musicDiv);
+			musicDiv.innerHTML=shtml;
+			i--;n--;
+		}
+	}
+		//fck init vote
+	!function(){
+		var vote = document.getElementsByName('FCK_VOTE');
+		for(var i=0,len=vote.length,item,rel=0,cdiv;i<len;i++){
+			item = vote[0];
+			rel = item.getAttribute('rel')|0;
+			if(rel){
+				cdiv = document.createElement('span');
+				item.parentNode.replaceChild(cdiv,item);
+				baidu.swf.create({
+					"id": "VOTE_FLASH_"+i,
+					"width" : "585",
+					"height": "100",
+					"ver"   : "9.0.0",
+					"wmode" : document.all ? "opaque" : "window",
+					"allowscriptaccess" : "always",
+					"url"   : "http://static.hi.baidu.com/apps/appvote/spaceVote.swf?vote_id="+rel
+				},cdiv)
+
+			}
+		}
+	}()
+	//document.getElementById('blog_text').style.display='';
+}
+
+</script>
+
+<script language="javascript">
+
+<!--
+
+var hstr="/liyuan90315/brwstat?key1=1";
+
+document.write("<script src='"+hstr+"&key2="+allkey+"'><\/script>");
+
+//-->
+
+</script><script src="./计算阶乘n!末尾所含0的个数_files/brwstat"></script>
+
+<br><center><div id="ft">&#169;2010 Baidu</div></center>
+
+
+
+<script>
+
+if(document.getElementById("m_blog"))
+
+{
+
+	var imgarray = document.getElementById("m_blog").getElementsByTagName('img');
+
+	var imgw = document.getElementById("m_blog").offsetWidth;
+
+	imgw =imgw-40;
+
+    for(var i=0; i<imgarray.length; i++){
+    	if(imgarray[i].className=="blogimg" && imgarray[i].width>=imgw) {
+	    	imgarray[i].width=imgw;
+        }
+    }
+}
+
+
+
+// Fix ff bugs
+
+var blog_text = document.getElementById('blog_text');
+
+blog_text.innerHTML = blog_text.innerHTML.replace(/href\s*=\s*("|')?(\.\.\/\.\.\/)/gi,"href=$1../$2");
+
+
+initBlogTextForFCK();
+gotoreply();
+
+</script>
+
+</center>
+
+
+
+
+
+<img src="./计算阶乘n!末尾所含0的个数_files/c.gif" style="display:none;">
+<iframe id="submitiframe" name="submitiframe" src="./计算阶乘n!末尾所含0的个数_files/blank.htm" style="display:none;"></iframe>
+
+			
+
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+var SP = SP || {};
+if(!SP.mycard){
+    SP.mycard = new (function(){
+        var me = this;
+        var _cancleAction = Session.isDrag;  
+        var _list = [];
+        var _sourceLoaded = false;    
+        me.bind = function (_id){
+            if(_cancleAction){  //abort
+                return;
+            }
+            if(!_sourceLoaded){
+                _list.push(_id);
+            } else {
+                baidu.space.mycard.bind(_id);
+            }
+        }
+        me.init = function (_config){
+            _cancleAction = !!_config.cancle;
+        }
+        me.onSourceLoaded = function (){
+            _sourceLoaded = true;
+            baidu.space.mycard.init({portrait: Session.visitorPortrait});
+            for(var i=0,len=_list.length; i<len; i++){
+                baidu.space.mycard.bind(_list[i]);
+            }
+        }
+    })();
+    baidu.dom.ready(function(){
+        BdAjax.loadCSS('/ui/css/ucard/ucard.css?v=020507100.css');
+        BdAjax.loadJS('/ui/scripts/ucard/ucard.js?v=020507100.js');
+    });
+}
+SP.mycard.bind('m_blog');  
+/*]]>*/
+</script>
+
+
+	<script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/refer.js"></script><div id="xp" style="position: absolute; z-index: 65531 !important; overflow-x: hidden; overflow-y: hidden; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0); border-left-color: rgb(255, 0, 0); left: 1053px; top: 375px; width: 295px; height: 245px; "><div id="xp_content" style="position: absolute; z-index: 1; overflow-x: hidden; overflow-y: hidden; border-left-width: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; width: 295px; height: 245px; left: 0px; top: 0px; "><a id="closeButton" href="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html#" style="position: absolute; z-index: 2; font-size: 0px; line-height: 0px; left: 270px; top: 6px; width: 13px; height: 13px; background-image: url(http://img.baidu.com/hi/img/refer/blogrecommend_hz_003.gif); "></a><a id="switchButton" href="http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf.html#" style="position: absolute; z-index: 2; font-size: 0px; line-height: 0px; left: 250px; top: 6px; width: 13px; height: 13px; background-image: url(http://img.baidu.com/hi/img/refer/blogrecommend_hz_004.gif); "></a><div id="ifm_div" style="height:245px;"><iframe id="xp_content_iframe" src="./计算阶乘n!末尾所含0的个数_files/refer.htm" frameborder="0" scrolling="no" width="100%" height="100%" allowtransparency="true"></iframe></div></div></div>
+	
+<link rel="stylesheet" type="text/css" href="./计算阶乘n!末尾所含0的个数_files/userset.css">
+<link rel="stylesheet" type="text/css" href="./计算阶乘n!末尾所含0的个数_files/widget.css">
+
+<script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/default_user_suit.js"></script>
+
+<script type="text/javascript">
+//页面状态变量
+var Session = Session || {
+    spaceURL: "/liyuan90315",
+    pageURL: "http://hi.baidu.com/liyuan90315/blog/item/4e1720ee44404f2e2df534cf%2Ehtml",    //当前访问的url
+    isHost: "",         // 是否是空间主人
+    userName: "liyuan90315",   // 空间主人用户名
+    userNameEnc:    "liyuan90315", 
+    visitorName:    "",
+    visitorURL: "/index.html",        // 
+    refer: "",
+    spBasicURL:"liyuan90315",
+    spBasicURLEnc:"liyuan90315"
+};
+</script>
+<script src="./计算阶乘n!末尾所含0的个数_files/tangram-1.1.0.js" type="text/javascript"></script>
+<script src="./计算阶乘n!末尾所含0的个数_files/render.js" type="text/javascript"></script>
+<script type="text/javascript">
+baidu.dom.ready(function(){
+    if(typeof spBeautifyConfigData != 'undefined'){
+        var _installList = spBeautifyConfigData.list;
+    } else {
+        spBeautifyConfigData = {};
+        _installList = [];
+    }
+    spBeautifyConfigData.currentDate  = Math.round((new Date('2010/05/31')).getTime() / 1000);    
+    BeautifyWidget.init({timeStamp: spBeautifyConfigData.currentDate, env: 'sys'});
+    BeautifyWidget.render(_installList);
+});
+</script>
+
+
+
+<script type="text/javascript" src="./计算阶乘n!末尾所含0的个数_files/auto.js"></script>
+<script>try{SCD.init("")}catch(e){}</script>
+
+
+
+
+</body></html>

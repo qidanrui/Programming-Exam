@@ -1,0 +1,18 @@
+1337170592253	Rename package 'cn.edu.xmu.scrumspark.model.entity'
+1337170611307	Delete elements
+1337170618725	Delete element
+1337170643619	Rename type 'Backlog'
+1337170805332	Encapsulate field 'password'
+1337171036800	Copy compilation unit
+1337171101733	Encapsulate field 'number'
+1337172829175	Encapsulate field 'institude'
+1337172832860	Encapsulate field 'major'
+1337172958916	Encapsulate field 'nativePlace'
+1337173298145	Encapsulate field 'identityCard'
+1337173873557	Copy compilation unit
+1337174890161	Encapsulate field 'accountName'
+1337175751278	Encapsulate field 'password'
+1337175757987	Delete element
+1337181457951	Copy compilation unit
+1337181547837	Encapsulate field 'courseNum'
+1337181553283	Encapsulate field 'studentNumber'

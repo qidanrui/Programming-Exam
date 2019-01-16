@@ -1,0 +1,60 @@
+package cn.edu.xmu.cxj;
+
+import java.util.List;
+
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+
+public class Hello
+{ 
+	@DatabaseField(generatedId = true)//声明ID为数据库字段,ID自增长
+	int id; 
+	@DatabaseField 
+	String word; 
+	
+	/**
+	 * @return the personList
+	 */
+	public List<Person> getPersonList() { 
+		
+		return personList;
+	}
+	/**
+	 * @param personList the personList to set
+	 */
+	public void setPersonList(List<Person> personList) {
+		this.personList = personList;
+	}
+	/**
+	 * @return the persons
+	 */
+	public ForeignCollection<Person> getPersons() {
+		return persons;
+	}
+	/**
+	 * @param persons the persons to set
+	 */
+	public void setPersons(ForeignCollection<Person> persons) {
+		this.persons = persons;
+	}
+	public String getWord() {
+		return word;
+	}
+	public void setWord(String word) {
+		this.word = word;
+	}
+	public Hello() {} 
+	public Hello(String word)
+	{
+		this.word=word;
+	}
+	@Override 
+	public String toString() 
+	{   
+		StringBuilder sb = new StringBuilder();  
+		sb.append("id=").append(id);  
+		sb.append(" ,word=").append(word);  
+		return sb.toString(); }
+
+	} 

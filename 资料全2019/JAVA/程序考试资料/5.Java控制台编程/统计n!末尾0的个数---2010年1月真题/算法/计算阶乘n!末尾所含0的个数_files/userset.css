@@ -1,0 +1,341 @@
+#start {margin:0;padding:0;height:301px;width:100%;min-width:996px;}
+#start a img{border:0;}
+/* #start input{border:0!important;} */
+#start a:hover,#start a:active {color:#f6843c;}
+#start a{color:#233900;font:200 12px/16px arail;}
+#start h2{margin:0;padding:0;padding-left:12px;}
+#start .tab_start_cnt{padding:0px 0px 10px 0px;border:1px solid #a0ce67;background-color:#fff;}
+#start h2{background:#edf6cb;font:600 12px/22px arial;color:#4b5f29;line-height:25px;border-bottom:1px solid #a0ce67;text-align:left;}
+#start #tab_layout .tab_start_cnt{padding-bottom:8px;}
+#start #tab_mod .tab_start_cnt{padding-bottom:3px;}
+#start #tab_tpl .tab_start_cnt{padding-bottom:4px;}
+#start #tab_tpl #tab_tpl_cnt1 .tab_start_cnt{padding-bottom:11px!important;padding-bottom:6px;}
+#start div{zoom:normal;zoom:normal !important;}
+#start {position:relative;z-index:65531;width:100%;}
+#start #tab_h{height:33px;position:relative;background:url(http://img.baidu.com/hi/img/userset/bg-tab.gif) repeat-x;overflow:hidden;}
+#start #tab_h #tab_h_tip_new{width:20px;height:13px;position:absolute;left:238px;top:5px;font:Arial 0/0;background:url(http://img.baidu.com/hi/img/userset/icons-tip.gif) no-repeat;}
+
+/*
+#start #tab_h #t-left{float:left;}
+#start #tab_h #t-left div{float:left;width:79px;height:33px;overflow:hidden;background:url(http://img.baidu.com/hi/img/userset/btn-tab2.gif) no-repeat -210px 0;}
+#start #tab_h #t-left div{cursor:pointer;padding-top:7px;text-decoration:none;color:#000;font:600 14px/24px arial;}
+#start #tab_h #t-left div.on{background-position: 0 0;padding-top:10px;}
+#start #tab_h #t-left a.oth{float:left;display:block;margin:5px 0 0 0;width:80px;text-decoration:none;font:200 12px/24px arial;color:blue!important;}
+#start #tab_h #t-left #tab_0{width:106px;background-position:-184px 0;}
+#start #tab_h #t-left #tab_0.on{background-position:-79px 0;}
+ */
+
+#start #tab_h #t-left {float:left;}
+#start #tab_h #t-left li{width:79px;height:33px;overflow:hidden;background:url(http://img.baidu.com/hi/img/userset/btn-tab2.gif) no-repeat -210px 0;}
+#start #tab_h #t-left li{padding-top:7px;}
+#start #tab_h #t-left li.not-tab{padding-top:0;}
+#start #tab_h #t-left li span{color:#000;font:600 14px/24px arial;}
+#start #tab_h #t-left li.on{background-position: 0 0;padding-top:10px;}
+#start #tab_h #t-left a.oth{float:left;display:block;margin:5px 0 0 0;width:80px;text-decoration:none;font:200 12px/24px arial;color:blue!important;}
+#start #tab_h #t-left #tab_index_start{width:106px;background-position:-184px 0;}
+#start #tab_h #t-left #tab_index_mybeautify{width:106px;background-position:-184px 0;}
+#start #tab_h #t-left #tab_index_start.on{background-position:-79px 0;}
+#start #tab_h #t-left #tab_index_mybeautify.on{background-position:-79px 0;}
+
+/****************/
+#tab_menu{float:left;}
+#tab_menu div{float:left;width:79px;height:33px;overflow:hidden;background:url(http://img.baidu.com/hi/img/userset/btn-tab2.gif) no-repeat -210px 0;}
+#tab_menu div{cursor:pointer;padding-top:7px;text-decoration:none;color:#000;font:600 14px/24px arial;}
+#tab_menu div.on{background-position: 0 0;padding-top:10px;}
+#tab_menu a.oth{float:left;display:block;margin:5px 0 0 0;width:80px;text-decoration:none;font:200 12px/24px arial;color:blue!important;}
+#tab_menu #tab_index_start,
+#tab_menu #tab_index_mybeautify
+{width:106px;background-position:-184px 0;}
+#tab_menu #tab_index_start.on,
+#tab_menu #tab_index_mybeautify.on
+{background-position:-79px 0;}
+
+
+
+#start #tab_cnt{margin:0;padding:0;position:relative;zoom:1;}
+#start #tab_h #t-right{float:right;text-align:right;2line-height:33px;height:33px;padding-right:10px;}
+#start #tab_h #t-right input{margin:4px 5px 0 0;cursor:pointer;padding:0;}
+#start #b_up{background:url(http://img.baidu.com/hi/img/userset/btn.gif) no-repeat -191px 0;width:53px;height:17px;border:0;}
+#start #tab_h #t-right #b_chexiao{background:url(http://img.baidu.com/hi/img/userset/btn.gif) no-repeat -138px 0;width:53px;height:20px;border:0;margin-bottom:2px;margin-right:20px;}
+#start #tab_h #t-right #b_ok{background:url(http://img.baidu.com/hi/img/userset/btn.gif) no-repeat;width:69px;height:25px;border:0;margin-right:5px;}
+#start #tab_h #t-right #b_cancel{background:url(http://img.baidu.com/hi/img/userset/btn.gif) no-repeat -69px 0px;width:69px;height:25px;border:0;margin-right:0px;}
+
+#tab_tpl,
+#tab_beautify,
+#tab_mybeautify {
+    position:relative;  /* !fix for IE child dispear when resize-Win */
+}
+/* #tab_start {background:#f7fae6;height:240px;padding:10px 0 7px 0;padding-bottom:10px!important;padding-bottom:7px;} */
+#start .tab_start_mod{float:left;1border:1px solid #a0ce67;width:170px;1height:230px;margin-left:5px;text-align:center;padding1:6px 4px 10px 4px;}
+#start .tab_start_mod .tab_start_cnt{padding:9px 8px 6px 8px;border:1px solid #a0ce67;}
+/*TODO*/
+#start .tab_start_pics{width:151px;height:103px;background:url(http://img.baidu.com/hi/img/userset/set-new.gif) no-repeat;margin:0 auto;cursor:pointer;}
+#start #tab_start_cnt2 .tab_start_pics{background-position: -151px 0;}
+#start #tab_start_cnt3 .tab_start_pics{background-position: -302px 0;}
+#start #tab_start_cnt2x .tab_start_pics{background-position: -453px 0;}
+
+#start .tab_start_desc{text-align:left;font:12px/20px arial;}
+#start #tab_start .tab_start_btn a{display:block;width:92px;height:30px;background:url(http://img.baidu.com/hi/img/userset/btn-tiaoxuan.gif) no-repeat;font:800 12px/28px arail;text-align:center;text-decoration:none;color:#000;margin:20px auto 10px auto;}
+#start #tab_start_cnt4{width:284px;padding:0;height:230px;}
+#start #tab_start .tab_start_cnt{background:#fff url(http://img.baidu.com/hi/img/userset/cnt-bg.gif) repeat-x bottom;}
+#start #tab_start #tab_start_cnt4 .tab_start_cnt{background-image:none;}
+#start #tab_start_cnt4 .tab_start_cnt{padding:0;padding-bottom:45px!important;padding-bottom:49px;}
+#start #tab_start_cnt4 h2{background:#edf6cb;font:600 12px/22px arial;text-align:center;}
+#start #tab_start_cnt4 .tit{background:#edf6cb;height:23px;font:600 12px/22px;}
+#start #tab_start_cnt4 .cnt{padding:0px 0 18px 0;margin:0;1border:1px solid red;}
+#start #tab_start_cnt4 .cntt2{margin1:0px 0 0 2px;padding:0 0 0 5px!important;padding:0 0 0 2px}
+#start #tab_start_cnt4 .cntt{float:left;width:128px!important;width:130px;height:68px;border:1px solid #dae7a2;margin:6px 3px 0 3px;1padding:10px 0 0 7px;text-align:left;color:#233900;background:url(http://img.baidu.com/hi/img/userset/cnt-bg.gif) repeat-x bottom;}
+#start #tab_start_cnt4 .cntt a{font:400 12px/16px;margin-left:7px;}
+#start #tab_start_cnt4 .cntt div{padding-left:8px;font:600 14px/38px arial;}
+#start .start_b_pre{width:47px;height:21px;background:url(http://img.baidu.com/hi/img/userset/btn.gif) no-repeat -207px 0;border:0;padding:4px 0 0 0;cursor:pointer;}
+#start .tab-item {background:#f7fae6;height:252px;_height:260px;padding-top:8px;}
+#start .tab-tpl-mod{float:left;width:566px;margin-left:5px;text-align:center;}
+#start #tab_tpl #tab_tpl_cnt1{}
+#start #tab_tpl #tab_tpl_cnt2{width:196px;}
+#start #tab_tpl #tab_tpl_cnt3{width:176px;}
+#start #tab_tpl .tit{background:#edf6cb;height1:24px;border-bottom:1px solid #a0ce67;text-align:left;font:normal 12px/22px arial;color:#233900;padding:0 0 25px 5px;margin-bottom:5px;}
+#start #tab_tpl .tit li{display:block;padding:0 10px;1height:27px;line-height:26px;float:left;color:#2d3025;}
+#start #tab_tpl .tit li.on{background:#fff url(http://img.baidu.com/hi/img/userset/tab-bg.gif) repeat-x;border-right:1px solid #a0ce67;border-left:1px solid #a0ce67;color:#233900;font-weight:bold;text-decoration:none;}
+#start #tab_tpl .cntt {margin:6px auto 9px auto;background:#849655;padding:1px;width:150px;_width:152px;height:125px;_height:127px;}
+#start #tab_tpl .cntt img{width:150px;height:125px;}
+#start #tab_mybeautify .beautify-cntt{margin:6px auto 9px auto;background:#849655;padding:1px;width:184px;_width:186px;height:137px;_height:139px;}
+#start #tab_mybeautify .beautify-cntt img{width:184px;height:137px;}
+#start #tab_mybeautify .cntt{margin:6px auto 9px auto;background:#849655;padding:1px;width:110px;_width:112px;height:85px;_height:87px;}
+#start #tab_mybeautify .cntt img{width:110px;height:85px;}
+#start #tab_mybeautify .pic-tip{
+position:absolute; z-index:10; left:4px; bottom:4px;_bottom:2px; background:#5B9400; width:110px; height:21px; line-height:21px; text-align:right; color:#fff; filter: alpha(opacity=80);opacity:0.8;
+}
+#start #tab_mybeautify .pic-tip span{
+    font:400 12px/20px arial;color:#fff !important;margin-right:8px;;
+}
+
+
+#start .tab_tpl_act{background:#5b9400;color:#FFFFFF;height:21px;left:5px;position:absolute;top:82px;visibility:hidden;width:130px;text-align:right;}
+#start .tab_tpl_act a{font:400 12px/20px arial;color:#fff;margin-right:2px}
+
+#start .tab-tpl-act,
+#start .tab-beautify-act
+{position:absolute; z-index:10; left:1px; bottom:1px; background:#00f url(http://img.baidu.com/hi/img/userset/actbg.gif) repeat-x; width:150px; height:21px; line-height:21px; text-align:right; color:#fff; }
+#start .tab-tpl-act a,
+#start .tab-beautify-act a
+{font:400 12px/20px arial;color:#fff !important;margin-right:2px;background:transparent !important;}
+
+
+#start #tab_tpl_cnt2 .txt{text-align:left;padding-left:20px;font:normal 12px/19px arial;white-space:nowrap;overflow:hidden;}
+#start #tab_tpl_cnt2 .tab_tpl_pics{}
+/* #start #tab_tpl .pic{float:left;width:110px;height:85px;background:url(http://img.baidu.com/hi/img/userset/template-bg-new.gif) no-repeat;1padding:3px;}
+#start #tab_tpl .pic img{margin:5px;} */
+#start #tab_tpl .tab_tpl_page{width1:50%;clear:both;color:#233900;font:600 12px/16px arial;margin-top:5px;position:relative;}
+#start #tab_tpl .tab_tpl_page a{color:#233900;font:600 12px/16px arial;}
+#start #tab_tpl .tab_tpl_page a.on{color:#f6843c!important;}
+
+#start #tab_tpl .tab_tpl_page div a{font-weight:normal;}
+
+#start #tab_tpl #tab_tpl_cnt3 p{margin:0;font-size:14px;}
+
+#start #tab_beautify_cnt1  {width:841px;}
+#start .tab-beautify-mod {float:left;width:915px;margin-left:5px;text-align:center;}
+#start .tab-beautify-mod .tit{background:#edf6cb;height:24px;border-bottom:1px solid #a0ce67;text-align:left;font:600 12px/22px arial;color:#233900;padding-left:5px;margin-bottom:5px;}
+#start .tab-beautify-mod .tit li{display:block;padding:0 10px;1height:27px;line-height:26px;float:left;color:#2d3025;}
+#start .tab-beautify-mod .tit li.on{background:#fff url(http://img.baidu.com/hi/img/userset/tab-bg.gif) repeat-x;border-right:1px solid #a0ce67;border-left:1px solid #a0ce67;color:#233900;font-weight:bold;text-decoration:none;}
+#start .tab-beautify-mod .cntt{margin:6px auto 9px auto;width:140px;height:107px;background:url(http://img.baidu.com/hi/img/userset/template-bg-new.gif) no-repeat -110px 0;}
+#start .tab-beautify-mod .cntt img{margin:5px;}
+
+
+#start #beautify_mod_cnt1 .tab-mod-box{clear:both;}
+
+/*
+
+tab-mod
+rct
+tab-mod-cnt
+tab-mod-head
+tab-mod-box
+tab-mod-page
+rcb
+
+ * */
+#start .tab-mod {width:603px; float:left; margin-left:5px;text-align:center;}
+#start .tab-mod-cnt {}
+#start .tab-mod-head {}
+#start .tab-mod-box {height:206px;margin-top:5px;}
+#start .tab-mod-page {}
+
+#start .tab-mod-cnt{padding:0px 0px 6px 0px;border:1px solid #a0ce67;background-color:#fff;}
+
+#start .tab-mod-head {background:#edf6cb;height1:24px;border-bottom:1px solid #a0ce67;text-align:left;font:normal 12px/22px arial;color:#233900;padding:0 0 25px 5px;}
+#start .tab-mod-head li{display:block;padding:0 10px;1height:27px;line-height:26px;float:left;color:#2d3025;}
+#start .tab-mod-head li.on{background:#fff url(http://img.baidu.com/hi/img/userset/tab-bg.gif) repeat-x;border-right:1px solid #a0ce67;border-left:1px solid #a0ce67;color:#233900;font-weight:bold;text-decoration:none;}
+
+#start .tab-mod-page {width1:50%;clear:both;color:#233900;font:600 12px/16px arial;padding-top:2px;position:relative;}
+#start .tab-mod-page a{color:#233900;font:600 12px/16px arial;padding:0 2px;}
+#start .tab-mod-page span {color:#f6843c!important;}
+#start .tab-mod-page div a{font-weight:normal;}
+
+
+
+
+
+
+#start .tab-mod-list-pics {padding-left:3px;height:188px;}
+#start .tab-mod-list-pics .pic,
+#start .tab-mod-list-pics .pic-b {float:left;position: relative;_height:1%;margin:0 1px 1px 0;background:url(http://img.baidu.com/hi/img/userset/template-bg-new.gif) no-repeat;padding:4px;}
+#start .tab-mod-list-pics .pic img,
+#start .tab-mod-list-pics .pic-b img
+{width:110px;height:85px;}
+#start .tab-mod-list-pics .pic-selected {background-position: 0 -144px;}
+#start #tab_start .rct{height1:3px;background:#ffffff;}
+#start .rct{height1:3px;background:#edf6cb;}
+#start .rcb{height:3px;clear:both}
+#start .rct .l,#start .rct .r,#start .rcb .l,#start .rcb .r{position:relative;z-index:2;font-size:1px;background-image:url(http://img.baidu.com/hi/img/userset/rc.gif);width:3px;height:3px;  overflow:hidden;1border:1px solid red;}
+#start .rct .l,#start .rcb .l{float:left;left1:-1px}
+#start .rct .r,#start .rcb .r{float:right;right1:-1px}
+#start .rct .l,#start .rct .r{top1:-1px}
+#start .rcb .l,#start .rcb .r{top:-3px;}
+#start .b2{background:#FFF;border:1px solid #CCC;margin-bottom:10px}
+#start .b2 .cnt{padding:10px}
+#start .tl1{background-position:top left}
+#start .tr1{background-position:top right}
+#start .bl1{background-position:left bottom}
+#start .br1{background-position:right bottom}
+
+/*#start #tab_beautify .pic img{margin:5px;}*/
+
+#start #tab_beautify .tab_beautify_page{width1:50%;clear:both;color:#233900;font:600 12px/16px arial;margin-top:5px;position:relative;}
+#start #tab_beautify .tab_beautify_page a{color:#233900;font:600 12px/16px arial;}
+#start #tab_beautify .tab_beautify_page span {color:#f6843c!important;}
+
+#start #tab_beautify .tab_beautify_page div a{font-weight:normal;}
+
+#start #tab_beautify .tab-mod-cnt {padding:0;}
+#start #tab_beautify .tab-mod-x-cnt {_top:-2px;   /*fix IE relative round-px bug*/}
+
+#start #tab_beautify .tab-mod-x-cnt .tab-mod-list-pics {padding-left:8px;}
+#start #tab_beautify .beautify-mod-tab-upload{
+    background:transparent url(http://img.baidu.com/hi/img/userset/template-bg-new.gif) no-repeat scroll -120px -48px;
+    float:right;
+    height:25px;
+    width:80px;
+    padding:0;
+}
+#beautify_mod_wiget_upload{
+    display:block;
+    line-height:25px;
+    zoom:1;
+}
+#start #tab_beautify .sub-tab {float:left;margin-top:31px;width:71px;} 
+#start #tab_beautify .sub-tab .sp-tab{padding-left:3px; overflow:hidden;}
+/*menu*/
+#start #tab_beautify .sub-tab li { line-height:40px; margin:-1px 0 0 3px;padding-left:30px;  font-weight:normal; cursor:pointer;  z-index:1;cursor:pointer;background: url(http://img.baidu.com/hi/img/userset/widget-type.gif) no-repeat 0 0;border-top:1px solid #DBECC5;}
+#start #tab_beautify .sub-tab li.on{ cursor:default; font-weight:bold;}
+#start #tab_beautify .sub-tab li span{width:37px;text-align:left;color:#233900;}
+
+#start #tab_beautify #tab_beautify_cnt1_index_11 {background-position:0 4px;}
+#start #tab_beautify #tab_beautify_cnt1_index_2 {background-position:0 -42px;}
+#start #tab_beautify #tab_beautify_cnt1_index_10 {background-position:0 -90px;}
+
+#start #tab_mybeautify .tab_beautify_page{width1:50%;clear:both;color:#233900;font:600 12px/16px arial;margin-top:5px;position:relative;}
+#start #tab_mybeautify .tab_beautify_page a{color:#233900;font:600 12px/16px arial;}
+#start #tab_mybeautify .tab_beautify_page span {color:#f6843c!important;}
+
+#start #tab_beautify .tab_beautify_page div a{font-weight:normal;}
+/**********
+#start #tab_beautify .tab-mod-head li{display:block;padding:0 10px;1height:27px;line-height:26px;float:left;color:#2d3025;}
+#start #tab_beautify .tab-mod .tab-mod-head li.on{background:#fff url(http://img.baidu.com/hi/img/userset/tab-bg.gif) repeat-x;border-right:1px solid #a0ce67;border-left:1px solid #a0ce67;color:#233900;font-weight:bold;text-decoration:none;}
+
+*********/
+
+
+#start .tab-mybeautify-mod {float:left;width:915px;margin-left:5px;text-align:center;}
+#start .tab-mybeautify-mod .tit{background:#edf6cb;height:24px;border-bottom:1px solid #a0ce67;text-align:left;font:600 12px/22px arial;color:#233900;padding-left:5px;margin-bottom:5px;}
+#start .tab-mybeautify-mod .tit li{display:block;padding:0 10px;1height:27px;line-height:26px;float:left;color:#2d3025;}
+#start .tab-mybeautify-mod .tit li.on{background:#fff url(http://img.baidu.com/hi/img/userset/tab-bg.gif) repeat-x;border-right:1px solid #a0ce67;border-left:1px solid #a0ce67;color:#233900;font-weight:bold;text-decoration:none;}
+#start .tab-mybeautify-mod .cntt{margin:6px auto 9px auto;width:140px;height:107px;background:url(http://img.baidu.com/hi/img/userset/template-bg-new.gif) no-repeat -110px 0;}
+#start .tab-mybeautify-mod .cntt img{margin:5px;}
+/* 
+#start #tab_mybeautify .pic{float:left;width:110px;height:85px;background:url(http://img.baidu.com/hi/img/userset/template-bg-new.gif) no-repeat;1padding:3px;}
+#start #tab_mybeautify .pic img{margin:5px;} */
+
+#start #tab_mybeautify_cnt1 {width:723px;}
+#start #tab_mybeautify_cnt2  {width:240px;}
+#start #tab_mybeautify_cnt2 .txt{text-align:left;padding-left:20px;font:normal 12px/19px arial;white-space:nowrap;}
+#start #tab_mybeautify_cnt2 .tab-tpl-act{width:110px;}
+#start #tab_mybeautify_cnt2 .tab-beautify-act{width:184px;}
+#start #tab_mybeautify_cnt1 #mybeautify_mod_sub_box1 #mybeautify_mod_sub_cnt1 {width:603px;}
+#start #tab_mybeautify_cnt1 #mybeautify_mod_sub_cnt1 {width:720px;}
+
+
+#start #tab_mybeautify .tab_mybeautify_page{width1:50%;clear:both;color:#233900;font:600 12px/16px arial;margin-top:5px;position:relative;}
+#start #tab_mybeautify .tab_mybeautify_page a{color:#233900;font:600 12px/16px arial;}
+#start #tab_mybeautify .tab_mybeautify_page span {color:#f6843c!important;}
+
+#start #tab_mybeautify .tab_mybeautify_page div a{font-weight:normal;}
+
+#start #tab_mybeautify .sub-tab {float:right; width:70px;height:202px;_margin-right:-1px;} 
+/*menu*/
+#start #tab_mybeautify .sub-tab li { line-height:30px; border:1px solid #a0ce67;  margin:5px 0 5px 3px;  font-weight:bold; cursor:pointer;  z-index:1; width:66px;_width:68px; background:#E9F6CB;cursor:pointer;}
+#start #tab_mybeautify .sub-tab li.on{background:#fff; border-right:0; width:67px;_width:68px;cursor:default;}
+#start #tab_mybeautify #mybeautify_mod_cnt1 {height:206px;}
+#start #tab_mybeautify #mybeautify_mod_sub_box1 {float:right;border-left:1px solid #A0CE67;padding:0 8px;}
+
+#start #tab_mybeautify #mybeautify_mod_sub_sidebar1 #mybeautify_mod_sub_sidebar1_menu{margin-top:8px;} 
+#start #tab_mybeautify #mybeautify_mod_sub_sidebar1 .sp-tab{overflow:hidden;}
+/*menu*/
+#start #tab_mybeautify #mybeautify_mod_sub_sidebar1 li { width:99.5%;line-height:24px; font-weight:normal; background: #EDF6CB;border-bottom:1px solid #B5D033;}
+#start #tab_mybeautify #mybeautify_mod_sub_sidebar1 li.on{ cursor:default; font-weight:bold;background:#D1F200;}
+#start #tab_mybeautify #mybeautify_mod_sub_sidebar1 li span{padding-left:7px;color:#233900;}
+
+
+#start .pic-act{position:absolute; z-index:10; left:4px; bottom:4px;_bottom:3px; background:#00f url(http://img.baidu.com/hi/img/userset/actbg.gif) repeat-x; width:110px; height:21px; line-height:21px;visibility:hidden; text-align:right; color:#fff; }
+#start .pic-act a{font:400 12px/20px arial;color:#fff !important;margin-right:2px;background:transparent !important;}
+
+/* #start #tab_mod{background:#f7fae6;height:250px;padding-top:10px;} */
+#start .tab_mod_mod{float:left;1border:1px solid #a0ce67;width:496px;height:230px;margin-left:5px;text-align:center;1padding:6px 4px 10px 4px;}
+#start #tab_mod #tab_mod_cnt2{width:340px;}
+#start #tab_mod .tab_mod_cnt{border:1px solid #a0ce67;}
+#start #tab_mod .tit{background:#edf6cb;height:24px;border-bottom:1px solid #a0ce67;text-align:left;font:600 12px/22px arial;color:#233900;padding-left:5px;margin-bottom:5px;}
+#start #tab_mod .tit2{text-align:left;padding-left:14px;font:200 12px/14px arial;margin:4px 0 3px 0;}
+#start #tab_mod .tit2 a.on{color:#f6843c;text-decoration:none;font-weight:bold;}
+#start #tab_mod .tit2 a{1border:1px solid red;}
+
+#start #tab_mod .cnt{height:196px;overflow-y:scroll;margin:3px 3px 0 0;}
+#start #tab_mod .pic{float:left;width:150px;height:28px;over-flow:hidden;background:url(http://img.baidu.com/hi/img/userset/template-bg-new.gif) no-repeat -120px 0;margin:5px 0 0 5px;color:#4b5f29;font:600 12px/30px arail;1padding-top:8px;text-align:left;1padding-left:2px;1border:1px solid red;}
+#start #tab_mod .pic div{padding-left:4px;}
+#start #tab_mod input{float:right;margin:0 4px 0 0 ;height:30px;}
+
+#start #tab_mod .pic label {display:block;width:120px;background:url(http://img.baidu.com/hi/img/userset/mods.gif) no-repeat 0 0;padding-left:30px;}
+
+
+/* #start #tab_layout{background:#f7fae6;height:250px;padding-top:10px;position:relative;} */
+#start .tab_layout_mod{float:left;1border:1px solid #a0ce67;width:300px;height1:228px;margin-left:5px;text-align:center;1padding:6px 4px 10px 4px;}
+#start #tab_layout .tit{background:#edf6cb;height:24px;border-bottom:1px solid #a0ce67;text-align:left;font:600 12px/22px arial;color:#233900;padding-left:5px;margin-bottom:5px;}
+
+#start #tab_layout .pic{float:left;width:90px;height:90px;background:#f8fde5;margin:5px 0 0 5px;border:1px solid #dae7a2;}
+#start #tab_layout .pic div{
+    width:66px;height:70px;margin:10px;background:url(http://img.baidu.com/hi/img/userset/tpl.gif) no-repeat 0 0;
+}
+
+#start #tab_layout #lay5 div {background-position: -66px 0;}
+#start #tab_layout #lay4 div {background-position: -132px 0;}
+#start #tab_layout #lay3 div {background-position: -198px 0;}
+#start #tab_layout #lay1 div {background-position: -264px 0;}
+#start #tab_layout #lay0 div {background-position: -330px 0;}
+
+#start #tab_layout .cnt div div{cursor:pointer;}
+#start #tab_layout .cnt div.on{background:#fffc9f;}
+
+#start #tab_tpl_invite_pic {width:168px;height:148px;margin:0;background:url(http://img.baidu.com/hi/img/userset/tpl-invite.gif) no-repeat;position:relative;}
+#start #tab_tpl_invite_create { background:transparent url(http://img.baidu.com/hi/img/userset/tpl-invite.gif) no-repeat scroll -192px 0;display:block;height:37px;left:25px;position:absolute;top:107px;width:113px;border:0;margin:0;padding:0;cursor:pointer;}
+#start #tab_tpl_invite_act {padding-top:5px;}
+#start #tab_tpl_invite_act input {cursor:pointer;padding:0;margin:0;border:0;width:82px;height:27px;background:url(http://img.baidu.com/hi/img/userset/tpl-invite.gif) no-repeat -192px -48px;}
+#start #tab_tpl_invite_act input#b_mycreate {margin-right:4px;}
+#start #tab_tpl_invite_act input#b_cang {background-position: -192px -96px;}
+#start #cls{height:8px;text-align:center;text-align:center;clear:all;position:relative;z-index:1000;position:relative;z-index:1000;background:url(http://img.baidu.com/hi/img/userset/close.gif) repeat-x;font: 0/0 arial}
+#start #cls_btn {width:45px;height:25px;line-height:12px;cursor:pointer;overflow:hidden;background:url(http://img.baidu.com/hi/img/userset/cls-btn-new.gif) no-repeat;position:absolute;padding:0;margin:0 auto;z-index:1000;}
+
+#start_over {position:absolute;top:0px;left:0px;width:100%;height1:305px;height:100%;z-index:65532;filter: alpha(opacity=40);opacity:0.4;background-color:#EEEEEE;}
+
+#sp_beautify_popmenu{
+    z-index:10001;
+}
+

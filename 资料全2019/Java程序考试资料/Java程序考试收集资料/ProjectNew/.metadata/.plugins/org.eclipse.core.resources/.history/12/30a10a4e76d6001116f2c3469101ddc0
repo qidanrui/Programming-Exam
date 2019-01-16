@@ -1,0 +1,18 @@
+package cn.edu.xmu.software.interfaces;
+
+import java.util.List;
+
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.entity.Plan;
+
+public interface IPlanOpt {
+	public void createPlan(Plan p);//创建计划
+	public void updatePlan(Plan p);//更新计划
+	public void deletePlan(Plan p) ;//删除计划
+	public  List<Plan>  getAllPlan() ;//获取表中的所有计划
+	public List<Goal> getPlanGoals(Plan plan);//获取某个计划的所有目标
+	public List<Plan> getPlansByProperty(String property,String value);//通过某个属性查询plan
+	public Plan getPlanById(long id);//通过id获取Plan
+	public List<Plan> getUserPlan(long id);
+	public List<String> getAllScene(List<Plan> plans);//获得plan中的所有情境
+}

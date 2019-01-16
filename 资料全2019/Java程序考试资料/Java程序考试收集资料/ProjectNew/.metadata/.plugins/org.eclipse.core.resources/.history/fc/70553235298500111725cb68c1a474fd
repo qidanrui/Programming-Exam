@@ -1,0 +1,15 @@
+package xmu.software.cxj.mychat.shared.service;
+
+import java.util.Calendar;
+
+import xmu.software.cxj.mychat.shared.pojo.Information;
+
+
+import com.google.gwt.user.client.rpc.RemoteService;
+import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
+
+@RemoteServiceRelativePath("InfoService")   
+public interface InfoService  extends RemoteService {
+	  void saveOrUpdateInfo(String from, String to ,Calendar date, String content);   
+	  public Information findInfo(String to);   
+}

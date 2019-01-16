@@ -1,0 +1,35 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class AddSubtractTest {
+	private static AddSubtract addSubtract;
+
+	@Before
+	public void setUp() throws Exception {
+		addSubtract=new AddSubtract(10);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+
+	@Test
+	public void testAdd() {
+		addSubtract.add(2);
+		addSubtract.add(3);
+		assertEquals("测试AddSubtract类add()函数成功,测试得结果2+3+10=15",15,addSubtract.getCurrentVal());
+		assertTrue("测试AddSubtract类add()函数成功,测试得结果2+3+10=15",addSubtract.getCurrentVal()==15);
+	}
+
+	@Test
+	public void testSubtract() {
+		addSubtract.subtract(2);
+		addSubtract.subtract(3);
+		assertEquals("测试AddSubtract类subtract函数成功,测试得结果10-2-3=5",5,addSubtract.getCurrentVal());
+	}
+}

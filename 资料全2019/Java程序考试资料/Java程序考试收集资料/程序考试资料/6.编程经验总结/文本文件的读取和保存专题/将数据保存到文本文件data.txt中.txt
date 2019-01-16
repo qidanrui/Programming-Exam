@@ -1,0 +1,12 @@
+
+BufferedWriter bw = new BufferedWriter(new FileWriter("data.txt"));//覆盖写
+
+或
+
+BufferedWriter bw = new BufferedWriter(new FileWriter("data.txt", true));//追加写
+
+bw.write("有志者，事竟成");
+bw.newLine();
+bw.write("苦心人，天不负");
+bw.newLine();
+bw.close();

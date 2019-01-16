@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+
+
+public class CountSort {
+      public  static void countSort(ArrayList<Integer> datas,int dataRange)
+      {
+    	  int[] array=new int[dataRange];
+    	  int i=0;int j=0;
+    	  for(;i<dataRange;i++)
+    		  array[i]=0;
+    	  for(;j<datas.size();j++)
+    		  array[datas.get(j)]=array[datas.get(j)]+1;
+    	  for(i=1;i<dataRange;i++)
+    		  array[i]=array[i]+array[i-1];
+      }
+      
+}

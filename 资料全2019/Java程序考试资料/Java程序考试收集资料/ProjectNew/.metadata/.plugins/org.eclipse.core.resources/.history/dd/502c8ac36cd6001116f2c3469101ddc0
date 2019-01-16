@@ -1,0 +1,239 @@
+package cn.edu.xmu.software;
+
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import cn.edu.xmu.software.adapter.InnerTaskListAdapter;
+import cn.edu.xmu.software.common.ContextUtil;
+import cn.edu.xmu.software.common.DataUtils;
+import cn.edu.xmu.software.common.ListViewUtilty;
+import cn.edu.xmu.software.entity.Goal;
+import cn.edu.xmu.software.interfaces.IGoalOpt;
+import cn.edu.xmu.software.model.GoalOpt;
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+
+public class Project_Activity extends Activity {
+
+	private TextView no_endtime;
+	private boolean endtimevisible;
+	private final int COUNT = 10;
+	int tag = 0;
+	private ExpandableListView mExpandableListView;
+	private List<String> listItems;
+	private ListView innerTaskList;
+	private InnerTaskListAdapter innerTaskListAdapter; 
+	private LinearLayout enddatepickerdialog_wrap;
+	private LinearLayout endtimepickerdialog_wrap;
+	private LinearLayout innerTaskLayout;
+	private TextView proendtime_btn;
+	private TextView proenddate_btn;
+	private Button task_arrow;
+	private int proendYear;
+	private int proendMonth;
+	private int proendDay;
+	private int proendHour;
+	private int proendMinute;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.project_edit);
+		this.init();
+		this.innerTaskListAdapter = new InnerTaskListAdapter(this, this.listItems);
+		this.innerTaskList = (ListView)this.findViewById(R.id.innerTaskList);
+		this.innerTaskList.setAdapter(innerTaskListAdapter);
+		new ListViewUtilty().setListViewHeightBasedOnChildren(innerTaskList);
+		
+		this.innerTaskLayout = (LinearLayout)this.findViewById(R.id.innerTaskLayout);
+		this.task_arrow = (Button)this.findViewById(R.id.task_arrow);
+//		no_endtime=(TextView)findViewById(R.id.pronoendtime);
+//		enddatepickerdialog_wrap=(LinearLayout)findViewById(R.id.proenddatewrap);
+//		endtimepickerdialog_wrap=(LinearLayout)findViewById(R.id.proendtimewrap);
+//		mExpandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
+//		InnerTaskListAdapter adapter = new InnerTaskListAdapter(this);
+//		mExpandableListView.setAdapter(adapter);
+//		mExpandableListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+//					@Override
+//					public void onGroupExpand(int arg0) {
+//						// TODO Auto-generated method stub
+//						tag = 1;
+//					}
+//				});
+//		mExpandableListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+//
+//					@Override
+//					public void onGroupCollapse(int arg0) {
+//						// TODO Auto-generated method stub
+//						tag = 0;
+//					}
+//				});
+		proendtime_btn=(TextView)findViewById(R.id.proendtime_btn);
+		proenddate_btn=(TextView)findViewById(R.id.proenddate_btn);
+	}
+
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+		@Override
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+			proendYear = year;
+			proendMonth = monthOfYear;
+			proendDay = dayOfMonth;
+		}
+	};
+	private TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+
+		@Override
+		public void onTimeSet(TimePicker view, int hour, int minute) {
+			// TODO Auto-generated method stub
+			proendHour = hour;
+			proendMinute = minute;
+
+		}
+	};
+	public void proStartTimeClick(View v)
+	{
+		Intent intent = new Intent();
+		intent.setClass(this, Pick_startTime.class);
+		startActivity(intent);
+	}
+	
+	public void proEndTimeClick(View v)
+	{
+		if(endtimevisible==true)
+		{
+			no_endtime.setVisibility(View.INVISIBLE);
+			proendtime_btn.setText("endtime");
+			proenddate_btn.setText("date");
+			enddatepickerdialog_wrap.setVisibility(View.VISIBLE);
+			endtimepickerdialog_wrap.setVisibility(View.VISIBLE);
+			endtimevisible=false;
+		}
+		else 
+		{
+			no_endtime.setVisibility(View.VISIBLE);
+			enddatepickerdialog_wrap.setVisibility(View.INVISIBLE);
+			endtimepickerdialog_wrap.setVisibility(View.INVISIBLE);
+			endtimevisible=true;
+		}
+	}
+	public void proenddateClick(View v)
+	{
+		proendYear = 2012;
+		proendMonth = 11;
+		proendDay = 22;
+		DatePickerDialog dialog = new DatePickerDialog(this, mDateSetListener,
+				proendYear, proendMonth, proendDay);
+		dialog.show();
+		
+	}
+	
+	public void ShowHideClick(View view){
+		
+		if(tag == 0){
+			this.innerTaskLayout.setVisibility(View.VISIBLE);
+			this.task_arrow.setBackgroundResource(R.drawable.unfold_arrow);
+			tag = 1;
+		}
+		else{
+			this.innerTaskLayout.setVisibility(View.GONE);
+			this.task_arrow.setBackgroundResource(R.drawable.fold_arrow);
+			tag = 0;
+		}
+	}
+	
+	private void init() {
+
+		this.listItems = new ArrayList<String>();
+		for (int i = 0; i < COUNT; i++) {
+			
+			this.listItems.add("目标" + i);
+		}
+
+	}
+	public void proendtimeClick(View v)
+	{
+		TimePickerDialog dialog = new TimePickerDialog(this, mTimeSetListener,
+				proendHour, proendMinute, false);
+		dialog.show();
+	}
+	public void ProjectContextClick(View v)
+	{
+		Intent intent = new Intent();
+		intent.setClass(this, ContextSelectedActivity.class);
+		startActivity(intent);
+	}
+
+	public int getTag() {
+		return tag;
+	}
+
+	public void setTag(int tag) {
+		this.tag = tag;
+	}
+	
+
+	/*
+	 * 页面底部的取消按钮
+	 */
+	public void onCancelClick(View v) {
+		reToProjectPage();
+	}
+
+	/*
+	 * 页面底部的确定按钮
+	 */
+	public void onSaveClick(View v) {
+		Goal goal=new Goal();
+		goal.setTitle( goal_title.getText().toString());
+		goal.setDesc(goal_desc.getText().toString());
+		goal.setEnergy("min");
+		goal.setTimeLength("10min");
+		goal.setStartTime(DataUtils.getDateData(this.getStartDate(), this.getStartTime()));
+		goal.setFinishTime(DataUtils.getDateData(this.getEndDate(), this.getEndTime()));
+		goal.setPriority(this.getTaskPriority());
+		goal.setScene(DataUtils.getData(task_context.getText().toString()));
+		goal.setTags(DataUtils.getData(this.getTagText()));
+		goal.setUser(ContextUtil.getCurrentUser());
+		ContextUtil.setCurrentGoal(goal);
+		IGoalOpt goalopt=new GoalOpt(this);
+ 		goalopt.createGoal(goal);
+		reToTodayTaskPage();
+	}
+	/**
+	 * 返回今日待办页面
+	 */
+	public void reToProjectPage()
+	{
+		Intent  intent=new Intent();
+		Date date=new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+	    String today=dateFormat.format(date);
+	    if(this.getStartDate().equals(today))
+		    intent.setClass(this, TodayTaskListActivity.class);
+	    else 
+	    	intent.setClass(this,OtherDayTaskListActivity.class);
+		 startActivity(intent);
+		// this.finish();
+	}
+	
+	
+}

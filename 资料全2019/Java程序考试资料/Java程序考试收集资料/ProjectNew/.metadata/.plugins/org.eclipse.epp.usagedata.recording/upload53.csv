@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810218460
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810221263
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810222029
+error,log,,,"Error in JDT Core during AST creation",1334810222061
+error,log,,,"Unexpected runtime error while computing a text hover",1334810222091
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810222647
+error,log,,,"Error in JDT Core during AST creation",1334810222649
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810222960
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810233661
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810234823
+error,log,,,"Error in JDT Core during AST creation",1334810234824
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.selectAll",1334810235654
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810236187
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\n//实现Iterator接口即可将BookShelfIterator视为Iterator进行处理\r\npublic class BookShelfIterator implements Iterator {\r\n    private BookShelf bookShelf;\r\n    private int index;\r\n    public BookShelfIterator(BookShelf bookShelf) {\r\n        this.bookShelf = bookShelf;\r\n        this.index = 0;\r\n    }\r\n    public boolean hasNext() {\r\n        if (index < bookShelf.getLength()) {\r\n            return true;\r\n        } else {\r\n            return false;\r\n        }\r\n    }\r\n    //next方法返回目前该书（Book的对象实例），然后把index推到下一个为位置\r\n    public Object next() {\r\n        Book book = bookShelf.getBookAt(index);\r\n        index++;\r\n        return book;\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810236726
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810236731
+error,log,,,"Error in JDT Core during reconcile",1334810236733
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810236739
+error,log,,,"Error in JDT Core during AST creation",1334810236741
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810236969
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\n//实现Iterator接口即可将BookShelfIterator视为Iterator进行处理\r\npublic class BookShelfIterator implements Iterator {\r\n    private BookShelf bookShelf;\r\n    private int index;\r\n    public BookShelfIterator(BookShelf bookShelf) {\r\n        this.bookShelf = bookShelf;\r\n        this.index = 0;\r\n    }\r\n    public boolean hasNext() {\r\n        if (index < bookShelf.getLength()) {\r\n            return true;\r\n        } else {\r\n            return false;\r\n        }\r\n    }\r\n    //next方法返回目前该书（Book的对象实例），然后把index推到下一个为位置\r\n    public Object next() {\r\n        Book book = bookShelf.getBookAt(index);\r\n        index++;\r\n        return book;\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810238293
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238295
+error,log,,,"Error in JDT Core during reconcile",1334810238311
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238316
+error,log,,,"Error in JDT Core during AST creation",1334810238318
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238322
+error,log,,,"Error in JDT Core during AST creation",1334810238336
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238438
+error,log,,,"Error in JDT Core during AST creation",1334810238452
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238609
+error,log,,,"Error in JDT Core during AST creation",1334810238611
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238641
+error,log,,,"Error in JDT Core during AST creation",1334810238645
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238694
+error,log,,,"Error in JDT Core during AST creation",1334810238701
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238801
+error,log,,,"Error in JDT Core during AST creation",1334810238802
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810238920
+error,log,,,"Error in JDT Core during AST creation",1334810238921
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810240164
+error,log,,,"Error in JDT Core during AST creation",1334810240169
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810240190
+error,log,,,"Error in JDT Core during AST creation",1334810240234
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810240243
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810240250
+error,log,,,"Error in JDT Core during AST creation",1334810240253
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810240259
+error,log,,,"An error occurred while computing quick assists. Check log for details.",1334810240262
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810240313
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810240831
+error,log,,,"Error in JDT Core during AST creation",1334810240834
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810241061
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810241271
+error,log,,,"Unexpected runtime error while computing a text hover",1334810241809
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage iterator;\r\n\r\n//实现Iterator接口即可将BookShelfIterator视为Iterator进行处理\r\npublic class BookShelfIterator implements Iterator {\r\n    private BookShelf bookShelf;\r\n    private int index;\r\n    public BookShelfIterator(BookShelf bookShelf) {\r\n        this.bookShelf = bookShelf;\r\n        this.index = 0;\r\n    }\r\n    public boolean hasNext() {\r\n        if (index < bookShelf.getLength()) {\r\n            return true;\r\n        } else {\r\n            return false;\r\n        }\r\n    }\r\n    //next方法返回目前该书（Book的对象实例），然后把index推到下一个为位置\r\n    public Object next() {\r\n        Book book = bookShelf.getBookAt(index);\r\n        index++;\r\n        return book;\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810241843
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241844
+error,log,,,"Error in JDT Core during reconcile",1334810241847
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241850
+error,log,,,"Error in JDT Core during AST creation",1334810241852
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241855
+error,log,,,"Error in JDT Core during AST creation",1334810241857
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241867
+error,log,,,"Error in JDT Core during AST creation",1334810241868
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241872
+error,log,,,"Error in JDT Core during AST creation",1334810241873
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241888
+error,log,,,"Error in JDT Core during AST creation",1334810241891
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241894
+error,log,,,"Error in JDT Core during AST creation",1334810241895
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241898
+error,log,,,"Error in JDT Core during AST creation",1334810241899
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241903
+error,log,,,"Error in JDT Core during AST creation",1334810241905
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241911
+error,log,,,"Error in JDT Core during AST creation",1334810241912
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241915
+error,log,,,"Error in JDT Core during AST creation",1334810241917
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241921
+error,log,,,"Error in JDT Core during AST creation",1334810241922
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810241927
+error,log,,,"Error in JDT Core during AST creation",1334810241929
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810242022
+error,log,,,"Error in JDT Core during AST creation",1334810242025
+error,log,,,"Unexpected runtime error while computing a text hover",1334810242030
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810242681
+error,log,,,"Error in JDT Core during AST creation",1334810242683
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810243184
+error,log,,,"Unexpected runtime error while computing a text hover",1334810243701
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage iterator;\r\n\r\n//实现Iterator接口即可将BookShelfIterator视为Iterator进行处理\r\npublic class BookShelfIterator implements Iterator {\r\n    private BookShelf bookShelf;\r\n    private int index;\r\n    public BookShelfIterator(BookShelf bookShelf) {\r\n        this.bookShelf = bookShelf;\r\n        this.index = 0;\r\n    }\r\n    public boolean hasNext() {\r\n        if (index < bookShelf.getLength()) {\r\n            return true;\r\n        } else {\r\n            return false;\r\n        }\r\n    }\r\n    //next方法返回目前该书（Book的对象实例），然后把index推到下一个为位置\r\n    public Object next() {\r\n        Book book = bookShelf.getBookAt(index);\r\n        index++;\r\n        return book;\r\n    }\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1334810243905
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810243908
+error,log,,,"Error in JDT Core during reconcile",1334810243914
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810243964
+error,log,,,"Error in JDT Core during AST creation",1334810243965
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810243970
+error,log,,,"Error in JDT Core during AST creation",1334810243978
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1334810244611
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810246968
+error,log,,,"Error in JDT Core during AST creation",1334810246969
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810247183
+activated,view,org.eclipse.ui.console,3.5.100.v20110511,"org.eclipse.ui.console.ConsoleView",1334810247778
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810247973
+error,log,,,"Error in JDT Core during AST creation",1334810247978
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810248007
+error,log,,,"Error in JDT Core during AST creation",1334810248011
+error,log,,,"Unexpected runtime error while computing a text hover",1334810248019
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810248107
+error,log,,,"Error in JDT Core during AST creation",1334810248110
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810248221
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810249640
+error,log,,,"Error in JDT Core during AST creation",1334810249641
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810252058
+error,log,,,"Error in JDT Core during AST creation",1334810252068
+opened,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.SourceView",1334810252480
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.SourceView",1334810252561
+opened,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.JavadocView",1334810253389
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.JavadocView",1334810253438
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810254673
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810258051
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810258101
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810260837
+error,log,,,"Error in JDT Core during AST creation",1334810260840
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810260921
+error,log,,,"Error in JDT Core during AST creation",1334810260923
+error,log,,,"Unexpected runtime error while computing a text hover",1334810260934
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810261133
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810261293
+error,log,,,"Error in JDT Core during AST creation",1334810261297
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810261853
+error,log,,,"Error in JDT Core during AST creation",1334810261855
+error,log,,,"Unexpected runtime error while computing a text hover",1334810261858
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810261922
+error,log,,,"Error in JDT Core during AST creation",1334810261924
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810262504
+error,log,,,"Error in JDT Core during AST creation",1334810262505
+error,log,,,"Unexpected runtime error while computing a text hover",1334810262513
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810263513
+error,log,,,"Error in JDT Core during AST creation",1334810263515
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810263853
+error,log,,,"Error in JDT Core during AST creation",1334810263855
+error,log,,,"Unexpected runtime error while computing a text hover",1334810263859
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810263881
+error,log,,,"Error in JDT Core during AST creation",1334810263890
+error,log,,,"Unexpected runtime error while computing a text hover",1334810263896
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810264807
+error,log,,,"Error in JDT Core during AST creation",1334810264809
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810264955
+error,log,,,"Error in JDT Core during AST creation",1334810264958
+error,log,,,"Unexpected runtime error while computing a text hover",1334810264961
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810264984
+error,log,,,"Error in JDT Core during AST creation",1334810264986
+error,log,,,"Unexpected runtime error while computing a text hover",1334810264999
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810265057
+error,log,,,"Error in JDT Core during AST creation",1334810265062
+error,log,,,"Unexpected runtime error while computing a text hover",1334810265104
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810265148
+error,log,,,"Error in JDT Core during AST creation",1334810265150
+error,log,,,"Unexpected runtime error while computing a text hover",1334810265158
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810265199
+error,log,,,"Error in JDT Core during AST creation",1334810265200
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810265249
+error,log,,,"Error in JDT Core during AST creation",1334810265251
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810265498
+error,log,,,"Error in JDT Core during AST creation",1334810265499
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810265520
+error,log,,,"Error in JDT Core during AST creation",1334810265522
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810266171
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810267272
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1334810267377
+error,log,,,"Error in JDT Core during AST creation",1334810267384
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810268269
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810268581
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810268770
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810270114
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810277831
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.selectAll",1334810279048
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810279571
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810281664
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810282375
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810282587
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810284506
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810286669
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810287012
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810287165
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810288538
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810295933
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.selectAll",1334810297707
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810298243
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810301443
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810302077
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810302284
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810304096
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810306256
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810309615
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810324379
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810330574
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810332586
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810332784
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810334344
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810334593
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810334717
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810335853
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810336125
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810337100
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810347318
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810348454
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810348769
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810351248
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810351536
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810352281
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810357911
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.selectAll",1334810358703
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810359222
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810360021
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810362026
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810363712
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810373743
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810375704
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810377412
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810377610
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810382984
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810392506
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.selectAll",1334810393579
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810394252
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810395212
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810397845
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810398682
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810398960
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810400793
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810402327
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810402586
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810402718
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810406302
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810406858
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810407075
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810408690
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810409821
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810410077
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810410201
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1334810412023
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810412452
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810412646
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.file.save",1334810414262
+activated,view,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.PackageExplorer",1334810417527
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810419227
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810429108
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.paste",1334810431754
+opened,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810434122
+activated,editor,org.eclipse.jdt.ui,3.7.1.r371_v20110824-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1334810434336
+deactivated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810436204
+activated,workbench,org.eclipse.ui.workbench,3.7.0.I20110519-0100,"",1334810444781
+executed,command,org.eclipse.ui,3.7.0.I20110602-0100,"org.eclipse.ui.edit.selectAll",1334810445630

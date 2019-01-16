@@ -1,0 +1,12 @@
+String[] score = input.split("(\\s)+");
+
+\\s的第一个\是转义字符，使得第二个\成为真正的\
+
+而\s表示A whitespace character: [ \t\n\x0B\f\r]
+
+其中X+表示X, one or more times 
+
+
+
+
+

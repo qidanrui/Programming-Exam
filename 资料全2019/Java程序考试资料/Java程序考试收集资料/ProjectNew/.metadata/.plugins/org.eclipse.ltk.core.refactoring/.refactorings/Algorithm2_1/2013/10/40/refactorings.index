@@ -1,0 +1,22 @@
+1380893069727	Rename type 'Line'
+1380893378211	Delete element
+1380893386991	Delete element
+1380893390462	Delete element
+1380893393774	Delete element
+1380893587639	Encapsulate field 'mouseDraw'
+1380893960912	Encapsulate field 'myPoint'
+1380894502811	Encapsulate field 'undo'
+1380894606042	Encapsulate field 'mouseClick'
+1380894609272	Encapsulate field 'ifDraw'
+1380894614581	Encapsulate field 'statusLabel'
+1380894729471	Encapsulate field 'shapes'
+1380895235993	Encapsulate field 'drawPoint'
+1380895239049	Encapsulate field 'randomPoint'
+1380895278651	Encapsulate field 'drawPntBtn'
+1380895281542	Encapsulate field 'randomPntBtn'
+1380898266217	Encapsulate field 'cptMinDistBtn'
+1380898523323	Encapsulate field 'minlbl'
+1380898655315	Encapsulate field 'minValuelbl'
+1380899604726	Encapsulate field 'radius'
+1380900722721	Encapsulate field 'scrollPanel'
+1380901658440	Encapsulate field 'scrollPane'

@@ -1,0 +1,202 @@
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+/**
+ * 八数码难题
+给定一个3×3的矩阵，其元素为8个不同的数码，起始状态为S0，目标状态为Sg。对任意给定的初始状态，并非都可以变换到有规律的最终状态。要求在算法实现过程中，能判断出是否可以变换到最终状态。如果不行，输出null，如果可以，用两种或以上的方法设计优先队列式分支限界法，寻找从初始状态变换到目标状态的最优解，说明不同的优先选择策略变换到最终状态用了多少步，并对获得的结果做出比较分析。最终状态均如Sg表示。
+input.txt：随机给定一个3×3的矩阵，其元素为8个不同的数码，表示起始状态。0表示空格。
+output.txt：如果不行实现变换，输出null；否则输出初始状态变换到最终状态的过程；
+
+ * @author sinllychen
+ *
+ */
+
+public class Test7_2 {
+        private static int n;//矩阵的长度
+        private static int[][] curState;//8码的初始状态和当前状态
+        private static int[][] endState;//8码的目标状态
+        private static Queue<NodePoint>  nodeQueue=new LinkedList<NodePoint>();//存取所走的队列
+        private static NodePoint cur;//当前空白位置，相当于空白位置同数字进行交换，空白位置用0表示
+        private static NodePoint pre;//当前位置的前一个位置,相当于是空白位置的前一个位置
+        private static NodePoint post;//当前位置的下一个位置
+        private static Queue<NodePoint> stepQueue=new LinkedList<NodePoint>();//保存空白位置所走交换的路径
+        private static int[] dirX={1,0,-1,0};
+        private static int[] dirY={0,1,0,-1};  //可以走的右，下，左，上四个方向
+        private static int dirNum=4;
+        private static boolean finished=false;
+        public static  FileOperate operate;
+        /**
+         * 初始化数据
+         * @param start  
+         * @param finish
+         */
+        public static  void initialData(String start,String finish)
+        {
+        	operate=new FileOperate();
+        	List<String> startData=operate.readData(start);
+        	List<String> endData=operate.readData(finish);
+        	n=startData.size();
+        	curState=new int[n][n];
+        	endState=new int[n][n];
+        	 cur=new NodePoint();
+        	for(int i=0;i<n;i++)
+        	{
+        		String[]  startTemp=startData.get(i).split(" ");
+        		String[]  endTemp=endData.get(i).split(" ");
+        		for(int j=0;j<n;j++)
+        		{
+        			curState[i][j]=Integer.valueOf(startTemp[j]);
+        			if(curState[i][j]==0)
+        			{
+        				cur.x=i;
+        				cur.y=j;
+        				cur.weight=1;
+        				stepQueue.offer(cur);
+        			}
+        			endState[i][j]=Integer.valueOf(endTemp[j]);
+        			if(endState[i][j]==curState[i][j])
+        				cur.weight++;
+        		}
+        	}
+        	post=copy(pre);
+        		
+        }
+        /**
+         * 写入数据到文本文件中
+         * @param fileName
+         */
+        public static void writeData(String fileName)
+        {
+        	if(finished)
+        	{
+        		String temp="";
+        		int i=1;
+        		while(!stepQueue.isEmpty())
+        		{
+        			NodePoint step=new NodePoint();
+        			if(i%5==0)
+        				temp+="\r\n";
+        			else 
+        			   step=stepQueue.poll();
+        			temp+="("+step.x+","+step.y+")"+"→";
+        			i++;
+        		}
+        		operate.writeValue(temp, fileName, false);
+        	}
+        	else
+        		operate.writeValue("null", fileName, false);
+        }
+        /**
+         * 对扩展节点根据优先级进行排序
+         * @param queue
+         */
+        public static void sortQueue(Queue<NodePoint> queue)
+        {
+           NodePoint[] datas= (NodePoint[]) queue.toArray();//将队列转化为数组
+        	for(int i=1;i<datas.length;i++)
+        	{
+        		for(int j=0;j<datas.length-i;j++)
+        		{
+        			if(datas[j].weight<datas[j+1].weight)
+        			{
+        				NodePoint temp=copy(datas[j+1]);
+        				datas[j+1]=copy(datas[j]);
+        				datas[j]=copy(temp);
+        			}
+        		}
+        		queue.poll();
+        	}
+        	for(int i=0;i<datas.length;i++)//将数组重新复制到队列中
+        	    queue.offer(datas[i]);
+        		
+        }
+        public static void swapNode(NodePoint x,NodePoint y)
+        {
+        	   NodePoint temp=copy(x);
+        	   x=copy(y);
+        	   y=copy(temp);
+        	  
+        	   int k=curState[x.x][x.y];
+        	   curState[x.x][x.y]=curState[y.x][y.y];
+        	   curState[y.x][y.y]=k;
+        }
+        /**
+         * 开始进行交换
+         */
+        public static void  startStep()
+        {
+            while(true)
+            {
+            	for(int i=0;i<dirNum;i++)
+            	{
+            		post.x+=cur.x+dirX[i];
+            		post.y+=cur.y+dirY[i];
+            		if()
+            		
+            	}
+            }
+        }
+        public static boolean varify(NodePoint point)
+        {
+        	Iterator<NodePoint> iterater=stepQueue.iterator();
+        	boolean ifGone=fal
+            if(iterater.hasNext())
+            {
+            	ite
+            }
+        	if(point.x>=0&&point.x<3&&point.y>=0&&point.y<3)
+        }
+        /**
+         * 当走到该节点位置时，此时的状态下优先级，设定节点的优先级
+         * @param point
+         */
+        public static void setWeight(NodePoint point)
+        {
+        	  point.weight=0;
+        	  for(int i=0;i<n;i++)
+        	  {
+        		  for(int j=0;j<n;j++)
+        		  {
+        			  if(curState[i][j]==endState[i][j])
+        			  {
+        				  point.weight++;
+        			  }
+        		  }
+        	  } 
+        }
+        /**
+         * 节点复制
+         * @param point
+         * @return
+         */
+       public static NodePoint copy(NodePoint point)
+       {
+    	   return new NodePoint(point.x,point.y,point.weight);
+       }
+       
+        public static void main(String[] args)
+        {
+        	initialData("inputS7_2.txt","inputE7_2.txt");
+        }
+
+}
+class NodePoint
+{
+	public int x;//节点的横坐标
+	public int y;//节点的纵坐标
+	public int weight;//节点的优先级,表示此时状态中在位的数码个数，越大表示优先级越高
+	public NodePoint(int x,int y,int weight)
+	{
+		this.x=x;
+		this.y=y;
+		this.weight=weight;
+	}
+	public NodePoint()
+	{
+		x=y=weight=0;
+	}
+}
+
+
+

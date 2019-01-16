@@ -1,0 +1,25 @@
+command=C\:\\Program Files\\Java\\jdk1.6.0_43\\bin\\javadoc.exe
+content_assist_disabled_computers=org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.awt.Shape"><rhs name\="java.awt.geom.Line2D$Double"/><rhs name\="java.awt.geom.Ellipse2D$Double"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.awt.geom.Line2D$Double"/></lhs><lhs name\="java.awt.geom.Line2D"><rhs name\="java.awt.geom.Line2D$Double"/></lhs><lhs name\="java.awt.Paint"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.awt.Transparency"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.awt.Color"><rhs name\="java.awt.Color"/></lhs><lhs name\="java.lang.Enum"><rhs name\="ChessStatus"/></lhs><lhs name\="ChessStatus"><rhs name\="ChessStatus"/></lhs><lhs name\="java.io.ObjectInput"><rhs name\="java.io.ObjectInputStream"/></lhs><lhs name\="java.io.ObjectStreamConstants"><rhs name\="java.io.ObjectInputStream"/></lhs><lhs name\="java.io.DataInput"><rhs name\="java.io.ObjectInputStream"/></lhs><lhs name\="java.io.InputStream"><rhs name\="java.io.ObjectInputStream"/></lhs><lhs name\="java.io.Closeable"><rhs name\="java.io.ObjectInputStream"/></lhs><lhs name\="java.io.ObjectInputStream"><rhs name\="java.io.ObjectInputStream"/></lhs></history>
+content_assist_number_of_computers=21
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+fontPropagated=true
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.ui.editor.tab.width=
+org.eclipse.jdt.ui.formatterprofiles.version=12
+org.eclipse.jdt.ui.javadoclocations.migrated=true
+org.eclipse.jdt.ui.text.code_templates_migrated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.templates_migrated=true
+org.eclipse.jdt.ui.visibility.order=B,V,R,D,
+org.eclipse.jface.textfont=1|\u5FAE\u8F6F\u96C5\u9ED1|11.25|0|WINDOWS|1|-15|0|0|0|400|0|0|0|-122|3|2|1|34|\u5FAE\u8F6F\u96C5\u9ED1;
+outlinesortoption=T,SF,SI,SM,F,I,C,M,
+proposalOrderMigrated=true
+sourceHoverBackgroundColor=255,255,225
+spelling_locale_initialized=true
+tabWidthPropagated=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

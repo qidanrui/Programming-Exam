@@ -1,0 +1,7 @@
+package Teaching.model;
+
+public class Student {
+    private String stuName;//名字
+    private String stuId;//学号
+    private String sex;//性别
+}

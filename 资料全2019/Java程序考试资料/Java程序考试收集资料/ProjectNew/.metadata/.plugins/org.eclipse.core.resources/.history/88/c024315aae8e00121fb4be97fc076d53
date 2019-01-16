@@ -1,0 +1,464 @@
+package cn.edu.xmu.software.eventprocesser;
+
+import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import javax.media.opengl.GL;
+import javax.media.opengl.GL2;
+import javax.media.opengl.GLAutoDrawable;
+import javax.media.opengl.GLEventListener;
+import javax.media.opengl.awt.GLCanvas;
+import javax.media.opengl.glu.GLU;
+import javax.swing.JOptionPane;
+
+import cn.edu.xmu.software.diffuse.Diffuser;
+import cn.edu.xmu.software.util.Constants;
+import cn.edu.xmu.software.util.InputTrace;
+import cn.edu.xmu.software.util.MatOperate;
+import cn.edu.xmu.software.util.Point;
+import cn.edu.xmu.software.util.StaticData;
+
+/**
+ * 实现GLCanvas的GLEventListener
+ * @author::jimmy.cai
+ * @date::2013/03/09
+ */
+public class GLEventProcesser implements GLEventListener{
+	private GLCanvas canvas;
+	private GLU glu=new GLU();
+	private Diffuser diffuser;
+	private int[] lPTexture;
+	private boolean isLoadShadersOK;	
+	
+	
+	public GLEventProcesser(GLCanvas canvas){
+		this.canvas=canvas;
+		isLoadShadersOK=true;
+	}
+
+	@Override
+	public void display(GLAutoDrawable drawable) {
+		GL2 gl = drawable.getGL().getGL2();
+		gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+		gl.glLoadIdentity();
+		gl.glTranslatef(0.0f, 0.0f, -2.0f);
+		
+		//在正在画曲线的时候映射纹理，此纹理由上次调用diffuse得到
+		if(StaticData.allCurves.size()>0 && StaticData.isDiffusing==false){
+			useLPTexture(gl);
+		}
+
+		if(StaticData.isLoadPng)
+		{
+			gl.glDrawPixels(StaticData.imgWidth, StaticData.imgHeight,GL2.GL_RGBA, GL2.GL_UNSIGNED_BYTE , StaticData.imgBuf);
+		}
+		else if(StaticData.isDraw)
+		{
+			if (StaticData.isDiffusing) {
+				//画所有曲线的左右曲线
+				gl.glBegin(GL2.GL_LINES);
+				for (int index = 0; index < StaticData.allCurves.size(); index++) {
+					InputTrace input = StaticData.allCurves.get(index);
+					int pointSize = input.getInputTrace().size();
+
+					ArrayList<Color> leftCurveColor = getCurveColor(input, 0);
+					ArrayList<Color> rightCurveColor = getCurveColor(input, 1);
+
+					for (int iPoint = 0; iPoint < pointSize - 1; iPoint++) {				
+						float[] left1=transferPoint(input.getLeftCurve().get(iPoint));						
+						float[] left2=transferPoint(input.getLeftCurve().get(iPoint + 1));		
+						float[] right1=transferPoint(input.getRightCurve().get(iPoint));
+						float[] right2=transferPoint(input.getRightCurve().get(iPoint+1));
+
+						float red = (float) leftCurveColor.get(iPoint).getRed() / 255.0f;
+						float green = (float) leftCurveColor.get(iPoint).getGreen() / 255.0f;
+						float blue = (float) leftCurveColor.get(iPoint).getBlue() / 255.0f;
+						
+						gl.glColor3f(red, green, blue);
+						gl.glVertex2f(left1[0], left1[1]);
+						gl.glVertex2f(left2[0], left2[1]);
+
+						red = (float) rightCurveColor.get(iPoint).getRed() / 255.0f;
+						green = (float) rightCurveColor.get(iPoint).getGreen() / 255.0f;
+						blue = (float) rightCurveColor.get(iPoint).getBlue() / 255.0f;
+						
+						gl.glColor3f(red, green, blue);
+						gl.glVertex2f(right1[0], right1[1]);
+						gl.glVertex2f(right2[0], right2[1]);
+					}
+				}
+				gl.glEnd();
+
+				diffuser.diffuse();
+
+				if(StaticData.isShowSplines){
+					//画所有曲线的中间曲线
+					gl.glBegin(GL2.GL_LINES);
+					for (int index = 0; index < StaticData.allCurves.size(); index++) {
+						InputTrace input = StaticData.allCurves.get(index);
+						int pointSize = input.getInputTrace().size();
+						
+						for (int iPoint = 0; iPoint < pointSize - 1; iPoint++) {						
+							float[] mid1=transferPoint(input.getInputTrace().get(iPoint));						
+							float[] mid2=transferPoint(input.getInputTrace().get(iPoint+1));
+
+							gl.glColor3f(0.0f, 0.0f, 0.0f);
+							gl.glVertex2f(mid1[0], mid1[1]);
+							gl.glVertex2f(mid2[0], mid2[1]);
+						}
+					}
+					gl.glEnd();
+					
+					//画被选中曲线的左右颜色控制点
+					drawColorPoint(gl);
+				}
+			}
+			
+			if (StaticData.isAddLines) {
+				//画正在添加的曲线的中间曲线
+				gl.glBegin(GL2.GL_LINES);
+				for (int iPoint = 0; iPoint < StaticData.currentInput.size() - 1; iPoint++) {					
+					float[] mid1=transferPoint(StaticData.currentInput.get(iPoint));					
+					float[] mid2=transferPoint(StaticData.currentInput.get(iPoint+1));
+
+					gl.glColor3f(0.0f, 0.0f, 0.0f);
+					gl.glVertex2f(mid1[0], mid1[1]);
+					gl.glVertex2f(mid2[0], mid2[1]);
+				}
+				gl.glEnd();
+			}
+		}
+		else if(StaticData.isCurveExtract)
+		{
+			gl.glLoadIdentity();
+			gl.glTranslatef(0.0f, 0.0f, -2.0f);
+			gl.glColor3f(1.0f, 0.0f, 0.0f);
+			gl.glBegin(GL2.GL_LINES);
+			for(int i=0;i<StaticData.edges.size();i++)
+			{
+				for(int j=0;j<StaticData.edges.get(i).getPnts().size()-1;j++)
+				{
+					Point p1=StaticData.edges.get(i).getPnts().get(j);
+					Point p2=StaticData.edges.get(i).getPnts().get(j+1);
+					float[] firstP=transferPoint(p1);
+					float[] secondP=transferPoint(p2);
+					gl.glVertex2f(firstP[0],firstP[1]);
+					gl.glVertex2f(secondP[0], secondP[1]);
+				}
+			}
+			gl.glEnd();
+		}
+		else if(StaticData.isCleanAll)
+			StaticData.allCurves.clear();		
+		else if(StaticData.isBlurImage)
+				{
+			    	gl.glDrawPixels(StaticData.imgWidth, StaticData.imgHeight,GL2.GL_RGBA, GL2.GL_UNSIGNED_INT, StaticData.optImgBuf);
+		    	}
+
+		gl.glReadPixels(0, 0, (int)Constants.drawWidth,(int)Constants.drawWidth, GL2.GL_RGBA, GL2.GL_BYTE, StaticData.screenBuf);
+	}
+
+	@Override
+	public void dispose(GLAutoDrawable arg0) {
+		GL2 gl=arg0.getGL().getGL2();
+		gl.glDeleteTextures(diffuser.getLayer(), diffuser.getTextureInt(), 0);
+		gl.glDeleteProgram(diffuser.getAccuP());
+		gl.glDeleteProgram(diffuser.getJjjP());
+	}
+	
+
+	@Override
+	public void init(GLAutoDrawable drawable) {
+		GL2 gl=drawable.getGL().getGL2();
+		gl.glShadeModel(GL2.GL_SHADER_TYPE);
+		gl.glClearColor(0.6f, 0.6f, 0.6f, 1.0f);
+		gl.glClearDepth(1.0f);
+		gl.glEnable(GL2.GL_DEPTH_TEST);
+		gl.glDepthFunc(GL2.GL_LEQUAL);
+		gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NEAREST);
+		diffuser=new Diffuser(gl,Constants.drawWidth);
+		gl.glGenTextures(diffuser.getLayer(), diffuser.getTextureInt(), 0);
+		diffuser.genTexture(gl,diffuser.getLayer());
+		
+		lPTexture=new int[1];
+		gl.glGenTextures(1, lPTexture, 0);
+		genTexture(gl);
+		
+		try{
+		int accuP=diffuser.setAccuShader(gl);
+		int jjjP=diffuser.setJJJShader(gl);
+		
+		diffuser.setAccuP(accuP);
+		diffuser.setJjjP(jjjP);
+		}catch(FileNotFoundException e){
+			isLoadShadersOK=false;
+			JOptionPane.showMessageDialog(canvas, "Sorry! Load shaders error! The program will not diffuse!", "Shaders Error", JOptionPane.ERROR_MESSAGE);
+		}
+		
+		MouseProcesser mouseProcesser=new MouseProcesser(canvas);
+		KeyProcesser keyProcesser=new KeyProcesser(canvas);
+		canvas.addMouseListener(mouseProcesser);
+		canvas.addMouseMotionListener(mouseProcesser);
+		canvas.addMouseWheelListener(mouseProcesser);
+		canvas.addKeyListener(keyProcesser);
+	}
+	
+
+	@Override
+	public void reshape(GLAutoDrawable gLDrawable, int x, int y, int width,
+			int height) {
+		final GL2 gl = gLDrawable.getGL().getGL2();
+		if (height <= 0) // avoid a divide by zero error!
+		{
+			height = 1;
+		}
+		int side=width<height?width:height;
+
+		gl.glViewport((width - side) / 2, (height - side) / 2, side, side);
+		gl.glMatrixMode(GL2.GL_PROJECTION);
+		gl.glLoadIdentity();
+		glu.gluPerspective(90.0f, 1, 1.0, 1000.0);
+		gl.glMatrixMode(GL2.GL_MODELVIEW);
+		gl.glLoadIdentity();
+		
+	}
+	
+	/**
+	 * 获取左右曲线的颜色值
+	 * @param input
+	 * @param p
+	 * @return
+	 */
+	private ArrayList<Color> getCurveColor(InputTrace input,int p){
+		ArrayList<Color> curveColors=new ArrayList<Color>();
+		int cTSize=input.getControlPoints().size();
+		if(p==0){
+			for(int i=0;i<cTSize-1;i++){
+				int dis=input.getControlPoints().get(i+1).getIndex()-input.getControlPoints().get(i).getIndex();
+				int beginR=input.getControlPoints().get(i).getLeftColor().getRed();
+				int beginG=input.getControlPoints().get(i).getLeftColor().getGreen();
+				int beginB=input.getControlPoints().get(i).getLeftColor().getBlue();
+				int rDis=input.getControlPoints().get(i+1).getLeftColor().getRed()-beginR;
+				int gDis=input.getControlPoints().get(i+1).getLeftColor().getGreen()-beginG;
+				int bDis=input.getControlPoints().get(i+1).getLeftColor().getBlue()-beginB;
+				for(int index=0;index<dis;index++){
+					curveColors.add(new Color(beginR+index*(rDis/dis), beginG+index*(gDis/dis), beginB+index*(bDis/dis)));
+				}
+			}
+			curveColors.add(input.getControlPoints().get(cTSize-1).getLeftColor());
+		}
+		else if(p==1){
+			for(int i=0;i<cTSize-1;i++){
+				int dis=input.getControlPoints().get(i+1).getIndex()-input.getControlPoints().get(i).getIndex();
+				int beginR=input.getControlPoints().get(i).getRightColor().getRed();
+				int beginG=input.getControlPoints().get(i).getRightColor().getGreen();
+				int beginB=input.getControlPoints().get(i).getRightColor().getBlue();
+				int rDis=input.getControlPoints().get(i+1).getRightColor().getRed()-beginR;
+				int gDis=input.getControlPoints().get(i+1).getRightColor().getGreen()-beginG;
+				int bDis=input.getControlPoints().get(i+1).getRightColor().getBlue()-beginB;
+				for(int index=0;index<dis;index++){
+					curveColors.add(new Color(beginR+index*(rDis/dis), beginG+index*(gDis/dis), beginB+index*(bDis/dis)));
+				}
+			}
+			curveColors.add(input.getControlPoints().get(cTSize-1).getRightColor());
+		}
+		return curveColors;
+	}
+	
+	/**
+	 * 生成保存上一次调用display时的纹理
+	 * @param gl
+	 */
+	private void genTexture(GL2 gl){
+		gl.glBindTexture(GL2.GL_TEXTURE_2D, lPTexture[0]);
+		gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MAG_FILTER,
+				GL.GL_LINEAR);
+		gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_MIN_FILTER,
+				GL.GL_LINEAR);
+		gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_WRAP_S,
+				GL2.GL_CLAMP_TO_EDGE);
+		gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_WRAP_T,
+				GL2.GL_CLAMP_TO_EDGE);
+		gl.glTexParameteri(GL2.GL_TEXTURE_2D, GL2.GL_TEXTURE_WRAP_R,
+				GL2.GL_CLAMP_TO_EDGE);
+	}
+	
+	/**
+	 * 实用lPTexture进行纹理映射
+	 * @param gl
+	 */
+	private void useLPTexture(GL2 gl){
+		gl.glColor3f(1.0f, 1.0f, 1.0f);
+		
+		gl.glEnable(GL2.GL_TEXTURE_2D);
+		gl.glActiveTexture(GL2.GL_TEXTURE0);
+		gl.glBindTexture(GL2.GL_TEXTURE_2D, lPTexture[0]);
+		gl.glTexImage2D(GL2.GL_TEXTURE_2D, 0, 4, (int)Constants.drawWidth, (int)Constants.drawWidth, 0, GL2.GL_RGBA,
+				GL2.GL_BYTE, StaticData.screenBuf);
+		
+		gl.glBegin(GL2.GL_QUADS);
+		gl.glTexCoord2f(0.0f, 0.0f);
+		gl.glVertex2f(-2.0f, -2.0f);
+		gl.glTexCoord2f(0.0f, 1.0f);
+		gl.glVertex2f(-2.0f, 2.0f);
+		gl.glTexCoord2f(1.0f, 1.0f);
+		gl.glVertex2f(2.0f, 2.0f);
+		gl.glTexCoord2f(1.0f, 0.0f);
+		gl.glVertex2f(2.0f, -2.0f);
+		gl.glEnd();
+		gl.glDisable(GL2.GL_TEXTURE_2D);
+	}
+	
+	/**
+	 * 对点进行坐标变换
+	 * @param p
+	 * @return
+	 */
+	private float[] transferPoint(Point p){
+		float[] xy=new float[2];//xy[0]表示新的X，xy[1]表示新的Y
+		xy[0] = (((float) p.getX() * StaticData.gScale + StaticData.gDx) / Constants.drawWidth) * 4 - 2;
+		xy[1] = ((Constants.drawWidth - (p.getY() * StaticData.gScale + StaticData.gDy)) / Constants.drawWidth) * 4 - 2;
+		return xy;
+	}
+	
+	/**
+	 * 计算法线
+	 * @param v
+	 * @return
+	 */
+	private double[] getNormal(double[] v){
+		double[] N=new double[2];
+		N[0]=10*v[1];
+		N[1]=10*v[0];
+		double distance=Math.sqrt((double)(N[0]*N[0]+N[1]*N[1]));
+		if(distance>0.0000001){
+			N[0]=N[0]/distance*StaticData.curveOffset;
+			N[1]=N[1]/distance*StaticData.curveOffset;
+		}
+		return N;
+	}
+	
+	/**
+	 * 得到左右曲线的正负偏移,分为8种情况，分别对8种情况进行分析得出结果
+	 * @param V
+	 * @return
+	 */
+	private double[] getPMValue(double[] V){
+		double[] PM=new double[2];
+		if(V[1]==0){
+			PM[1]=1;
+		}
+		else if(V[0]==0){
+			PM[0]=-1;
+		}
+		else{
+			PM[0]=-1;
+			PM[1]=1;
+		}
+		return PM;
+	}
+	
+	/**
+	 * 画被选中曲线的左右颜色点
+	 * @param gl
+	 */
+	private void drawColorPoint(GL2 gl){
+		gl.glEnable(GL2.GL_POINT_SMOOTH);
+		gl.glEnable(GL2.GL_BLEND);
+		gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
+		gl.glHint(GL2.GL_POINT_SMOOTH_HINT, GL2.GL_DONT_CARE);
+
+		for(int i=0;i<StaticData.allCurves.size();i++){
+			InputTrace input=StaticData.allCurves.get(i);
+			double[] V=new double[2];
+			double[] N=new double[2];
+			double[] PM;
+			
+			if(input.isSelected()){
+				int cSize=input.getControlPoints().size();
+				for(int cPoint=0;cPoint<cSize;cPoint++){
+					if(cPoint==0){
+						V[0]=input.getControlPoints().get(cPoint+1).getX()-input.getControlPoints().get(cPoint).getX();
+						V[1]=input.getControlPoints().get(cPoint+1).getY()-input.getControlPoints().get(cPoint).getY();
+						N=getNormal(V);
+						PM=getPMValue(V);
+					}
+					else if(cPoint==cSize-1){
+						V[0]=input.getControlPoints().get(cPoint).getX()-input.getControlPoints().get(cPoint-1).getX();
+						V[1]=input.getControlPoints().get(cPoint).getY()-input.getControlPoints().get(cPoint-1).getY();
+						N=getNormal(V);
+						PM=getPMValue(V);
+					}
+					else{
+						double[] N1=new double[2];
+						double[] N2=new double[2];
+						double vx=0,vy=0;
+						V[0]=input.getControlPoints().get(cPoint+1).getX()-input.getControlPoints().get(cPoint).getX();
+						V[1]=input.getControlPoints().get(cPoint+1).getY()-input.getControlPoints().get(cPoint).getY();
+						N1=getNormal(V);
+						vx+=V[0];
+						vy+=V[1];
+						V[0]=input.getControlPoints().get(cPoint).getX()-input.getControlPoints().get(cPoint-1).getX();
+						V[1]=input.getControlPoints().get(cPoint).getY()-input.getControlPoints().get(cPoint-1).getY();
+						N2=getNormal(V);
+						vx+=V[0];
+						vy+=V[1];
+						N[0]=(N1[0]+N2[0])/2.0;
+						N[1]=(N1[1]+N2[1])/2.0;
+						
+						double[] vxy=new double[2];
+						vxy[0]=vx;
+						vxy[1]=vy;
+						PM=getPMValue(vxy);
+					}
+					double leftXX=input.getControlPoints().get(cPoint).getX()-N[0]*PM[0]*10+0.5;
+					double leftYY=input.getControlPoints().get(cPoint).getY()-N[1]*PM[1]*10+0.5;
+					double rightXX=input.getControlPoints().get(cPoint).getX()+N[0]*PM[0]*10+0.5;
+					double rightYY=input.getControlPoints().get(cPoint).getY()+N[1]*PM[1]*10+0.5;
+					float midXX=input.getControlPoints().get(cPoint).getX();
+					float midYY=input.getControlPoints().get(cPoint).getY();
+					Point midPoint=new Point((int)midXX,(int)midYY);
+					float[] mid=transferPoint(midPoint);
+					
+					Point leftPoint=new Point((int)leftXX,(int)leftYY);
+					Point rightPoint=new Point((int)rightXX,(int)rightYY);
+					float[] left=transferPoint(leftPoint);
+					float[] right=transferPoint(rightPoint);
+					
+					float lred=(float)(input.getControlPoints().get(cPoint).getLeftColor().getRed())/255;
+					float lgreen=(float)(input.getControlPoints().get(cPoint).getLeftColor().getGreen())/255;
+					float lblue=(float)(input.getControlPoints().get(cPoint).getLeftColor().getBlue())/255;
+					
+					float rred=(float)(input.getControlPoints().get(cPoint).getRightColor().getRed())/255;
+					float rgreen=(float)(input.getControlPoints().get(cPoint).getRightColor().getGreen())/255;
+					float rblue=(float)(input.getControlPoints().get(cPoint).getRightColor().getBlue())/255;
+					
+					gl.glColor3f(0.0f, 0.0f, 0.0f);//外圈
+					gl.glPointSize(10.0f);
+					gl.glBegin(GL2.GL_POINTS);
+					gl.glVertex2d(left[0], left[1]);
+					gl.glVertex2d(right[0], right[1]);
+					gl.glVertex2f(mid[0], mid[1]);
+					gl.glEnd();
+					
+					gl.glPointSize(8.0f);//内圈
+					gl.glBegin(GL2.GL_POINTS);
+					gl.glColor3f(lred, lgreen, lblue);
+					gl.glVertex2d(left[0], left[1]);
+
+					
+					gl.glColor3f(rred, rgreen, rblue);
+					gl.glVertex2d(right[0], right[1]);
+		
+					// TODO set color according to blur value
+					gl.glColor3f(0.0f, 0.0f, 0.0f);
+					gl.glVertex2f(mid[0], mid[1]);
+					gl.glEnd();
+				}
+			}
+		}
+		
+	}
+	
+}

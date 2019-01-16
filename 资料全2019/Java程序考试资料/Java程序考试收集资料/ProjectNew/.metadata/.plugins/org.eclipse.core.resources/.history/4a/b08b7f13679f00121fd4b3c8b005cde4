@@ -1,0 +1,52 @@
+package Teaching.Core;
+import cn.edu.xmu.software.LoginActivity;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Intent;
+import android.os.Bundle;
+import Teaching.Core.R;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+
+public class LoginActivity extends Activity {
+	private EditText userAccount;
+	private EditText userPassword;
+	private Builder dialog;
+	private ProgressDialog progressDialog = null;
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.loginsys);       
+        userAccount=(EditText)findViewById(R.id.username);
+        userPassword=(EditText)findViewById(R.id.password);
+        dialog=new AlertDialog.Builder(this);
+	    progressDialog = new ProgressDialog(this);
+	}
+    public void toHomePage(View view){
+		
+		Intent intent = new Intent();
+		intent.setClass(this, HomePageActivity.class);
+		this.startActivity(intent);
+	}
+    public void loginSys(View view){
+    	 progressDialog = ProgressDialog.show(this, "登录", "正在登录,请稍候...");
+		 new Thread(){
+			public void run(){
+				try{
+					sleep(3000);
+				}
+				catch(Exception ex){
+					ex.printStackTrace();
+				}
+				finally{
+					if(LoginActivity.this != null && !LoginActivity.this.isFinishing())
+					progressDialog.dismiss();
+				}
+			}
+		 }.start();	
+    }
+}

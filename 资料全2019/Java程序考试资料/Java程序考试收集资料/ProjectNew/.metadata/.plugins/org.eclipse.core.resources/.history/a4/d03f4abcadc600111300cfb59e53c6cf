@@ -1,0 +1,7 @@
+package cn.edu.xmu.software.interfaces;
+
+import cn.edu.xmu.software.entity.User;
+
+public interface  IUserOpt {
+	public void createUser(User u);
+}

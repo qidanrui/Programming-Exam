@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+
+
+public class QuickSort {
+     public static partition(ArrayList<Integer> datas, int i,int j)
+     {
+    	 int k=datas.get(j);
+     }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<link rel="stylesheet" href="../css/main.css" />
+</h:head>
+<body>
+	<f:view >
+	<ui:include src="/includes/mainHeader.xhtml"></ui:include>
+	<div id="mainContent">
+	    <div  id="navigation">
+	    <ui:include src="/includes/navigation.xhtml"></ui:include>
+	    </div> 
+	    <h:form>
+	    <div  id="rightContent">
+	             <h:panelGrid columns="8">
+	                  <h:outputText  value="学号 *"   styleClass="label"/>
+	                  <p:inputText  styleClass="text"/>
+	                  <h:outputText value="姓名 *"  styleClass="label"/>
+	                  <p:inputText   styleClass="text"/>
+	                   <h:outputText value="学院 *"   styleClass="label"/>
+                      <p:inputText   styleClass="text"/>
+                        <h:outputText value="系(专业)*"   styleClass="label"/>
+                      <p:inputText    styleClass="text"/>
+	             </h:panelGrid>
+	             <div id="imagePane">
+	                     
+	                        <h:graphicImage value="/images/me.jpg"  style="border: 1px solid;position:relative; left:70px;" />
+	                  <h:panelGrid  columns="1">
+	                     <h:panelGrid columns="3"  style="position:relative; left:-5px;">
+	                     <p:inputText  style="font-size:14px;"/>
+	                     <h:commandButton    style="font-size:14px;"  value="浏览" />
+	                     <h:commandButton  style="font-size:14px;"    value="上传" />
+	                     </h:panelGrid>
+	                     <h:outputText styleClass="label"  value="（照片的格式大小为1寸)" />
+	                        </h:panelGrid>
+	             </div>
+	     
+	    </div>
+	    </h:form>
+	    <!--<div id="seperator">
+	    </div>  -->
+	</div>
+	<ui:include src="/includes/mainFooter.xhtml"></ui:include>
+	</f:view>
+</body>
+</html>
